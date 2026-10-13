@@ -1,4 +1,5 @@
-# NautiMag
+# NautiMag 
+<img src="Screen/logo.png" height="80"/> 
 
 Gestione magazzino multi-piattaforma per piccola/media attività commerciale.
 
