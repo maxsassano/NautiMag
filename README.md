@@ -7,7 +7,7 @@ Gestione magazzino multi-piattaforma per piccola/media attività commerciale.
 
 | Home Windows + Android|
 |:---:|
-| <img src="Screen/preview.png" height="380"/> |
+| <img src="Screen/preview.png"/> |
 
 
 ## Coming soon
