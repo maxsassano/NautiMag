@@ -1,7 +1,7 @@
 ---
 nome: 🐛 Segnala un bug
 informazioni: Segnala un problema o un comportamento anomalo in NautiMag
-titolo: "[BUG] <breve descrizione>"
+titolo: "[BUG] <short description>"
 etichette: bug
 assegnatari: ''
 ---
