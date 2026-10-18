@@ -1,25 +1,25 @@
 ---
-name: ❓ Question or support
-about: Ask for help or clarification on how to use NautiMag
-title: "[QUESTION] <short description>"
+name: ❓ Domanda o supporto
+about: Chiedi aiuto o chiarimenti su come usare NautiMag
+title: "[DOMANDA] <breve descrizione>"
 labels: question
 assignees: ''
 ---
 
-## Your question
+## La tua domanda
 
-Clearly describe what you'd like to know.
+Descrivi chiaramente cosa vorresti sapere.
 
-## What you've already tried
+## Cosa hai già provato
 
-If you've already tried something, describe it (it helps us respond faster).
+Se hai già provato qualcosa, descrivilo (ci aiuta a rispondere più velocemente).
 
-## Context
+## Contesto
 
-- **NautiMag version:**
-- **Operating system:**
-- **Other:**
+- **Versione di NautiMag:**
+- **Sistema operativo:**
+- **Altro:**
 
-## Additional information
+## Informazioni aggiuntive
 
-Screenshots, example files, useful links, etc.
+Screenshot, file di esempio, link utili, ecc.
