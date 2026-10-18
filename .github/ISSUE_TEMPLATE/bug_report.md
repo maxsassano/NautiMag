@@ -1,41 +1,41 @@
 ---
-name: 🐛 Report a bug
-about: Report a problem or unusual behavior in NautiMag
-title: "[BUG] <short description>"
+name: 🐛 Segnala un bug
+about: Segnala un problema o un comportamento anomalo in NautiMag
+title: "[BUG] <breve descrizione>"
 labels: bug
 assignees: ''
 ---
 
-## Problem Description
+## Descrizione del problema
 
-Describe clearly and concisely what's not working.
+Descrivi in modo chiaro e conciso cosa non funziona.
 
-## How to Reproduce It
+## Come riprodurlo
 
-Steps to reproduce the behavior:
+Passaggi per riprodurre il comportamento:
 
-1. Go to '...'
-2. Click '...'
-3. See the error '...'
+1. Vai su '...'
+2. Clicca su '...'
+3. Vedi l'errore '...'
 
-## Expected Behavior
+## Comportamento atteso
 
-What you expected to happen.
+Cosa ti aspettavi che succedesse.
 
-## Current Behavior
+## Comportamento attuale
 
-What's happening instead.
+Cosa succede invece.
 
 ## Screenshot
 
-If possible, attach one or more screenshots to clarify the problem.
+Se possibile, allega uno o più screenshot per chiarire il problema.
 
-## Environment
+## Ambiente
 
-- **NautiMag Version:** (e.g., v1.0.0)
-- **Operating System:** (e.g., Windows 11 64-bit)
-- **Other:** (browser, device, etc., if applicable)
+- **Versione di NautiMag:** (es. v1.0.0)
+- **Sistema operativo:** (es. Windows 11 64-bit)
+- **Altro:** (browser, dispositivo, ecc., se applicabile)
 
-## Additional Information
+## Informazioni aggiuntive
 
-Any other details that might help us understand the problem.
+Qualsiasi altro dettaglio che possa aiutarci a capire il problema.
