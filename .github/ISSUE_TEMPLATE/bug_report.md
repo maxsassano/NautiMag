@@ -1,6 +1,6 @@
 ---
 name: 🐛 Segnala un bug
-about: Segnala un problema o un comportamento anomalo in NautiMag
+about: Segnala un problema o un comportamento anomalo nell'applicazione
 title: "[BUG] <breve descrizione>"
 labels: bug
 assignees: ''
@@ -32,7 +32,7 @@ Se possibile, allega uno o più screenshot per chiarire il problema.
 
 ## Ambiente
 
-- **Versione di NautiMag:** (es. v1.0.0)
+- **Versione dell'applicazione:** (es. v1.0.0)
 - **Sistema operativo:** (es. Windows 11 64-bit)
 - **Altro:** (browser, dispositivo, ecc., se applicabile)
 
