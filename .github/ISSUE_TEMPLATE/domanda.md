@@ -1,6 +1,6 @@
 ---
 name: ❓ Domanda o supporto
-about: Chiedi aiuto o chiarimenti su come usare NautiMag
+about: Chiedi aiuto o chiarimenti su come usare l'applicazione
 title: "[DOMANDA] <breve descrizione>"
 labels: question
 assignees: ''
@@ -16,7 +16,7 @@ Se hai già provato qualcosa, descrivilo (ci aiuta a rispondere più velocemente
 
 ## Contesto
 
-- **Versione di NautiMag:**
+- **Versione dell'applicazione:**
 - **Sistema operativo:**
 - **Altro:**
 
