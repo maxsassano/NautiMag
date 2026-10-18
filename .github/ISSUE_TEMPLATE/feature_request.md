@@ -1,28 +1,28 @@
 ---
-name: 💡 Suggest a feature
-about: Propose a new idea or improvement for NautiMag
-title: "[IDEA] <short description>"
+name: 💡 Suggerisci una funzionalità
+about: Proponi una nuova idea o un miglioramento per l'applicazione
+title: "[IDEA] <breve descrizione>"
 labels: enhancement
 assignees: ''
 ---
 
-## Your Proposal
+## La tua proposta
 
-Clearly describe the feature or improvement you'd like to see in NautiMag.
+Descrivi chiaramente la funzionalità o il miglioramento che vorresti vedere nell'applicazione.
 
-## Problem it solves
+## Problema che risolve
 
-What problem or need does this feature solve?
-Example: "It would be nice to be able to..."
+Quale problema o esigenza risolve questa funzionalità?
+Esempio: "Sarebbe utile poter..."
 
-## Proposed Solution
+## Soluzione proposta
 
-How do you imagine it working? Describe the behavior you'd like.
+Come immagini che dovrebbe funzionare? Descrivi il comportamento desiderato.
 
-## Alternatives Considered
+## Alternative considerate
 
-Have you considered other solutions? Describe them.
+Hai considerato altre soluzioni? Descrivile.
 
-## Additional Information
+## Informazioni aggiuntive
 
-Screenshots, links, examples from other software, etc.
+Screenshot, link, esempi da altri software, ecc.
