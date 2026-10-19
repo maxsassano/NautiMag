@@ -34,6 +34,7 @@ Scarica l'ultima versione dalla pagina [**Releases**](https://github.com/maxsass
 | **APK Android** | Disponibile su richiesta (contatta l'autore) |
 
 > ℹ️ L'installer verifica automaticamente i prerequisiti e ti guida al download se mancanti.
+
 > 📱 L'APK per Android non è pubblicato direttamente per evitare utilizzi non autorizzati. Richiedilo via [email](mailto:massimo.sassano@gmail.com).
 
 ---
