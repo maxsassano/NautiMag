@@ -143,7 +143,6 @@ NautiMag eccelle nella gestione di più operatori contemporanei. Ecco come funzi
    - Se Server: il database viene creato in `Documenti\NautiMag\data`.
    - Se Client: l'app si connette al server (verifica il pallino verde nella TopBar).
 6. **Login** con le credenziali di default:
-   - `superuser` / `superuser` (SuperUser)
    - `admin` / `admin` (Admin)
    - ⚠️ Al primo login, ti verrà chiesto di cambiare la password.
 7. **Attiva la licenza** dal menu **ℹ️ Info → 🔑 Attiva Licenza**.
