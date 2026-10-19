@@ -14,9 +14,9 @@
 
 ### 📸 Screenshot
 
-| Home Windows + Android|
-|:---:|
-| <img src="Screen/preview.png"/> |
+| Home Windows | Home Android|
+|:---:|:---:|
+| <img src="Screen/home-win.png"/> | <img src="Screen/home-android.png"/> |
 
 ---
 
