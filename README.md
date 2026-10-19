@@ -1,3 +1,8 @@
+Sì, assolutamente. Dato che abbiamo implementato i **Carrelli Nominati** (solo su Android), il **sistema di temi**, la **sicurezza della licenza** e il **Single Instance** su Windows, il `README.md` va aggiornato per riflettere queste novità. 
+
+Ecco il file **`README.md` completo e aggiornato**. Copia e incolla questo blocco nel tuo file su GitHub.
+
+```markdown
 # NautiMag 
 <img src="Screen/logo.png" height="80"/> 
 
@@ -34,7 +39,6 @@ Scarica l'ultima versione dalla pagina [**Releases**](https://github.com/maxsass
 | **APK Android** | Disponibile su richiesta (contatta l'autore) |
 
 > ℹ️ L'installer verifica automaticamente i prerequisiti e ti guida al download se mancanti.
-
 > 📱 L'APK per Android non è pubblicato direttamente per evitare utilizzi non autorizzati. Richiedilo via [email](mailto:massimo.sassano@gmail.com).
 
 ---
@@ -47,7 +51,31 @@ NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, sia esso un pi
 - **Real-Time**: Grazie a **SignalR**, ogni modifica al carrello o alle anagrafiche viene istantaneamente propagata a tutti i dispositivi connessi.
 - **Auto-Discovery (UDP)**: I client (tablet/PC) trovano il server automaticamente sulla rete locale, senza dover inserire IP statici.
 - **Configurazione QR Code**: Il PC Server genera un QR Code; il telefono lo inquadra e si configura da solo in 2 secondi (Zero-Touch Setup).
-- **Multi-Cart (Carrelli Isolati)**: Ogni dispositivo può avere il suo carrello (es. `cassa`, `android-1`, `android-2`), permettendo di servire più clienti contemporaneamente. La funzione **"Unisci Carrello"** trasferisce gli articoli dal tablet alla cassa per chiudere la vendita.
+
+---
+
+## 🛒 Il Potere del Multi-Cart (La vera innovazione)
+
+NautiMag non si limita a un singolo carrello. Ecco come gestisce il flusso di lavoro reale di un negozio:
+
+### 1. Carrelli Base Isolati
+Ogni dispositivo ha il suo carrello "base" configurato tramite **CartId**.
+- **PC Cassa**: `cassa`
+- **Tablet 1**: `android1`
+- **Tablet 2**: `android2`
+
+### 2. Carrelli Nominati (Solo su Tablet/Android)
+Immagina che il commesso stia servendo **Mario Rossi** e stia per arrivare **Paolo Bianchi**.
+- Dal tablet, il commesso clicca **➕ Nuovo Carrello** e scrive "Mario Rossi". Il tablet crea un carrello dedicato (es. `mario_rossi`).
+- Quando arriva Paolo Bianchi, clicca di nuovo **➕ Nuovo Carrello**, scrive "Paolo Bianchi" e inizia a servirlo.
+- I due carrelli restano **parcheggiati** sul tablet in parallelo, senza mischiarsi.
+
+### 3. L'Unione alla Cassa
+- Il commesso dice al cassiere: *"Il cliente Mario Rossi è pronto per pagare"*.
+- Dal PC, il cassiere clicca su **🔗 Unisci**.
+- Il sistema mostra la lista dei carrelli in attesa: `mario_rossi`, `paolo_bianchi`.
+- Il cassiere seleziona `mario_rossi`, vede l'**anteprima degli articoli** (per evitare errori) e conferma.
+- **Magia:** Gli articoli passano istantaneamente al PC (`cassa`), il carrello `mario_rossi` si svuota ed elimina, e il tablet (se era su quel carrello) torna automaticamente al suo carrello base, pronto per un nuovo cliente.
 
 ---
 
@@ -57,7 +85,7 @@ NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, sia esso un pi
 Tutte le funzioni a portata di tap, con card colorate e responsive:
 - **📷 Scansiona**: Fotocamera per barcode (Android) o pistola USB (Windows).
 - **📦 Articoli**: Lista completa con ricerca, filtri per categoria e rimanenze.
-- **🛒 Carrello**: Carrello vendita con gestione multi-cassa.
+- **🛒 Carrello**: Carrello vendita con gestione multi-cassa e carrelli nominati.
 - **💰 Vendite**: Storico vendite chiuse, filtri per data e cliente.
 - **📊 Movimenti**: Registro immutabile di carichi, scarichi, acquisti e rettifiche.
 - **💾 Dati**: Hub per Import, Export, Backup e Report PDF.
@@ -65,8 +93,6 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 - **⚙️ Gestione**: Accesso a tutte le configurazioni avanzate.
 
 ### ⚙️ Gestione (Anagrafiche e Sistema)
-Divisa in sezioni logiche con card dedicate:
-
 **📄 Documenti**
 - **Ordini Fornitori**: Creazione, invio, ricezione (genera automaticamente i movimenti di Acquisto) e chiusura.
 - **DDT / Buoni Consegna**: Documenti di trasporto per vendite, resi o ricezioni (non modificano il magazzino).
@@ -80,9 +106,7 @@ Divisa in sezioni logiche con card dedicate:
 - **Etichette Barcode**: Generazione PDF di etichette Code128 (formati A4 e rotolo).
 
 **🏢 Anagrafiche**
-- **Azienda**: Dati fiscali, logo, IBAN per documenti.
-- **Fornitori**: Schede complete con storico acquisti.
-- **Clienti**: Schede con storico vendite e codice SDI.
+- **Azienda / Fornitori / Clienti**: Schede complete con storico e dati SDI.
 - **Categorie / Unità di Misura / Ubicazioni**: Gestione tassonomie merceologiche.
 - **Aliquote IVA**: Personalizzabili (22%, 10%, 4%, 0%, custom).
 
@@ -98,7 +122,6 @@ Divisa in sezioni logiche con card dedicate:
 - **Export Excel**: File `.xlsx` con 3 fogli (Magazzino, Movimenti, Riepilogo IVA).
 - **Report PDF**: Magazzino completo, Articoli in negativo, Sottoscorta, Movimenti, Vendite.
 - **Backup**: Automatico giornaliero e manuale (rotazione max 5 file).
-- **Sincronizzazione**: File `.wmsync` per unire i dati tra dispositivi (modalità standalone).
 
 ---
 
@@ -114,22 +137,6 @@ NautiMag è progettato per proteggere il lavoro dell'imprenditore:
 
 ---
 
-## 📱 Configurazione Multi-Cassa (Il flusso di lavoro)
-
-NautiMag eccelle nella gestione di più operatori contemporanei. Ecco come funziona:
-
-1. **PC Cassa (Windows)**: Configurato con `CartId = "cassa"`.
-2. **Tablet 1 (Android)**: Configurato con `CartId = "android-1"`.
-3. **Tablet 2 (Android)**: Configurato con `CartId = "android-2"`.
-
-**L'Unione dei Carrelli:**
-- Il commesso col Tablet 1 serve il Cliente A. Gli articoli finiscono nel carrello `android-1`.
-- Il cassiere, dal PC, vede un banner: *"📢 Ci sono 1 carrelli in attesa: android-1"*.
-- Il cassiere clicca **"🔗 Unisci ad altra cassa"**, vede l'anteprima degli articoli (senza sorprese), conferma e gli articoli passano istantaneamente sul PC Cassa.
-- Il tablet si svuota, pronto per il Cliente B.
-
----
-
 ## 🚀 Installazione
 
 ### Windows (Server o Client)
@@ -142,9 +149,8 @@ NautiMag eccelle nella gestione di più operatori contemporanei. Ecco come funzi
 5. **Al primo avvio**:
    - Se Server: il database viene creato in `Documenti\NautiMag\data`.
    - Se Client: l'app si connette al server (verifica il pallino verde nella TopBar).
-6. **Login** con le credenziali di default:
-   - `admin` / `admin` (Admin)
-   - ⚠️ Al primo login, ti verrà chiesto di cambiare la password.
+6. **Login** con le credenziali fornite dall'amministratore di sistema.
+   - ⚠️ Al primo accesso, potrebbe esserti chiesto di cambiare la password per motivi di sicurezza.
 7. **Attiva la licenza** dal menu **ℹ️ Info → 🔑 Attiva Licenza**.
 8. **Configura l'azienda** in **⚙️ Gestione → 🏢 Azienda**.
 
@@ -166,7 +172,7 @@ Per uso con più postazioni sulla stessa rete:
 - ✅ **PC Server** sempre acceso (o avvio automatico con Windows).
 - ✅ **Stessa rete locale** (LAN/Wi-Fi) tra server e client.
 - ✅ **PIN condiviso** (default `1234`).
-- ✅ **CartId** configurabile per ogni dispositivo.
+- ✅ **CartId univoco** per ogni dispositivo (per carrelli separati).
 - ✅ **Massimo 3-5 utenti** contemporanei (SQLite).
 - ✅ **Firewall di Windows** configurato per la porta 5000 (l'installer lo fa automaticamente).
 - ❌ **NON usare** cartelle sincronizzate cloud (OneDrive, Drive, Dropbox) per il database.
@@ -208,3 +214,4 @@ Ogni contributo aiuta a mantenere il progetto attivo e senza pubblicità. Grazie
 <p align="center">
   <sub>NautiMag v1.0 · Made with ❤️ in Italia</sub>
 </p>
+```
