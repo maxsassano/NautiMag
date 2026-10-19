@@ -54,28 +54,37 @@ NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, sia esso un pi
 
 ---
 
-## 🛒 Il Potere del Multi-Cart (La vera innovazione)
+## 📱 Configurazione Multi-Cassa (Il flusso di lavoro)
 
-NautiMag non si limita a un singolo carrello. Ecco come gestisce il flusso di lavoro reale di un negozio:
+NautiMag eccelle nella gestione di più operatori contemporanei. Ecco come funziona nel dettaglio:
 
-### 1. Carrelli Base Isolati
-Ogni dispositivo ha il suo carrello "base" configurato tramite **CartId**.
-- **PC Cassa**: `cassa`
-- **Tablet 1**: `android1`
-- **Tablet 2**: `android2`
+### 1. La Configurazione Base
+Ogni dispositivo ha il suo carrello "base" configurato tramite **CartId** nelle Impostazioni Server:
+- **PC Cassa (Windows)**: `cassa`
+- **Tablet 1 (Android)**: `android1`
+- **Tablet 2 (Android)**: `android2`
 
-### 2. Carrelli Nominati (Solo su Tablet/Android)
-Immagina che il commesso stia servendo **Mario Rossi** e stia per arrivare **Paolo Bianchi**.
-- Dal tablet, il commesso clicca **➕ Nuovo Carrello** e scrive "Mario Rossi". Il tablet crea un carrello dedicato (es. `mario_rossi`).
-- Quando arriva Paolo Bianchi, clicca di nuovo **➕ Nuovo Carrello**, scrive "Paolo Bianchi" e inizia a servirlo.
-- I due carrelli restano **parcheggiati** sul tablet in parallelo, senza mischiarsi.
+### 2. I Carrelli Nominati (La vera potenza)
+Sul tablet, il commesso **non è limitato a un solo carrello**. Può creare più carrelli temporanei, ognuno con il nome del cliente. Ecco come:
 
-### 3. L'Unione alla Cassa
-- Il commesso dice al cassiere: *"Il cliente Mario Rossi è pronto per pagare"*.
-- Dal PC, il cassiere clicca su **🔗 Unisci**.
-- Il sistema mostra la lista dei carrelli in attesa: `mario_rossi`, `paolo_bianchi`.
-- Il cassiere seleziona `mario_rossi`, vede l'**anteprima degli articoli** (per evitare errori) e conferma.
-- **Magia:** Gli articoli passano istantaneamente al PC (`cassa`), il carrello `mario_rossi` si svuota ed elimina, e il tablet (se era su quel carrello) torna automaticamente al suo carrello base, pronto per un nuovo cliente.
+1. Il commesso clicca su **➕ Nuovo Carrello** sul tablet.
+2. Scrive il nome del cliente (es. **"Pippo"**).
+3. Il sistema crea un carrello dedicato a Pippo (es. `pippo`). Il commesso aggiunge gli articoli di Pippo.
+4. Arriva un altro cliente (es. **"Mario Rossi"**). Il commesso clicca di nuovo **➕ Nuovo Carrello** e scrive "Mario Rossi".
+5. I due carrelli (`pippo` e `mario_rossi`) restano **parcheggiati** sul tablet, separati, senza che gli articoli si mischino.
+
+### 3. L'Unione alla Cassa (Il momento magico)
+Quando un cliente è pronto per pagare, il cassiere sul PC fa così:
+
+1. Nel carrello del PC, vede un banner verde: **"📢 Ci sono 2 carrelli in attesa: pippo, mario_rossi"**.
+2. Clicca sul pulsante **"🔗 Unisci"**.
+3. Seleziona dalla lista il carrello del cliente pronto (es. `pippo`).
+4. **L'Anteprima:** Prima di confermare, NautiMag mostra esattamente quali articoli e quante quantità ci sono dentro il carrello di Pippo. Nessuna sorpresa.
+5. Il cassiere conferma: tutti gli articoli di `pippo` passano istantaneamente al carrello `cassa` del PC.
+6. **Il tablet si svuota:** Il carrello `pippo` viene eliminato dal server. Il tablet (se era su `pippo`) torna automaticamente al suo carrello base `android1`, pronto per il prossimo cliente.
+
+### 4. Il Vantaggio
+Il commesso può servire **5-6 clienti in fila** con lo stesso tablet, senza dover tornare alla cassa a "scaricare" ogni volta. I carrelli restano separati finché non vengono chiamati dal cassiere. La cassa è il punto di raccolta, il tablet è il punto di raccolta ordini.
 
 ---
 
