@@ -1,8 +1,3 @@
-Sì, assolutamente. Dato che abbiamo implementato i **Carrelli Nominati** (solo su Android), il **sistema di temi**, la **sicurezza della licenza** e il **Single Instance** su Windows, il `README.md` va aggiornato per riflettere queste novità. 
-
-Ecco il file **`README.md` completo e aggiornato**. Copia e incolla questo blocco nel tuo file su GitHub.
-
-```markdown
 # NautiMag 
 <img src="Screen/logo.png" height="80"/> 
 
@@ -22,6 +17,10 @@ Ecco il file **`README.md` completo e aggiornato**. Copia e incolla questo blocc
 | Home Windows | Home Android|
 |:---:|:---:|
 | <img src="Screen/home-win.png"/> | <img src="Screen/home-android.png"/> |
+
+---
+
+### 📖 [Leggi la Guida Utente Online](https://maxsassano.github.io/NautiMag/docs/)
 
 ---
 
