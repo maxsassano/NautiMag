@@ -20,7 +20,7 @@
 
 ---
 
-### 📖 [Leggi la Guida Utente Online](https://maxsassano.github.io/NautiMag)
+### 📖 [Leggi la Guida Utente Online](https://maxsassano.github.io/NautiMag/docs/)
 
 ---
 
@@ -106,6 +106,7 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 - **DDT / Buoni Consegna**: Documenti di trasporto per vendite, resi o ricezioni (non modificano il magazzino).
 - **Note Credito**: Emissione da vendite esistenti con selezione delle righe da rendere.
 - **Stampa Liste**: PDF di clienti, fornitori e articoli con filtri (sottoscorta, negativi).
+- **Scontrini KO**: Coda di gestione per gli scontrini non stampati dalla RT (Da fare, Risolti, Annullati). Permette la ristampa.
 
 **📦 Magazzino**
 - **Statistiche**: KPI di vendita (oggi, mese, anno), grafici a barre, top 10 articoli e clienti.
@@ -115,12 +116,13 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 
 **🏢 Anagrafiche**
 - **Azienda / Fornitori / Clienti**: Schede complete con storico e dati SDI.
+- **Privacy (GDPR)**: Gestione del consenso con generazione del modulo cartaceo per la firma e tracciamento della data.
 - **Categorie / Unità di Misura / Ubicazioni**: Gestione tassonomie merceologiche.
 - **Aliquote IVA**: Personalizzabili (22%, 10%, 4%, 0%, custom).
 
 **🔧 Sistema**
 - **Guida Utente**: Manuale integrato con oltre 40 sezioni.
-- **Impostazioni Server**: Configurazione modalità, IP/Hostname, PIN, CartId.
+- **Impostazioni Server**: Configurazione modalità, IP/Hostname, PIN, CartId e Stampante Fiscale (RT).
 - **Gestione Utenti**: Creazione e modifica utenti con ruoli **SuperUser**, **Admin** e **Vendita**.
 - **Log**: Due tab separati per **Audit** (chi ha fatto cosa) e **Sistema** (errori tecnici).
 - **Temi Grafici**: Cambio istantaneo tra **Standard (Blu)**, **Pastello (Colori)** e **Dark (Notturno)**.
@@ -130,6 +132,11 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 - **Export Excel**: File `.xlsx` con 3 fogli (Magazzino, Movimenti, Riepilogo IVA).
 - **Report PDF**: Magazzino completo, Articoli in negativo, Sottoscorta, Movimenti, Vendite.
 - **Backup**: Automatico giornaliero e manuale (rotazione max 5 file).
+
+### 🖨️ Registratore Telematico (RT)
+- **Integrazione Spooler**: Invio automatico degli scontrini alla stampante fiscale configurando le cartelle Input/Esito.
+- **Gestione Errori**: Se lo scontrino non viene stampato (timeout o .ko), viene salvato in una coda di KO per la ristampa successiva.
+- **Fatturazione SDI-ready**: I campi Codice SDI, PEC e Regime Fiscale (es. RF01, RF19) sono pronti nelle schede Cliente e Azienda per future esportazioni XML.
 
 ---
 
@@ -154,12 +161,11 @@ NautiMag è progettato per proteggere il lavoro dell'imprenditore:
    - **Server** — installa server, database locale, tray e app (PC principale).
    - **Client** — installa solo l'app, si collegherà al server via rete.
 4. **Se Client**, inserisci l'IP o il nome del PC Server.
-5. **Al primo avvio**:
+5. **Licenza**: Inserisci i dati della licenza (Email, P.IVA, Seriale) durante l'installazione, oppure inizia il trial di 30 giorni.
+6. **Al primo avvio**:
    - Se Server: il database viene creato in `Documenti\NautiMag\data`.
    - Se Client: l'app si connette al server (verifica il pallino verde nella TopBar).
-6. **Login** con le credenziali fornite dall'amministratore di sistema.
-   - ⚠️ Al primo accesso, potrebbe esserti chiesto di cambiare la password per motivi di sicurezza.
-7. **Attiva la licenza** dal menu **ℹ️ Info → 🔑 Attiva Licenza**.
+7. **Login** con le credenziali fornite dall'amministratore di sistema.
 8. **Configura l'azienda** in **⚙️ Gestione → 🏢 Azienda**.
 
 ### Android (Client)
@@ -222,4 +228,3 @@ Ogni contributo aiuta a mantenere il progetto attivo e senza pubblicità. Grazie
 <p align="center">
   <sub>NautiMag v1.0 · Made with ❤️ in Italia</sub>
 </p>
-```
