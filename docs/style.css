@@ -1,0 +1,431 @@
+﻿:root {
+    --primary: #2E7D6B;
+    --primary-dark: #1F5C4F;
+    --secondary: #E67E22;
+    --success: #27AE60;
+    --warning: #F39C12;
+    --error: #E74C3C;
+    --info: #2980B9;
+    --bg: #F5F7FA;
+    --surface: #FFFFFF;
+    --text: #1A1D24;
+    --text-soft: #5A6470;
+    --border: #E2E8F0;
+    --radius: 14px;
+    --shadow: 0 2px 6px rgba(0,0,0,.06);
+    --font-base: 17px;
+    --font-small: 15px;
+    --font-h2: 24px;
+    --font-h3: 18px;
+    --font-toc: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
+    font-size: var(--font-base);
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "hero"
+        "toc"
+        "main"
+        "footer";
+}
+
+/* ═══════════════════════════════════════════════
+   DESKTOP: hero + TOC a sinistra, main a destra
+   ═══════════════════════════════════════════════ */
+@media (min-width: 850px) {
+    body {
+        grid-template-columns: 340px 1fr;
+        grid-template-areas:
+            "hero main"
+            "toc  main"
+            "toc  footer";
+        max-width: 1500px;
+        margin: 0 auto;
+    }
+}
+
+/* ═══════════ HERO ═══════════ */
+.hero {
+    grid-area: hero;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: #fff;
+    padding: 26px 20px 22px;
+    text-align: center;
+    border-radius: 0 0 22px 22px;
+    box-shadow: var(--shadow);
+}
+
+@media (min-width: 850px) {
+    .hero {
+        margin: 16px 12px 0 16px;
+        border-radius: 18px;
+        padding: 24px 20px 20px;
+        position: sticky;
+        top: 16px;
+        z-index: 5;
+    }
+}
+
+.hero-icon {
+    font-size: 40px;
+    line-height: 1;
+}
+
+.hero h1 {
+    margin: 6px 0 4px;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+.subtitle {
+    margin: 0;
+    font-size: 14px;
+    opacity: .92;
+}
+
+.version {
+    margin: 5px 0 0;
+    font-size: 11px;
+    opacity: .75;
+}
+
+/* ═══════════ TOC ═══════════ */
+.toc {
+    grid-area: toc;
+    background: var(--surface);
+    margin: 16px;
+    padding: 18px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+@media (min-width: 850px) {
+    .toc {
+        position: sticky;
+        top: 190px; /* sotto l'hero */
+        max-height: calc(100vh - 210px);
+        overflow-y: auto;
+        margin: 12px 12px 16px 16px;
+        z-index: 4;
+    }
+}
+
+.toc h2 {
+    margin: 0 0 14px;
+    font-size: 14px;
+    color: var(--text-soft);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.toc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+    .toc-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.toc a {
+    display: block;
+    padding: 11px 13px;
+    background: var(--bg);
+    border-radius: 10px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: var(--font-toc);
+    border-left: 3px solid transparent;
+    transition: all .15s ease;
+    line-height: 1.35;
+}
+
+    .toc a:active,
+    .toc a:hover {
+        background: #E8F5F0;
+        border-left-color: var(--primary);
+    }
+
+/* ═══════════ CONTENUTO ═══════════ */
+main {
+    grid-area: main;
+    padding: 0 16px 40px;
+    max-width: 900px;
+}
+
+@media (min-width: 850px) {
+    main {
+        padding: 16px 24px 40px 8px;
+    }
+}
+
+section {
+    background: var(--surface);
+    margin: 16px 0;
+    padding: 22px 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    scroll-margin-top: 16px;
+}
+
+    section h2 {
+        margin: 0 0 14px;
+        font-size: var(--font-h2);
+        color: var(--primary-dark);
+        border-bottom: 2px solid #E8F5F0;
+        padding-bottom: 10px;
+        font-weight: 700;
+    }
+
+    section h3 {
+        margin: 22px 0 10px;
+        font-size: var(--font-h3);
+        color: var(--primary);
+        font-weight: 700;
+    }
+
+    section p {
+        margin: 10px 0;
+        color: var(--text);
+    }
+
+    section ul, section ol {
+        padding-left: 24px;
+        margin: 10px 0;
+    }
+
+    section li {
+        margin: 6px 0;
+    }
+
+/* ═══════════ TABELLE ═══════════ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    table th {
+        background: var(--primary);
+        color: #fff;
+        text-align: left;
+        padding: 10px 12px;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+    }
+
+    table tr:last-child td {
+        border-bottom: none;
+    }
+
+    table tr:nth-child(even) td {
+        background: #F9FAFB;
+    }
+
+/* ═══════════ CALLOUT ═══════════ */
+.callout {
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin: 16px 0;
+    font-size: 15px;
+    border-left: 4px solid;
+    line-height: 1.55;
+}
+
+    .callout.info {
+        background: #E8F1FA;
+        border-color: var(--info);
+    }
+
+    .callout.warn {
+        background: #FFF4E6;
+        border-color: var(--warning);
+    }
+
+    .callout.ok {
+        background: #E8F5F0;
+        border-color: var(--success);
+    }
+
+    .callout.error {
+        background: #FCEAEA;
+        border-color: var(--error);
+    }
+
+/* ═══════════ BADGE / DOT ═══════════ */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+    .badge.ok {
+        background: #E8F5F0;
+        color: var(--success);
+    }
+
+.dot {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    margin: 0 3px;
+    vertical-align: middle;
+}
+
+    .dot.green {
+        background: #27AE60;
+    }
+
+    .dot.yellow {
+        background: #F39C12;
+    }
+
+    .dot.red {
+        background: #E74C3C;
+    }
+
+    .dot.gray {
+        background: #9AA0A8;
+    }
+
+/* ═══════════ CODE ═══════════ */
+code {
+    background: #EEF2F7;
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 14px;
+    color: #1F5C4F;
+}
+
+/* ═══════════ FOOTER ═══════════ */
+footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 24px 16px 32px;
+    color: var(--text-soft);
+    font-size: 13px;
+}
+
+    footer p {
+        margin: 3px 0;
+    }
+
+.footer-small {
+    font-size: 12px;
+    opacity: .7;
+}
+
+/* ═══════════ SCROLLBAR ═══════════ */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #C8CCD2;
+    border-radius: 5px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #9AA0A8;
+    }
+
+/* ═══════════ DARK MODE ═══════════ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #1A1D24;
+        --surface: #252932;
+        --text: #F0F2F5;
+        --text-soft: #A0A8B4;
+        --border: #334155;
+    }
+
+    body {
+        background: var(--bg);
+    }
+
+    section h2 {
+        color: #7BE0B8;
+        border-bottom-color: #1F5C4F;
+    }
+
+    section h3 {
+        color: #7BE0B8;
+    }
+
+    table tr:nth-child(even) td {
+        background: #1F232A;
+    }
+
+    table td {
+        border-bottom-color: #2F3742;
+    }
+
+    .toc a {
+        color: var(--text);
+    }
+
+        .toc a:active, .toc a:hover {
+            background: #1F5C4F;
+        }
+
+    code {
+        background: #1F232A;
+        color: #7BE0B8;
+    }
+
+    .callout.info {
+        background: #1A2D3D;
+    }
+
+    .callout.warn {
+        background: #3A2E1A;
+    }
+
+    .callout.ok {
+        background: #1A3D34;
+    }
+
+    .callout.error {
+        background: #3D1A1A;
+    }
+}
