@@ -30,6 +30,7 @@
             <a href="#carrello">🛒 Carrello e Multi-Cassa</a>
             <a href="#vendite">💰 Vendite</a>
             <a href="#dettaglio-vendita">📋 Dettaglio vendita</a>
+            <a href="#scontrini-ko">🧾 Scontrini KO</a>
             <a href="#movimenti">📊 Movimenti</a>
             <a href="#dati">💾 Dati</a>
             <a href="#import">📥 Import</a>
@@ -42,7 +43,8 @@
             <a href="#log-attivita">📜 Log (Audit e Sistema)</a>
             <a href="#azienda">🏢 Azienda</a>
             <a href="#fornitori">🚚 Fornitori</a>
-            <a href="#clienti">👥 Clienti</a>
+            <a href="#clienti">👥 Clienti (SDI e GDPR)</a>
+            <a href="#privacy-gdpr">🛡️ Privacy e GDPR</a>
             <a href="#categorie">🏷️ Categorie</a>
             <a href="#unita-misura">📏 Unità di misura</a>
             <a href="#ubicazioni">📍 Ubicazioni</a>
@@ -50,7 +52,6 @@
             <a href="#ordini">📦 Ordini fornitori</a>
             <a href="#ddt">📋 DDT</a>
             <a href="#note-credito">↩️ Note credito</a>
-            <a href="#scontrini-ko">🧾 Scontrini KO</a>
             <a href="#etichette">🏷️ Etichette</a>
             <a href="#formati-etichette">📐 Formati etichette</a>
             <a href="#statistiche">📈 Statistiche</a>
@@ -58,7 +59,7 @@
             <a href="#articoli-negativi">⚠️ Articoli negativi</a>
             <a href="#stampa-liste">🖨 Stampa liste</a>
             <a href="#agenda">📅 Agenda</a>
-            <a href="#impostazioni-server">🌐 Impostazioni Server</a>
+            <a href="#impostazioni-server">🌐 Impostazioni Server e RT</a>
             <a href="#temi-grafici">🎨 Temi Grafici</a>
             <a href="#info">ℹ️ Info</a>
             <a href="#licenza-sicurezza">🔑 Licenza e Sicurezza</a>
@@ -224,7 +225,6 @@
         </section>
 
         <!-- ═══════════════════════════ CARRELLO ═══════════════════════════ -->
-        <!-- ═══════════════════════════ CARRELLO ═══════════════════════════ -->
         <section id="carrello">
             <h2>🛒 Carrello e Multi-Cassa</h2>
             <p>Il Carrello contiene gli articoli pronti per la vendita. In modalità server è <strong>condiviso in tempo reale</strong> tra tutti i dispositivi che condividono lo stesso identificativo (CartId).</p>
@@ -246,7 +246,6 @@
 
             <h3>📱 Carrelli Nominati (solo su Android/Tablet)</h3>
             <p>Sul tablet o sul telefono Android, il commesso può creare <strong>più carrelli contemporaneamente</strong>, ognuno dedicato a un cliente diverso. Ogni carrello ha un nome scelto dall'utente (es. "Mario Rossi", "Tavolo 5") che diventa il suo identificativo sul server.</p>
-
             <p>Nella pagina del Carrello, sul tablet, trovi questi pulsanti nella sezione <em>GESTIONE CARRELLI</em>:</p>
             <ul>
                 <li><strong>➕ Nuovo Carrello</strong> — scrivi il nome del cliente (es. "Mario Rossi"). Il sistema crea un carrello dedicato. Il carrello precedente resta "parcheggiato" con i suoi articoli, senza essere toccato.</li>
@@ -317,10 +316,11 @@
             <ol>
                 <li>Controlla il totale in fondo alla pagina.</li>
                 <li>Tocca <strong>✓ Chiudi vendita</strong>.</li>
-                <li>Se ci sono scorte insufficienti, NautiMag ti mostrerà un avviso con l'elenco delle merci che andranno in negativo. Puoi scegliere se continuare o annullare.</li>
-                <li>Seleziona il cliente (o lascia "generico" per un cliente occasionale).</li>
+                <li>Se ci sono scorte insufficienti, NautiMag ti mostrerà un avviso con l'elenco delle merci che andranno in negativo.</li>
+                <li>Ti verrà chiesto di selezionare il cliente (o lasciare "Cliente generico").</li>
                 <li>Conferma: la vendita viene registrata nel database.</li>
-                <li>Su Windows (PC Cassa) potrai stampare subito lo scontrino o la fattura proforma.</li>
+                <li><strong>Stampa Fiscale:</strong> se hai configurato la RT, l'app invierà lo scontrino alla stampante fiscale <em>silenziosamente</em>. Se ci sono errori, lo scontrino andrà nella coda "Scontrini KO" e ti verrà mostrato un avviso.</li>
+                <li><strong>Stampa PDF (Solo Windows):</strong> alla fine, apparirà un unico popup che ti chiederà se vuoi stampare la ricevuta PDF o la fattura proforma. Niente più mille domande intermedie!</li>
             </ol>
 
             <div class="callout info">
@@ -371,7 +371,6 @@
                 <strong>Nota bene:</strong> i documenti emessi non hanno valore fiscale. La fattura elettronica va emessa tramite SDI separatamente.
             </div>
         </section>
-
         <!-- ═══════════════════════════ MOVIMENTI ═══════════════════════════ -->
         <section id="movimenti">
             <h2>📊 Movimenti</h2>
@@ -518,6 +517,7 @@
                 <li>DDT / Buoni consegna</li>
                 <li>Note credito</li>
                 <li>Stampa liste</li>
+                <li>Scontrini KO</li>
             </ul>
 
             <h3>📦 Magazzino</h3>
@@ -608,6 +608,7 @@
                 <li><strong>Ragione sociale</strong> — obbligatoria</li>
                 <li><strong>Insegna</strong> — nome commerciale breve (appare in alto nell'app)</li>
                 <li><strong>P.IVA, C.F., indirizzo, contatti, PEC, IBAN</strong></li>
+                <li><strong>Codice SDI e Regime Fiscale</strong> — fondamentali per la futura fatturazione elettronica (es. RF01 Ordinario, RF19 Forfettario)</li>
                 <li><strong>Note</strong> — interne</li>
             </ul>
             <p>Il nome azienda (insegna o ragione sociale) appare nella TopBar di tutte le pagine.</p>
@@ -629,7 +630,34 @@
         <section id="clienti">
             <h2>👥 Clienti</h2>
             <p>Elenco clienti. Ogni scheda mostra le ultime 50 vendite con totale speso.</p>
-            <p>Campi: nome, cognome, ragione sociale, P.IVA, C.F., <strong>Codice SDI</strong>, indirizzo, contatti, note.</p>
+            <p>I campi includono: nome, cognome, ragione sociale, P.IVA, C.F., <strong>Codice SDI</strong>, <strong>PEC</strong>, <strong>Regime Fiscale</strong>, indirizzo, contatti, note e la sezione <strong>Privacy (GDPR)</strong>.</p>
+            
+            <h3>Filtro Privacy</h3>
+            <p>In cima alla lista dei clienti c'è un interruttore: <strong>"Mostra solo clienti senza privacy"</strong>. Attivalo per vedere subito chi non ha ancora firmato il consenso. Accanto a ogni cliente, un'icona indica lo stato:
+                <ul>
+                    <li>🛡️ <strong>Verde</strong>: Privacy firmata e registrata.</li>
+                    <li>⚠️ <strong>Gialla</strong>: Privacy mancante.</li>
+                </ul>
+            </p>
+        </section>
+
+        <!-- ═══════════════════════════ PRIVACY E GDPR ═══════════════════════════ -->
+        <section id="privacy-gdpr">
+            <h2>🛡️ Privacy e GDPR</h2>
+            <p>NautiMag include gli strumenti per gestire il consenso al trattamento dei dati personali (Regolamento UE 2016/679).</p>
+
+            <h3>Come registrare il consenso</h3>
+            <ol>
+                <li>Nella scheda del Cliente, scorri fino alla sezione <strong>PRIVACY (GDPR)</strong>.</li>
+                <li>Clicca su <strong>"🖨 Stampa Modulo Consenso"</strong>. Si aprirà un PDF con l'informativa completa e uno spazio per la firma.</li>
+                <li>Fai firmare il modulo al cliente con una penna.</li>
+                <li>Archivia il foglio firmato nel tuo cassetto fiscale (a norma di legge).</li>
+                <li>Nell'app, attiva lo <strong>Switch</strong> "Consenso al trattamento dei dati". L'app registrerà data e ora esatta del consenso e cambierà il pulsante in "Ristampa Modulo Firmato".</li>
+            </ol>
+
+            <div class="callout info">
+                <strong>💡 Perché è importante:</strong> Conservare la firma autografa su carta è la prova legale più solida in caso di controlli del Garante della Privacy.
+            </div>
         </section>
 
         <!-- ═══════════════════════════ CATEGORIE ═══════════════════════════ -->
@@ -730,41 +758,32 @@
 
         <!-- ═══════════════════════════ SCONTRINI KO ═══════════════════════════ -->
         <section id="scontrini-ko">
-            <h2>🧾 Scontrini KO (errori stampante fiscale)</h2>
-            <p>Quando chiudi una vendita, NautiMag prova a inviare lo scontrino alla stampante fiscale (RT). Se la stampante è spenta, scollegata o risponde con un errore, la vendita viene comunque registrata ma lo scontrino <strong>non viene stampato</strong>.</p>
-            <p>In questi casi lo scontrino viene salvato in una coda chiamata <strong>"Scontrini KO"</strong>. Da qui puoi riprovare la stampa quando vuoi, senza dover rifare la vendita.</p>
+            <h2>🧾 Scontrini KO (Errori Stampante)</h2>
+            <p>Immagina che la stampante fiscale sia un amico a cui devi consegnare un bigliettino (lo scontrino). Se l'amico è assente o non risponde, il bigliettino non viene consegnato.</p>
+            <p>In NautiMag, se la stampante è spenta o senza carta, la vendita viene <strong>salvata lo stesso</strong> (i soldi sono incassati!), ma lo scontrino va in una scatola speciale chiamata <strong>"Scontrini KO"</strong>.</p>
 
-            <h3>Dove trovarla</h3>
-            <p>Vai su <em>Gestione → Documenti → 🧾 Scontrini KO</em>. Se ci sono scontrini da ristampare, sulla tile appare un <strong>badge rosso</strong> con il numero.</p>
+            <h3>Dove trovo questa scatola?</h3>
+            <p>Vai nel menu <em>Gestione → Documenti</em> e clicca sulla tile <strong>🧾 Scontrini KO</strong>. Se ci sono scontrini da sistemare, vedrai un pallino rosso con un numero.</p>
 
-            <h3>Le tre liste</h3>
+            <h3>Come funziona la pagina</h3>
+            <p>Ci sono 3 schede (tab):</p>
             <ul>
-                <li><strong>⚠️ Da fare</strong> — scontrini che non sono stati stampati. Da gestire.</li>
-                <li><strong>✔ Risolti</strong> — scontrini che sono stati ristampati con successo (o segnati manualmente come risolti).</li>
-                <li><strong>✖ Annullati</strong> — scontrini che hai deciso di non stampare (es. reso annullato).</li>
+                <li><strong>⚠️ Da fare:</strong> Qui ci sono gli scontrini che non sono stati stampati (perché la stampante era spenta, ecc.).</li>
+                <li><strong>✔ Risolti:</strong> Gli scontrini che sei riuscito a stampare o che hai deciso di archiviare.</li>
+                <li><strong>✖ Annullati:</strong> Gli scontrini che hai deciso di non stampare più.</li>
             </ul>
 
-            <h3>Cosa puoi fare su uno scontrino "Da fare"</h3>
+            <h3>Cosa devo fare se trovo uno scontrino "Da fare"?</h3>
+            <p>Clicca sullo scontrino e scegli l'azione giusta:</p>
             <ul>
-                <li><strong>🔄 Riprova stampa</strong> — rimanda lo scontrino alla RT. Se va a buon fine, sparisce dalla lista. Se fallisce di nuovo, il messaggio d'errore viene aggiornato.</li>
-                <li><strong>✅ Segna come risolto</strong> — archivia lo scontrino come risolto <em>senza</em> ristamparlo (usalo se l'hai già ristampato manualmente dal tastierino della RT).</li>
-                <li><strong>✖ Annulla</strong> — segna lo scontrino come annullato (non verrà più stampato).</li>
-                <li><strong>🗑 Elimina</strong> — rimuove definitivamente lo scontrino dal database (irreversibile).</li>
+                <li><strong>🔄 Riprova stampa:</strong> Cliccalo <em>solo dopo</em> esserti assicurato che la stampante sia accesa. NautiMag riproverà a inviare il bigliettino all'amico.</li>
+                <li><strong>✅ Segna come risolto:</strong> Usalo se hai già stampato lo scontrino andando a premere i tasti direttamente sulla stampante. Così NautiMag lo toglie dalla lista "Da fare".</li>
+                <li><strong>✖ Annulla:</strong> Usalo se quel bigliettino non serve più.</li>
+                <li><strong>🗑 Elimina:</strong> Cancella definitivamente lo scontrino dal computer.</li>
             </ul>
-
-            <h3>Suggerimenti</h3>
-            <ul>
-                <li>Prima di riprovare, verifica che la stampante fiscale sia <strong>accesa</strong> e <strong>collegata</strong>.</li>
-                <li>Se ricevi sempre lo stesso errore, controlla la configurazione in <em>Gestione → Impostazioni Server → STAMPANTE FISCALE</em>.</li>
-                <li>Per legge la chiusura fiscale (chiusura giornaliera) va sempre emessa a fine giornata, anche se alcuni scontrini sono KO. Contatta il commercialista in caso di dubbi.</li>
-            </ul>
-
-            <div class="callout warn">
-                <strong>⚠️ Attenzione:</strong> se hai più dispositivi che usano lo stesso database (modalità server), la coda Scontrini KO è quella del PC cassa. Gli altri dispositivi non la vedono.
-            </div>
 
             <div class="callout info">
-                <strong>💡 Nota:</strong> le vendite con scontrino KO sono state <strong>regolarmente registrate</strong> e contano ai fini statistici. Il KO riguarda solo la stampa, non la vendita.
+                <strong>💡 Ricorda:</strong> La vendita è al sicuro! Lo scontrino KO riguarda solo la stampa del pezzo di carta, non l'incasso dei soldi.
             </div>
         </section>
 
@@ -881,50 +900,49 @@
             </ul>
         </section>
 
-        <!-- ═══════════════════════════ IMPOSTAZIONI SERVER ═══════════════════════════ -->
+        <!-- ═══════════════════════════ IMPOSTAZIONI SERVER E RT ═══════════════════════════ -->
         <section id="impostazioni-server">
-            <h2>🌐 Impostazioni Server</h2>
-            <p>Configura se l'app deve usare il DB locale o il server in rete.</p>
+            <h2>🌐 Impostazioni Server e Registratore Telematico (RT)</h2>
+            <p>Qui puoi decidere come far comunicare NautiMag: se da solo sul tuo PC (Standalone) o collegato agli altri dispositivi del negozio (Server).</p>
 
-            <h3>Modalità</h3>
-            <table>
-                <tr><td><strong>standalone</strong></td><td>DB locale su questo dispositivo. Ogni device ha dati propri.</td></tr>
-                <tr><td><strong>server</strong></td><td>Legge/scrive dal server. Multi-dispositivo real-time.</td></tr>
-            </table>
-
-            <h3>Come connettersi al server</h3>
-            <p>NautiMag offre <strong>tre strade</strong> per trovare il server. Scegli quella che funziona meglio per te.</p>
-
-            <h4>1. 📡 Ricerca Automatica (Consigliata)</h4>
-            <p>Premi il pulsante <strong>📡 Cerca Server in automatico</strong>. L'app manderà un segnale sulla rete e troverà da sola il PC dove è installato NautiMag Server. <em>Nessun dato da inserire.</em></p>
-            <div class="callout info">
-                <strong>💡 Nota:</strong> PC e telefono devono essere sulla stessa rete (anche se uno è via cavo e l'altro in Wi-Fi, di solito funziona).
-            </div>
-
-            <h4>2. 📷 Scansione QR Code</h4>
-            <p>Dal PC Windows, vai in <em>Impostazioni Server → Genera QR Code</em>. Poi dal telefono, premi <em>Scansiona QR Code</em> e inquadra lo schermo del PC. L'app leggerà IP, PIN e CartId in automatico.</p>
-
-            <h4>3. ✍️ Inserimento Manuale (IP o Nome Server)</h4>
-            <p>Se le prime due non funzionano, puoi scrivere l'indirizzo a mano. Hai due opzioni:</p>
+            <h3>Scegliere la Modalità</h3>
             <ul>
-                <li><strong>Indirizzo IP</strong>: Es. <code>http://192.168.1.10:5000</code>. Funziona sempre, ma se il PC è in DHCP l'IP potrebbe cambiare al riavvio del router.</li>
-                <li><strong>Nome del Computer (Hostname)</strong>: Es. <code>http://PC-USER:5000</code> o <code>http://PC-USER.local:5000</code>. Funziona se il router supporta la risoluzione dei nomi locali. È molto comodo perché il nome del PC <em>non cambia mai</em>.</li>
+                <li><strong>standalone:</strong> NautiMag usa solo la memoria del dispositivo su cui lo stai usando. Se lo apri su un altro PC, non vedrai gli stessi dati.</li>
+                <li><strong>server:</strong> NautiMag si collega a un "capo" (il PC Cassa). Tutti i dispositivi collegati vedono gli stessi dati in tempo reale.</li>
             </ul>
-            <p>Se usi il nome del computer, non dovrai più preoccuparti del cambio IP!</p>
 
-            <h3>PIN</h3>
-            <p>PIN condiviso tra server e client. Default: <code>1234</code>. Modificabile in <code>appsettings.json</code> sul server.</p>
+            <h3>Come collegare il telefono o un altro PC al Server</h3>
+            <p>Se devi collegare un nuovo dispositivo, hai <strong>3 modi</strong> per farlo (dal più facile al più difficile):</p>
+            <ol>
+                <li><strong>📡 Ricerca Automatica:</strong> Clicca sul pulsante blu <em>"Cerca Server in automatico"</em>. L'app farà un "urlo" nella rete Wi-Fi e il PC Server risponderà da solo. Non devi scrivere niente.</li>
+                <li><strong>📷 Scansione QR Code:</strong> Vai sul PC (Impostazioni Server) e clicca "Genera QR Code". Poi dal telefono, clicca "Scansiona QR Code" e inquadra lo schermo del PC. Il telefono copierà tutti i dati da solo.</li>
+                <li><strong>✍️ Inserimento Manuale:</strong> Se i primi due non funzionano, scrivi a mano l'IP del PC (es. <code>192.168.1.10</code>) e il PIN.</li>
+            </ol>
 
-            <h3>CartId</h3>
-            <p>Identificativo del carrello condiviso. Tutti i device con lo stesso CartId condividono lo stesso carrello. Default: <code>cassa</code>. Se hai più casse, usa ID diversi (es. <code>cassa-1</code>, <code>cassa-2</code>).</p>
-
-            <!-- NUOVO: AVVISO CARTID -->
-            <div class="callout warn">
-                <strong>⚠️ Attenzione al CartId:</strong> Usa un <strong>ID diverso per ogni dispositivo</strong> (es. <code>cassa</code>, <code>android1</code>, <code>android2</code>). Se due dispositivi hanno lo stesso ID, condividono lo stesso carrello in tempo reale (utile se hai due PC alla stessa cassa, dannoso se sono in posti diversi).
+            <div class="callout info">
+                <strong>💡 Cos'è il CartId?</strong><br>
+                Immagina il CartId come il numero del tavolo di un ristorante. 
+                <br>Se due tablet hanno lo stesso CartId (es. <code>cassa</code>), vedranno lo stesso carrello. 
+                <br>Se hanno CartId diversi (es. <code>android1</code> e <code>android2</code>), avranno carrelli separati e potranno servire due clienti diversi contemporaneamente.
             </div>
 
+            <h3>🖨 Configurare la Stampante Fiscale (RT) passo-passo</h3>
+            <p>Se hai una stampante fiscale (Registratore Telematico) collegata al PC, puoi farle stampare gli scontrini in automatico. Ecco come funziona, spiegato semplice:</p>
+            <ol>
+                <li><strong>Accendi la stampante</strong> e assicurati che sia collegata al PC.</li>
+                <li>Vai in <em>Impostazioni Server → STAMPANTE FISCALE</em> e attiva lo switch <strong>"Abilita stampante fiscale"</strong>.</li>
+                <li><strong>Cartella Input (La cassetta delle lettere):</strong> NautiMag creerà un file di testo (es. <code>scontrino.txt</code>) in questa cartella. Immagina di lasciare un bigliettino nella cassetta delle lettere.</li>
+                <li><strong>Cartella Esito (La risposta):</strong> Il programma della stampante leggerà il bigliettino e, se ha stampato, lascerà un file di risposta (es. <code>scontrino.ok</code>) in questa cartella.</li>
+                <li><strong>Nome file scontrino:</strong> Scrivi il nome esatto che la tua stampante si aspetta (solitamente <code>scontrino.txt</code>).</li>
+            </ol>
+
             <div class="callout warn">
-                <strong>Dopo il salvataggio devi riavviare l'app</strong> per applicare la modalità server.
+                <strong>⚠️ Cosa succede se la stampante non risponde?</strong><br>
+                NautiMag aspetta 10 secondi. Se la stampante è spenta o non risponde, NautiMag penserà: <em>"Ok, la stampante non c'è"</em>. Salverà lo scontrino nella coda <strong>🧾 Scontrini KO</strong> e ti mostrerà un avviso. La vendita, però, sarà salvata regolarmente!
+            </div>
+
+            <div class="callout info">
+                <strong>Dopo aver salvato queste impostazioni, chiudi e riapri NautiMag</strong> per far funzionare tutto correttamente.
             </div>
         </section>
 
@@ -985,6 +1003,7 @@
                 <tr><td>Tray pallino grigio</td><td>Server fermo → ▶ Attiva server</td></tr>
                 <tr><td>NautiMag pallino rosso</td><td>Server spento o IP sbagliato in Impostazioni Server</td></tr>
                 <tr><td>Android non si connette</td><td>Stessa Wi-Fi? IP PC corretto? PIN uguale?</td></tr>
+                <tr><td>Scontrino non stampato (KO)</td><td>Vai in <em>Gestione → Scontrini KO</em> per riprovare o annullare la stampa.</td></tr>
                 <tr><td>PDF non si genera</td><td>Su Android non è possibile. Usa Windows.</td></tr>
                 <tr><td>Import Excel fallisce</td><td>Verifica intestazioni colonne (o usa Import guidato)</td></tr>
                 <tr><td>Backup non funziona</td><td>Verifica che la cartella Documenti sia accessibile</td></tr>
@@ -1029,7 +1048,6 @@
                 <li>Se proprio non si connette, usa il QR Code generato dal PC per riconfigurare il telefono in 2 secondi.</li>
             </ul>
 
-            <!-- NUOVO: FAQ CARTID CONDIVISO -->
             <h3>Perché il mio tablet e il mio PC mostrano lo stesso carrello?</h3>
             <p>Se due dispositivi mostrano gli stessi articoli nel carrello, significa che hanno <strong>lo stesso CartId</strong> impostato nelle Impostazioni Server. In questo modo il server li tratta come se fossero un unico computer.</p>
             <p>Per risolvere:</p>
