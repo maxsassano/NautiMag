@@ -20,7 +20,7 @@
 
 ---
 
-### 📖 [Leggi la Guida Utente Online](https://maxsassano.github.io/NautiMag/docs/)
+### 📖 [Leggi la Guida Utente Online](https://maxsassano.github.io/NautiMag)
 
 ---
 
