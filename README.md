@@ -38,6 +38,7 @@ Scarica l'ultima versione dalla pagina [**Releases**](https://github.com/maxsass
 | **APK Android** | Disponibile su richiesta (contatta l'autore) |
 
 > ℹ️ L'installer verifica automaticamente i prerequisiti e ti guida al download se mancanti.
+
 > 📱 L'APK per Android non è pubblicato direttamente per evitare utilizzi non autorizzati. Richiedilo via [email](mailto:massimo.sassano@gmail.com).
 
 ---
@@ -102,11 +103,13 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 
 ### ⚙️ Gestione (Anagrafiche e Sistema)
 **📄 Documenti**
+- **Fatture Emesse**: Creazione di fatture (da magazzino o righe a testo libero), gestione IVA, e **esportazione del file XML SDI** per l'Agenzia delle Entrate.
+- **Fatture in arrivo**: Registrazione delle fatture fornitore con gestione IVA completa (Imponibile, IVA, Totale) e carico automatico in magazzino tramite scansione barcode.
+- **Note Credito**: Emissione **esclusivamente da Fatture Emesse**. Il sistema calcola la quantità residua per impedire storni superiori al fatturato.
 - **Ordini Fornitori**: Creazione, invio, ricezione (genera automaticamente i movimenti di Acquisto) e chiusura.
 - **DDT / Buoni Consegna**: Documenti di trasporto per vendite, resi o ricezioni (non modificano il magazzino).
-- **Note Credito**: Emissione da vendite esistenti con selezione delle righe da rendere.
-- **Stampa Liste**: PDF di clienti, fornitori e articoli con filtri (sottoscorta, negativi).
 - **Scontrini KO**: Coda di gestione per gli scontrini non stampati dalla RT (Da fare, Risolti, Annullati). Permette la ristampa.
+- **Vendite (Annullamento)**: Gli scontrini non generano Note Credito. Per annullare una vendita, si usa il pulsante **"Annulla Scontrino"** che reintegra la merce in magazzino (il documento fiscale va annullato manualmente sul RT entro 15gg).
 
 **📦 Magazzino**
 - **Statistiche**: KPI di vendita (oggi, mese, anno), grafici a barre, top 10 articoli e clienti.
@@ -115,7 +118,7 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 - **Etichette Barcode**: Generazione PDF di etichette Code128 (formati A4 e rotolo).
 
 **🏢 Anagrafiche**
-- **Azienda / Fornitori / Clienti**: Schede complete con storico e dati SDI.
+- **Azienda / Fornitori / Clienti**: Schede complete con storico, dati SDI e pulsante **"➕"** per la creazione al volo durante la compilazione di fatture o DDT.
 - **Privacy (GDPR)**: Gestione del consenso con generazione del modulo cartaceo per la firma e tracciamento della data.
 - **Categorie / Unità di Misura / Ubicazioni**: Gestione tassonomie merceologiche.
 - **Aliquote IVA**: Personalizzabili (22%, 10%, 4%, 0%, custom).
@@ -132,11 +135,12 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 - **Export Excel**: File `.xlsx` con 3 fogli (Magazzino, Movimenti, Riepilogo IVA).
 - **Report PDF**: Magazzino completo, Articoli in negativo, Sottoscorta, Movimenti, Vendite.
 - **Backup**: Automatico giornaliero e manuale (rotazione max 5 file).
+- **Sincronizzazione**: Esportazione/Importazione tramite file `.wmsync` per allineare i dati in modalità standalone.
 
-### 🖨️ Registratore Telematico (RT)
+### 🖨️ Registratore Telematico (RT) e Fatturazione
 - **Integrazione Spooler**: Invio automatico degli scontrini alla stampante fiscale configurando le cartelle Input/Esito.
 - **Gestione Errori**: Se lo scontrino non viene stampato (timeout o .ko), viene salvato in una coda di KO per la ristampa successiva.
-- **Fatturazione SDI-ready**: I campi Codice SDI, PEC e Regime Fiscale (es. RF01, RF19) sono pronti nelle schede Cliente e Azienda per future esportazioni XML.
+- **Fatturazione SDI-ready**: I campi Codice SDI, PEC e Regime Fiscale sono integrati. Il software genera il file **XML (FatturaPA)** della fattura emessa, pronto per essere caricato sul portale dell'Agenzia delle Entrate o consegnato al commercialista.
 
 ---
 
