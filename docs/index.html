@@ -29,7 +29,7 @@
             <a href="#scheda-articolo">📝 Scheda articolo</a>
             <a href="#carrello">🛒 Carrello e Multi-Cassa</a>
             <a href="#vendite">💰 Vendite</a>
-            <a href="#dettaglio-vendita">📋 Dettaglio vendita</a>
+            <a href="#dettaglio-vendita">📋 Dettaglio vendita (Annullamento)</a>
             <a href="#scontrini-ko">🧾 Scontrini KO</a>
             <a href="#movimenti">📊 Movimenti</a>
             <a href="#dati">💾 Dati</a>
@@ -49,6 +49,8 @@
             <a href="#unita-misura">📏 Unità di misura</a>
             <a href="#ubicazioni">📍 Ubicazioni</a>
             <a href="#aliquote-iva">💵 Aliquote IVA</a>
+            <a href="#fatture-emesse">📄 Fatture Emesse</a>
+            <a href="#fatture-ricevute">🧾 Fatture in arrivo</a>
             <a href="#ordini">📦 Ordini fornitori</a>
             <a href="#ddt">📋 DDT</a>
             <a href="#note-credito">↩️ Note credito</a>
@@ -330,7 +332,7 @@
 
         <!-- ═══════════════════════════ VENDITE ═══════════════════════════ -->
         <section id="vendite">
-            <h2>💰 Vendite</h2>
+            <h2>💰 Vendite (Scontrini)</h2>
             <p>Storico di tutte le vendite chiuse, raggruppate per riferimento.</p>
             <ul>
                 <li><strong>Barra di ricerca</strong> — cerca per riferimento, cliente o prodotto</li>
@@ -342,7 +344,7 @@
 
         <!-- ═══════════════════════════ DETTAGLIO VENDITA ═══════════════════════════ -->
         <section id="dettaglio-vendita">
-            <h2>📋 Dettaglio vendita</h2>
+            <h2>📋 Dettaglio vendita (Annullamento)</h2>
             <p>Mostra riepilogo, cliente, righe e opzioni avanzate.</p>
 
             <h3>⚙ Opzioni avanzate (extender)</h3>
@@ -352,23 +354,13 @@
                 <li><strong>Note interne</strong> — non visibili al cliente</li>
             </ul>
 
-            <h3>Cliente</h3>
-            <ul>
-                <li><strong>👤 Associa / cambia cliente</strong></li>
-                <li><strong>🗑 Rimuovi cliente</strong></li>
-            </ul>
-
-            <h3>Stampe (solo Windows)</h3>
-            <table>
-                <tr><th>Bottone</th><th>Documento</th></tr>
-                <tr><td>🖨 Scontrino</td><td>Ricevuta commerciale A5</td></tr>
-                <tr><td>📄 Fattura proforma</td><td>Documento A4 non fiscale con disclaimer</td></tr>
-                <tr><td>📄 Fattura accompagnatoria</td><td>Documento A4 non fiscale di trasporto</td></tr>
-                <tr><td>↩️ Emetti nota credito</td><td>Apre la creazione NC da questa vendita</td></tr>
-            </table>
-
+            <h3>🚫 Annulla Scontrino (Solo per Scontrini)</h3>
+            <p>Se il cliente rende la merce, non si emette una nota credito per uno scontrino (non è un documento fiscale). Si usa invece il pulsante <strong>🚫 Annulla Scontrino</strong>.</p>
             <div class="callout warn">
-                <strong>Nota bene:</strong> i documenti emessi non hanno valore fiscale. La fattura elettronica va emessa tramite SDI separatamente.
+                <strong>⚠️ Cosa succede:</strong><br>
+                1. Cliccando il pulsante, la merce viene <strong>reintegrata in magazzino</strong>.<br>
+                2. <strong>IMPORTANTE:</strong> Devi ricordarti di andare fisicamente sul Registratore Telematico (RT) e annullare lo scontrino entro 15 giorni. NautiMag non può farlo per te.<br>
+                3. Una volta annullato, il pulsante sparisce e non potrai annullarlo di nuovo.
             </div>
         </section>
 
@@ -662,9 +654,10 @@
             <h2>👥 Clienti</h2>
             <p>Elenco clienti. Ogni scheda mostra le ultime 50 vendite con totale speso.</p>
             <p>I campi includono: nome, cognome, ragione sociale, P.IVA, C.F., <strong>Codice SDI</strong>, <strong>PEC</strong>, <strong>Regime Fiscale</strong>, indirizzo, contatti, note e la sezione <strong>Privacy (GDPR)</strong>.</p>
-            
+
             <h3>Filtro Privacy</h3>
-            <p>In cima alla lista dei clienti c'è un interruttore: <strong>"Mostra solo clienti senza privacy"</strong>. Attivalo per vedere subito chi non ha ancora firmato il consenso. Accanto a ogni cliente, un'icona indica lo stato:
+            <p>
+                In cima alla lista dei clienti c'è un interruttore: <strong>"Mostra solo clienti senza privacy"</strong>. Attivalo per vedere subito chi non ha ancora firmato il consenso. Accanto a ogni cliente, un'icona indica lo stato:
                 <ul>
                     <li>🛡️ <strong>Verde</strong>: Privacy firmata e registrata.</li>
                     <li>⚠️ <strong>Gialla</strong>: Privacy mancante.</li>
@@ -726,6 +719,64 @@
             <p>Puoi aggiungere aliquote custom (es. 5%, 7%).</p>
         </section>
 
+        <!-- ═══════════════════════════ FATTURE EMESSE ═══════════════════════════ -->
+        <section id="fatture-emesse">
+            <h2>📄 Fatture Emesse</h2>
+            <p>Questa è la sezione per le fatture che fai <strong>tu</strong> ai tuoi clienti (non gli scontrini).</p>
+
+            <h3>Come si crea una fattura?</h3>
+            <ol>
+                <li>Vai su <strong>Documenti → Fatture Emesse</strong> e clicca <strong>＋ Nuova Fattura</strong>.</li>
+                <li><strong>Scegli il Cliente:</strong> dal menu a tendina. Se il cliente non c'è, clicca sul pulsante <strong>➕</strong> accanto al menu per crearlo al volo.</li>
+                <li>
+                    <strong>Aggiungi Prodotti:</strong>
+                    <ul>
+                        <li><strong>📦 Da Magazzino</strong>: apre la ricerca. Scegli un articolo e la quantità. Quando emetterai la fattura, questo articolo verrà scaricato dal magazzino.</li>
+                        <li><strong>✏ Riga Manuale</strong>: scrivi una descrizione e un prezzo a mano (es. "Trasporto" o "Imballaggio"). Questa riga non tocca il magazzino.</li>
+                    </ul>
+                </li>
+                <li><strong>Controlla l'IVA:</strong> In alto puoi decidere se i prezzi che scrivi sono già ivati o no, e scegliere l'aliquota di default.</li>
+                <li><strong>Salva come Bozza:</strong> se non è ancora definitiva, o <strong>✅ Emetti Fattura</strong>: se vuoi chiuderla e scaricare la merce.</li>
+            </ol>
+
+            <div class="callout info">
+                <strong>💡 Cosa succede dopo l'emissione?</strong><br>
+                La fattura diventa "chiusa" (non la puoi più modificare). Se c'è stato un errore o il cliente ha reso la merce, devi emettere una <strong>Nota Credito</strong>.
+            </div>
+
+            <h3>📄 Esportare il file XML per l'Agenzia delle Entrate (SDI)</h3>
+            <p>Quando la fattura è stata emessa, in fondo alla pagina apparirà il pulsante blu <strong>📄 Esporta XML (SDI)</strong>.</p>
+            <p>Cliccandolo, NautiMag genererà un file <code>.xml</code> (es. <code>Fattura_2026-0001.xml</code>) e ti chiederà dove salvarlo (di solito nella cartella <code>Documenti\NautiMag\export\</code>).</p>
+
+            <div class="callout warn">
+                <strong>⚠️ IMPORTANTE: NautiMag NON invia la fattura all'Agenzia delle Entrate.</strong><br>
+                Il file XML generato è il "documento ufficiale" che devi consegnare al commercialista o caricare a mano sul portale dell'Agenzia.
+            </div>
+
+            <h3>Cosa devi fare con il file XML?</h3>
+            <p>Hai due strade:</p>
+            <ol>
+                <li><strong>Portale "Fatture e Corrispettivi":</strong> Vai sul sito dell'Agenzia delle Entrate, accedi alla tua area riservata e carica il file XML. L'Agenzia lo leggerà e lo invierà al tuo cliente.</li>
+                <li><strong>Al tuo commercialista:</strong> Invia il file XML al tuo consulente (via email o chiavetta USB). Sarà lui a occuparsi dell'invio telematico e della conservazione a norma.</li>
+            </ol>
+        </section>
+
+        <!-- ═══════════════════════════ FATTURE RICEVUTE ═══════════════════════════ -->
+        <section id="fatture-ricevute">
+            <h2>🧾 Fatture in arrivo (Fornitori)</h2>
+            <p>Questa sezione serve per caricare la merce in magazzino quando il fornitore ti porta la fattura.</p>
+
+            <h3>Come funziona?</h3>
+            <ol>
+                <li>Vai su <strong>Documenti → Fatture Ricevute</strong> e clicca <strong>＋ Nuova Fattura</strong>.</li>
+                <li><strong>Scegli il Fornitore</strong> (con il pulsante ➕ se manca).</li>
+                <li><strong>Opzioni IVA:</strong> Decidi se i prezzi che leggerai dalla fattura del fornitore sono già ivati (di solito sì) e scegli l'aliquota. Il sistema calcolerà da solo Imponibile, IVA e Totale.</li>
+                <li><strong>Scansiona i prodotti:</strong> Usa la pistola barcode. Ogni volta che spari un codice, il prodotto viene aggiunto alla lista. Se lo spari due volte, la quantità diventa 2.</li>
+                <li>Se il prodotto non esiste, puoi crearlo al volo.</li>
+                <li>Premi <strong>✅ Salva e Carica in Magazzino</strong>: il sistema aggiungerà i pezzi alle tue scorte, calcolando il prezzo di acquisto netto (senza IVA) per ogni articolo.</li>
+            </ol>
+        </section>
+
         <!-- ═══════════════════════════ ORDINI ═══════════════════════════ -->
         <section id="ordini">
             <h2>📦 Ordini fornitori</h2>
@@ -773,18 +824,23 @@
         <!-- ═══════════════════════════ NOTE CREDITO ═══════════════════════════ -->
         <section id="note-credito">
             <h2>↩️ Note credito</h2>
-            <p>Si emettono <strong>da una vendita esistente</strong>. Apri una vendita → <em>↩️ Emetti nota credito</em>.</p>
+            <p>La Nota Credito è un documento che "cancella" in tutto o in parte una Fattura Emessa. <strong>Non si usa per gli scontrini.</strong></p>
 
-            <h3>Creazione</h3>
+            <h3>Come si emette una Nota Credito?</h3>
             <ol>
-                <li>Seleziona le righe da rendere (checkbox)</li>
-                <li>Imposta la quantità per ogni riga (max = quantità venduta)</li>
-                <li>Inserisci causale (es. "Reso merce", "Difettoso")</li>
-                <li>Salva → numero progressivo <code>NC-2026-0001</code></li>
+                <li>Vai su <strong>Documenti → Fatture Emesse</strong>.</li>
+                <li>Apri la fattura che vuoi stornare (deve essere già stata "Emessa").</li>
+                <li>In fondo alla pagina, clicca sul pulsante rosso <strong>↩️ Emetti Nota Credito</strong>.</li>
+                <li>Si aprirà una pagina con tutte le righe della fattura. Metti la spunta sulle righe che il cliente ti ha reso e scrivi <strong>quanti pezzi</strong> ha reso.</li>
+                <li>Clicca <strong>💾 Crea nota credito</strong>.</li>
             </ol>
 
-            <p>Stati: Bozza → Emessa → Annullata.</p>
-            <p>Stampa PDF dalla scheda nota credito (solo Windows).</p>
+            <div class="callout warn">
+                <strong>⚠️ Regole di sicurezza fiscale:</strong><br>
+                - Non puoi stornare più pezzi di quelli che hai fatturato. Se hai fatturato 5 pezzi, la Nota Credito te ne farà stornare al massimo 5.<br>
+                - Se hai già stornato 2 pezzi, la prossima Nota Credito ti farà stornare al massimo 3.<br>
+                - Se hai già stornato tutto, il pulsante "Emetti Nota Credito" non ci sarà più.
+            </div>
         </section>
 
         <!-- ═══════════════════════════ ETICHETTE ═══════════════════════════ -->
@@ -921,8 +977,8 @@
 
             <div class="callout info">
                 <strong>💡 Cos'è il CartId?</strong><br>
-                Immagina il CartId come il numero del tavolo di un ristorante. 
-                <br>Se due tablet hanno lo stesso CartId (es. <code>cassa</code>), vedranno lo stesso carrello. 
+                Immagina il CartId come il numero del tavolo di un ristorante.
+                <br>Se due tablet hanno lo stesso CartId (es. <code>cassa</code>), vedranno lo stesso carrello.
                 <br>Se hanno CartId diversi (es. <code>android1</code> e <code>android2</code>), avranno carrelli separati e potranno servire due clienti diversi contemporaneamente.
             </div>
 
