@@ -51,6 +51,7 @@ NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, sia esso un pi
 - **Real-Time**: Grazie a **SignalR**, ogni modifica al carrello o alle anagrafiche viene istantaneamente propagata a tutti i dispositivi connessi.
 - **Auto-Discovery (UDP)**: I client (tablet/PC) trovano il server automaticamente sulla rete locale, senza dover inserire IP statici.
 - **Configurazione QR Code**: Il PC Server genera un QR Code; il telefono lo inquadra e si configura da solo in 2 secondi (Zero-Touch Setup).
+- **Sicurezza PIN**: Il PIN viaggia in modo sicuro sulla rete locale (hash SHA256) e non è mai leggibile in chiaro dai file di configurazione del server.
 
 ---
 
@@ -103,7 +104,7 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 
 ### ⚙️ Gestione (Anagrafiche e Sistema)
 **📄 Documenti**
-- **Fatture Emesse**: Creazione di fatture (da magazzino o righe a testo libero), gestione IVA, e **esportazione del file XML SDI** per l'Agenzia delle Entrate.
+- **Fatture Emesse**: Creazione di fatture (da magazzino o righe a testo libero), gestione IVA, e **esportazione del file XML SDI** per l'Agenzia delle Entrate. Include la **Fattura Proforma** con numerazione progressiva (es. PRO-2026-0001) e possibilità di modifica manuale.
 - **Fatture in arrivo**: Registrazione delle fatture fornitore con gestione IVA completa (Imponibile, IVA, Totale) e carico automatico in magazzino tramite scansione barcode.
 - **Note Credito**: Emissione **esclusivamente da Fatture Emesse**. Il sistema calcola la quantità residua per impedire storni superiori al fatturato.
 - **Ordini Fornitori**: Creazione, invio, ricezione (genera automaticamente i movimenti di Acquisto) e chiusura.
@@ -118,7 +119,7 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 - **Etichette Barcode**: Generazione PDF di etichette Code128 (formati A4 e rotolo).
 
 **🏢 Anagrafiche**
-- **Azienda / Fornitori / Clienti**: Schede complete con storico, dati SDI e pulsante **"➕"** per la creazione al volo durante la compilazione di fatture o DDT.
+- **Azienda / Fornitori / Clienti**: Schede complete con storico, dati SDI e pulsante **"➕"** per la creazione al volo durante la compilazione di fatture o DDT. La selezione del **Regime Fiscale** (RF01, RF19, ecc.) avviene tramite un comodo menu a tendina.
 - **Privacy (GDPR)**: Gestione del consenso con generazione del modulo cartaceo per la firma e tracciamento della data.
 - **Categorie / Unità di Misura / Ubicazioni**: Gestione tassonomie merceologiche.
 - **Aliquote IVA**: Personalizzabili (22%, 10%, 4%, 0%, custom). Supporto completo per le **Nature IVA** (N1, N2.2, N3.1, N4, ecc.) obbligatorie per le fatture a 0% (esenti o non imponibili).
@@ -140,7 +141,7 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 ### 🖨️ Registratore Telematico (RT) e Fatturazione
 - **Integrazione Spooler**: Invio automatico degli scontrini alla stampante fiscale configurando le cartelle Input/Esito.
 - **Gestione Errori**: Se lo scontrino non viene stampato (timeout o .ko), viene salvato in una coda di KO per la ristampa successiva.
-- **Fatturazione SDI-ready**: I campi Codice SDI, PEC e Regime Fiscale sono integrati. Il software genera il file **XML (FatturaPA)** della fattura emessa, pronto per essere caricato sul portale dell'Agenzia delle Entrate o consegnato al commercialista.
+- **Fatturazione SDI-ready**: I campi Codice SDI, PEC e Regime Fiscale sono integrati. Il software genera il file **XML (FatturaPA)** della fattura emessa (con gestione TD01 e TD04), pronto per essere caricato sul portale dell'Agenzia delle Entrate o consegnato al commercialista.
 
 ---
 
