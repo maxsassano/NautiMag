@@ -121,18 +121,18 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 - **Azienda / Fornitori / Clienti**: Schede complete con storico, dati SDI e pulsante **"➕"** per la creazione al volo durante la compilazione di fatture o DDT.
 - **Privacy (GDPR)**: Gestione del consenso con generazione del modulo cartaceo per la firma e tracciamento della data.
 - **Categorie / Unità di Misura / Ubicazioni**: Gestione tassonomie merceologiche.
-- **Aliquote IVA**: Personalizzabili (22%, 10%, 4%, 0%, custom).
+- **Aliquote IVA**: Personalizzabili (22%, 10%, 4%, 0%, custom). Supporto completo per le **Nature IVA** (N1, N2.2, N3.1, N4, ecc.) obbligatorie per le fatture a 0% (esenti o non imponibili).
 
 **🔧 Sistema**
 - **Guida Utente**: Manuale integrato con oltre 40 sezioni.
 - **Impostazioni Server**: Configurazione modalità, IP/Hostname, PIN, CartId e Stampante Fiscale (RT).
 - **Gestione Utenti**: Creazione e modifica utenti con ruoli **SuperUser**, **Admin** e **Vendita**.
 - **Log**: Due tab separati per **Audit** (chi ha fatto cosa) e **Sistema** (errori tecnici).
-- **Temi Grafici**: Cambio istantaneo tra **Standard (Blu)**, **Pastello (Colori)** e **Dark (Notturno)**.
+- **Temi Grafici e Tooltips**: Cambio istantaneo tra **Standard (Blu)**, **Pastello (Colori)** e **Dark (Notturno)**. Su Windows, passando il mouse sui pulsanti icona (matita, cestino, ecc.) appare un fumetto descrittivo.
 
 ### 💾 Dati e Report
-- **Import Excel**: Tre modalità (Magazzino fisso, Guidato con mapping, Vendite). Creazione automatica di categorie e unità mancanti.
-- **Export Excel**: File `.xlsx` con 3 fogli (Magazzino, Movimenti, Riepilogo IVA).
+- **Import Excel**: Quattro modalità (Magazzino, Vendite, Clienti, Fornitori). L'Import Guidato con mapping delle colonne funziona per tutte le anagrafiche e crea automaticamente categorie e unità mancanti.
+- **Export Excel**: File `.xlsx` con 5 fogli (Magazzino, Movimenti, Riepilogo IVA, Clienti, Fornitori).
 - **Report PDF**: Magazzino completo, Articoli in negativo, Sottoscorta, Movimenti, Vendite.
 - **Backup**: Automatico giornaliero e manuale (rotazione max 5 file).
 - **Sincronizzazione**: Esportazione/Importazione tramite file `.wmsync` per allineare i dati in modalità standalone.
