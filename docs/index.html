@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,7 @@
             <a href="#carrello">🛒 Carrello e Multi-Cassa</a>
             <a href="#vendite">💰 Vendite</a>
             <a href="#dettaglio-vendita">📋 Dettaglio vendita (Annullamento)</a>
-            <a href="#scontrini-ko">🧾 Scontrini KO</a>
+            <a href="#scontrini-ko">🧾 Scontrini (ex KO)</a>
             <a href="#movimenti">📊 Movimenti</a>
             <a href="#dati">💾 Dati</a>
             <a href="#import">📥 Import</a>
@@ -48,7 +48,7 @@
             <a href="#categorie">🏷️ Categorie</a>
             <a href="#unita-misura">📏 Unità di misura</a>
             <a href="#ubicazioni">📍 Ubicazioni</a>
-            <a href="#aliquote-iva">💵 Aliquote IVA</a>
+            <a href="#aliquote-iva">💵 Aliquote IVA e Nature</a>
             <a href="#fatture-emesse">📄 Fatture Emesse</a>
             <a href="#fatture-ricevute">🧾 Fatture in arrivo</a>
             <a href="#ordini">📦 Ordini fornitori</a>
@@ -129,6 +129,9 @@
                 <tr><td>🔔</td><td>Notifiche (es. scorte, licenza)</td></tr>
                 <tr><td>📖 / 📅</td><td>Apre la Guida utente o l'Agenda</td></tr>
             </table>
+            <div class="callout info">
+                <strong>💡 Novità (Windows):</strong> Passa il mouse sopra le icone per vedere un fumetto descrittivo (Tooltip).
+            </div>
 
             <h3>Footer (in basso)</h3>
             <ul>
@@ -332,7 +335,7 @@
 
         <!-- ═══════════════════════════ VENDITE ═══════════════════════════ -->
         <section id="vendite">
-            <h2>💰 Vendite (Scontrini)</h2>
+            <h2>💰 Vendite</h2>
             <p>Storico di tutte le vendite chiuse, raggruppate per riferimento.</p>
             <ul>
                 <li><strong>Barra di ricerca</strong> — cerca per riferimento, cliente o prodotto</li>
@@ -344,7 +347,7 @@
 
         <!-- ═══════════════════════════ DETTAGLIO VENDITA ═══════════════════════════ -->
         <section id="dettaglio-vendita">
-            <h2>📋 Dettaglio vendita (Annullamento)</h2>
+            <h2>📋 Dettaglio vendita</h2>
             <p>Mostra riepilogo, cliente, righe e opzioni avanzate.</p>
 
             <h3>⚙ Opzioni avanzate (extender)</h3>
@@ -354,7 +357,7 @@
                 <li><strong>Note interne</strong> — non visibili al cliente</li>
             </ul>
 
-            <h3>🚫 Annulla Scontrino (Solo per Scontrini)</h3>
+            <h3>🚫 Annulla Scontrino</h3>
             <p>Se il cliente rende la merce, non si emette una nota credito per uno scontrino (non è un documento fiscale). Si usa invece il pulsante <strong>🚫 Annulla Scontrino</strong>.</p>
             <div class="callout warn">
                 <strong>⚠️ Cosa succede:</strong><br>
@@ -366,7 +369,7 @@
 
         <!-- ═══════════════════════════ SCONTRINI KO ═══════════════════════════ -->
         <section id="scontrini-ko">
-            <h2>🧾 Scontrini KO (Errori Stampante)</h2>
+            <h2>🧾 Scontrini (ex KO)</h2>
             <p>Immagina che la stampante fiscale sia un amico a cui devi consegnare un bigliettino (lo scontrino). Se l'amico è assente o non risponde, il bigliettino non viene consegnato.</p>
             <p>In NautiMag, se la stampante è spenta o senza carta, la vendita viene <strong>salvata lo stesso</strong> (i soldi sono incassati!), ma lo scontrino va in una scatola speciale chiamata <strong>"Scontrini KO"</strong>.</p>
 
@@ -394,6 +397,7 @@
                 <strong>💡 Ricorda:</strong> La vendita è al sicuro! Lo scontrino KO riguarda solo la stampa del pezzo di carta, non l'incasso dei soldi.
             </div>
         </section>
+
         <!-- ═══════════════════════════ MOVIMENTI ═══════════════════════════ -->
         <section id="movimenti">
             <h2>📊 Movimenti</h2>
@@ -468,18 +472,21 @@
                 <li>Quando <em>Codice</em> e <em>Prodotto</em> sono mappati, si attiva <strong>✅ Importa</strong></li>
             </ol>
             <div class="callout info">
-                <strong>💡 Suggerimento:</strong> l'auto-mapping riconosce oltre 30 varianti (SKU, EAN, Descrizione, Costo, Giacenza, ecc.).
+                <strong>💡 Suggerimento:</strong> l'auto-mapping riconosce oltre 30 varianti (SKU, EAN, Descrizione, Costo, Giacenza, ecc.). <br>
+                <strong>Novità:</strong> Ora puoi usare l'import guidato anche per <strong>Clienti</strong> e <strong>Fornitori</strong>!
             </div>
         </section>
 
         <!-- ═══════════════════════════ ESPORTA ═══════════════════════════ -->
         <section id="esporta">
             <h2>📤 Esporta Excel</h2>
-            <p>Genera un file <code>.xlsx</code> con 3 fogli:</p>
+            <p>Genera un file <code>.xlsx</code> con 5 fogli:</p>
             <ol>
                 <li><strong>Magazzino</strong> — tutti gli articoli con calcolo IVA (imponibile, IVA unitaria, prezzo ivato)</li>
                 <li><strong>Movimenti</strong> — tutti i movimenti con riepilogo IVA</li>
                 <li><strong>Riepilogo IVA</strong> — totali vendite e acquisti per aliquota + saldo IVA</li>
+                <li><strong>Clienti</strong> — anagrafica completa (Novità!)</li>
+                <li><strong>Fornitori</strong> — anagrafica completa (Novità!)</li>
             </ol>
             <p>Il file è salvato in <code>Documenti\NautiMag\export\</code> e puoi aprirlo, condividerlo o salvarlo altrove.</p>
         </section>
@@ -541,6 +548,7 @@
                 <li>Note credito</li>
                 <li>Stampa liste</li>
                 <li>Scontrini KO</li>
+                <li>Fatture (Ricevute/Emesse)</li>
             </ul>
 
             <h3>📦 Magazzino</h3>
@@ -654,10 +662,9 @@
             <h2>👥 Clienti</h2>
             <p>Elenco clienti. Ogni scheda mostra le ultime 50 vendite con totale speso.</p>
             <p>I campi includono: nome, cognome, ragione sociale, P.IVA, C.F., <strong>Codice SDI</strong>, <strong>PEC</strong>, <strong>Regime Fiscale</strong>, indirizzo, contatti, note e la sezione <strong>Privacy (GDPR)</strong>.</p>
-
+            
             <h3>Filtro Privacy</h3>
-            <p>
-                In cima alla lista dei clienti c'è un interruttore: <strong>"Mostra solo clienti senza privacy"</strong>. Attivalo per vedere subito chi non ha ancora firmato il consenso. Accanto a ogni cliente, un'icona indica lo stato:
+            <p>In cima alla lista dei clienti c'è un interruttore: <strong>"Mostra solo clienti senza privacy"</strong>. Attivalo per vedere subito chi non ha ancora firmato il consenso. Accanto a ogni cliente, un'icona indica lo stato:
                 <ul>
                     <li>🛡️ <strong>Verde</strong>: Privacy firmata e registrata.</li>
                     <li>⚠️ <strong>Gialla</strong>: Privacy mancante.</li>
@@ -707,7 +714,7 @@
 
         <!-- ═══════════════════════════ ALIQUOTE IVA ═══════════════════════════ -->
         <section id="aliquote-iva">
-            <h2>💵 Aliquote IVA</h2>
+            <h2>💵 Aliquote IVA e Nature</h2>
             <p>Aliquote disponibili per gli articoli.</p>
             <p>Default alla prima installazione:</p>
             <ul>
@@ -717,6 +724,10 @@
                 <li>0% — Esente / non imponibile</li>
             </ul>
             <p>Puoi aggiungere aliquote custom (es. 5%, 7%).</p>
+
+            <h3>Nature IVA (Novità!)</h3>
+            <p>Quando si crea o si modifica un'aliquota allo <strong>0%</strong> (esente o non imponibile), l'Agenzia delle Entrate richiede di specificare il motivo (la "Natura"). NautiMag ti blocca se provi a salvare un'IVA a 0% senza Natura.</p>
+            <p>Per selezionarla, clicca sul campo <strong>"Codice Natura"</strong> e scegli dall'elenco (es. N4 - Esenti, N2.2 - Forfettario, ecc.).</p>
         </section>
 
         <!-- ═══════════════════════════ FATTURE EMESSE ═══════════════════════════ -->
@@ -728,8 +739,7 @@
             <ol>
                 <li>Vai su <strong>Documenti → Fatture Emesse</strong> e clicca <strong>＋ Nuova Fattura</strong>.</li>
                 <li><strong>Scegli il Cliente:</strong> dal menu a tendina. Se il cliente non c'è, clicca sul pulsante <strong>➕</strong> accanto al menu per crearlo al volo.</li>
-                <li>
-                    <strong>Aggiungi Prodotti:</strong>
+                <li><strong>Aggiungi Prodotti:</strong> 
                     <ul>
                         <li><strong>📦 Da Magazzino</strong>: apre la ricerca. Scegli un articolo e la quantità. Quando emetterai la fattura, questo articolo verrà scaricato dal magazzino.</li>
                         <li><strong>✏ Riga Manuale</strong>: scrivi una descrizione e un prezzo a mano (es. "Trasporto" o "Imballaggio"). Questa riga non tocca il magazzino.</li>
@@ -745,20 +755,12 @@
             </div>
 
             <h3>📄 Esportare il file XML per l'Agenzia delle Entrate (SDI)</h3>
-            <p>Quando la fattura è stata emessa, in fondo alla pagina apparirà il pulsante blu <strong>📄 Esporta XML (SDI)</strong>.</p>
-            <p>Cliccandolo, NautiMag genererà un file <code>.xml</code> (es. <code>Fattura_2026-0001.xml</code>) e ti chiederà dove salvarlo (di solito nella cartella <code>Documenti\NautiMag\export\</code>).</p>
-
+            <p>Quando la fattura è stata emessa, in fondo alla pagina apparirà il pulsante <strong>📄 Esporta XML (SDI)</strong>.</p>
+            <p>Cliccandolo, NautiMag genererà un file <code>.xml</code> (es. <code>Fattura_2026-0001.xml</code>) e ti chiederà dove salvarlo.</p>
+            
             <div class="callout warn">
-                <strong>⚠️ IMPORTANTE: NautiMag NON invia la fattura all'Agenzia delle Entrate.</strong><br>
-                Il file XML generato è il "documento ufficiale" che devi consegnare al commercialista o caricare a mano sul portale dell'Agenzia.
+                <strong>⚠️ IMPORTANTE:</strong> NautiMag NON invia la fattura all'Agenzia. Il file XML generato è il "documento ufficiale" che devi caricare a mano sul portale dell'Agenzia delle Entrate o inviare al tuo commercialista.
             </div>
-
-            <h3>Cosa devi fare con il file XML?</h3>
-            <p>Hai due strade:</p>
-            <ol>
-                <li><strong>Portale "Fatture e Corrispettivi":</strong> Vai sul sito dell'Agenzia delle Entrate, accedi alla tua area riservata e carica il file XML. L'Agenzia lo leggerà e lo invierà al tuo cliente.</li>
-                <li><strong>Al tuo commercialista:</strong> Invia il file XML al tuo consulente (via email o chiavetta USB). Sarà lui a occuparsi dell'invio telematico e della conservazione a norma.</li>
-            </ol>
         </section>
 
         <!-- ═══════════════════════════ FATTURE RICEVUTE ═══════════════════════════ -->
@@ -977,8 +979,8 @@
 
             <div class="callout info">
                 <strong>💡 Cos'è il CartId?</strong><br>
-                Immagina il CartId come il numero del tavolo di un ristorante.
-                <br>Se due tablet hanno lo stesso CartId (es. <code>cassa</code>), vedranno lo stesso carrello.
+                Immagina il CartId come il numero del tavolo di un ristorante. 
+                <br>Se due tablet hanno lo stesso CartId (es. <code>cassa</code>), vedranno lo stesso carrello. 
                 <br>Se hanno CartId diversi (es. <code>android1</code> e <code>android2</code>), avranno carrelli separati e potranno servire due clienti diversi contemporaneamente.
             </div>
 
