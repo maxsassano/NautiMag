@@ -6,7 +6,10 @@
     <title>NautiMag — Guida Utente</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
+
+    <!-- Pulsante Flottante per Mobile/Desktop (appare quando scorri) -->
+    <a href="#top" id="floatingBtn" class="btn-top-floating" title="Torna su">⬆</a>
 
     <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
     <header class="hero">
@@ -17,7 +20,7 @@
     </header>
 
     <!-- ═══════════════════════════ INDICE ═══════════════════════════ -->
-    <nav class="toc">
+    <nav class="toc" id="indice">
         <h2>📑 Indice</h2>
         <div class="toc-grid">
             <a href="#primi-passi">🚀 Primi passi</a>
@@ -1155,18 +1158,59 @@
     </footer>
 
     <script>
-// Scroll fluido all'ancora
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-                  a.addEventListener('click', e => {
-                    e.preventDefault();
-                    const id = a.getAttribute('href').substring(1);
-                    const el = document.getElementById(id);
-                    if (el) {
-                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      history.replaceState(null, '', '#' + id);
-                    }
-                  });
-});
+        // 1. GESTIONE LINK INTERNI (Senza far scattare WebView2)
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            const targetId = link.getAttribute('href').substring(1);
+            link.removeAttribute('href'); // <-- Rubiamo il link a WebView2!
+            link.style.cursor = 'pointer'; // Mantiene la manina
+            
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const el = document.getElementById(targetId);
+                if (el) {
+                    // Calcoliamo la posizione esatta e scrolliamo
+                    const offsetPosition = el.getBoundingClientRect().top + window.pageYOffset - 16;
+                    window.scrollTo(0, offsetPosition);
+                }
+            });
+        });
+
+        // 2. AGGIUNGE IL LINK "TORNA ALL'INDICE"
+        document.querySelectorAll('main section').forEach(section => {
+            const backLink = document.createElement('a');
+            backLink.className = 'back-to-toc';
+            backLink.innerHTML = '⬆ Torna all\'indice';
+            backLink.style.cursor = 'pointer';
+            backLink.style.marginTop = '20px';
+            backLink.style.display = 'block';
+            
+            backLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo(0, 0); // Torna in cima
+            });
+            
+            section.appendChild(backLink);
+        });
+
+        // 3. PULSANTE FLOTTANTE
+        const floatingBtn = document.getElementById('floatingBtn');
+        if (floatingBtn) {
+            floatingBtn.removeAttribute('href'); // Rubiamo anche questo
+            floatingBtn.style.cursor = 'pointer';
+            
+            floatingBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo(0, 0); // Torna in cima
+            });
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    floatingBtn.style.display = 'flex';
+                } else {
+                    floatingBtn.style.display = 'none';
+                }
+            });
+        }
     </script>
 
 </body>
