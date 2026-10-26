@@ -53,12 +53,11 @@ NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, sia esso un pi
 - **Auto-Discovery (UDP)**: I client (tablet/PC) trovano il server automaticamente sulla rete locale, senza dover inserire IP statici.
 - **Configurazione QR Code**: Il PC Server genera un QR Code; il telefono lo inquadra e si configura da solo in 2 secondi (Zero-Touch Setup).
 - **Sicurezza PIN**: Il PIN viaggia in modo sicuro sulla rete locale (hash SHA256) e non è mai leggibile in chiaro dai file di configurazione del server.
+- **Performance**: I servizi anagrafici usano il pattern Strategy per astrarre il DB locale dal server remoto. Le liste usano la paginazione (a blocchi di 50) e i Lookup (categorie, fornitori) sono mantenuti in cache per 5 minuti.
 
 ---
 
 ## 📱 Configurazione Multi-Cassa
-
-*(La logica rimane invariata, vedi Carrelli Nominati e Unione alla Cassa)*
 
 NautiMag eccelle nella gestione di più operatori contemporanei. Ogni dispositivo ha il suo carrello "base" configurato tramite **CartId** (es. `cassa`, `android1`). Sul tablet, il commesso può creare **Carrelli Nominati** (es. "Pippo", "Mario Rossi") e parcheggiarli. Il cassiere sul PC li vedrà in attesa e potrà unirli al carrello principale con il tasto **"🔗 Unisci"** (con anteprima articoli).
 
@@ -81,15 +80,14 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 ### ⚙️ Gestione (Anagrafiche e Sistema)
 
 **🏢 Anagrafiche e Archivio Unico**
-- **Rubrica Unificata**: Una pagina che raccoglie tutti i contatti (Clienti, Fornitori o Entrambi). Include pulsanti azione rapida per **Chiamare, Inviare messaggi WhatsApp, Aprire Facebook/Instagram** e condividere il contatto.
-- **Validazioni Fiscali**: Controllo matematico di P.IVA e Codice Fiscale (inclusi CF omocodici). **Controllo duplicati intelligente (on-blur): all'uscita dal campo, se il codice esiste già, un popup mostra l'anteprima dei dati del contatto e permette di aprire la sua scheda.**
-- **Tipo Soggetto**: Selezione tra Società di capitali, Persona Fisica, P.A., ecc. Forza la lunghezza del C.F. a 16 caratteri e dello SDI a 6 caratteri (per la P.A.).
-- **Privacy (GDPR)**: Gestione del consenso con generazione del modulo cartaceo e tracciamento della data.
-- **Azienda**: Il Regime Fiscale (RF01, RF19) si configura solo sull'azienda emittente, non sui clienti.
-- **Articoli**: Scheda anagrafica pura (senza movimenti). Il Codice è bloccato dopo la creazione.
+- **Rubrica Unificata**: Una pagina che raccoglie tutti i contatti (Clienti, Fornitori o Entrambi).
+- **Validazioni Fiscali**: Controllo matematico di P.IVA e Codice Fiscale. Controllo duplicati intelligente (on-blur) con anteprima dei dati.
+- **Tipo Soggetto**: Selezione tra Società di capitali, Persona Fisica, P.A.
+- **Privacy (GDPR)**: Gestione del consenso con generazione del modulo cartaceo.
+- **Articoli**: Scheda anagrafica pura. Il Codice è bloccato dopo la creazione.
 
 **📄 Documenti**
-- **Fatture Emesse**: Creazione di fatture (da magazzino o a testo libero) ed esportazione XML SDI.
+- **Fatture Emesse**: Creazione di fatture ed esportazione XML SDI.
 - **Fatture in arrivo**: Carico merce da fattura fornitore tramite scansione barcode.
 - **Note Credito**: Emissione esclusivamente da Fatture Emesse con calcolo del residuo.
 - **Ordini Fornitori / DDT**: Gestione documenti di trasporto e ordini.
@@ -102,7 +100,7 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 
 **🔧 Sistema**
 - **Guida Utente / Impostazioni Server / Gestione Utenti**.
-- **Log**: Due tab separati per Audit e Sistema, **con pulsante integrato per svuotare i registri**.
+- **Log**: Due tab separati per Audit e Sistema, con pulsante integrato per svuotare i registri.
 - **Temi Grafici**: Cambio istantaneo tra **Standard**, **Pastello** e **Dark**.
 
 ### 💾 Dati e Report
@@ -117,7 +115,7 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 NautiMag è progettato per proteggere il lavoro dell'imprenditore:
 - **Licenza Offuscata**: Il file `license.json` è crittografato con **AES**.
 - **Anti-Manomissione e Anti-Spostamento Orologio**: Blocco del trial se si tenta di resettare la data.
-- **Restrizioni Trial**: Se il periodo di prova è scaduto, l'app blocca stampe, import/export, la creazione di nuovi documenti (fatture, DDT, ordini) e limita a 5 inserimenti totali per Clienti e Fornitori.
+- **Restrizioni Trial**: Se il periodo di prova è scaduto, l'app blocca stampe, import/export, la creazione di nuovi documenti e limita a 5 inserimenti totali per Clienti e Fornitori.
 - **Single Instance**: Un `Mutex` impedisce l'apertura di più finestre di NautiMag.
 - **Tracciamento Completo**: Tutte le azioni loggate nel DB e su file.
 
