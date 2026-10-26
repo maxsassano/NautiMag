@@ -82,7 +82,7 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 
 **🏢 Anagrafiche e Archivio Unico**
 - **Rubrica Unificata**: Una pagina che raccoglie tutti i contatti (Clienti, Fornitori o Entrambi). Include pulsanti azione rapida per **Chiamare, Inviare messaggi WhatsApp, Aprire Facebook/Instagram** e condividere il contatto.
-- **Validazioni Fiscali**: Controllo matematico di P.IVA e Codice Fiscale (inclusi CF omocodici). Blocco dei duplicati.
+- **Validazioni Fiscali**: Controllo matematico di P.IVA e Codice Fiscale (inclusi CF omocodici). **Controllo duplicati intelligente (on-blur): all'uscita dal campo, se il codice esiste già, un popup mostra l'anteprima dei dati del contatto e permette di aprire la sua scheda.**
 - **Tipo Soggetto**: Selezione tra Società di capitali, Persona Fisica, P.A., ecc. Forza la lunghezza del C.F. a 16 caratteri e dello SDI a 6 caratteri (per la P.A.).
 - **Privacy (GDPR)**: Gestione del consenso con generazione del modulo cartaceo e tracciamento della data.
 - **Azienda**: Il Regime Fiscale (RF01, RF19) si configura solo sull'azienda emittente, non sui clienti.
@@ -102,7 +102,7 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 
 **🔧 Sistema**
 - **Guida Utente / Impostazioni Server / Gestione Utenti**.
-- **Log**: Due tab separati per Audit e Sistema.
+- **Log**: Due tab separati per Audit e Sistema, **con pulsante integrato per svuotare i registri**.
 - **Temi Grafici**: Cambio istantaneo tra **Standard**, **Pastello** e **Dark**.
 
 ### 💾 Dati e Report
@@ -117,6 +117,7 @@ Tutte le funzioni a portata di tap, con card colorate e responsive:
 NautiMag è progettato per proteggere il lavoro dell'imprenditore:
 - **Licenza Offuscata**: Il file `license.json` è crittografato con **AES**.
 - **Anti-Manomissione e Anti-Spostamento Orologio**: Blocco del trial se si tenta di resettare la data.
+- **Restrizioni Trial**: Se il periodo di prova è scaduto, l'app blocca stampe, import/export, la creazione di nuovi documenti (fatture, DDT, ordini) e limita a 5 inserimenti totali per Clienti e Fornitori.
 - **Single Instance**: Un `Mutex` impedisce l'apertura di più finestre di NautiMag.
 - **Tracciamento Completo**: Tutte le azioni loggate nel DB e su file.
 
