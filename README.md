@@ -37,93 +37,52 @@ Scarica l'ultima versione dalla pagina [**Releases**](https://github.com/maxsass
 | **Privilegi** | Nessun admin richiesto (installazione per-utente) |
 | **APK Android** | Disponibile su richiesta (contatta l'autore) |
 
-> ℹ️ L'installer verifica automaticamente i prerequisiti e ti guida al download se mancanti.
-
-> 📱 L'APK per Android non è pubblicato direttamente per evitare utilizzi non autorizzati. Richiedilo via [email](mailto:massimo.sassano@gmail.com).
-
 ---
 
 ## 🏗️ Architettura del Sistema
 
-NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, sia esso un piccolo punto vendita o un'azienda con più casse e magazzinieri in mobilità.
-
-- **Dual-Mode**: Funziona in **Standalone** (database locale sul singolo dispositivo) o in **Modalità Server** (multi-dispositivo in tempo reale).
-- **Archivio Anagrafico Unico**: I dati di Clienti e Fornitori sono condivisi in un'unica entità. Se un'azienda è sia cliente che fornitore, non ci sono duplicazioni.
-- **Real-Time**: Grazie a **SignalR**, ogni modifica al carrello o alle anagrafiche viene istantaneamente propagata a tutti i dispositivi connessi.
-- **Auto-Discovery (UDP)**: I client (tablet/PC) trovano il server automaticamente sulla rete locale, senza dover inserire IP statici.
-- **Configurazione QR Code**: Il PC Server genera un QR Code; il telefono lo inquadra e si configura da solo in 2 secondi (Zero-Touch Setup).
-- **Sicurezza PIN**: Il PIN viaggia in modo sicuro sulla rete locale (hash SHA256) e non è mai leggibile in chiaro dai file di configurazione del server.
-- **Performance**: I servizi anagrafici usano il pattern Strategy per astrarre il DB locale dal server remoto. Le liste usano la paginazione (a blocchi di 50) e i Lookup (categorie, fornitori) sono mantenuti in cache per 5 minuti.
+NautiMag è progettato per adattarsi a qualsiasi tipo di negozio:
+- **Dual-Mode**: Funziona in **Standalone** (DB locale) o in **Modalità Server** (multi-dispositivo real-time).
+- **Archivio Anagrafico Unico**: Clienti e Fornitori condividono i dati. Se un soggetto è entrambi, non ci sono duplicazioni.
+- **Persona Fisica e Società**: Maschere di input dinamiche (Nome/Cognome per privati, Ragione Sociale per aziende).
+- **Auto-Import**: Inserendo la P.IVA di un Cliente nella scheda Fornitore (o viceversa), il sistema propone di importare automaticamente i dati.
+- **Real-Time**: Aggiornamento istantaneo dei carrelli via SignalR.
+- **Auto-Discovery (UDP)**: I client trovano il server in automatico sulla rete locale.
 
 ---
 
-## 📱 Configurazione Multi-Cassa
+## ✨ Funzionalità Dettagliate
 
-NautiMag eccelle nella gestione di più operatori contemporanei. Ogni dispositivo ha il suo carrello "base" configurato tramite **CartId** (es. `cassa`, `android1`). Sul tablet, il commesso può creare **Carrelli Nominati** (es. "Pippo", "Mario Rossi") e parcheggiarli. Il cassiere sul PC li vedrà in attesa e potrà unirli al carrello principale con il tasto **"🔗 Unisci"** (con anteprima articoli).
+### 🏠 Home e Interfaccia
+- **Badge DEMO**: Se la licenza non è attiva, la Home mostra un chiaro badge rosso "DEMO".
+- **Chiusura Sicura**: Cliccando la "X" per chiudere l'app, viene chiesta conferma per evitare chiusure accidentali.
 
----
-
-## ✨ Funzionalità Dettagliate (Le Card dell'App)
-
-### 🏠 Home (Griglia Principale)
-Tutte le funzioni a portata di tap, con card colorate e responsive:
-- **📷 Scansiona**: Fotocamera per barcode (Android) o pistola USB (Windows).
-- **🛒 Carrello**: Carrello vendita con gestione multi-cassa e carrelli nominati.
-- **📄 Documenti**: Fatture, DDT, Ordini, Note Credito, Scontrini.
-- **🏢 Anagrafiche**: Rubrica, Articoli, Azienda, Categorie, IVA.
-- **📊 Gestione**: Statistiche, Etichette, Report, Import/Export, Backup.
-- **🔧 Sistema**: Impostazioni, Server, Licenza, Utenti, Log.
-- **📅 Agenda**: Appuntamenti e scadenze.
-- **📖 Guida**: Manuale integrato.
-- *Cliccando sulla card in alto (Logo/Nome Azienda) si apre direttamente l'anagrafica aziendale.*
-
-### ⚙️ Gestione (Anagrafiche e Sistema)
-
-**🏢 Anagrafiche e Archivio Unico**
-- **Rubrica Unificata**: Una pagina che raccoglie tutti i contatti (Clienti, Fornitori o Entrambi).
-- **Validazioni Fiscali**: Controllo matematico di P.IVA e Codice Fiscale. Controllo duplicati intelligente (on-blur) con anteprima dei dati.
-- **Tipo Soggetto**: Selezione tra Società di capitali, Persona Fisica, P.A.
+### ⚙️ Gestione e Anagrafiche
+- **Clienti e Fornitori**: Maschere intelligenti che si adattano al tipo di soggetto (Privato o Azienda). Validazione fiscale rigorosa con controllo duplicati "on-blur" e anteprima dei dati.
+- **Azienda**: I dati aziendali sono bloccati in modalità Demo e la P.IVA viene validata contro l'anagrafica unica.
 - **Privacy (GDPR)**: Gestione del consenso con generazione del modulo cartaceo.
-- **Articoli**: Scheda anagrafica pura. Il Codice è bloccato dopo la creazione.
 
-**📄 Documenti**
-- **Fatture Emesse**: Creazione di fatture ed esportazione XML SDI.
+### 📄 Documenti
+- **Fatture Emesse**: Supporto multi-aliquota e inserimento di **Righe Descrittive** per prestazioni e servizi.
 - **Fatture in arrivo**: Carico merce da fattura fornitore tramite scansione barcode.
-- **Note Credito**: Emissione esclusivamente da Fatture Emesse con calcolo del residuo.
-- **Ordini Fornitori / DDT**: Gestione documenti di trasporto e ordini.
-- **Scontrini KO**: Coda di gestione e ristampa per scontrini non stampati dalla RT.
+- **Note Credito / DDT / Ordini**: Gestione completa con residui e stati.
 
-**📦 Magazzino**
-- **Statistiche**: KPI di vendita, grafici, top 10 articoli e clienti.
-- **Sottoscorta / Negativi**: Controllo degli articoli in esaurimento o venduti in eccesso.
-- **Etichette Barcode**: Generazione PDF di etichette Code128.
-
-**🔧 Sistema**
-- **Guida Utente / Impostazioni Server / Gestione Utenti**.
-- **Log**: Due tab separati per Audit e Sistema, con pulsante integrato per svuotare i registri.
-- **Temi Grafici**: Cambio istantaneo tra **Standard**, **Pastello** e **Dark**.
-
-### 💾 Dati e Report
-- **Import Excel**: 4 modalità (Magazzino, Vendite, Clienti, Fornitori).
-- **Export Excel / Report PDF**: Esportazione completa e report pronti per la stampa.
-- **Backup e Sincronizzazione**: Backup automatici e file `.wmsync` per allineare i dati offline.
+### 📦 Magazzino e Stampe
+- **Paginazione Movimenti**: Storici enormi non bloccano più l'app (caricamento a blocchi di 50).
+- **Apri File / Cartella**: Dopo aver generato un PDF, puoi aprirlo al volo o aprire la cartella di salvataggio in un click.
+- **Report PDF ed Etichette**: Generazione documenti pronti per la stampa.
 
 ---
 
 ## 🛡️ Sicurezza e Licenza
 
-NautiMag è progettato per proteggere il lavoro dell'imprenditore:
-- **Licenza Offuscata**: Il file `license.json` è crittografato con **AES**.
-- **Anti-Manomissione e Anti-Spostamento Orologio**: Blocco del trial se si tenta di resettare la data.
-- **Restrizioni Trial**: Se il periodo di prova è scaduto, l'app blocca stampe, import/export, la creazione di nuovi documenti e limita a 5 inserimenti totali per Clienti e Fornitori.
-- **Single Instance**: Un `Mutex` impedisce l'apertura di più finestre di NautiMag.
-- **Tracciamento Completo**: Tutte le azioni loggate nel DB e su file.
+- **Licenza Offuscata**: AES encryption per il file `license.json`.
+- **Restrizioni Trial**: Blocco di stampe, import/export, creazione documenti e limite di 5 inserimenti per Clienti/Fornitori.
 
 ---
 
 ## 🚀 Installazione
 
-*(Vedi la sezione Download per i requisiti)*
 1. Scarica ed esegui `NautiMag_Setup.exe`.
 2. Scegli il ruolo: **Server** o **Client**.
 3. Al primo avvio, configura l'azienda da **🏢 Anagrafiche → Azienda**.
@@ -134,16 +93,12 @@ NautiMag è progettato per proteggere il lavoro dell'imprenditore:
 
 **Software proprietario** — © 2026 Massimo Sassano. Tutti i diritti riservati.
 
-> ⚠️ **Il codice sorgente non è pubblico.** Su GitHub vengono pubblicate solo le release pronte all'uso.
-
 ---
 
 ## 🆘 Supporto
 
-Per **bug**, **suggerimenti** o **richieste di funzionalità**:
-👉 Apri una nuova [**Issue su GitHub**](https://github.com/maxsassano/nautimag/issues)
-
-Per **assistenza commerciale** o **richiesta APK Android**:
+Per **bug** o **suggerimenti**:
+👉 Apri una [**Issue su GitHub**](https://github.com/maxsassano/nautimag/issues)
 📧 [massimo.sassano@gmail.com](mailto:massimo.sassano@gmail.com)
 
 ---
