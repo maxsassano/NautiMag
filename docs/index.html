@@ -16,7 +16,7 @@
         <div class="hero-icon">📖</div>
         <h1>NautiMag</h1>
         <p class="subtitle">Guida utente completa</p>
-        <p class="version">Gestione Magazzino · v1.0</p>
+        <p class="version">Gestione Magazzino · v1.1</p>
     </header>
 
     <!-- ═══════════════════════════ INDICE ═══════════════════════════ -->
@@ -46,7 +46,7 @@
             <a href="#log-attivita">📜 Log (Audit e Sistema)</a>
             <a href="#azienda">🏢 Azienda</a>
             <a href="#fornitori">🚚 Fornitori</a>
-            <a href="#clienti">👥 Clienti (SDI e GDPR)</a>
+            <a href="#clienti">👥 Clienti e Archivio Unico</a>
             <a href="#privacy-gdpr">🛡️ Privacy e GDPR</a>
             <a href="#categorie">🏷️ Categorie</a>
             <a href="#unita-misura">📏 Unità di misura</a>
@@ -159,6 +159,9 @@
                 <tr><td>🔄 Sincronizza</td><td>Trasferimento dati tra dispositivi (solo standalone)</td></tr>
                 <tr><td>⚙️ Gestione</td><td>Anagrafiche, documenti, sistema</td></tr>
             </table>
+            <div class="callout warn">
+                <strong>⚠️ Modalità DEMO:</strong> Se non hai una licenza attiva, in alto a destra sulla card dell'azienda apparirà il badge rosso <strong>DEMO</strong>. I dati aziendali saranno bloccati e non modificabili.
+            </div>
             <div class="callout warn">
                 <strong>⚠️ Alert sottoscorta:</strong> se ci sono articoli sotto la scorta minima, in Home appare una <em>fascia rossa</em> in alto. Toccandola si apre la lista completa.
             </div>
@@ -429,6 +432,7 @@
                 <li><strong>Periodo</strong> — Tutto, Oggi, 7/30 giorni, Quest'anno, Personalizzato</li>
                 <li><strong>⚙ Filtri avanzati</strong> — Cliente, Fornitore, Aliquota IVA, intervallo date</li>
             </ul>
+            <p><em>Novità:</em> La lista dei movimenti ora carica i dati a blocchi di 50 per garantirti prestazioni velocissime anche con migliaia di movimenti all'attivo.</p>
 
             <h3>Riepilogo e stampa</h3>
             <p>Se hai filtri attivi appare un riquadro con il conteggio e il bottone <strong>🖨 Stampa ricerca</strong> (solo Windows) che genera un PDF dei movimenti filtrati con riepilogo IVA.</p>
@@ -637,7 +641,7 @@
                 <li><strong>Cerca nel testo</strong> — cerca una parola chiave (es. un codice articolo o il nome di un cliente).</li>
                 <li><strong>Livello (solo tab Sistema)</strong> — per vedere solo gli <em>Info</em> (tutto ok), i <em>Warning</em> (avvisi), gli <em>Error</em> (errori che bloccano un'operazione) o i <em>Fatal</em> (crash gravi).</li>
             </ul>
-            <p>Premi <strong>🔄 Aggiorna</strong> per ricaricare i log con i filtri selezionati.</p>
+            <p>Premi <strong>🔄 Aggiorna</strong> per ricaricare i log con i filtri selezionati. Se vuoi liberare spazio, premi <strong>🗑 Pulisci</strong> per svuotare la scheda attualmente visualizzata.</p>
         </section>
 
         <!-- ═══════════════════════════ AZIENDA ═══════════════════════════ -->
@@ -646,12 +650,19 @@
             <p>Dati del titolare, mostrati su scontrini, fatture e report.</p>
             <ul>
                 <li><strong>Logo</strong> — PNG trasparente consigliato, lato max 512 px</li>
+                <li><strong>Tipo Soggetto e Dati Anagrafici</strong> — Puoi scegliere se la tua azienda è una Società o una Persona Fisica. Se scegli Persona Fisica, appariranno i campi Nome e Cognome.</li>
                 <li><strong>Ragione sociale</strong> — obbligatoria</li>
                 <li><strong>Insegna</strong> — nome commerciale breve (appare in alto nell'app)</li>
                 <li><strong>P.IVA, C.F., indirizzo, contatti, PEC, IBAN</strong></li>
                 <li><strong>Codice SDI e Regime Fiscale</strong> — fondamentali per la fatturazione elettronica (es. RF01 Ordinario, RF19 Forfettario). <em>Novità:</em> il regime fiscale si seleziona tramite un bottone che apre un elenco a tendina con tutti i 18 codici ufficiali. In questo modo non si può sbagliare e il valore rimane memorizzato.</li>
                 <li><strong>Note</strong> — interne</li>
             </ul>
+            <div class="callout warn">
+                <strong>⚠️ Validazione P.IVA:</strong> La P.IVA inserita qui non può essere la stessa di un cliente o fornitore già presente nell'Archivio Unico.
+            </div>
+            <div class="callout info">
+                <strong>💡 Modalità Demo:</strong> Se non hai attivato la licenza, questa pagina mostrerà dati fittizi (es. "Ditta Demo S.r.l.") e non ti permetterà di salvare i dati reali per evitare che usi dati aziendali veri durante il periodo di prova.
+            </div>
             <p>Il nome azienda (insegna o ragione sociale) appare nella TopBar di tutte le pagine.</p>
         </section>
 
@@ -659,6 +670,13 @@
         <section id="fornitori">
             <h2>🚚 Fornitori</h2>
             <p>Elenco fornitori con scheda completa (referente, contatti, PEC, IBAN).</p>
+            
+            <h3>Maschera Dinamica</h3>
+            <p>Come per i clienti, puoi scegliere il "Tipo Soggetto". Se scegli <strong>Persona Fisica</strong>, appariranno i campi Nome e Cognome, altrimenti la Ragione Sociale.</p>
+
+            <h3>Auto-Import dall'Archivio Clienti</h3>
+            <p>Se stai creando un nuovo fornitore e inserisci una P.IVA o un C.F. che appartiene già a un <strong>Cliente</strong>, NautiMag ti avviserà e ti chiederà se vuoi importare i dati per renderlo anche Fornitore. In questo modo eviti di riscrivere tutto e mantieni l'archivio unificato.</p>
+
             <p>Nella scheda di un fornitore esistente è visibile lo <strong>storico degli ultimi 50 acquisti</strong> con totale.</p>
             <ul>
                 <li><strong>✎</strong> modifica</li>
@@ -669,8 +687,18 @@
 
         <!-- ═══════════════════════════ CLIENTI ═══════════════════════════ -->
         <section id="clienti">
-            <h2>👥 Clienti</h2>
+            <h2>👥 Clienti e Archivio Unico</h2>
             <p>Elenco clienti. Ogni scheda mostra le ultime 50 vendite con totale speso.</p>
+            
+            <h3>Tipo Soggetto e Maschera Dinamica</h3>
+            <p>Puoi scegliere se il cliente è una Società, una Persona Fisica o una P.A. Se scegli <strong>Persona Fisica</strong>, i campi Nome e Cognome prenderanno il posto della Ragione Sociale.</p>
+
+            <h3>Controllo Duplicati On-Blur</h3>
+            <p>Appena esci dal campo P.IVA o C.F., NautiMag controlla nel database se esiste già un'anagrafica con quel codice. Se la trova, mostra un popup di avviso con <strong>l'anteprima dei dati del duplicato</strong> (Nome, P.IVA, C.F., Telefono, Email) e ti dà la possibilità di aprire direttamente la sua scheda o correggere l'inserimento.</p>
+
+            <h3>Auto-Import dall'Archivio Fornitori</h3>
+            <p>Se inserisci una P.IVA che appartiene già a un Fornitore, NautiMag ti chiederà se vuoi importare i dati per crearlo anche come Cliente.</p>
+
             <p>I campi includono: nome, cognome, ragione sociale, P.IVA, C.F., <strong>Codice SDI</strong>, <strong>PEC</strong>, <strong>Regime Fiscale</strong>, indirizzo, contatti, note e la sezione <strong>Privacy (GDPR)</strong>.</p>
             
             <h3>Filtro Privacy</h3>
@@ -752,10 +780,11 @@
                 <li><strong>Aggiungi Prodotti:</strong> 
                     <ul>
                         <li><strong>📦 Da Magazzino</strong>: apre la ricerca. Scegli un articolo e la quantità. Quando emetterai la fattura, questo articolo verrà scaricato dal magazzino.</li>
-                        <li><strong>✏ Riga Manuale</strong>: scrivi una descrizione e un prezzo a mano (es. "Trasporto" o "Imballaggio"). Questa riga non tocca il magazzino.</li>
+                        <li><strong>✏ Riga Descrittiva</strong> (Novità): scrivi una descrizione e un prezzo a mano per prestazioni o servizi (es. "Consulenza", "Trasporto"). Ti verrà chiesto di scegliere l'aliquota IVA per questa specifica riga.</li>
                     </ul>
                 </li>
                 <li><strong>Controlla l'IVA:</strong> In alto puoi decidere se i prezzi che scrivi sono già ivati o no, e scegliere l'aliquota di default.</li>
+                <li><strong>Multi-Aliquota:</strong> Puoi avere righe con IVA diverse nella stessa fattura (es. un articolo al 22% e uno al 10%). Il sistema calcolerà i totali correttamente.</li>
                 <li><strong>Salva come Bozza:</strong> se non è ancora definitiva, o <strong>✅ Emetti Fattura</strong>: se vuoi chiuderla e scaricare la merce.</li>
             </ol>
 
@@ -1080,6 +1109,7 @@
                 <tr><td>Backup non funziona</td><td>Verifica che la cartella Documenti sia accessibile</td></tr>
                 <tr><td>Database corrotto</td><td>Avvia NautiMag — Recovery (menu Start)</td></tr>
                 <tr><td>Errore strano (es. durante stampa o sync)</td><td>Vai su <em>Gestione → Log → Tab Sistema</em>. Cerca la riga rossa ERROR: troverai il dettaglio tecnico dell'errore per capire cosa è andato storto.</td></tr>
+                <tr><td>L'app non si chiude (Windows)</td><td>Cliccando la "X" in alto a destra, l'app chiederà conferma per evitare chiusure accidentali. Se hai modifiche non salvate, ti avviserà.</td></tr>
             </table>
         </section>
 
