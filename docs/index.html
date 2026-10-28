@@ -1,303 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>NautiMag — Guida Utente</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body id="top">
-
-    <!-- Pulsante Flottante per Mobile/Desktop (appare quando scorri) -->
-    <a href="#top" id="floatingBtn" class="btn-top-floating" title="Torna su">⬆</a>
-
-    <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
-    <header class="hero">
-        <div class="hero-icon">📖</div>
-        <h1>NautiMag</h1>
-        <p class="subtitle">Guida utente completa</p>
-        <p class="version">Gestione Magazzino · v1.1</p>
-    </header>
-
-    <!-- ═══════════════════════════ INDICE ═══════════════════════════ -->
-    <nav class="toc" id="indice">
-        <h2>📑 Indice</h2>
-        <div class="toc-grid">
-            <a href="#primi-passi">🚀 Primi passi</a>
-            <a href="#login-ruoli">🔐 Login e Ruoli</a>
-            <a href="#topbar">🔝 Barra superiore e Footer</a>
-            <a href="#home">🏠 Home</a>
-            <a href="#scansiona">📷 Scansiona</a>
-            <a href="#articoli">📦 Articoli</a>
-            <a href="#scheda-articolo">📝 Scheda articolo</a>
-            <a href="#carrello">🛒 Carrello e Multi-Cassa</a>
-            <a href="#vendite">💰 Vendite</a>
-            <a href="#dettaglio-vendita">📋 Dettaglio vendita (Annullamento)</a>
-            <a href="#scontrini-ko">🧾 Scontrini (ex KO)</a>
-            <a href="#movimenti">📊 Movimenti</a>
-            <a href="#dati">💾 Dati</a>
-            <a href="#import">📥 Import</a>
-            <a href="#import-guidato">🎯 Import guidato</a>
-            <a href="#esporta">📤 Esporta Excel</a>
-            <a href="#backup">🗄 Backup</a>
-            <a href="#sincronizza">🔄 Sincronizza</a>
-            <a href="#gestione">⚙️ Gestione</a>
-            <a href="#gestione-utenti">👥 Gestione Utenti</a>
-            <a href="#log-attivita">📜 Log (Audit e Sistema)</a>
-            <a href="#azienda">🏢 Azienda</a>
-            <a href="#fornitori">🚚 Fornitori</a>
-            <a href="#clienti">👥 Clienti e Archivio Unico</a>
-            <a href="#privacy-gdpr">🛡️ Privacy e GDPR</a>
-            <a href="#categorie">🏷️ Categorie</a>
-            <a href="#unita-misura">📏 Unità di misura</a>
-            <a href="#ubicazioni">📍 Ubicazioni</a>
-            <a href="#aliquote-iva">💵 Aliquote IVA e Nature</a>
-            <a href="#fatture-emesse">📄 Fatture Emesse</a>
-            <a href="#fatture-ricevute">🧾 Fatture in arrivo</a>
-            <a href="#ordini">📦 Ordini fornitori</a>
-            <a href="#ddt">📋 DDT</a>
-            <a href="#note-credito">↩️ Note credito</a>
-            <a href="#etichette">🏷️ Etichette</a>
-            <a href="#formati-etichette">📐 Formati etichette</a>
-            <a href="#statistiche">📈 Statistiche</a>
-            <a href="#sottoscorta">📉 Sottoscorta</a>
-            <a href="#articoli-negativi">⚠️ Articoli negativi</a>
-            <a href="#stampa-liste">🖨 Stampa liste</a>
-            <a href="#agenda">📅 Agenda</a>
-            <a href="#impostazioni-server">🌐 Impostazioni Server e RT</a>
-            <a href="#temi-grafici">🎨 Temi Grafici</a>
-            <a href="#info">ℹ️ Info</a>
-            <a href="#licenza-sicurezza">🔑 Licenza e Sicurezza</a>
-            <a href="#problemi">🔧 Problemi comuni</a>
-            <a href="#faq">❓ FAQ</a>
-        </div>
-    </nav>
-
-    <main>
-
-        <!-- ═══════════════════════════ PRIMI PASSI ═══════════════════════════ -->
-        <section id="primi-passi">
-            <h2>🚀 Primi passi</h2>
-            <p>Se hai usato il nostro Installer ufficiale, la maggior parte della configurazione è già stata fatta in automatico.</p>
-
-            <h3>Scenari di Installazione</h3>
-            <ul>
-                <li><strong>Server (Amministrazione):</strong> L'installer ha configurato tutto in locale. Il Tray avvierà il server all'accensione del PC.</li>
-                <li><strong>Client (Cassa/Magazzino):</strong> L'installer ha già inserito l'IP del server. L'app si connetterà in automatico alla rete.</li>
-            </ul>
-
-            <h3>Configurazione Manuale (solo se necessario)</h3>
-            <ol>
-                <li><strong>Server</strong> — avvia <em>NautiMag — Server Control</em> dal menu Start (icona verde in basso a destra)</li>
-                <li><strong>Connessione app</strong> — <em>Gestione → Impostazioni Server</em>: modalità <code>server</code>, URL, PIN, CartId</li>
-                <li><strong>Azienda</strong> — <em>Gestione → Azienda</em>: ragione sociale, P.IVA, indirizzo, logo</li>
-            </ol>
-            <div class="callout info">
-                <strong>💡 Suggerimento:</strong> attiva <em>Avvio automatico con Windows</em> dal Server Control (tasto destro sull'icona). Il server partirà da solo ad ogni accensione del PC.
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ LOGIN E RUOLI ═══════════════════════════ -->
-        <section id="login-ruoli">
-            <h2>🔐 Login e Ruoli</h2>
-            <p>NautiMag supporta la multi-utenza. Al primo avvio assoluto del server, viene creato un utente amministratore predefinito per permetterti di configurare il sistema.</p>
-            <p><strong>Nota bene:</strong> Al primo login, l'app ti obbligherà a cambiare la password per motivi di sicurezza.</p>
-
-            <h3>Gerarchia dei Ruoli</h3>
-            <table>
-                <tr><th>Ruolo</th><th>Cosa può fare</th></tr>
-                <tr><td><strong>SuperUser</strong></td><td>Il proprietario. Accesso totale. Unico a poter eliminare gli Admin. Unico a vedere la pagina "Log". <em>(Account riservato all'assistenza)</em></td></tr>
-                <tr><td><strong>Admin</strong></td><td>L'ufficio amministrazione. Può creare/modificare utenti Vendita. Può creare Admin ma NON eliminarli. Non vede i Log.</td></tr>
-                <tr><td><strong>Vendita</strong></td><td>Il cassiere. Accesso limitato (non vede la Gestione Utenti, non vede i Log).</td></tr>
-            </table>
-            <div class="callout info">
-                <strong>💡 Nota:</strong> L'account SuperUser è un account di sistema riservato esclusivamente all'assistenza tecnica e non viene mai fornito all'utente finale.
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ TOPBAR ═══════════════════════════ -->
-        <section id="topbar">
-            <h2>🔝 Barra superiore e Footer</h2>
-            <p>Ogni schermata di NautiMag ha una barra verde in alto (TopBar) e una barra fissa in basso (Footer).</p>
-
-            <h3>TopBar (in alto)</h3>
-            <table>
-                <tr><th>Icona</th><th>Cosa fa</th></tr>
-                <tr><td>←</td><td>Torna alla schermata precedente (non visibile in Home)</td></tr>
-                <tr><td>🏠</td><td>Va alla Home principale</td></tr>
-                <tr><td>Titolo</td><td>Nome pagina o nome del negozio (Home)</td></tr>
-                <tr><td>●</td><td><strong>Pallino stato server</strong> — <span class="dot green"></span>Verde connesso · <span class="dot yellow"></span>Giallo avvio · <span class="dot red"></span>Rosso errore · <span class="dot gray"></span>Grigio standalone. Tocca per i dettagli</td></tr>
-                <tr><td>🔍</td><td>Ricerca globale (articoli, clienti, fornitori)</td></tr>
-                <tr><td>🛒</td><td>Carrello, con badge rosso se contiene articoli</td></tr>
-                <tr><td>🔔</td><td>Notifiche (es. scorte, licenza)</td></tr>
-                <tr><td>📖 / 📅</td><td>Apre la Guida utente o l'Agenda</td></tr>
-            </table>
-            <div class="callout info">
-                <strong>💡 Novità (Windows):</strong> Passa il mouse sopra le icone per vedere un fumetto descrittivo (Tooltip).
-            </div>
-
-            <h3>Footer (in basso)</h3>
-            <ul>
-                <li><strong>Sinistra</strong>: L'utente loggato (es. <code>👤 Admin</code>) e il tasto <strong>🚪 Logout</strong>.</li>
-                <li><strong>Centro</strong>: Firma del software e versione (nascosto su Android).</li>
-                <li><strong>Destra</strong>: Stato della licenza. Se scaduta o in trial, cliccaci sopra per andare alla pagina di attivazione.</li>
-            </ul>
-        </section>
-
-        <!-- ═══════════════════════════ HOME ═══════════════════════════ -->
-        <section id="home">
-            <h2>🏠 Home</h2>
-            <p>La Home mostra la griglia di tutte le funzioni. Ogni riquadro è un tasto.</p>
-            <table>
-                <tr><th>Tile</th><th>Cosa fa</th></tr>
-                <tr><td>📷 Scansiona</td><td>Apre la fotocamera per leggere barcode (Android) o la ricerca (Windows)</td></tr>
-                <tr><td>📦 Articoli</td><td>Lista completa degli articoli</td></tr>
-                <tr><td>🛒 Carrello</td><td>Carrello della vendita corrente</td></tr>
-                <tr><td>💰 Vendite</td><td>Storico delle vendite chiuse</td></tr>
-                <tr><td>📊 Movimenti</td><td>Carichi, scarichi, acquisti, vendite</td></tr>
-                <tr><td>💾 Dati</td><td>Import, export, backup, report</td></tr>
-                <tr><td>🔄 Sincronizza</td><td>Trasferimento dati tra dispositivi (solo standalone)</td></tr>
-                <tr><td>⚙️ Gestione</td><td>Anagrafiche, documenti, sistema</td></tr>
-            </table>
-            <div class="callout warn">
-                <strong>⚠️ Modalità DEMO:</strong> Se non hai una licenza attiva, in alto a destra sulla card dell'azienda apparirà il badge rosso <strong>DEMO</strong>. I dati aziendali saranno bloccati e non modificabili.
-            </div>
-            <div class="callout warn">
-                <strong>⚠️ Alert sottoscorta:</strong> se ci sono articoli sotto la scorta minima, in Home appare una <em>fascia rossa</em> in alto. Toccandola si apre la lista completa.
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ SCANSIONA ═══════════════════════════ -->
-        <section id="scansiona">
-            <h2>📷 Scansiona</h2>
-            <p>Solo su Android. Apre la fotocamera posteriore per leggere barcode e QR code.</p>
-            <ol>
-                <li>Inquadra il codice dentro il riquadro verde</li>
-                <li>Attendi il riconoscimento (vibrazione + suono)</li>
-                <li>Appare un menu con: <em>Apri scheda</em>, <em>Aggiungi 1 al carrello</em>, <em>Aggiungi con quantità…</em></li>
-            </ol>
-            <p>Se il codice non esiste, puoi creare un nuovo articolo al volo.</p>
-            <div class="callout info">
-                <strong>💡 Su Windows:</strong> usa una pistola barcode USB. Basta cliccare nella barra di ricerca di qualsiasi pagina e sparare il codice.
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ ARTICOLI ═══════════════════════════ -->
-        <section id="articoli">
-            <h2>📦 Articoli</h2>
-            <p>Lista di tutto il magazzino, con ricerca e filtro per categoria.</p>
-
-            <ul>
-                <li><strong>Barra di ricerca</strong> — cerca per codice, nome o categoria. Premi Invio per aprire direttamente il codice esatto</li>
-                <li><strong>Filtro Categoria</strong> — la tendina accanto alla ricerca permette di visualizzare solo una specifica categoria</li>
-                <li><strong>Tocca una riga</strong> — apre la scheda articolo</li>
-                <li><strong>📷 (icona a destra della ricerca)</strong> — apre lo scanner barcode</li>
-                <li><strong>＋ Nuovo Articolo</strong> in basso — crea un articolo vuoto</li>
-            </ul>
-            <p>Ogni riga mostra: <em>nome</em>, <em>codice · categoria</em>, <em>prezzo</em>, <em>rimanenti</em>.</p>
-        </section>
-
-        <!-- ═══════════════════════════ SCHEDA ARTICOLO ═══════════════════════════ -->
-        <section id="scheda-articolo">
-            <h2>📝 Scheda articolo</h2>
-            <p>Mostra e modifica tutti i dati di un articolo. L'interfaccia è stata recentemente compattata per migliorare la leggibilità su Desktop.</p>
-
-            <h3>🛒 Aggiungi al carrello</h3>
-            <p>Salva l'articolo e chiede la quantità da aggiungere.</p>
-
-            <h3>Azioni magazzino (Nuova UI)</h3>
-            <p>Nella parte superiore della scheda, subito sotto le informazioni principali, c'è una barra con i pulsanti: <code>Aggiungi</code>, <code>Salva</code>, <code>⋮ Altro</code> ed <code>Elimina</code>.</p>
-            <ul>
-                <li>Cliccando su <strong>⋮ Altro</strong>, si apre un menu a tendina con le azioni di magazzino: <strong>📦 CARICA 1</strong>, <strong>📥 ACQUISTO…</strong>, <strong>⬆ CARICO…</strong> e <strong>⬇ SCARICO…</strong>. In questo modo i pulsanti meno usati non occupano spazio prezioso.</li>
-            </ul>
-            <table>
-                <tr><th>Azione</th><th>Cosa fa</th></tr>
-                <tr><td>📦 CARICA 1</td><td>Registra un carico di 1 pezzo</td></tr>
-                <tr><td>📥 ACQUISTO…</td><td>Chiede quantità e fornitore, poi registra un acquisto</td></tr>
-                <tr><td>⬆ CARICO…</td><td>Chiede quantità, registra un carico manuale</td></tr>
-                <tr><td>⬇ SCARICO…</td><td>Chiede quantità, registra uno scarico</td></tr>
-            </table>
-
-            <h3>Dati articolo</h3>
-            <ul>
-                <li><strong>Codice</strong> — EAN, SKU, codice interno</li>
-                <li><strong>Prodotto</strong> — nome (obbligatorio)</li>
-                <li><strong>Categoria / Fornitore</strong> — con <code>＋</code> per crearne uno nuovo al volo</li>
-                <li><strong>Prezzo vendita / acquisto</strong></li>
-                <li><strong>Prezzo IVA inclusa</strong> — switch se il prezzo include già l'IVA</li>
-                <li><strong>Aliquota IVA</strong> — 22%, 10%, 4%, 0%</li>
-                <li><strong>Ubicazione / Unità misura</strong></li>
-                <li><strong>Scorta minima</strong> — sotto questo valore → alert sottoscorta</li>
-                <li><strong>Note</strong> — testo libero</li>
-            </ul>
-
-            <h3>Foto</h3>
-            <p>Scatta, scegli dalla galleria o rimuovi. In modalità server la foto viene sincronizzata.</p>
-
-            <div class="callout warn">
-                <strong>⚠️ Modifiche non salvate:</strong> se esci dalla pagina con modifiche pendenti, NautiMag ti chiede se <em>salvare</em>, <em>scartare</em> o <em>annullare</em> l'uscita.
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ CARRELLO ═══════════════════════════ -->
-        <section id="carrello">
-            <h2>🛒 Carrello e Multi-Cassa</h2>
-            <p>Il Carrello contiene gli articoli pronti per la vendita. In modalità server è <strong>condiviso in tempo reale</strong> tra tutti i dispositivi che condividono lo stesso identificativo (CartId).</p>
-
-            <h3>Come funzionano i Carrelli Isolati (Multi-Cart)</h3>
-            <p>NautiMag supporta più operatori contemporaneamente. Invece di avere un unico carrello globale, ogni dispositivo (PC Cassa, Tablet Android, ecc.) ha il suo <strong>CartId</strong> configurato nelle Impostazioni Server.</p>
-
-            <p>Immagina di avere questo setup in negozio:</p>
-            <ul>
-                <li><strong>PC Cassa (Windows)</strong> → CartId: <code>cassa</code></li>
-                <li><strong>Tablet 1 (Magazzino)</strong> → CartId: <code>android1</code></li>
-                <li><strong>Tablet 2 (Magazzino)</strong> → CartId: <code>android2</code></li>
-            </ul>
-            <p>In questo modo, se due clienti vengono serviti contemporaneamente da due tablet diversi, i loro articoli non si mischiano mai. Il tablet 1 gestisce il Cliente A, il tablet 2 gestisce il Cliente B. Alla cassa, tu deciderai cosa incassare.</p>
-
-            <div class="callout info">
-                <strong>💡 Regola d'oro sul CartId:</strong> Se due dispositivi hanno <strong>lo stesso CartId</strong>, condividono lo stesso carrello in tempo reale. Ad esempio, se hai due PC alla stessa cassa, metti a entrambi <code>cassa</code>: vedrai gli articoli apparire su entrambi gli schermi contemporaneamente. Se invece vuoi un carrello separato, usa un ID diverso.
-            </div>
-
-            <h3>📱 Carrelli Nominati (solo su Android/Tablet)</h3>
-            <p>Sul tablet o sul telefono Android, il commesso può creare <strong>più carrelli contemporaneamente</strong>, ognuno dedicato a un cliente diverso. Ogni carrello ha un nome scelto dall'utente (es. "Mario Rossi", "Tavolo 5") che diventa il suo identificativo sul server.</p>
-            <p>Nella pagina del Carrello, sul tablet, trovi questi pulsanti nella sezione <em>GESTIONE CARRELLI</em>:</p>
-            <ul>
-                <li><strong>➕ Nuovo Carrello</strong> — scrivi il nome del cliente (es. "Mario Rossi"). Il sistema crea un carrello dedicato. Il carrello precedente resta "parcheggiato" con i suoi articoli, senza essere toccato.</li>
-                <li><strong>📂 Cambia Carrello</strong> — mostra la lista dei carrelli attivi su quel tablet (base + nominati). Scegli quello che vuoi riprendere in mano.</li>
-                <li><strong>🏠 Torna al Base</strong> — se sei su un carrello nominato, torna al carrello base del tablet (es. <code>android1</code>).</li>
-                <li><strong>🗑 Elimina Carrello</strong> — elimina il carrello nominato e libera il nome. Il nome tornerà disponibile per un altro cliente.</li>
-            </ul>
-
-            <div class="callout warn">
-                <strong>⚠️ Regola del nome:</strong> Il nome del carrello è univoco. Se "Mario Rossi" è già attivo con degli articoli, non puoi crearne un altro con lo stesso nome. Devi prima eliminarlo (se vuoto) o unirlo alla cassa (se il cliente ha pagato).
-            </div>
-
-            <div class="callout info">
-                <strong>💡 Flusso tipico di lavoro col tablet:</strong>
-                <ol>
-                    <li>Il commesso crea il carrello <strong>"Mario Rossi"</strong> e aggiunge gli articoli.</li>
-                    <li>Mario va verso la cassa. Nel frattempo arriva Paolo Bianchi.</li>
-                    <li>Il commesso crea un nuovo carrello <strong>"Paolo Bianchi"</strong> e inizia a servirlo.</li>
-                    <li>Il carrello di Mario Rossi resta parcheggiato con i suoi articoli.</li>
-                    <li>Quando Mario arriva alla cassa, il cassiere preme <strong>"🔗 Unisci"</strong> e seleziona <code>mario-rossi</code>.</li>
-                    <li>Gli articoli passano al carrello <code>cassa</code> e il carrello nominato si svuota.</li>
-                </ol>
-            </div>
-
-            <h3>🔗 La funzione "Unisci Carrello" (Fondamentale)</h3>
-            <p>Questa è la funzione che collega il lavoro del magazzino a quello della cassa. Serve per trasferire gli articoli da un dispositivo (es. Tablet) al PC Cassa per chiudere la vendita.</p>
-            <p>Ecco cosa succede quando premi <strong>"🔗 Unisci"</strong> dal PC:</p>
-            <ol>
-                <li>Il PC chiede al server: <em>"Quali altri carrelli ci sono attivi in questo momento?"</em>.</li>
-                <li>Ti apparirà una lista (es. <code>android1</code>, <code>mario-rossi</code>, <code>paolo-bianchi</code>).</li>
-                <li>Seleziona il carrello del tablet che vuoi incassare.</li>
-                <li><strong>L'Anteprima:</strong> Prima di confermare, NautiMag ti mostrerà esattamente quali articoli e quante quantità ci sono dentro quel carrello, così non sbagli cliente.</li>
-                <li>Confermando, tutti gli articoli vengono spostati dal tablet al PC.</li>
-                <li>Il carrello sul tablet si svuota <strong>istantaneamente</strong>, pronto per un nuovo cliente.</li>
-            </ol>
-
-            <h3>👥 Come servire due clienti di fila con lo stesso tablet</h3>
+﻿            <h3>👥 Come servire due clienti di fila con lo stesso tablet</h3>
             <p>Grazie ai Carrelli Nominati, non devi più "chiudere" un carrello per iniziarne un altro. Ecco il flusso:</p>
             <ol>
                 <li><strong>Cliente A</strong>: crea il carrello <code>cliente-a</code> sul tablet, aggiungi gli articoli.</li>
@@ -316,400 +17,6 @@
             <p>Quando sei sul PC Cassa, se ci sono altri carrelli attivi (es. dei tablet), in alto nel Carrello apparirà un banner verde con la scritta:</p>
             <p><em>"📢 Ci sono 2 carrelli in attesa: mario-rossi, paolo-bianchi"</em></p>
             <p>Questo ti avvisa che ci sono clienti in fila pronti per pagare. Clicca "Unisci" per prelevarli.</p>
-
-            <h3>Azioni nel Carrello</h3>
-            <ul>
-                <li><strong>➕ Aggiungi articoli</strong> — apre la lista articoli per cercare e aggiungere merce.</li>
-                <li><strong>👤 Nuovo cliente</strong> — apre la scheda per creare un nuovo cliente.</li>
-                <li><strong>📤 Invia carrello</strong> — esporta il carrello in un file <code>.cartsync</code> (solo modalità standalone, utile se non hai il server).</li>
-                <li><strong>📥 Importa carrello</strong> — importa un file <code>.cartsync</code> (solo standalone).</li>
-                <li><strong>− / ✕</strong> — su ogni riga, usa <strong>−</strong> per modificare la quantità, <strong>✕</strong> per eliminare l'articolo.</li>
-            </ul>
-
-            <h3>Chiusura della vendita</h3>
-            <p>Quando il carrello è pronto e il cliente ha scelto:</p>
-            <ol>
-                <li>Controlla il totale in fondo alla pagina.</li>
-                <li>Tocca <strong>✓ Chiudi vendita</strong>.</li>
-                <li>Se ci sono scorte insufficienti, NautiMag ti mostrerà un avviso con l'elenco delle merci che andranno in negativo.</li>
-                <li>Ti verrà chiesto di selezionare il cliente (o lasciare "Cliente generico").</li>
-                <li>Conferma: la vendita viene registrata nel database.</li>
-                <li><strong>Stampa Fiscale:</strong> se hai configurato la RT, l'app invierà lo scontrino alla stampante fiscale <em>silenziosamente</em>. Se ci sono errori, lo scontrino andrà nella coda "Scontrini KO" e ti verrà mostrato un avviso.</li>
-                <li><strong>Stampa PDF (Solo Windows):</strong> alla fine, apparirà un unico popup che ti chiederà se vuoi stampare la ricevuta PDF o la fattura proforma. Niente più mille domande intermedie!</li>
-            </ol>
-            <div class="callout info">
-                <strong>💡 Novità Proforma:</strong> Se scegli di stampare la Fattura Proforma, l'app ti chiederà di confermare o modificare il numero progressivo (es. PRO-2026-0001). Se lo modifichi, il nuovo numero verrà memorizzato per questa vendita e non verrà più rigenerato in caso di ristampa.
-            </div>
-
-            <div class="callout info">
-                <strong>💡 Nota sulla modalità Standalone:</strong> Se non usi il server (Standalone), il carrello è unico per il tuo dispositivo e non è possibile unire carrelli da altri PC/tablet né creare carrelli nominati. La funzione "🔗 Unisci", i Carrelli Nominati e la condivisione in tempo reale sono disponibili solo in modalità Server.
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ VENDITE ═══════════════════════════ -->
-        <section id="vendite">
-            <h2>💰 Vendite</h2>
-            <p>Storico di tutte le vendite chiuse, raggruppate per riferimento.</p>
-            <ul>
-                <li><strong>Barra di ricerca</strong> — cerca per riferimento, cliente o prodotto</li>
-                <li><strong>Filtro periodo</strong> — Tutto, Oggi, 7 giorni, 30 giorni, Quest'anno</li>
-                <li><strong>Tocca una vendita</strong> — apre il dettaglio</li>
-            </ul>
-            <p>In fondo vedi il totale complessivo del filtro corrente.</p>
-        </section>
-
-        <!-- ═══════════════════════════ DETTAGLIO VENDITA ═══════════════════════════ -->
-        <section id="dettaglio-vendita">
-            <h2>📋 Dettaglio vendita</h2>
-            <p>Mostra riepilogo, cliente, righe e opzioni avanzate.</p>
-
-            <h3>⚙ Opzioni avanzate (extender)</h3>
-            <ul>
-                <li><strong>Pagato</strong> — segna come saldata</li>
-                <li><strong>Metodo pagamento</strong> — Contanti, Carta, Bonifico, Assegno, Altro</li>
-                <li><strong>Note interne</strong> — non visibili al cliente</li>
-            </ul>
-
-            <h3>🚫 Annulla Scontrino</h3>
-            <p>Se il cliente rende la merce, non si emette una nota credito per uno scontrino (non è un documento fiscale). Si usa invece il pulsante <strong>🚫 Annulla Scontrino</strong>.</p>
-            <div class="callout warn">
-                <strong>⚠️ Cosa succede:</strong><br>
-                1. Cliccando il pulsante, la merce viene <strong>reintegrata in magazzino</strong>.<br>
-                2. <strong>IMPORTANTE:</strong> Devi ricordarti di andare fisicamente sul Registratore Telematico (RT) e annullare lo scontrino entro 15 giorni. NautiMag non può farlo per te.<br>
-                3. Una volta annullato, il pulsante sparisce e non potrai annullarlo di nuovo.
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ SCONTRINI KO ═══════════════════════════ -->
-        <section id="scontrini-ko">
-            <h2>🧾 Scontrini (ex KO)</h2>
-            <p>Immagina che la stampante fiscale sia un amico a cui devi consegnare un bigliettino (lo scontrino). Se l'amico è assente o non risponde, il bigliettino non viene consegnato.</p>
-            <p>In NautiMag, se la stampante è spenta o senza carta, la vendita viene <strong>salvata lo stesso</strong> (i soldi sono incassati!), ma lo scontrino va in una scatola speciale chiamata <strong>"Scontrini KO"</strong>.</p>
-
-            <h3>Dove trovo questa scatola?</h3>
-            <p>Vai nel menu <em>Gestione → Documenti</em> e clicca sulla tile <strong>🧾 Scontrini KO</strong>. Se ci sono scontrini da sistemare, vedrai un pallino rosso con un numero.</p>
-
-            <h3>Come funziona la pagina</h3>
-            <p>Ci sono 3 schede (tab):</p>
-            <ul>
-                <li><strong>⚠️ Da fare:</strong> Qui ci sono gli scontrini che non sono stati stampati (perché la stampante era spenta, ecc.).</li>
-                <li><strong>✔ Risolti:</strong> Gli scontrini che sei riuscito a stampare o che hai deciso di archiviare.</li>
-                <li><strong>✖ Annullati:</strong> Gli scontrini che hai deciso di non stampare più.</li>
-            </ul>
-
-            <h3>Cosa devo fare se trovo uno scontrino "Da fare"?</h3>
-            <p>Clicca sullo scontrino e scegli l'azione giusta:</p>
-            <ul>
-                <li><strong>🔄 Riprova stampa:</strong> Cliccalo <em>solo dopo</em> esserti assicurato che la stampante sia accesa. NautiMag riproverà a inviare il bigliettino all'amico.</li>
-                <li><strong>✅ Segna come risolto:</strong> Usalo se hai già stampato lo scontrino andando a premere i tasti direttamente sulla stampante. Così NautiMag lo toglie dalla lista "Da fare".</li>
-                <li><strong>✖ Annulla:</strong> Usalo se quel bigliettino non serve più.</li>
-                <li><strong>🗑 Elimina:</strong> Cancella definitivamente lo scontrino dal computer.</li>
-            </ul>
-
-            <div class="callout info">
-                <strong>💡 Ricorda:</strong> La vendita è al sicuro! Lo scontrino KO riguarda solo la stampa del pezzo di carta, non l'incasso dei soldi.
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ MOVIMENTI ═══════════════════════════ -->
-        <section id="movimenti">
-            <h2>📊 Movimenti</h2>
-            <p>Registro immutabile di tutte le operazioni di magazzino.</p>
-
-            <h3>Tipi di movimento</h3>
-            <table>
-                <tr><td>💰 Vendita</td><td>Aumenta "venduto"</td></tr>
-                <tr><td>📥 Acquisto</td><td>Aumenta quantità + fornitore</td></tr>
-                <tr><td>📦 Carico</td><td>Aumenta quantità</td></tr>
-                <tr><td>📤 Scarico</td><td>Diminuisce quantità</td></tr>
-                <tr><td>🔧 Rettifica</td><td>Imposta quantità esatta</td></tr>
-            </table>
-
-            <h3>Filtri</h3>
-            <ul>
-                <li><strong>Ricerca testo</strong> — prodotto, codice, riferimento, note</li>
-                <li><strong>Tipo</strong> — Tutti, Vendita, Acquisto, Carico, Scarico, Rettifica</li>
-                <li><strong>Periodo</strong> — Tutto, Oggi, 7/30 giorni, Quest'anno, Personalizzato</li>
-                <li><strong>⚙ Filtri avanzati</strong> — Cliente, Fornitore, Aliquota IVA, intervallo date</li>
-            </ul>
-            <p><em>Novità:</em> La lista dei movimenti ora carica i dati a blocchi di 50 per garantirti prestazioni velocissime anche con migliaia di movimenti all'attivo.</p>
-
-            <h3>Riepilogo e stampa</h3>
-            <p>Se hai filtri attivi appare un riquadro con il conteggio e il bottone <strong>🖨 Stampa ricerca</strong> (solo Windows) che genera un PDF dei movimenti filtrati con riepilogo IVA.</p>
-        </section>
-
-        <!-- ═══════════════════════════ DATI ═══════════════════════════ -->
-        <section id="dati">
-            <h2>💾 Dati</h2>
-            <p>Hub centrale per import, export, backup e report.</p>
-            <table>
-                <tr><th>Riquadro</th><th>Azione</th></tr>
-                <tr><td>📥 Importa</td><td>Carica magazzino o vendite da Excel</td></tr>
-                <tr><td>📤 Esporta Excel</td><td>Crea un .xlsx con magazzino + movimenti + IVA</td></tr>
-                <tr><td>💾 Backup</td><td>Gestisci copie di sicurezza del database</td></tr>
-            </table>
-            <p>In fondo la sezione <strong>REPORT PDF</strong> (solo Windows) con: magazzino completo, articoli negativi, sottoscorta, movimenti, vendite.</p>
-        </section>
-
-        <!-- ═══════════════════════════ IMPORT ═══════════════════════════ -->
-        <section id="import">
-            <h2>📥 Import Excel</h2>
-            <p>Tre tipi di importazione:</p>
-            <ol>
-                <li><strong>📦 MAGAZZINO (colonne fisse)</strong> — usa le intestazioni standard <code>CODICE, PRODOTTO, CATEGORIA, PREZZO, QUANTITA, VENDUTO, FOTO</code></li>
-                <li><strong>🎯 MAGAZZINO (guidato)</strong> — mappi tu le colonne del tuo file</li>
-                <li><strong>💰 VENDITE</strong> — importa uno storico vendite</li>
-            </ol>
-
-            <h3>Opzioni</h3>
-            <ul>
-                <li><strong>Prezzo IVA inclusa</strong> — se attivo, il prezzo dell'Excel viene considerato ivato</li>
-                <li><strong>Aliquota IVA default</strong> — applicata se la colonna non esiste nell'Excel</li>
-            </ul>
-
-            <div class="callout info">
-                <strong>📦 Creazione Automatica Anagrafiche:</strong> Durante l'import di un magazzino, se l'Excel contiene Categorie o Unità di misura che non esistono nel database, NautiMag le creerà in automatico, così le troverai già pronte nei menu a tendina.
-            </div>
-
-            <p>Durante l'import vedi barra di avanzamento, percentuale e <strong>⏹ STOP</strong> per annullare. Viene creato automaticamente un backup prima di procedere.</p>
-        </section>
-
-        <!-- ═══════════════════════════ IMPORT GUIDATO ═══════════════════════════ -->
-        <section id="import-guidato">
-            <h2>🎯 Import guidato</h2>
-            <p>Per file Excel con colonne diverse dallo standard.</p>
-            <ol>
-                <li><strong>📂 Scegli file</strong> — seleziona l'Excel</li>
-                <li>Il sistema legge intestazioni e prime 10 righe (anteprima a destra)</li>
-                <li>Per ogni campo DB scegli la colonna Excel corrispondente dal menu a tendina</li>
-                <li>Il mapping viene compilato in automatico se riconosce le intestazioni</li>
-                <li>Quando <em>Codice</em> e <em>Prodotto</em> sono mappati, si attiva <strong>✅ Importa</strong></li>
-            </ol>
-            <div class="callout info">
-                <strong>💡 Suggerimento:</strong> l'auto-mapping riconosce oltre 30 varianti (SKU, EAN, Descrizione, Costo, Giacenza, ecc.). <br>
-                <strong>Novità:</strong> Ora puoi usare l'import guidato anche per <strong>Clienti</strong> e <strong>Fornitori</strong>!
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ ESPORTA ═══════════════════════════ -->
-        <section id="esporta">
-            <h2>📤 Esporta Excel</h2>
-            <p>Genera un file <code>.xlsx</code> con 5 fogli:</p>
-            <ol>
-                <li><strong>Magazzino</strong> — tutti gli articoli con calcolo IVA (imponibile, IVA unitaria, prezzo ivato)</li>
-                <li><strong>Movimenti</strong> — tutti i movimenti con riepilogo IVA</li>
-                <li><strong>Riepilogo IVA</strong> — totali vendite e acquisti per aliquota + saldo IVA</li>
-                <li><strong>Clienti</strong> — anagrafica completa (Novità!)</li>
-                <li><strong>Fornitori</strong> — anagrafica completa (Novità!)</li>
-            </ol>
-            <p>Il file è salvato in <code>Documenti\NautiMag\export\</code> e puoi aprirlo, condividerlo o salvarlo altrove.</p>
-        </section>
-
-        <!-- ═══════════════════════════ BACKUP ═══════════════════════════ -->
-        <section id="backup">
-            <h2>🗄 Backup</h2>
-            <p>Copie di sicurezza del database.</p>
-            <ul>
-                <li><strong>Automatico</strong> — il server crea un backup al primo avvio di ogni giorno</li>
-                <li><strong>Manuale</strong> — bottone <em>💾 Crea nuovo backup</em></li>
-                <li><strong>Rotazione</strong> — massimo 5 backup, i più vecchi si eliminano da soli</li>
-            </ul>
-
-            <h3>Azioni su un backup</h3>
-            <ul>
-                <li><strong>♻ Ripristina</strong> — sovrascrive il DB attuale (viene creato un backup pre-restore). <strong>Richiede riavvio app/server.</strong></li>
-                <li><strong>🗑 Elimina</strong> — cancella definitivamente il file</li>
-            </ul>
-
-            <p>Cartella: <code>Documenti\NautiMag\backup\</code></p>
-        </section>
-
-        <!-- ═══════════════════════════ SINCRONIZZA ═══════════════════════════ -->
-        <section id="sincronizza">
-            <h2>🔄 Sincronizza</h2>
-            <p>Solo in modalità <strong>standalone</strong>. In modalità server la sincronizzazione è automatica.</p>
-
-            <h3>Sincronizza ora</h3>
-            <p>Crea backup + esporta un file <code>.wmsync</code> + apre il menu di condivisione nativo (email, Drive, WhatsApp…).</p>
-
-            <h3>Cosa contiene il file</h3>
-            <ul>
-                <li>Articoli</li>
-                <li>Movimenti</li>
-                <li>Fornitori e Clienti</li>
-                <li>Categorie, Unità, Ubicazioni</li>
-                <li>Aliquote IVA</li>
-                <li>Azienda + logo</li>
-            </ul>
-
-            <h3>Import</h3>
-            <p>Unisce i dati del file con quelli attuali. Regola conflitti: vince la modifica più recente (<code>AggiornatoIl</code>).</p>
-
-            <div class="callout warn">
-                <strong>Il carrello non viene sincronizzato</strong> dal .wmsync — è locale al dispositivo. Usa "Invia/Ricevi carrello" dal Carrello.
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ GESTIONE ═══════════════════════════ -->
-        <section id="gestione">
-            <h2>⚙️ Gestione</h2>
-            <p>Hub centrale di configurazione. Divisa in 4 categorie:</p>
-
-            <h3>📄 Documenti</h3>
-            <ul>
-                <li>Ordini fornitori</li>
-                <li>DDT / Buoni consegna</li>
-                <li>Note credito</li>
-                <li>Stampa liste</li>
-                <li>Scontrini KO</li>
-                <li>Fatture (Ricevute/Emesse)</li>
-            </ul>
-
-            <h3>📦 Magazzino</h3>
-            <ul>
-                <li>Statistiche</li>
-                <li>Articoli in negativo</li>
-                <li>Sottoscorta</li>
-                <li>Etichette barcode</li>
-            </ul>
-
-            <h3>🏢 Anagrafiche</h3>
-            <ul>
-                <li>Azienda, Fornitori, Clienti</li>
-                <li>Categorie, Unità di misura</li>
-                <li>Ubicazioni, Aliquote IVA</li>
-            </ul>
-
-            <h3>🔧 Sistema</h3>
-            <ul>
-                <li><strong>📖 Guida utente</strong> — questa pagina</li>
-                <li><strong>🌐 Impostazioni Server</strong> — modalità, URL, PIN</li>
-                <li><strong>👥 Utenti</strong> (solo Admin)</li>
-                <li><strong>📜 Log</strong> (solo SuperUser)</li>
-            </ul>
-        </section>
-
-        <!-- ═══════════════════════════ GESTIONE UTENTI ═══════════════════════════ -->
-        <section id="gestione-utenti">
-            <h2>👥 Gestione Utenti</h2>
-            <p>Raggiungibile da <em>Gestione → Utenti</em>. <strong>Visibile solo agli Admin e al SuperUser.</strong></p>
-            <p>Qui puoi creare e gestire l'accesso al software per i tuoi dipendenti.</p>
-
-            <h3>Creare un nuovo utente</h3>
-            <ol>
-                <li>Clicca su <strong>＋ Nuovo Utente</strong> in basso.</li>
-                <li>Inserisci lo <strong>Username</strong> (es. <code>mario</code>) e la <strong>Password</strong>.</li>
-                <li>Scegli il <strong>Livello di Sicurezza</strong> (Admin o Vendita).</li>
-                <li>Scrivi il <strong>Nome Visualizzato</strong> (es. "Cassiere 1" o "Ufficio"). Questo nome apparirà nella lista.</li>
-                <li>Clicca <strong>Salva Modifiche</strong>.</li>
-            </ol>
-
-            <h3>Modificare o Eliminare</h3>
-            <ul>
-                <li><strong>Admin</strong>: Può modificare e eliminare gli utenti "Vendita". Può modificare altri Admin, ma <strong>non può eliminarli</strong>.</li>
-                <li><strong>SuperUser</strong>: Può fare tutto (tranne eliminare se stesso o l'admin di sistema).</li>
-            </ul>
-            <div class="callout info">
-                <strong>🔐 Nota sui ruoli di sistema:</strong> Gli utenti <code>admin</code> e <code>superuser</code> creati all'inizio non possono essere eliminati. Chi li modifica può solo cambiargli la password.
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ LOG ATTIVITA ═══════════════════════════ -->
-        <section id="log-attivita">
-            <h2>📜 Log Attività e Sistema</h2>
-            <p>Raggiungibile da <em>Gestione → Log</em>. <strong>Visibile solo al SuperUser.</strong></p>
-            <p>Questa pagina è divisa in due schede principali, studiate per due esigenze diverse: capire cosa hanno fatto gli operatori e diagnosticare i problemi tecnici dell'app.</p>
-
-            <h3>Tab "Audit" (Chi ha fatto cosa)</h3>
-            <p>È il registro ufficiale delle operazioni commerciali. Ogni volta che accade qualcosa di importante (Login, Creazione/Modifica/Eliminazione Utente, Vendite, Modifiche Articoli), il server registra una riga in questo registro (salvato nel database).</p>
-            <p>La pagina mostra:</p>
-            <ul>
-                <li>L'<strong>Azione</strong> (es. Login, Elimina, Vendita Chiusa).</li>
-                <li>I <strong>Dettagli</strong> (es. "Accesso come Admin", "Creata NC-2026-0002").</li>
-                <li>Chi l'ha fatto (<strong>Username</strong>).</li>
-                <li>Quando (<strong>Data e Ora</strong>).</li>
-            </ul>
-
-            <h3>Tab "Sistema" (Errori e Debug Tecnico)</h3>
-            <p>Questo tab è lo strumento che serve per capire perché qualcosa non ha funzionato. Non registra le vendite, ma gli <strong>Errori, i Warning e le Info di Sistema</strong> (es. problemi di stampa PDF, errori di importazione Excel, disconnessioni dal server).</p>
-            <p>Queste informazioni sono salvate in file di testo (log) sul disco del server o del PC, con rotazione automatica (max 5 file da 5MB ciascuno).</p>
-
-            <h3>I Filtri</h3>
-            <p>In entrambi i tab puoi usare i filtri per trovare rapidamente ciò che cerchi:</p>
-            <ul>
-                <li><strong>Data da / Data a</strong> — per isolare un periodo specifico.</li>
-                <li><strong>Cerca nel testo</strong> — cerca una parola chiave (es. un codice articolo o il nome di un cliente).</li>
-                <li><strong>Livello (solo tab Sistema)</strong> — per vedere solo gli <em>Info</em> (tutto ok), i <em>Warning</em> (avvisi), gli <em>Error</em> (errori che bloccano un'operazione) o i <em>Fatal</em> (crash gravi).</li>
-            </ul>
-            <p>Premi <strong>🔄 Aggiorna</strong> per ricaricare i log con i filtri selezionati. Se vuoi liberare spazio, premi <strong>🗑 Pulisci</strong> per svuotare la scheda attualmente visualizzata.</p>
-        </section>
-
-        <!-- ═══════════════════════════ AZIENDA ═══════════════════════════ -->
-        <section id="azienda">
-            <h2>🏢 Azienda</h2>
-            <p>Dati del titolare, mostrati su scontrini, fatture e report.</p>
-            <ul>
-                <li><strong>Logo</strong> — PNG trasparente consigliato, lato max 512 px</li>
-                <li><strong>Tipo Soggetto e Dati Anagrafici</strong> — Puoi scegliere se la tua azienda è una Società o una Persona Fisica. Se scegli Persona Fisica, appariranno i campi Nome e Cognome.</li>
-                <li><strong>Ragione sociale</strong> — obbligatoria</li>
-                <li><strong>Insegna</strong> — nome commerciale breve (appare in alto nell'app)</li>
-                <li><strong>P.IVA, C.F., indirizzo, contatti, PEC, IBAN</strong></li>
-                <li><strong>Codice SDI e Regime Fiscale</strong> — fondamentali per la fatturazione elettronica (es. RF01 Ordinario, RF19 Forfettario). <em>Novità:</em> il regime fiscale si seleziona tramite un bottone che apre un elenco a tendina con tutti i 18 codici ufficiali. In questo modo non si può sbagliare e il valore rimane memorizzato.</li>
-                <li><strong>Note</strong> — interne</li>
-            </ul>
-            <div class="callout warn">
-                <strong>⚠️ Validazione P.IVA:</strong> La P.IVA inserita qui non può essere la stessa di un cliente o fornitore già presente nell'Archivio Unico.
-            </div>
-            <div class="callout info">
-                <strong>💡 Modalità Demo:</strong> Se non hai attivato la licenza, questa pagina mostrerà dati fittizi (es. "Ditta Demo S.r.l.") e non ti permetterà di salvare i dati reali per evitare che usi dati aziendali veri durante il periodo di prova.
-            </div>
-            <p>Il nome azienda (insegna o ragione sociale) appare nella TopBar di tutte le pagine.</p>
-        </section>
-
-        <!-- ═══════════════════════════ FORNITORI ═══════════════════════════ -->
-        <section id="fornitori">
-            <h2>🚚 Fornitori</h2>
-            <p>Elenco fornitori con scheda completa (referente, contatti, PEC, IBAN).</p>
-            
-            <h3>Maschera Dinamica</h3>
-            <p>Come per i clienti, puoi scegliere il "Tipo Soggetto". Se scegli <strong>Persona Fisica</strong>, appariranno i campi Nome e Cognome, altrimenti la Ragione Sociale.</p>
-
-            <h3>Auto-Import dall'Archivio Clienti</h3>
-            <p>Se stai creando un nuovo fornitore e inserisci una P.IVA o un C.F. che appartiene già a un <strong>Cliente</strong>, NautiMag ti avviserà e ti chiederà se vuoi importare i dati per renderlo anche Fornitore. In questo modo eviti di riscrivere tutto e mantieni l'archivio unificato.</p>
-
-            <p>Nella scheda di un fornitore esistente è visibile lo <strong>storico degli ultimi 50 acquisti</strong> con totale.</p>
-            <ul>
-                <li><strong>✎</strong> modifica</li>
-                <li><strong>🗑</strong> elimina (soft delete)</li>
-                <li><strong>＋ Nuovo Fornitore</strong> in basso</li>
-            </ul>
-        </section>
-
-        <!-- ═══════════════════════════ CLIENTI ═══════════════════════════ -->
-        <section id="clienti">
-            <h2>👥 Clienti e Archivio Unico</h2>
-            <p>Elenco clienti. Ogni scheda mostra le ultime 50 vendite con totale speso.</p>
-            
-            <h3>Tipo Soggetto e Maschera Dinamica</h3>
-            <p>Puoi scegliere se il cliente è una Società, una Persona Fisica o una P.A. Se scegli <strong>Persona Fisica</strong>, i campi Nome e Cognome prenderanno il posto della Ragione Sociale.</p>
-
-            <h3>Controllo Duplicati On-Blur</h3>
-            <p>Appena esci dal campo P.IVA o C.F., NautiMag controlla nel database se esiste già un'anagrafica con quel codice. Se la trova, mostra un popup di avviso con <strong>l'anteprima dei dati del duplicato</strong> (Nome, P.IVA, C.F., Telefono, Email) e ti dà la possibilità di aprire direttamente la sua scheda o correggere l'inserimento.</p>
-
-            <h3>Auto-Import dall'Archivio Fornitori</h3>
-            <p>Se inserisci una P.IVA che appartiene già a un Fornitore, NautiMag ti chiederà se vuoi importare i dati per crearlo anche come Cliente.</p>
-
-            <p>I campi includono: nome, cognome, ragione sociale, P.IVA, C.F., <strong>Codice SDI</strong>, <strong>PEC</strong>, <strong>Regime Fiscale</strong>, indirizzo, contatti, note e la sezione <strong>Privacy (GDPR)</strong>.</p>
-            
-            <h3>Filtro Privacy</h3>
-            <p>In cima alla lista dei clienti c'è un interruttore: <strong>"Mostra solo clienti senza privacy"</strong>. Attivalo per vedere subito chi non ha ancora firmato il consenso. Accanto a ogni cliente, un'icona indica lo stato:
-                <ul>
-                    <li>🛡️ <strong>Verde</strong>: Privacy firmata e registrata.</li>
-                    <li>⚠️ <strong>Gialla</strong>: Privacy mancante.</li>
-                </ul>
-            </p>
-        </section>
-
         <!-- ═══════════════════════════ PRIVACY E GDPR ═══════════════════════════ -->
         <section id="privacy-gdpr">
             <h2>🛡️ Privacy e GDPR</h2>
@@ -763,8 +70,8 @@
             </ul>
             <p>Puoi aggiungere aliquote custom (es. 5%, 7%).</p>
 
-            <h3>Nature IVA (Novità!)</h3>
-            <p>Quando si crea o si modifica un'aliquota allo <strong>0%</strong> (esente o non imponibile), l'Agenzia delle Entrate richiede di specificare il motivo (la "Natura"). NautiMag ti blocca se provi a salvare un'IVA a 0% senza Natura.</p>
+            <h3>Nature IVA</h3>
+            <p>Quando si crea o si modifica un'aliquota allo <strong>0%</strong>, l'Agenzia delle Entrate richiede di specificare il motivo (la "Natura"). NautiMag ti blocca se provi a salvare un'IVA a 0% senza Natura.</p>
             <p>Per selezionarla, clicca sul campo <strong>"Codice Natura"</strong> e scegli dall'elenco (es. N4 - Esenti, N2.2 - Forfettario, ecc.).</p>
         </section>
 
@@ -777,14 +84,14 @@
             <ol>
                 <li>Vai su <strong>Documenti → Fatture Emesse</strong> e clicca <strong>＋ Nuova Fattura</strong>.</li>
                 <li><strong>Scegli il Cliente:</strong> dal menu a tendina. Se il cliente non c'è, clicca sul pulsante <strong>➕</strong> accanto al menu per crearlo al volo.</li>
-                <li><strong>Aggiungi Prodotti:</strong> 
+                <li><strong>Aggiungi Prodotti:</strong>
                     <ul>
                         <li><strong>📦 Da Magazzino</strong>: apre la ricerca. Scegli un articolo e la quantità. Quando emetterai la fattura, questo articolo verrà scaricato dal magazzino.</li>
-                        <li><strong>✏ Riga Descrittiva</strong> (Novità): scrivi una descrizione e un prezzo a mano per prestazioni o servizi (es. "Consulenza", "Trasporto"). Ti verrà chiesto di scegliere l'aliquota IVA per questa specifica riga.</li>
+                        <li><strong>✏ Riga Descrittiva</strong>: scrivi una descrizione e un prezzo a mano per prestazioni o servizi (es. "Consulenza", "Trasporto"). Ti verrà chiesto di scegliere l'aliquota IVA per questa specifica riga.</li>
                     </ul>
                 </li>
                 <li><strong>Controlla l'IVA:</strong> In alto puoi decidere se i prezzi che scrivi sono già ivati o no, e scegliere l'aliquota di default.</li>
-                <li><strong>Multi-Aliquota:</strong> Puoi avere righe con IVA diverse nella stessa fattura (es. un articolo al 22% e uno al 10%). Il sistema calcolerà i totali correttamente.</li>
+                <li><strong>Multi-Aliquota:</strong> Puoi avere righe con IVA diverse nella stessa fattura (es. un articolo al 22% e uno al 10%).</li>
                 <li><strong>Salva come Bozza:</strong> se non è ancora definitiva, o <strong>✅ Emetti Fattura</strong>: se vuoi chiuderla e scaricare la merce.</li>
             </ol>
 
@@ -796,10 +103,9 @@
             <h3>📄 Esportare il file XML per l'Agenzia delle Entrate (SDI)</h3>
             <p>Quando la fattura è stata emessa, in fondo alla pagina apparirà il pulsante <strong>📄 Esporta XML (SDI)</strong>.</p>
             <p>Cliccandolo, NautiMag genererà un file <code>.xml</code> (es. <code>Fattura_2026-0001.xml</code>) e ti chiederà dove salvarlo.</p>
-            
+
             <div class="callout warn">
-                <strong>⚠️ IMPORTANTE:</strong> NautiMag NON invia la fattura all'Agenzia. Il file XML generato è il "documento ufficiale" che devi caricare a mano sul portale dell'Agenzia delle Entrate o inviare al tuo commercialista. <br>
-                <em>Novità v11.0</em>: Il file generato è ora conforme al tracciato FPR12, con gestione del progressivo univoco e corretta gestione della Natura IVA per le fatture a 0%.
+                <strong>⚠️ IMPORTANTE:</strong> NautiMag NON invia la fattura all'Agenzia. Il file XML generato è il "documento ufficiale" che devi caricare a mano sul portale dell'Agenzia delle Entrate o inviare al tuo commercialista.
             </div>
         </section>
 
@@ -812,10 +118,10 @@
             <ol>
                 <li>Vai su <strong>Documenti → Fatture Ricevute</strong> e clicca <strong>＋ Nuova Fattura</strong>.</li>
                 <li><strong>Scegli il Fornitore</strong> (con il pulsante ➕ se manca).</li>
-                <li><strong>Opzioni IVA:</strong> Decidi se i prezzi che leggerai dalla fattura del fornitore sono già ivati (di solito sì) e scegli l'aliquota. Il sistema calcolerà da solo Imponibile, IVA e Totale.</li>
+                <li><strong>Opzioni IVA:</strong> Decidi se i prezzi sono già ivati (di solito sì) e scegli l'aliquota.</li>
                 <li><strong>Scansiona i prodotti:</strong> Usa la pistola barcode. Ogni volta che spari un codice, il prodotto viene aggiunto alla lista. Se lo spari due volte, la quantità diventa 2.</li>
                 <li>Se il prodotto non esiste, puoi crearlo al volo.</li>
-                <li>Premi <strong>✅ Salva e Carica in Magazzino</strong>: il sistema aggiungerà i pezzi alle tue scorte, calcolando il prezzo di acquisto netto (senza IVA) per ogni articolo.</li>
+                <li>Premi <strong>✅ Salva e Carica in Magazzino</strong>: il sistema aggiungerà i pezzi alle tue scorte, calcolando il prezzo di acquisto netto (senza IVA).</li>
             </ol>
         </section>
 
@@ -879,9 +185,80 @@
 
             <div class="callout warn">
                 <strong>⚠️ Regole di sicurezza fiscale:</strong><br>
-                - Non puoi stornare più pezzi di quelli che hai fatturato. Se hai fatturato 5 pezzi, la Nota Credito te ne farà stornare al massimo 5.<br>
+                - Non puoi stornare più pezzi di quelli che hai fatturato.<br>
                 - Se hai già stornato 2 pezzi, la prossima Nota Credito ti farà stornare al massimo 3.<br>
                 - Se hai già stornato tutto, il pulsante "Emetti Nota Credito" non ci sarà più.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ PREVENTIVI ═══════════════════════════ -->
+        <section id="preventivi">
+            <h2>📝 Preventivi</h2>
+            <p>Il Preventivo è un documento commerciale che mostra al cliente cosa stai per vendergli e a che prezzo. <strong>Non è un documento fiscale</strong> e non scarica il magazzino.</p>
+
+            <h3>🚩 Quando si usa?</h3>
+            <ul>
+                <li>Il cliente ti chiede un preventivo per un lavoro importante (es. arredamento, impianto)</li>
+                <li>Devi fare una proposta scritta prima di ricevere l'ordine</li>
+                <li>Vuoi dare al cliente un'idea del costo prima che decida</li>
+            </ul>
+
+            <h3>Come si crea un Preventivo</h3>
+            <ol>
+                <li>Vai su <em>Home → Documenti → Preventivi</em></li>
+                <li>Clicca <strong>＋ Nuovo Preventivo</strong></li>
+                <li><strong>Scegli il Cliente:</strong> dal menu a tendina. Se manca, clicca ➕ per crearlo al volo</li>
+                <li><strong>Aggiungi Prodotti:</strong>
+                    <ul>
+                        <li><strong>📦 Da Magazzino</strong>: cerca e scegli un articolo</li>
+                        <li><strong>✏ Riga Descrittiva</strong>: scrivi una descrizione libera (es. "Manodopera", "Trasporto")</li>
+                    </ul>
+                </li>
+                <li>Il sistema calcola automaticamente Imponibile, IVA e Totale</li>
+                <li>Imposta la <strong>Data Scadenza</strong> (default: 30 giorni dalla creazione)</li>
+                <li>Clicca <strong>💾 Salva Preventivo</strong></li>
+            </ol>
+
+            <h3>Come si stampa il PDF</h3>
+            <p>Apri un preventivo dalla lista e clicca <strong>🖨 Stampa PDF</strong> (solo Windows). Il PDF viene generato in <code>Documenti\NautiMag\export\</code>.</p>
+            <p>Il PDF contiene:</p>
+            <ul>
+                <li>Intestazione azienda con logo</li>
+                <li>Dati cliente</li>
+                <li>Elenco articoli con prezzi e IVA</li>
+                <li>Totali (imponibile, IVA, totale)</li>
+                <li>Data di validità</li>
+                <li>Avviso "Documento non fiscale"</li>
+            </ul>
+
+            <h3>🔄 Converti Preventivo in Fattura</h3>
+            <p>Quando il cliente accetta il preventivo, non devi riscrivere tutto. Puoi convertirlo in Fattura con un click:</p>
+            <ol>
+                <li>Apri il preventivo accettato</li>
+                <li>Clicca <strong>🔄 Converti in Fattura</strong></li>
+                <li>NautiMag crea una nuova <strong>Fattura Emessa in stato Bozza</strong> con le stesse righe</li>
+                <li>Il preventivo viene marcato come <strong>"Convertito in Fattura"</strong> (non modificabile)</li>
+                <li>Puoi andare in <em>Fatture Emesse</em> e completare l'emissione quando vuoi</li>
+            </ol>
+
+            <h3>Stati del Preventivo</h3>
+            <table>
+                <tr><td>Bozza</td><td>Appena creato</td></tr>
+                <tr><td>Inviato</td><td>Inviato al cliente</td></tr>
+                <tr><td>Accettato</td><td>Il cliente ha accettato</td></tr>
+                <tr><td>Rifiutato</td><td>Il cliente ha rifiutato</td></tr>
+                <tr><td>Convertito in Fattura</td><td>Già convertito</td></tr>
+                <tr><td>Scaduto</td><td>La data di scadenza è passata</td></tr>
+            </table>
+
+            <div class="callout info">
+                <strong>💡 Esempio pratico:</strong><br>
+                Cliente chiede preventivo per "Fornitura e posa di 10 mq di parquet".<br>
+                1. Crea Preventivo<br>
+                2. Aggiungi righe: "Parquet rovere 10 mq" (€ 50/mq) + "Manodopera posa" (€ 300)<br>
+                3. Stampa PDF e dai al cliente<br>
+                4. Cliente accetta → clicca "Converti in Fattura"<br>
+                5. Vai in Fatture Emesse → emetti → XML per SDI
             </div>
         </section>
 
@@ -985,6 +362,81 @@
             </ul>
         </section>
 
+        <!-- ═══════════════════════════ RUBRICA ═══════════════════════════ -->
+        <section id="rubrica">
+            <h2>📇 Rubrica</h2>
+            <p>La Rubrica è una <strong>lista contatti unificata</strong> che mostra insieme clienti e fornitori, con azioni rapide per chiamare, vedere la mappa o condividere il contatto.</p>
+
+            <h3>Dove si trova</h3>
+            <p>Nella TopBar, icona <strong>📇 Rubrica</strong>.</p>
+
+            <h3>Cosa mostra</h3>
+            <p>Ogni contatto mostra:</p>
+            <ul>
+                <li><strong>Avatar</strong> con icona tipo (👤 cliente, 🚚 fornitore, 👤🚚 entrambi)</li>
+                <li><strong>Nome</strong> (Ragione Sociale o Nome Cognome)</li>
+                <li><strong>Telefono</strong> ed <strong>Email</strong></li>
+                <li><strong>Icone social</strong>: 🟢 WhatsApp, 🔵 Facebook, 📸 Instagram (se presenti)</li>
+            </ul>
+
+            <h3>Azioni rapide</h3>
+            <table>
+                <tr><th>Icona</th><th>Azione</th></tr>
+                <tr><td>📞</td><td>Chiama il numero (apre il dialer del telefono)</td></tr>
+                <tr><td>📍</td><td>Apri Google Maps con l'indirizzo del contatto</td></tr>
+                <tr><td>📤</td><td>Condividi il contatto (email, WhatsApp, ecc.)</td></tr>
+                <tr><td>🟢</td><td>Apri WhatsApp</td></tr>
+                <tr><td>🔵</td><td>Apri Facebook</td></tr>
+                <tr><td>📸</td><td>Apri Instagram</td></tr>
+            </table>
+
+            <h3>Ricerca</h3>
+            <p>La barra in alto cerca per:</p>
+            <ul>
+                <li>Nome (cliente o fornitore)</li>
+                <li>Telefono</li>
+                <li>Email</li>
+            </ul>
+
+            <h3>Modifica contatto</h3>
+            <p>Cliccando su una riga si apre la scheda del cliente o del fornitore (in base al tipo).</p>
+
+            <div class="callout info">
+                <strong>💡 Novità:</strong> La Rubrica mostra anche i contatti che sono <strong>sia clienti che fornitori</strong> (icona 👤🚚). In questo modo hai un unico posto dove cercare un numero di telefono, senza doverti ricordare se è un cliente o un fornitore.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ NOTIFICHE ═══════════════════════════ -->
+        <section id="notifiche">
+            <h2>🔔 Notifiche</h2>
+            <p>La pagina Notifiche ti avvisa di cose importanti da fare, come:</p>
+            <ul>
+                <li>⚠️ <strong>Scontrini KO</strong> da sistemare</li>
+                <li>📉 <strong>Articoli sottoscorta</strong></li>
+                <li>⏳ <strong>Licenza in scadenza</strong> (o trial agli sgoccioli)</li>
+                <li>🔑 <strong>Licenza scaduta</strong></li>
+                <li>📅 <strong>Appuntamenti in scadenza</strong></li>
+            </ul>
+
+            <h3>Dove si trova</h3>
+            <p>Nella TopBar, icona <strong>🔔</strong>. Se ci sono notifiche da leggere, l'icona mostra un pallino rosso.</p>
+
+            <h3>Come funziona</h3>
+            <p>Ogni notifica ha:</p>
+            <ul>
+                <li><strong>Icona</strong> (⚠️, 📉, ecc.)</li>
+                <li><strong>Titolo</strong> (es. "3 scontrini KO da ristampare")</li>
+                <li><strong>Sottotitolo</strong> (es. "Vai in Gestione → Scontrini")</li>
+                <li><strong>Azione</strong> — clicca per aprire direttamente la pagina corretta</li>
+            </ul>
+
+            <p>Quando hai risolto il problema (es. hai ristampato gli scontrini KO), la notifica sparisce automaticamente alla prossima apertura.</p>
+
+            <div class="callout info">
+                <strong>💡 Nota:</strong> Le notifiche non sono push (non arrivano sul telefono quando l'app è chiusa). Sono visibili solo quando apri NautiMag e clicchi sull'icona 🔔 nella TopBar.
+            </div>
+        </section>
+
         <!-- ═══════════════════════════ AGENDA ═══════════════════════════ -->
         <section id="agenda">
             <h2>📅 Agenda</h2>
@@ -995,6 +447,7 @@
                 <li><strong>Spunta</strong> — tocca il quadratino per segnare un appuntamento come completato (testo barrato).</li>
                 <li><strong>Cestino</strong> — elimina l'appuntamento.</li>
                 <li><strong>Aggiungi</strong> — compila titolo, ora e note in basso per creare un nuovo appuntamento.</li>
+                <li><strong>📄 PDF Mese / PDF Anno</strong> — esporta l'agenda in PDF (solo Windows)</li>
             </ul>
         </section>
 
@@ -1005,61 +458,103 @@
 
             <h3>Scegliere la Modalità</h3>
             <ul>
-                <li><strong>standalone:</strong> NautiMag usa solo la memoria del dispositivo su cui lo stai usando. Se lo apri su un altro PC, non vedrai gli stessi dati.</li>
+                <li><strong>standalone:</strong> NautiMag usa solo la memoria del dispositivo su cui lo stai usando.</li>
                 <li><strong>server:</strong> NautiMag si collega a un "capo" (il PC Cassa). Tutti i dispositivi collegati vedono gli stessi dati in tempo reale.</li>
             </ul>
 
             <h3>Come collegare il telefono o un altro PC al Server</h3>
-            <p>Se devi collegare un nuovo dispositivo, hai <strong>3 modi</strong> per farlo (dal più facile al più difficile):</p>
+            <p>Se devi collegare un nuovo dispositivo, hai <strong>3 modi</strong> per farlo:</p>
             <ol>
-                <li><strong>📡 Ricerca Automatica:</strong> Clicca sul pulsante blu <em>"Cerca Server in automatico"</em>. L'app farà un "urlo" nella rete Wi-Fi e il PC Server risponderà da solo. Non devi scrivere niente.</li>
-                <li><strong>📷 Scansione QR Code:</strong> Vai sul PC (Impostazioni Server) e clicca "Genera QR Code". Poi dal telefono, clicca "Scansiona QR Code" e inquadra lo schermo del PC. Il telefono copierà tutti i dati da solo.</li>
-                <li><strong>✍️ Inserimento Manuale:</strong> Se i primi due non funzionano, scrivi a mano l'IP del PC (es. <code>192.168.1.10</code>) e il PIN.</li>
+                <li><strong>📡 Ricerca Automatica:</strong> Clicca sul pulsante blu <em>"Cerca Server in automatico"</em>.</li>
+                <li><strong>📷 Scansione QR Code:</strong> Genera il QR sul PC, poi inquadralo dal telefono.</li>
+                <li><strong>✍️ Inserimento Manuale:</strong> Scrivi a mano l'IP del PC (es. <code>192.168.1.10</code>) e il PIN.</li>
             </ol>
 
             <div class="callout info">
                 <strong>💡 Cos'è il CartId?</strong><br>
-                Immagina il CartId come il numero del tavolo di un ristorante. 
-                <br>Se due tablet hanno lo stesso CartId (es. <code>cassa</code>), vedranno lo stesso carrello. 
-                <br>Se hanno CartId diversi (es. <code>android1</code> e <code>android2</code>), avranno carrelli separati e potranno servire due clienti diversi contemporaneamente.
+                Immagina il CartId come il numero del tavolo di un ristorante.
+                <br>Se due tablet hanno lo stesso CartId (es. <code>cassa</code>), vedranno lo stesso carrello.
+                <br>Se hanno CartId diversi (es. <code>android1</code> e <code>android2</code>), avranno carrelli separati.
             </div>
 
-            <h3>🔐 Sicurezza del PIN (Novità)</h3>
-            <p>Per motivi di sicurezza, il PIN non viaggia più in chiaro. L'app calcola un'impronta digitale (hash) del PIN e la invia al server. Il server confronta l'impronta con quella salvata e, se corrisponde, autorizza l'accesso. Questo evita che un malintenzionato possa rubare il PIN spiando il traffico di rete.</p>
+            <h3>🔐 Sicurezza del PIN</h3>
+            <p>Il PIN non viaggia più in chiaro. L'app calcola un'impronta digitale (hash) e la invia al server.</p>
+
             <h3>🖨 Configurare la Stampante Fiscale (RT) passo-passo</h3>
-            <p>Se hai una stampante fiscale (Registratore Telematico) collegata al PC, puoi farle stampare gli scontrini in automatico. Ecco come funziona, spiegato semplice:</p>
             <ol>
                 <li><strong>Accendi la stampante</strong> e assicurati che sia collegata al PC.</li>
                 <li>Vai in <em>Impostazioni Server → STAMPANTE FISCALE</em> e attiva lo switch <strong>"Abilita stampante fiscale"</strong>.</li>
-                <li><strong>Cartella Input (La cassetta delle lettere):</strong> NautiMag creerà un file di testo (es. <code>scontrino.txt</code>) in questa cartella. Immagina di lasciare un bigliettino nella cassetta delle lettere.</li>
-                <li><strong>Cartella Esito (La risposta):</strong> Il programma della stampante leggerà il bigliettino e, se ha stampato, lascerà un file di risposta (es. <code>scontrino.ok</code>) in questa cartella.</li>
+                <li><strong>Cartella Input (La cassetta delle lettere):</strong> NautiMag creerà un file di testo (es. <code>scontrino.txt</code>) in questa cartella.</li>
+                <li><strong>Cartella Esito (La risposta):</strong> Il programma della stampante leggerà il bigliettino e lascerà un file di risposta (es. <code>scontrino.ok</code>).</li>
                 <li><strong>Nome file scontrino:</strong> Scrivi il nome esatto che la tua stampante si aspetta (solitamente <code>scontrino.txt</code>).</li>
             </ol>
 
             <div class="callout warn">
                 <strong>⚠️ Cosa succede se la stampante non risponde?</strong><br>
-                NautiMag aspetta 10 secondi. Se la stampante è spenta o non risponde, NautiMag penserà: <em>"Ok, la stampante non c'è"</em>. Salverà lo scontrino nella coda <strong>🧾 Scontrini KO</strong> e ti mostrerà un avviso. La vendita, però, sarà salvata regolarmente!
+                NautiMag aspetta 10 secondi. Se la stampante è spenta o non risponde, salverà lo scontrino nella coda <strong>🧾 Scontrini KO</strong> e ti mostrerà un avviso. La vendita, però, sarà salvata regolarmente!
             </div>
+
+            <h3>🎁 Tessera Fedeltà (Impostazioni)</h3>
+            <p>Nella stessa pagina puoi attivare e configurare la Tessera Fedeltà. Vedi la <a href="#tessera-fedelta">sezione dedicata</a> per i dettagli.</p>
 
             <div class="callout info">
                 <strong>Dopo aver salvato queste impostazioni, chiudi e riapri NautiMag</strong> per far funzionare tutto correttamente.
             </div>
         </section>
 
+        <!-- ═══════════════════════════ ASSISTENZA REMOTA ═══════════════════════════ -->
+        <section id="assistenza-remota">
+            <h2>🆘 Assistenza Remota</h2>
+            <p>Se hai un problema tecnico e hai bisogno di aiuto, NautiMag include uno strumento di <strong>diagnostica automatica</strong> che raccoglie tutti i file utili per l'assistenza e li comprime in un unico ZIP.</p>
+
+            <h3>Dove si trova</h3>
+            <p>Vai su <em>Home → Sistema → 🆘 Assistenza Remota</em>.</p>
+
+            <h3>Come funziona</h3>
+            <p>Si apre un menu con 2 opzioni:</p>
+            <ol>
+                <li><strong>📦 Esporta file di diagnostica (ZIP)</strong> — crea un archivio ZIP che contiene:
+                    <ul>
+                        <li><code>app.log</code> — log di sistema</li>
+                        <li><code>crash.log</code> — eventuali crash</li>
+                        <li><code>serverconfig.json</code> — configurazione server</li>
+                        <li><code>fiscalconfig.json</code> — configurazione RT</li>
+                        <li><code>info_sistema.txt</code> — info su versione, dispositivo, runtime</li>
+                    </ul>
+                </li>
+                <li><strong>🖥️ Apri RustDesk / AnyDesk</strong> — apre il sito di RustDesk (software di assistenza remota gratuito)</li>
+            </ol>
+
+            <h3>Cosa fare col file ZIP</h3>
+            <p>Dopo aver creato lo ZIP, ti apparirà un menu con 2 opzioni:</p>
+            <ul>
+                <li><strong>📂 Apri cartella</strong> — apre Esplora File sulla cartella <code>Documenti\NautiMag\export</code></li>
+                <li><strong>📤 Condividi file</strong> — apre il menu di condivisione (email, WhatsApp, Drive, ecc.)</li>
+            </ul>
+            <p>Invia il file ZIP all'assistenza: loro avranno tutto il necessario per capire il problema.</p>
+
+            <div class="callout info">
+                <strong>💡 Quando usarlo:</strong><br>
+                • L'app si chiude da sola senza motivo<br>
+                • Un'operazione fallisce e non sai perché<br>
+                • Devi mostrare all'assistenza la configurazione del tuo server
+            </div>
+        </section>
+
         <!-- ═══════════════════════════ TEMI GRAFICI ═══════════════════════════ -->
         <section id="temi-grafici">
             <h2>🎨 Temi Grafici e Personalizzazione</h2>
-            <p>NautiMag ti permette di cambiare l'aspetto dell'app in base ai tuoi gusti o all'ambiente in cui lavori. Puoi farlo andando in <em>Gestione → Account → Il mio Account</em> e selezionando il tema dal menu a tendina <strong>"Tema Grafico"</strong>.</p>
+            <p>NautiMag ti permette di cambiare l'aspetto dell'app. Puoi farlo andando in <em>Gestione → Account → Il mio Account</em> e selezionando il tema dal menu a tendina <strong>"Tema Grafico"</strong>.</p>
 
             <p>I temi disponibili sono:</p>
             <ul>
-                <li><strong>Standard (Blu)</strong>: Un tema professionale, con colori blu e grigi. È il tema predefinito, ideale per l'ufficio e per ridurre l'affaticamento visivo durante il giorno.</li>
-                <li><strong>Pastello (Colori)</strong>: Il tema classico con colori accesi (verde, arancione, viola). Perfetto per un negozio vivace o per chi preferisce un'interfaccia più colorata.</li>
-                <li><strong>Dark (Notturno)</strong>: Un tema scuro, con sfondi neri e testi chiari. Ideale per lavorare in ambienti con poca luce o per chi preferisce un look moderno e riposante.</li>
+                <li><strong>Standard (Blu)</strong>: tema professionale, colori blu e grigi. Predefinito, ideale per ufficio.</li>
+                <li><strong>Pastello (Colori)</strong>: il tema classico con colori accesi (verde, arancione, viola).</li>
+                <li><strong>Dark (Notturno)</strong>: tema scuro, con sfondi neri e testi chiari.</li>
             </ul>
 
             <div class="callout warn">
-                <strong>⚠️ Importante:</strong> Dopo aver scelto un nuovo tema, l'app ti chiederà di chiudersi. Questo è necessario perché MAUI deve ricaricare tutti i colori e i componenti dell'interfaccia. Dopo aver riaperto l'app, vedrai il nuovo tema applicato in tutte le schermate.
+                <strong>⚠️ Importante:</strong> Dopo aver scelto un nuovo tema, l'app ti chiederà di chiudersi. Questo è necessario perché MAUI deve ricaricare tutti i colori. Dopo aver riaperto l'app, vedrai il nuovo tema applicato in tutte le schermate.
             </div>
         </section>
 
@@ -1088,10 +583,280 @@
             <h3>Protezione Anti-Manomissione</h3>
             <ul>
                 <li><strong>File Cifrato:</strong> Il file della licenza è cifrato (AES) e non può essere letto o modificato con un semplice editor di testo.</li>
-                <li><strong>Registro Nascosto:</strong> Se qualcuno prova a cancellare i file per resettare il periodo di prova, l'app se ne accorge (grazie a un file di sistema nascosto) e ripristina i dati originali.</li>
+                <li><strong>Registro Nascosto:</strong> Se qualcuno prova a cancellare i file per resettare il trial, l'app se ne accorge e ripristina i dati originali.</li>
                 <li><strong>Blocco Orologio:</strong> Se l'orologio del PC viene spostato indietro nel tempo per aggirare la scadenza, il sistema lo rileva e blocca il trial.</li>
-                <li><strong>Istanza Singola (Windows):</strong> L'app impedisce l'apertura di più finestre contemporaneamente, evitando conflitti sui dati e garantendo l'integrità del database.</li>
+                <li><strong>Istanza Singola (Windows):</strong> L'app impedisce l'apertura di più finestre contemporaneamente.</li>
             </ul>
+        </section>
+
+        <!-- ═══════════════════════════ SERVER TRAY ═══════════════════════════ -->
+        <section id="server-tray">
+            <h2>🖥️ NautiMag Server Control (Tray)</h2>
+            <p>Il <strong>Server Control</strong> (chiamato anche "Server Tray" o "Tray") è una piccola utility che vive nella <strong>system tray di Windows</strong> (l'area in basso a destra, accanto all'orologio). Serve per avviare, fermare e monitorare il server NautiMag senza dover usare il terminale.</p>
+
+            <h3>🚩 Quando si usa?</h3>
+            <p>Devi usare il Server Control <strong>sul PC che fa da Server</strong> (il PC Cassa o l'Amministrazione). Sulle postazioni Client (tablet, altri PC) il Tray non serve.</p>
+
+            <h3>Come si avvia</h3>
+            <ul>
+                <li>L'installer lo configura per avviarsi automaticamente con Windows (opzione "Avvio automatico con Windows")</li>
+                <li>Altrimenti, cerca <em>"NautiMag — Server Control"</em> nel menu Start</li>
+                <li>Appare come icona in tray (un cerchio colorato)</li>
+            </ul>
+
+            <h3>Il colore dell'icona</h3>
+            <p>Il cerchio in tray cambia colore in base allo stato del server:</p>
+            <table>
+                <tr><td>🟢 <strong>Verde</strong></td><td>Server attivo e funzionante</td></tr>
+                <tr><td>🟡 <strong>Giallo</strong></td><td>Server in avvio (attendere 10-20 secondi)</td></tr>
+                <tr><td>🔴 <strong>Rosso</strong></td><td>Errore: il server non parte</td></tr>
+                <tr><td>⚪ <strong>Grigio</strong></td><td>Server fermo (non avviato)</td></tr>
+            </table>
+
+            <h3>Il menu contestuale (tasto destro sull'icona)</h3>
+            <p>Cliccando con il tasto destro sull'icona in tray, si apre un menu con:</p>
+            <ul>
+                <li><strong>Stato: ...</strong> — mostra lo stato attuale (non cliccabile)</li>
+                <li><strong>▶ Attiva server</strong> — avvia il server</li>
+                <li><strong>⏹ Disattiva server</strong> — ferma il server</li>
+                <li><strong>🔄 Riavvia server</strong> — ferma e riavvia</li>
+                <li><strong>📊 Gestione...</strong> — apre la finestra di controllo (vedi sotto)</li>
+                <li><strong>📂 Apri cartella dati</strong> — apre <code>Documenti\NautiMag</code></li>
+                <li><strong>📄 Apri log</strong> — apre il file <code>tray.log</code></li>
+                <li><strong>🚀 Avvio automatico con Windows</strong> — attiva/disattiva l'avvio automatico</li>
+                <li><strong>❓ Credits / Info...</strong> — apre la finestra "About"</li>
+                <li><strong>❌ Esci (chiude anche il server)</strong> — chiude tutto</li>
+            </ul>
+
+            <h3>La finestra "Gestione" (StatusForm)</h3>
+            <p>Doppio click sull'icona in tray (o menu "📊 Gestione..."): si apre una finestra con:</p>
+
+            <h4>Header</h4>
+            <p>Mostra il nome "NautiMag Server" e lo stato attuale (es. "Stato: Attivo").</p>
+
+            <h4>Toolbar (pulsanti)</h4>
+            <ul>
+                <li><strong>▶ Avvia</strong> — avvia il server</li>
+                <li><strong>⏹ Ferma</strong> — ferma il server</li>
+                <li><strong>🔄 Riavvia</strong> — riavvia</li>
+                <li><strong>📂 Cartella dati</strong> — apre la cartella</li>
+                <li><strong>📄 Aggiorna Log</strong> — ricarica i log</li>
+                <li><strong>🗑 Pulisci Log</strong> — svuota tutti i log (con conferma)</li>
+                <li><strong>✖ Chiudi</strong> — chiude la finestra (il tray resta)</li>
+            </ul>
+
+            <h4>Le 3 schede dei log</h4>
+            <p>La finestra ha 3 schede colorate:</p>
+
+            <h5>🖥️ Console (Live)</h5>
+            <p>Mostra in tempo reale l'output del server (stdout). Utile per vedere cosa succede mentre il server è in esecuzione. Sfondo scuro, testo chiaro.</p>
+            <p>Esempi di righe che vedrai:</p>
+            <ul>
+                <li><code>### >>> NAUTIMAG SERVER AVVIATO <<< ###</code></li>
+                <li><code>[Discovery] Nome Server (Hostname): PC-MASSIMO</code></li>
+                <li><code>[Backup] Auto-backup creato: backup_20261028_120000.db3</code></li>
+            </ul>
+
+            <h5>📄 Log Sistema (File)</h5>
+            <p>Mostra il contenuto di <code>app.log</code>, il file di log di sistema. Contiene Info, Warning, Error e Fatal con timestamp, messaggio ed eventuale stack trace.</p>
+            <p>La rotazione è automatica: 5MB max, 5 file massimi.</p>
+
+            <h5>📋 Log Audit (Database)</h5>
+            <p>Mostra la tabella <code>log_attivita</code> del database: chi ha fatto cosa (Login, Vendite, Modifiche). La griglia ha colonne:</p>
+            <ul>
+                <li>Data</li>
+                <li>Utente</li>
+                <li>Azione</li>
+                <li>Entità (tipo)</li>
+                <li>Dettagli</li>
+            </ul>
+
+            <h4>Pulsante "Pulisci Log"</h4>
+            <p>Svuota in un colpo solo:</p>
+            <ul>
+                <li>La console live</li>
+                <li>Il file <code>app.log</code> di sistema</li>
+                <li>La tabella Audit nel database</li>
+            </ul>
+            <p>Chiede conferma prima di procedere (operazione non reversibile).</p>
+
+            <h3>Come si chiude</h3>
+            <ul>
+                <li><strong>X in alto a destra</strong> — nasconde la finestra in tray (il server continua a girare)</li>
+                <li><strong>❌ Esci (nel menu tray)</strong> — chiude tutto (chiede conferma)</li>
+            </ul>
+
+            <h3>⚠️ Cose importanti da sapere</h3>
+            <div class="callout warn">
+                <strong>⚠️ Il Tray NON va aperto due volte</strong> — c'è un Mutex che impedisce l'apertura di due istanze. Se clicchi due volte sull'icona del menu Start, non succede nulla (la seconda istanza si chiude da sola).
+            </div>
+            <div class="callout warn">
+                <strong>⚠️ Se il Tray mostra "Errore" (rosso)</strong> — di solito significa che:
+                <ul>
+                    <li>La porta 5000 è già occupata da un altro programma</li>
+                    <li>Il database è corrotto</li>
+                    <li>Mancano i permessi per scrivere in <code>Documenti\NautiMag</code></li>
+                </ul>
+                Vedi <a href="#problemi">Problemi comuni</a> per le soluzioni.
+            </div>
+
+            <h3>❓ FAQ Server Tray</h3>
+
+            <h4>Dove trovo il file di log del Tray?</h4>
+            <p>In <code>Documenti\NautiMag\logs\tray.log</code>. Ruota automaticamente a 1MB (mantiene <code>tray.old.log</code>).</p>
+
+            <h4>Posso chiudere il Tray mentre l'app è aperta?</h4>
+            <p>Sì, ma se chiudi il Tray chiudi anche il server. L'app NautiMag mostrerà il pallino rosso (server non raggiungibile) finché non riavvii il Tray.</p>
+
+            <h4>Come faccio a far partire il server con Windows?</h4>
+            <p>Tasto destro sull'icona in tray → <strong>🚀 Avvio automatico con Windows</strong>. Verrà aggiunta una voce nel registro di Windows che avvia il Tray ad ogni accensione.</p>
+
+            <h4>Perché il server non parte?</h4>
+            <p>Controlla il log Console (scheda "🖥️ Console Live"). Le cause più comuni:</p>
+            <ul>
+                <li>Un'altra istanza di <code>NautiMag.Server.exe</code> è già in esecuzione (il Tray rileva la porta 5000 occupata e si "aggancia")</li>
+                <li>Il file <code>appsettings.json</code> è malformato</li>
+                <li>La cartella <code>Documenti\NautiMag</code> non esiste (l'installer dovrebbe crearla)</li>
+            </ul>
+
+            <h4>Il pallino è verde ma l'app non si connette, come mai?</h4>
+            <p>Se il Tray è verde ma l'app mostra "Server non raggiungibile", probabilmente:</p>
+            <ul>
+                <li>Il PIN configurato nell'app non corrisponde a quello del server</li>
+                <li>L'IP configurato nell'app è sbagliato (magari il PC ha cambiato IP)</li>
+                <li>Il firewall di Windows blocca la porta 5000</li>
+            </ul>
+            <p>Soluzione: nell'app, Impostazioni Server → "Cerca Server in automatico".</p>
+
+            <h4>Come faccio a spostare il server su un altro PC?</h4>
+            <p>Fai così:</p>
+            <ol>
+                <li>Chiudi NautiMag Server Control sul PC vecchio</li>
+                <li>Copia l'intera cartella <code>Documenti\NautiMag</code> sul nuovo PC</li>
+                <li>Installa NautiMag sul nuovo PC come "Server"</li>
+                <li>Sul nuovo PC, apri il Tray → dovrebbe partire in automatico</li>
+                <li>Sui Client, aggiorna l'IP del server nelle Impostazioni</li>
+            </ol>
+        </section>
+
+        <!-- ═══════════════════════════ RECOVERY ═══════════════════════════ -->
+        <section id="recovery">
+            <h2>🛠️ NautiMag Recovery</h2>
+            <p>NautiMag Recovery è un'utility <strong>offline</strong> che serve a <strong>ripristinare il database</strong> quando il server non parte o il database è corrotto. È il "cestino dei miracoli" di NautiMag.</p>
+
+            <h3>🚩 Quando si usa?</h3>
+            <p>Devi usare il Recovery <strong>solo se</strong>:</p>
+            <ul>
+                <li>Il server non parte più (Tray rosso con errore)</li>
+                <li>L'app mostra errori di database corrotto</li>
+                <li>Vuoi ripristinare un backup perché hai fatto pasticci con i dati</li>
+                <li>Vuoi verificare l'integrità del database</li>
+            </ul>
+            <p><strong>Non serve</strong> per l'uso quotidiano: se tutto funziona, lascialo stare.</p>
+
+            <h3>Come si avvia</h3>
+            <p>Hai <strong>2 modalità</strong>:</p>
+
+            <h4>Modalità GUI (interfaccia grafica)</h4>
+            <p>Cerca <em>"NautiMag — Recovery"</em> nel menu Start. Si apre una finestra con:</p>
+            <ul>
+                <li><strong>Stato attuale</strong> — mostra dove si trova il database e se è presente</li>
+                <li><strong>🔄 Aggiorna</strong> — ricarica lo stato</li>
+                <li><strong>🔍 Verifica integrità</strong> — esegue un controllo sul database (può richiedere qualche secondo)</li>
+                <li><strong>Lista backup</strong> — mostra tutti i backup disponibili con data e dimensione</li>
+                <li><strong>📂 Apri cartella</strong> — apre Esplora File sulla cartella backup</li>
+                <li><strong>🗑 Elimina</strong> — elimina il backup selezionato</li>
+                <li><strong>♻ Ripristina</strong> — ripristina il backup selezionato (con doppia conferma)</li>
+            </ul>
+
+            <h4>Modalità CLI (riga di comando)</h4>
+            <p>Apri il Prompt dei Comandi e naviga nella cartella di installazione del Recovery (es. <code>C:\Users\Max\AppData\Local\Programs\NautiMag\Recovery</code>). Poi esegui uno di questi comandi:</p>
+
+            <table>
+                <tr><th>Comando</th><th>Cosa fa</th></tr>
+                <tr><td><code>NautiMag.Recovery.exe --info</code></td><td>Mostra percorsi DB e backup</td></tr>
+                <tr><td><code>NautiMag.Recovery.exe --list</code></td><td>Elenca i backup disponibili</td></tr>
+                <tr><td><code>NautiMag.Recovery.exe --check</code></td><td>Verifica integrità DB</td></tr>
+                <tr><td><code>NautiMag.Recovery.exe --restore nome_file.db3</code></td><td>Ripristina un backup specifico (chiede doppia conferma "SI" e "SI")</td></tr>
+            </table>
+
+            <h3>La procedura di ripristino passo-passo (GUI)</h3>
+            <ol>
+                <li><strong>Spegni il server</strong> dal Tray (o chiudilo con "Esci")</li>
+                <li><strong>Spegni anche l'app</strong> NautiMag su tutti i dispositivi</li>
+                <li>Apri <strong>NautiMag Recovery</strong> dal menu Start</li>
+                <li>Clicca <strong>🔄 Aggiorna</strong> per vedere lo stato</li>
+                <li>Se il DB è corrotto, la sezione "Stato attuale" mostrerà un messaggio di errore</li>
+                <li>Seleziona un backup dalla lista (scegli il più recente che sai essere buono)</li>
+                <li>Clicca <strong>♻ Ripristina</strong></li>
+                <li>Apparirà un primo avviso: <em>"Il database attuale verrà rinominato in nautimag.db3.pre_recovery_TIMESTAMP. Continuare?"</em> → clicca <strong>Sì</strong></li>
+                <li>Apparirà una seconda conferma: <em>"SEI SICURO?"</em> → clicca <strong>Sì</strong></li>
+                <li>Il ripristino copia il file di backup al posto del database attuale</li>
+                <li>Appare un messaggio: <em>"Ripristino completato. DB precedente salvato in nautimag.db3.pre_recovery_20261028_153000"</em></li>
+                <li><strong>Riavvia il server</strong> dal Tray</li>
+                <li>Apri l'app NautiMag → dovrebbe funzionare di nuovo</li>
+            </ol>
+
+            <div class="callout info">
+                <strong>💡 Sicurezza:</strong> Il database attuale <strong>non viene mai cancellato</strong>. Viene rinominato in <code>nautimag.db3.pre_recovery_TIMESTAMP</code>, così se qualcosa va storto puoi sempre tornare indietro.
+            </div>
+
+            <h3>Cosa fa il controllo di integrità</h3>
+            <p>Esegue il comando SQLite <code>PRAGMA integrity_check</code> sul database. Se il database è sano, ritorna <code>ok</code>. Se è corrotto, ritorna un messaggio di errore (es. <em>"database disk image is malformed"</em>).</p>
+            <p>Se il controllo dà errore, l'unica soluzione è ripristinare un backup.</p>
+
+            <h3>Come si elimina un backup</h3>
+            <p>Seleziona un backup dalla lista e clicca <strong>🗑 Elimina</strong>. Chiede conferma prima di procedere.</p>
+            <p>Utile per liberare spazio: tieni solo i 2-3 backup più recenti.</p>
+
+            <h3>⚠️ Cose importanti da sapere</h3>
+            <div class="callout warn">
+                <strong>⚠️ Il Recovery va usato a server spento</strong> — se il server è in esecuzione, il file del database è "bloccato" e il Recovery non riesce a copiarlo. Chiudi prima il Tray.
+            </div>
+            <div class="callout warn">
+                <strong>⚠️ Se non trovi backup</strong> — controlla in <code>Documenti\NautiMag\backup</code>. Se non ci sono backup, non puoi fare nulla: il database attuale è l'unico che hai. In questo caso, contatta l'assistenza.
+            </div>
+            <div class="callout warn">
+                <strong>⚠️ Dopo il ripristino</strong> — devi riavviare il server dal Tray. Il Recovery non avvia il server automaticamente.
+            </div>
+
+            <h3>❓ FAQ Recovery</h3>
+
+            <h4>Ho fatto il ripristino ma il server non parte lo stesso. Perché?</h4>
+            <p>Possibili cause:</p>
+            <ul>
+                <li>Il backup è vecchio e non è compatibile con la versione attuale dello schema</li>
+                <li>Il file del backup è a sua volta corrotto (raro, ma possibile)</li>
+                <li>La cartella <code>Documenti\NautiMag</code> ha permessi sbagliati</li>
+            </ul>
+            <p>Prova con un backup più recente, o contatta l'assistenza.</p>
+
+            <h4>Posso recuperare un singolo dato (es. un articolo specifico) senza ripristinare tutto?</h4>
+            <p>No, il Recovery fa un ripristino completo. Se ti serve recuperare un singolo dato, devi:</p>
+            <ol>
+                <li>Fare una copia del database attuale</li>
+                <li>Ripristinare il backup</li>
+                <li>Esportare il dato che ti serve (es. in Excel)</li>
+                <li>Ripristinare il database originale</li>
+                <li>Reimportare il dato con l'Import Excel</li>
+            </ol>
+
+            <h4>Il Recovery ha fatto il ripristino ma ho perso le ultime vendite. Cosa faccio?</h4>
+            <p>Purtroppo le vendite fatte dopo il backup sono perse. Ma hai una copia del DB vecchio in <code>nautimag.db3.pre_recovery_TIMESTAMP</code>. Se vuoi recuperarle, puoi:</p>
+            <ol>
+                <li>Rinominare il file <code>nautimag.db3.pre_recovery_TIMESTAMP</code> in <code>nautimag.db3</code></li>
+                <li>Riavviare il server</li>
+                <li>Esportare le vendite mancanti in Excel</li>
+                <li>Ripristinare di nuovo il backup buono</li>
+                <li>Reimportare le vendite con l'Import Excel</li>
+            </ol>
+            <p>È un'operazione manuale, ma fattibile.</p>
+
+            <h4>Dove trovo i file di backup?</h4>
+            <p>In <code>Documenti\NautiMag\backup\</code>. I file si chiamano <code>backup_YYYYMMDD_HHMMSS_motivo.db3</code>.</p>
+
+            <h4>Posso cancellare i backup vecchi?</h4>
+            <p>Sì, dal Recovery con il pulsante 🗑 Elimina. Consiglio: tieni almeno 2-3 backup recenti. NautiMag ne tiene automaticamente 5 e cancella i più vecchi.</p>
         </section>
 
         <!-- ═══════════════════════════ PROBLEMI COMUNI ═══════════════════════════ -->
@@ -1099,17 +864,23 @@
             <h2>🔧 Problemi comuni</h2>
             <table>
                 <tr><th>Problema</th><th>Soluzione</th></tr>
-                <tr><td>Tray pallino rosso</td><td>Apri Server Control → ▶ Attiva server</td></tr>
+                <tr><td>Tray pallino rosso</td><td>Apri Server Control → ▶ Attiva server. Se persiste, controlla il log Console per errori.</td></tr>
                 <tr><td>Tray pallino grigio</td><td>Server fermo → ▶ Attiva server</td></tr>
-                <tr><td>NautiMag pallino rosso</td><td>Server spento o IP sbagliato in Impostazioni Server</td></tr>
-                <tr><td>Android non si connette</td><td>Stessa Wi-Fi? IP PC corretto? PIN uguale?</td></tr>
-                <tr><td>Scontrino non stampato (KO)</td><td>Vai in <em>Gestione → Scontrini KO</em> per riprovare o annullare la stampa.</td></tr>
+                <tr><td>Tray pallino giallo (fisso)</td><td>Il server sta caricando. Aspetta 10-20 secondi. Se resta giallo, controlla il log.</td></tr>
+                <tr><td>NautiMag pallino rosso</td><td>Server spento o IP sbagliato in Impostazioni Server. Usa "Cerca Server in automatico".</td></tr>
+                <tr><td>Android non si connette</td><td>Stessa Wi-Fi? IP PC corretto? PIN uguale? Firewall Windows blocca la porta 5000?</td></tr>
+                <tr><td>Scontrino non stampato (KO)</td><td>Vai in <em>Gestione → Scontrini</em> per riprovare o annullare la stampa.</td></tr>
                 <tr><td>PDF non si genera</td><td>Su Android non è possibile. Usa Windows.</td></tr>
-                <tr><td>Import Excel fallisce</td><td>Verifica intestazioni colonne (o usa Import guidato)</td></tr>
-                <tr><td>Backup non funziona</td><td>Verifica che la cartella Documenti sia accessibile</td></tr>
-                <tr><td>Database corrotto</td><td>Avvia NautiMag — Recovery (menu Start)</td></tr>
-                <tr><td>Errore strano (es. durante stampa o sync)</td><td>Vai su <em>Gestione → Log → Tab Sistema</em>. Cerca la riga rossa ERROR: troverai il dettaglio tecnico dell'errore per capire cosa è andato storto.</td></tr>
-                <tr><td>L'app non si chiude (Windows)</td><td>Cliccando la "X" in alto a destra, l'app chiederà conferma per evitare chiusure accidentali. Se hai modifiche non salvate, ti avviserà.</td></tr>
+                <tr><td>Import Excel fallisce</td><td>Verifica intestazioni colonne (o usa Import guidato). Se il file ha formule, salvalo come valori.</td></tr>
+                <tr><td>Backup non funziona</td><td>Verifica che la cartella Documenti sia accessibile. Controlla i permessi.</td></tr>
+                <tr><td>Database corrotto</td><td>Avvia <a href="#recovery">NautiMag Recovery</a> (menu Start).</td></tr>
+                <tr><td>Errore durante stampa/sync</td><td>Vai su <em>Gestione → Log → Tab Sistema</em>. Cerca la riga ERROR: troverai il dettaglio tecnico.</td></tr>
+                <tr><td>L'app non si chiude (Windows)</td><td>Cliccando la "X" in alto a destra, l'app chiede conferma. Se hai modifiche non salvate, ti avvisa.</td></tr>
+                <tr><td>Lotti in scadenza non si vedono</td><td>Assicurati che l'articolo abbia "Gestione Lotti" attivo e che ci siano lotti con <code>QuantitaRimanente &gt; 0</code>.</td></tr>
+                <tr><td>Kit non scarica i componenti</td><td>Verifica che l'articolo abbia "È un Kit" attivo e che abbia almeno un componente. Controlla che i componenti esistano ancora.</td></tr>
+                <tr><td>Punti fedeltà non si accumulano</td><td>Verifica che la Tessera Fedeltà sia abilitata in Impostazioni e che il cliente sia associato alla vendita (non "Cliente generico").</td></tr>
+                <tr><td>Preventivo non si converte in fattura</td><td>Assicurati che il preventivo non sia già "Convertito in Fattura" o "Rifiutato".</td></tr>
+                <tr><td>Recovery non vede i backup</td><td>Controlla che i file .db3 esistano in <code>Documenti\NautiMag\backup</code>.</td></tr>
             </table>
         </section>
 
@@ -1127,13 +898,13 @@
             <p>No. Scontrini, fatture proforma, fatture accompagnatorie e note credito sono <strong>documenti commerciali non fiscali</strong>. Per la fatturazione elettronica serve integrazione con SDI (provider esterni).</p>
 
             <h3>Posso esportare tutto in Excel?</h3>
-            <p>Sì — <em>Dati → 📤 Esporta Excel</em>. Vengono generati 3 fogli: Magazzino, Movimenti, Riepilogo IVA.</p>
+            <p>Sì — <em>Dati → 📤 Esporta Excel</em>. Vengono generati 5 fogli: Magazzino, Movimenti, Riepilogo IVA, Clienti, Fornitori.</p>
 
             <h3>Come faccio il backup?</h3>
             <p>Automatico giornaliero dal server + manuale da <em>Dati → 💾 Backup</em>. Cartella: <code>Documenti\NautiMag\backup\</code>.</p>
 
             <h3>Posso annullare una vendita?</h3>
-            <p>No, i movimenti sono <strong>immutabili</strong>. Per "annullare" emetti una <strong>nota credito</strong> dalla vendita.</p>
+            <p>No, i movimenti sono <strong>immutabili</strong>. Per "annullare" emetti una <strong>nota credito</strong> dalla fattura, o usa "Annulla Scontrino" dal dettaglio vendita.</p>
 
             <h3>Dove trovo i file generati?</h3>
             <p>Cartella <code>Documenti\NautiMag\export\</code> per PDF e Excel. Cartella <code>backup\</code> per i backup.</p>
@@ -1144,61 +915,75 @@
             <h3>Perché l'app mi dice "Server non raggiungibile" se il PC ha cambiato IP?</h3>
             <p>Se il PC è in DHCP, il router potrebbe assegnargli un nuovo indirizzo IP al riavvio. NautiMag è progettato per risolvere questo problema in automatico:</p>
             <ul>
-                <li>L'app, in background, cerca il server sulla rete (UDP). Se trova un IP nuovo, lo aggiorna da sola.</li>
-                <li>In alternativa, puoi premere "Cerca Server in automatico" nelle Impostazioni.</li>
-                <li>Se proprio non si connette, usa il QR Code generato dal PC per riconfigurare il telefono in 2 secondi.</li>
+                <li>L'app, in background, cerca il server sulla rete (UDP).</li>
+                <li>In alternativa, puoi premere "Cerca Server in automatico".</li>
+                <li>Se proprio non si connette, usa il QR Code generato dal PC.</li>
             </ul>
 
             <h3>Perché il mio tablet e il mio PC mostrano lo stesso carrello?</h3>
-            <p>Se due dispositivi mostrano gli stessi articoli nel carrello, significa che hanno <strong>lo stesso CartId</strong> impostato nelle Impostazioni Server. In questo modo il server li tratta come se fossero un unico computer.</p>
-            <p>Per risolvere:</p>
-            <ol>
-                <li>Vai sul tablet e apri <em>Gestione → Impostazioni Server</em>.</li>
-                <li>Cambia il campo <strong>ID carrello</strong> in un nome univoco per quel dispositivo (es. <code>android1</code>, <code>android2</code>).</li>
-                <li>Salva e riavvia l'app.</li>
-            </ol>
-            <p>Ricorda: il PC Cassa deve avere <code>cassa</code>, il Tablet 1 <code>android1</code>, il Tablet 2 <code>android2</code>. Più dispositivi con lo stesso CartId = carrello condiviso in tempo reale.</p>
+            <p>Se due dispositivi mostrano gli stessi articoli nel carrello, significa che hanno <strong>lo stesso CartId</strong> impostato nelle Impostazioni Server. Cambia il CartId su uno dei due dispositivi.</p>
 
             <h3>🔒 I miei dati sono al sicuro?</h3>
             <p>Assolutamente sì. NautiMag è progettato per proteggere i tuoi dati e la tua licenza (vedi la sezione <a href="#licenza-sicurezza">Licenza e Sicurezza</a>).</p>
 
             <h3>📱 Ho perso un tablet Android: cosa devo fare?</h3>
-            <p>Se un dispositivo mobile (tablet o telefono Android) che usava NautiMag viene smarrito o rubato, devi agire immediatamente per impedire l'accesso ai dati:</p>
+            <p>Se un dispositivo mobile che usava NautiMag viene smarrito o rubato, devi agire immediatamente:</p>
             <ol>
-                <li>
-                    <strong>Cambia il PIN del server</strong>: sul PC Server, apri il file <code>appsettings.json</code> (nella cartella <code>Documenti\NautiMag\data</code> o nella cartella di installazione del server), modifica la voce <code>"Pin": "1234"</code> con un nuovo PIN, e riavvia il server dal Tray.
-                    <br />
-                    <em>Effetto:</em> tutti i dispositivi con il vecchio PIN (incluso quello smarrito) non potranno più comunicare con il server.
-                </li>
-                <li><strong>Cambia la password dell'utente</strong> che era loggato su quel dispositivo (Gestione → Utenti). Se il dispositivo era ancora aperto, chi lo trova non potrà fare nuove operazioni appena la sessione scade.</li>
-                <li><strong>Riconfigura gli altri dispositivi</strong>: sui tablet e PC ancora in tuo possesso, vai in <em>Impostazioni Server</em> e inserisci il nuovo PIN per ripristinare la connessione.</li>
-                <li><strong>Comunica la perdita</strong>: se necessario, denuncia lo smarrimento alle autorità competenti.</li>
+                <li><strong>Cambia il PIN del server</strong> (in <code>appsettings.json</code>, riavvia il Tray). Tutti i dispositivi con il vecchio PIN non potranno più comunicare.</li>
+                <li><strong>Cambia la password</strong> dell'utente che era loggato su quel dispositivo (Gestione → Utenti).</li>
+                <li><strong>Riconfigura gli altri dispositivi</strong> con il nuovo PIN.</li>
+                <li><strong>Denuncia</strong> lo smarrimento alle autorità se necessario.</li>
             </ol>
             <div class="callout warn">
-                <strong>⚠️ Nota sulla sicurezza:</strong> NautiMag non permette (oggi) di disattivare a distanza un singolo dispositivo Android. La misura più efficace e rapida è cambiare il PIN del server, che blocca tutti i dispositivi non autorizzati fino a nuova configurazione.
+                <strong>⚠️ Nota:</strong> NautiMag non permette di disattivare a distanza un singolo dispositivo Android. La misura più efficace è cambiare il PIN del server.
             </div>
 
+            <h3>📅 Come funzionano i Lotti?</h3>
+            <p>I lotti servono per tracciare prodotti con scadenza o seriale. Quando carichi un articolo con "Gestione Lotti" attivo, ti viene chiesto numero lotto e data scadenza. Quando vendi, NautiMag scarica automaticamente dal lotto più vecchio (FIFO) o in scadenza più vicina (FEFO). Vedi la <a href="#lotti">sezione dedicata</a> per esempi pratici.</p>
+
+            <h3>🧩 Cos'è la Distinta Base / Kit?</h3>
+            <p>Un Kit è un articolo "composto" da più articoli (es. cesto regalo = vino + bicchiere + sacchetto). Quando vendi il kit, il magazzino scarica automaticamente tutti i componenti. Vedi la <a href="#kit">sezione dedicata</a>.</p>
+
+            <h3>🎁 Come funziona la Tessera Fedeltà?</h3>
+            <p>La Tessera Fedeltà assegna punti ai clienti in base alla spesa. I punti possono essere riscattati per sconti. Vedi la <a href="#tessera-fedelta">sezione dedicata</a>.</p>
+
+            <h3>💵 A cosa serve la Prima Nota Cassa?</h3>
+            <p>Serve a registrare entrate e uscite di denaro che non sono vendite/acquisti (es. bollette, stipendi, prelievi). Il Saldo Cassa ti dice quanti contanti hai davvero in cassa. Vedi la <a href="#prima-nota">sezione dedicata</a>.</p>
+
+            <h3>📝 Posso convertire un Preventivo in Fattura?</h3>
+            <p>Sì. Apri il preventivo e clicca "🔄 Converti in Fattura". Viene creata una Fattura Emessa in stato Bozza con le stesse righe. Vedi la <a href="#preventivi">sezione dedicata</a>.</p>
+
+            <h3>🏷️ Come importo un listino Metel?</h3>
+            <p>Vai in <em>Dati → Importa → Listino Metel</em>. NautiMag riconosce automaticamente i formati ANIE, GEK e delimitato. Vedi la <a href="#import-metel">sezione dedicata</a>.</p>
+
+            <h3>🆘 Come faccio a mandare i log all'assistenza?</h3>
+            <p>Vai su <em>Sistema → Assistenza Remota → Esporta file di diagnostica (ZIP)</em>. Viene creato un file ZIP con tutti i log e le configurazioni. Condividilo con l'assistenza via email o altro canale.</p>
+
+            <h3>🖥️ A cosa serve il Server Control (Tray)?</h3>
+            <p>Il Tray serve per avviare/fermare il server, vedere i log e configurare l'avvio automatico con Windows. Vedi la <a href="#server-tray">sezione dedicata</a>.</p>
+
+            <h3>🛠️ Quando devo usare NautiMag Recovery?</h3>
+            <p>Solo quando il server non parte o il database è corrotto. Il Recovery permette di ripristinare un backup. Vedi la <a href="#recovery">sezione dedicata</a>.</p>
         </section>
 
     </main>
 
     <footer>
         <p>© 2026 Massimo Sassano</p>
-        <p class="footer-small">NautiMag · Gestione Magazzino</p>
+        <p class="footer-small">NautiMag · Gestione Magazzino · v1.3</p>
     </footer>
 
     <script>
         // 1. GESTIONE LINK INTERNI (Senza far scattare WebView2)
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             const targetId = link.getAttribute('href').substring(1);
-            link.removeAttribute('href'); // <-- Rubiamo il link a WebView2!
-            link.style.cursor = 'pointer'; // Mantiene la manina
-            
+            link.removeAttribute('href');
+            link.style.cursor = 'pointer';
+
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const el = document.getElementById(targetId);
                 if (el) {
-                    // Calcoliamo la posizione esatta e scrolliamo
                     const offsetPosition = el.getBoundingClientRect().top + window.pageYOffset - 16;
                     window.scrollTo(0, offsetPosition);
                 }
@@ -1213,24 +998,24 @@
             backLink.style.cursor = 'pointer';
             backLink.style.marginTop = '20px';
             backLink.style.display = 'block';
-            
+
             backLink.addEventListener('click', function(e) {
                 e.preventDefault();
-                window.scrollTo(0, 0); // Torna in cima
+                window.scrollTo(0, 0);
             });
-            
+
             section.appendChild(backLink);
         });
 
         // 3. PULSANTE FLOTTANTE
         const floatingBtn = document.getElementById('floatingBtn');
         if (floatingBtn) {
-            floatingBtn.removeAttribute('href'); // Rubiamo anche questo
+            floatingBtn.removeAttribute('href');
             floatingBtn.style.cursor = 'pointer';
-            
+
             floatingBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                window.scrollTo(0, 0); // Torna in cima
+                window.scrollTo(0, 0);
             });
 
             window.addEventListener('scroll', () => {
