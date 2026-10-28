@@ -3,24 +3,58 @@
 
 **Gestione Magazzino Multi-Piattaforma per Piccole e Medie Attività**
 
-<sub>NautiMag v1.1 · Made with ❤️ in Italia</sub>
+<sub>NautiMag v1.2 · Made with ❤️ in Italia</sub>
 
-[![Release](https://img.shields.io/badge/Release-v1.1-blue)](https://github.com/maxsassano/nautimag/releases)
+[![Release](https://img.shields.io/badge/Release-v1.2-blue)](https://github.com/maxsassano/nautimag/releases)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11%20%7C%20Android-informational)](https://github.com/maxsassano/nautimag)
 [![.NET](https://img.shields.io/badge/.NET-11-purple)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE)
+
+> **NautiMag** è un gestionale di magazzino completo per negozi di casalinghi, giocattoli, ferramenta, cartolerie e piccole attività commerciali.  
+> Funziona su **Windows e Android**, in **standalone** (un solo PC) o in **modalità server** (più dispositivi in rete con carrello condiviso in tempo reale).
 
 ---
 
 ### 📸 Screenshot
 
-| Home Windows | Home Android|
+| Home Windows | Home Android |
 |:---:|:---:|
 | <img src="Screen/home-win.png"/> | <img src="Screen/home-android.png"/> |
 
 ---
 
 ### 📖 [Leggi la Guida Utente Online](https://maxsassano.github.io/NautiMag)
+
+---
+
+## 📑 Indice
+
+- [📥 Download](#-download)
+- [🏗️ Architettura del Sistema](#️-architettura-del-sistema)
+- [✨ Funzionalità Dettagliate](#-funzionalità-dettagliate)
+  - [🏠 Home e Interfaccia](#-home-e-interfaccia)
+  - [⚙️ Anagrafiche](#️-anagrafiche)
+  - [📦 Magazzino e Articoli](#-magazzino-e-articoli)
+  - [🛒 Vendita e Cassa](#-vendita-e-cassa)
+  - [📄 Documenti Fiscali e Commerciali](#-documenti-fiscali-e-commerciali)
+  - [💵 Prima Nota Cassa](#-prima-nota-cassa)
+  - [🎁 Tessera Fedeltà](#-tessera-fedeltà)
+  - [🖨 Stampe, Etichette e Report](#-stampe-etichette-e-report)
+  - [📊 Statistiche e Analisi](#-statistiche-e-analisi)
+  - [📥 Import / 📤 Export](#-import--export)
+  - [🗄 Backup, Recovery e Sync](#-backup-recovery-e-sync)
+  - [🔧 Sistema, Utenti e Log](#-sistema-utenti-e-log)
+  - [🎨 Temi e Personalizzazione](#-temi-e-personalizzazione)
+- [🛠️ Stabilità Windows (v1.2)](#️-stabilità-windows-v12)
+- [🧬 Stack Tecnico](#-stack-tecnico)
+- [🗂️ Struttura dei Progetti](#️-struttura-dei-progetti)
+- [🌐 Modalità di Rete](#-modalità-di-rete)
+- [🛡️ Sicurezza e Licenza](#️-sicurezza-e-licenza)
+- [🚀 Installazione](#-installazione)
+- [🔄 Aggiornamento da Versioni Precedenti](#-aggiornamento-da-versioni-precedenti)
+- [📄 Licenza](#-licenza)
+- [🆘 Supporto](#-supporto)
+- [☕ Sostieni il progetto](#-sostieni-il-progetto)
 
 ---
 
@@ -41,58 +75,271 @@ Scarica l'ultima versione dalla pagina [**Releases**](https://github.com/maxsass
 
 ## 🏗️ Architettura del Sistema
 
-NautiMag è progettato per adattarsi a qualsiasi tipo di negozio:
-- **Dual-Mode**: Funziona in **Standalone** (DB locale) o in **Modalità Server** (multi-dispositivo real-time).
-- **Archivio Anagrafico Unico**: Clienti e Fornitori condividono i dati. Se un soggetto è entrambi, non ci sono duplicazioni.
-- **Persona Fisica e Società**: Maschere di input dinamiche (Nome/Cognome per privati, Ragione Sociale per aziende).
-- **Auto-Import**: Inserendo la P.IVA di un Cliente nella scheda Fornitore (o viceversa), il sistema propone di importare automaticamente i dati.
-- **Real-Time**: Aggiornamento istantaneo dei carrelli via SignalR.
-- **Auto-Discovery (UDP)**: I client trovano il server in automatico sulla rete locale.
+NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, dal piccolo esercizio familiare al punto vendita con più casse.
+
+- **Dual-Mode**:
+  - **Standalone** — un solo PC, database locale SQLite. Zero configurazione di rete.
+  - **Modalità Server** — un PC fa da "server" (con DB SQLite locale in `Documenti\NautiMag\data`), gli altri dispositivi (Windows o Android) si collegano via HTTP + SignalR.
+- **Archivio Anagrafico Unico**: Clienti e Fornitori condividono i dati. Se un soggetto è entrambi, il record viene marcato `Tipo = 2` e non ci sono duplicazioni.
+- **Maschere Dinamiche**: Persona Fisica → Nome/Cognome. Società → Ragione Sociale. P.A. → SDI a 6 caratteri.
+- **Auto-Import Anagrafiche**: Inserendo la P.IVA/C.F. di un Cliente nella scheda Fornitore (o viceversa), il sistema propone di importare automaticamente i dati.
+- **Real-Time**: Aggiornamento istantaneo dei carrelli via SignalR. Un carrello modificato su un tablet Android si vede immediatamente sul PC Cassa.
+- **Auto-Discovery (UDP)**: I client trovano il server in automatico sulla rete locale. Se il PC cambia IP, il client si riconnette da solo.
+- **QR Code Setup**: Il PC genera un QR Code con URL + PIN + CartId. Il telefono lo inquadra e si configura in 2 secondi.
+- **Offline Queue**: Se il server è offline, le scritture (articoli, movimenti) vanno in coda su file JSON locale e vengono sincronizzate al ritorno della connessione.
+- **Strategy Pattern Local/Remote**: I servizi anagrafiche hanno doppia implementazione (SQLite locale o HTTP remoto), iniettata via DI all'avvio in base alla modalità.
 
 ---
 
 ## ✨ Funzionalità Dettagliate
 
 ### 🏠 Home e Interfaccia
-- **Badge DEMO**: Se la licenza non è attiva, la Home mostra un chiaro badge rosso "DEMO".
-- **Assistenza Remota**: Collegamento rapido a RustDesk/AnyDesk o esportazione di un file ZIP con i log di diagnostica per l'assistenza.
-- **Chiusura Sicura**: Cliccando la "X" per chiudere l'app, viene chiesta conferma per evitare chiusure accidentali.
 
-### ⚙️ Gestione e Anagrafiche
-- **Clienti e Fornitori**: Maschere intelligenti che si adattano al tipo di soggetto (Privato o Azienda). Validazione fiscale rigorosa con controllo duplicati "on-blur" e anteprima dei dati. Include l'apertura rapida di Google Maps per l'indirizzo.
-- **Tessera Fedeltà**: Assegnazione punti, storico punti e riscatto premi integrato nella scheda cliente.
-- **Prima Nota Cassa**: Gestione autonoma delle entrate e uscite manuali (bollette, prelievi, stipendi, ecc.) per il controllo del saldo di cassa.
-- **Azienda**: I dati aziendali sono bloccati in modalità Demo e la P.IVA viene validata contro l'anagrafica unica.
-- **Privacy (GDPR)**: Gestione del consenso con generazione del modulo cartaceo.
+- **Home a griglia**: 8 tile principali (Scansiona, Carrello, Documenti, Anagrafiche, Gestione, Sistema, Agenda, Guida).
+- **TopBar universale**: freccia indietro, casetta Home, stato connessione server (pallino verde/giallo/rosso/grigio), ricerca globale, carrello con badge, notifiche, guida.
+- **Badge DEMO**: se la licenza non è attiva, la Home mostra un chiaro badge rosso "DEMO" e i dati aziendali sono bloccati.
+- **Alert sottoscorta**: in Home appare una fascia rossa con il numero di articoli sotto scorta minima.
+- **Notifiche**: scontrini KO, articoli sottoscorta, licenza in scadenza, appuntamenti.
+- **Assistenza Remota**: collegamento rapido a RustDesk/AnyDesk o esportazione di un file ZIP con i log di diagnostica (`app.log`, `crash.log`, config server/RT).
+- **Chiusura Sicura**: cliccando la "X" su Windows, viene chiesta conferma. Se ci sono modifiche non salvate, avvisa prima di uscire.
+- **Single Instance (Windows)**: un Mutex impedisce l'apertura di due istanze contemporaneamente.
 
-### 📄 Documenti
-- **Preventivi**: Creazione, stampa PDF dedicata e conversione automatica in Fattura Emessa (in stato Bozza).
-- **Fatture Emesse**: Supporto multi-aliquota e inserimento di **Righe Descrittive** per prestazioni e servizi.
-- **Fatture in arrivo**: Carico merce da fattura fornitore tramite scansione barcode.
-- **Note Credito / DDT / Ordini**: Gestione completa con residui e stati.
+### ⚙️ Anagrafiche
 
-### 📦 Magazzino e Stampe
-- **Importazione Listini Metel**: Parsing automatico di listini hardware (formati ANIE, delimitati e custom GEK) per aggiornare o creare articoli in blocco.
-- **Inventario a data**: Calcolo della giacenza storica del magazzino ad una data specifica.
-- **Merci in arrivo**: Visualizzazione degli articoli in arrivo dagli ordini fornitori in sospeso.
-- **Paginazione Movimenti**: Storici enormi non bloccano più l'app (caricamento a blocchi di 50).
-- **Apri File / Cartella**: Dopo aver generato un PDF, puoi aprirlo al volo o aprire la cartella di salvataggio in un click.
-- **Report PDF ed Etichette**: Generazione documenti pronti per la stampa.
+- **Clienti e Fornitori**: maschere intelligenti che si adattano al tipo di soggetto (Persona Fisica, Società, P.A.).
+- **Controllo Duplicati On-Blur**: uscendo dal campo P.IVA/C.F., un popup mostra l'anteprima del contatto esistente (Nome, P.IVA, C.F., Tel, Email) con opzione "Apri scheda".
+- **Validazione Fiscale**: P.IVA e C.F. validati con algoritmi matematici ufficiali (Luhn per P.IVA, checksum per C.F., inclusi CF omocodici).
+- **Auto-Import**: se inserisci la P.IVA di un Cliente esistente nella scheda Fornitore (o viceversa), NautiMag propone di importare i dati.
+- **Google Maps**: dalla scheda cliente/fornitore, click su 📍 apre Google Maps con l'indirizzo già cercato.
+- **Rubrica unificata**: lista contatti unica per clienti + fornitori, con azioni rapide (chiama, mappa, WhatsApp, Facebook, Instagram, condividi contatto).
+- **GDPR / Privacy**: gestione consenso con generazione del modulo PDF firmabile.
+- **Azienda**: dati del titolare con Logo, Tipo Soggetto, P.IVA, Codice SDI, Regime Fiscale (18 codici ufficiali). P.IVA aziendale validata contro l'archivio unico.
+- **Classificazioni**: Categorie, Unità di Misura, Ubicazioni, Aliquote IVA (con Natura per IVA 0%).
+
+### 📦 Magazzino e Articoli
+
+- **Scheda articolo completa**: Codice, Prodotto, Categoria, Fornitore, Prezzo vendita/acquisto, IVA, foto, scorta minima, ubicazione.
+- **Specifiche prodotto**: Colore, Taglia/Formato, Materiale, Imballo, Dimensioni.
+- **Azioni magazzino rapide**: menu ⋮ Altro con Carica 1, Acquisto, Carico, Scarico.
+- **Merci in arrivo**: badge arancione "🚚 In Arrivo: N pz" nella scheda articolo e nella lista, calcolato dagli ordini in stato Bozza/Inviato.
+- **Navigazione contestuale**: entrando in un articolo dalla ricerca, le frecce ◀ ▶ scorrono solo i risultati filtrati.
+- **Tracciabilità Lotti (FIFO/FEFO)**: gestione completa dei lotti con numero, data di scadenza e scarico automatico. Pagina dedicata ai lotti attivi e monitoraggio dei lotti in scadenza (es. entro 30 giorni).
+- **Distinta Base / Kit**: articoli composti da più articoli semplici (cesti regalo, set, bundle). Alla vendita del kit, il magazzino scarica automaticamente tutti i componenti. Supporto per kit multilivello (kit dentro kit).
+- **Inventario Storico**: calcolo preciso della giacenza a una data passata, sottraendo i movimenti successivi.
+- **Importazione Listini Metel**: parsing automatico di listini hardware (formati ANIE, delimitati, custom GEK) per aggiornare/creare articoli in blocco.
+- **Ricerca con pistola barcode**: su Windows funziona in qualsiasi barra di ricerca. Su Android si attiva lo scanner con la fotocamera.
+
+### 🛒 Vendita e Cassa
+
+- **Carrello condiviso**: in modalità server, tutti i dispositivi con lo stesso CartId vedono lo stesso carrello in tempo reale.
+- **Multi-Cart / Carrelli Nominati (Android)**: su tablet è possibile creare più carrelli contemporaneamente (uno per cliente), cambiarli, unirli alla cassa.
+- **Unisci Carrello**: dal PC Cassa si può prelevare il carrello di un tablet in un click, con anteprima degli articoli prima di confermare.
+- **Notifica carrelli in attesa**: banner verde "📢 Ci sono N carrelli in attesa: ..." quando ci sono clienti in fila.
+- **Sconti per riga**: possibilità di applicare uno sconto percentuale (0-100%) su una singola riga del carrello.
+- **Selezione cliente alla chiusura**: "Cliente generico" o uno dell'anagrafica.
+- **Chiusura vendita**: controllo scorte, calcolo totale, registrazione movimento, scarico magazzino.
+- **Stampa fiscale automatica**: se la RT è configurata, lo scontrino viene inviato in background alla stampante.
+- **Scontrini KO**: se la stampante non risponde, lo scontrino va in una coda di errore gestibile dalla UI (Riprova, Segna come risolto, Annulla, Elimina).
+- **Annullamento scontrino**: dal dettaglio vendita, reintegra il magazzino e marca la vendita come annullata (ricorda: annullare anche sul RT entro 15gg).
+- **Punti fedeltà**: se abilitati, alla chiusura vendita i punti vengono sommati al cliente associato.
+- **Stampa PDF post-vendita**: menu unico con "Stampa Ricevuta PDF" o "Stampa Fattura Proforma" (con numero progressivo modificabile).
+
+### 📄 Documenti Fiscali e Commerciali
+
+- **Fatture Emesse**: creazione con cliente, righe da magazzino o righe descrittive, multi-aliquota, prezzi ivati/netti.
+  - **Emissione**: la fattura passa da Bozza a Emessa e scarica il magazzino.
+  - **Esportazione XML**: genera file `Fattura_YYYY-NNNN.xml` conforme al tracciato FPR12, pronto per il caricamento manuale su SDI/commercialista.
+  - **Note Credito**: si emettono dalla fattura emessa, con residui per riga (non puoi stornare più del fatturato).
+- **Fatture in arrivo (Fornitori)**: caricamento merce da fattura fornitore tramite scanner barcode. Supporto lotti al carico.
+- **Preventivi**: creazione, stampa PDF con watermark "NON FISCALE", conversione automatica in Fattura Emessa in stato Bozza.
+- **Ordini Fornitori**: gestione stati progressivi (Bozza, Inviato, Ricevuto, Chiuso, Annullato). Alla ricezione genera movimenti di Acquisto.
+- **DDT / Buoni Consegna**: documento di trasporto con stati (Bozza, Emesso, Consegnato, Annullato). Generazione Fattura Accompagnatoria da DDT.
+- **Note Credito**: gestione completa con residui e stato (Bozza, Emessa, Annullata).
+- **Scontrini / Scontrini KO**: registro scontrini con 3 tab (Da fare, Risolti, Annullati).
+
+### 💵 Prima Nota Cassa
+
+- **Entrate e uscite manuali**: bollette, prelievi, stipendi, incassi vari.
+- **Categorie**: Incasso, Versamento, Altro (entrate) / Bolletta, Prelievo, Acquisto, Stipendio, Altro (uscite).
+- **Saldo cassa**: differenza in tempo reale tra entrate e uscite.
+- **Colori**: entrate verde, uscite rosso, saldo blu.
+
+### 🎁 Tessera Fedeltà
+
+- **Configurazione**: abilita la tessera e imposta Euro spesi per punto + valore in euro di 1 punto (es. 10€ = 1 punto, 1 punto = 0,10€).
+- **Assegnazione automatica**: alla chiusura vendita con cliente associato, i punti vengono calcolati e sommati.
+- **Riscatto punti**: dalla scheda cliente, pulsante 🎁 Riscatta con importo personalizzato.
+- **Storico**: i punti attuali sono sempre visibili nella scheda cliente.
+
+### 🖨 Stampe, Etichette e Report
+
+- **Etichette barcode Code128**: formati A4 predefiniti (2, 10, 14, 21, 24, 40 etichette) e rotolo (40×25, 50×30, 60×40 mm). Formati custom creabili.
+- **Report magazzino**: completo, solo sottoscorta, solo negativi.
+- **Report movimenti**: con filtri per tipo/periodo, riepilogo IVA per aliquota.
+- **Report vendite**: riepilogo vendite con totali, scontrino medio, riepilogo IVA.
+- **Lista clienti / fornitori / articoli**: PDF pronti per la stampa con filtri (categoria, sottoscorta, negativi).
+- **Agenda PDF**: mensile e annuale.
+- **Apri file/cartella**: dopo ogni PDF, menu con "Apri file" o "Apri cartella".
+
+### 📊 Statistiche e Analisi
+
+- **KPI vendite**: oggi, 7 giorni, mese, anno. Numero scontrini.
+- **Grafico ultimi 30 giorni**: barre verticali proporzionali al fatturato giornaliero.
+- **Magazzino**: articoli totali, pezzi, valore (IVA incl.), negativi, sottoscorta.
+- **Top 10 articoli** per pezzi venduti nell'anno.
+- **Top 10 clienti** per totale speso nell'anno.
+
+### 📥 Import / 📤 Export
+
+- **Import Excel magazzino**: colonne standard (CODICE, PRODOTTO, CATEGORIA, PREZZO, QUANTITA, VENDUTO, FOTO) o guidato con mapping colonne.
+- **Import Excel vendite**: storico vendite con creazione movimenti.
+- **Import anagrafiche**: clienti e fornitori con mapping guidato.
+- **Import listini Metel**: formati ANIE, delimitati, custom GEK.
+- **Export Excel**: 5 fogli (Magazzino, Movimenti, Riepilogo IVA, Clienti, Fornitori) con calcolo IVA.
+- **Auto-creazione anagrafiche**: durante l'import magazzino, categorie/unità mancanti vengono create automaticamente.
+- **Backup automatico pre-import**: prima di ogni import viene creato un backup del DB.
+
+### 🗄 Backup, Recovery e Sync
+
+- **Auto-backup giornaliero**: il server crea un backup al primo avvio di ogni giorno.
+- **Backup manuale**: dalla pagina Backup, con rotazione automatica (max 5 backup).
+- **Ripristino backup**: dalla UI con doppia conferma. Viene creato un backup pre-restore.
+- **NautiMag.Recovery** (utility WPF): GUI + CLI per ripristinare il DB quando il server non parte. Esegue anche `integrity_check`.
+- **Sync `.wmsync`**: in modalità standalone, esporta un file con tutti i dati (articoli, movimenti, anagrafiche, aliquote, azienda, logo) e lo importa su un altro dispositivo. Regola conflitti: vince la modifica più recente (`AggiornatoIl`).
+
+### 🔧 Sistema, Utenti e Log
+
+- **Gestione Utenti**: creazione/modifica/eliminazione utenti con 3 livelli:
+  - **SuperUser**: accesso totale, unico a vedere i Log.
+  - **Admin**: può creare/modificare utenti Vendita. Può creare Admin ma non eliminarli.
+  - **Vendita**: accesso limitato.
+- **Auto-logout**: dopo 15 minuti di inattività.
+- **Primo Avvio**: creazione utenti `superuser` e `admin` con `MustChangePassword = true`.
+- **Log Audit (DB)**: chi ha fatto cosa (vendite, modifiche articoli, login, ecc.), visibile solo al SuperUser.
+- **Log Sistema (File)**: `app.log` con rotazione 5 MB (max 5 file). Tab separato nella pagina Log.
+- **Server Tray (WinForms)**: utility in system tray con 3 tab (Console Live, Log Sistema, Log Audit). Pulsante "Pulisci Log" unico.
+- **Cambio Password**: forzato al primo login e modificabile dal proprio account.
+- **Licenza**: pagina dedicata con stato (Trial, Attiva, Scaduta), attivazione via seriale, disattivazione.
+
+### 🎨 Temi e Personalizzazione
+
+- **3 Temi**: Standard (Blu), Pastello (Colori), Dark (Notturno).
+- **Applicazione tema**: al riavvio dell'app (per evitare problemi di binding MAUI).
+- **Impostazioni Server**: modalità (standalone/server), URL, Hostname, PIN, CartId.
+- **Configurazione RT**: cartelle Input/Esito, nome file scontrino, timeout.
+
+---
+
+## 🛠️ Stabilità Windows (v1.2)
+
+La v1.2 include una serie di fix importanti per l'uso su Windows 10/11 con .NET 11 Preview:
+
+- Eliminati tutti i `Picker` in favore di `Button` + `DisplayActionSheet` (WinUI3 bug).
+- Risolto il bug del salvataggio che perdeva i dati bindati prima del click.
+- Risolto il crash di `IsVisible` durante il caricamento delle maschere dinamiche (aggiunto `FallbackValue=False` ovunque).
+- Risolto `ERR_ACCESS_DENIED` sulla WebView2 della Guida integrata (aggiunto `BaseUrl = "https://localhost/"`).
+- Risolto il pallino di stato SignalR che restava arancione su Android dopo la connessione (aggiunto `app.UseWebSockets()`).
+- Fix codifica ZXing (`System.Text.Encoding.CodePages`) per QR Code generati con encoding non-UTF8.
+- Refactoring `DatabaseService` e `PdfService` in `partial class` (rispettivamente 6 e 5 file) per manutenibilità.
+
+---
+
+## 🧬 Stack Tecnico
+
+| Componente | Tecnologia |
+|---|---|
+| **Framework** | .NET 11 (Preview) + .NET MAUI |
+| **UI** | XAML + MVVM (CommunityToolkit.Mvvm) |
+| **Database** | SQLite (sqlite-net-pcl) |
+| **Server** | ASP.NET Core Minimal API + SignalR |
+| **PDF** | QuestPDF |
+| **Excel** | ClosedXML + CsvHelper |
+| **Barcode** | ZXing.Net |
+| **Installer** | Inno Setup |
+| **Tray Utility** | WinForms (`net11.0-windows`) |
+| **Recovery Utility** | WPF (`net11.0-windows`) |
+
+---
+
+## 🌐 Modalità di Rete
+
+### Scenario 1 — Standalone (un solo PC)
+
+```
+┌──────────────────────┐
+│  NautiMag (Windows)  │
+│   DB locale SQLite   │
+│   Nessuna rete       │
+└──────────────────────┘
+```
+
+- Zero configurazione.
+- Tutto funziona in locale.
+- Sync manuale via `.wmsync` per spostare dati su un altro dispositivo.
+
+### Scenario 2 — Client/Server (più dispositivi)
+
+```
+┌──────────────────┐        ┌──────────────────┐
+│  PC Cassa        │        │  Tablet Android  │
+│  NautiMag        │◄──────►│  NautiMag        │
+│  Server + DB     │ SignalR│  Client          │
+└──────────────────┘        └──────────────────┘
+        ▲                            ▲
+        │                            │
+        └────────── HTTP ────────────┘
+
+Server Tray (WinForms) → controlla il server HTTP
+```
+
+- Il PC Server ha il DB (`Documenti\NautiMag\data\nautimag.db`).
+- I client si connettono via URL (`http://192.168.1.10:5000`) + PIN + CartId.
+- Il carrello è condiviso in tempo reale (SignalR).
+- Auto-discovery UDP: il server trasmette il suo IP + Hostname ogni 5 secondi.
+
+### Connessione Client
+
+1. **Ricerca automatica** (UDP): pulsante "Cerca Server in automatico".
+2. **QR Code**: il PC genera un QR, il telefono lo inquadra.
+3. **Manuale**: IP o Hostname + PIN.
 
 ---
 
 ## 🛡️ Sicurezza e Licenza
 
 - **Licenza Offuscata**: AES encryption per il file `license.json`.
-- **Restrizioni Trial**: Blocco di stampe, import/export, creazione documenti e limite di 5 inserimenti per Clienti/Fornitori.
+- **Anti-Manomissione**: file nascosto in `%LocalAppData%\NautiMag\.sys_cache` per rilevare reset del trial.
+- **Blocco Orologio**: se l'orologio viene spostato indietro, il trial viene bloccato.
+- **PIN Hashing**: il PIN del server non viaggia in chiaro. Viene hashato con SHA256 + salt.
+- **Rate Limiting**: max 5 tentativi di login al minuto.
+- **CORS locale**: solo origini della rete locale (localhost, 192.168.x.x, 10.x.x.x, 172.x.x.x).
+- **Restrizioni Trial**: blocco di stampe, import/export, creazione documenti e limite di 5 inserimenti per Clienti/Fornitori.
+- **Single Instance (Windows)**: Mutex per impedire doppie aperture.
 
 ---
 
 ## 🚀 Installazione
 
 1. Scarica ed esegui `NautiMag_Setup.exe`.
-2. Scegli il ruolo: **Server** o **Client**.
-3. Al primo avvio, configura l'azienda da **🏢 Anagrafiche → Azienda**.
+2. Scegli il ruolo:
+   - **Server** — installa app + server + tray + recovery + DB locale.
+   - **Client** — installa solo l'app (si connette via rete al server).
+3. Se Client, inserisci IP del server e PIN (oppure usa "Cerca Server in automatico").
+4. Al primo avvio, configura l'azienda da **🏢 Anagrafiche → Azienda**.
+5. (Opzionale) Configura la stampante fiscale RT da **Gestione → Impostazioni Server → Stampante Fiscale**.
+
+> ⚠️ **Non usare cartelle cloud** (OneDrive, Dropbox) per il database. Il DB deve risiedere in `Documenti\NautiMag\data`.
+
+---
+
+## 🔄 Aggiornamento da Versioni Precedenti
+
+Passando da **v1.1 → v1.2**:
+
+- La migrazione del DB è **automatica** (v33/v34 → v35/v36).
+- Prima della migrazione viene creato un **backup automatico**.
+- La migrazione è **irreversibile**: se torni alla v1.1 dopo aver aggiornato, il DB non sarà leggibile.
+- In caso di problemi, usa **`NautiMag.Recovery`** per ripristinare il backup pre-migrazione.
 
 ---
 
@@ -108,7 +355,10 @@ Per **bug** o **suggerimenti**:
 👉 Apri una [**Issue su GitHub**](https://github.com/maxsassano/nautimag/issues)
 📧 [massimo.sassano@gmail.com](mailto:massimo.sassano@gmail.com)
 
+Per problemi tecnici, apri **Home → Sistema → 🆘 Assistenza Remota** ed esporta il file ZIP di diagnostica. Inviandocelo, potremo capire subito cosa non va.
+
 ---
 
 ## ☕ Sostieni il progetto
 [![PayPal](https://img.shields.io/badge/PayPal-Offrimi%20un%20caffè-0070BA?logo=paypal)](https://paypal.me/veruscatanese)
+```
