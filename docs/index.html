@@ -1,22 +1,1043 @@
-﻿            <h3>👥 Come servire due clienti di fila con lo stesso tablet</h3>
-            <p>Grazie ai Carrelli Nominati, non devi più "chiudere" un carrello per iniziarne un altro. Ecco il flusso:</p>
-            <ol>
-                <li><strong>Cliente A</strong>: crea il carrello <code>cliente-a</code> sul tablet, aggiungi gli articoli.</li>
-                <li><strong>Cliente B</strong>: senza toccare il carrello di A, crea il carrello <code>cliente-b</code> e aggiungi i suoi articoli.</li>
-                <li>I due carrelli restano separati sul tablet.</li>
-                <li>Quando il Cliente A arriva alla cassa, il cassiere preme "🔗 Unisci" e seleziona <code>cliente-a</code>.</li>
-                <li>Il carrello <code>cliente-a</code> si svuota automaticamente e il tablet (se era su quel carrello) torna al base.</li>
-                <li>Stessa cosa per il Cliente B quando arriva.</li>
-            </ol>
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>NautiMag — Guida Utente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
 
-            <div class="callout warn">
-                <strong>⚠️ Attenzione:</strong> Non serve che la Cassa abbia già incassato la vendita del Cliente A. Basta che gli articoli siano stati trasferiti al PC. Il cassiere può fare lo scontrino con calma, mentre tu col tablet stai già servendo il Cliente B in un altro carrello.
+    <a href="#top" id="floatingBtn" class="btn-top-floating" title="Torna su">⬆</a>
+
+    <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+    <header class="hero">
+        <div class="hero-icon">📖</div>
+        <h1>NautiMag</h1>
+        <p class="subtitle">Guida utente completa</p>
+        <p class="version">Gestione Magazzino · v1.3</p>
+    </header>
+
+    <!-- ═══════════════════════════ INDICE ═══════════════════════════ -->
+    <nav class="toc" id="indice">
+        <h2>📑 Indice</h2>
+        <div class="toc-grid">
+            <a href="#primi-passi">🚀 Primi passi</a>
+            <a href="#login-ruoli">🔐 Login e Ruoli</a>
+            <a href="#topbar">🔝 Barra superiore e Footer</a>
+            <a href="#home">🏠 Home</a>
+            <a href="#scansiona">📷 Scansiona</a>
+            <a href="#articoli">📦 Articoli</a>
+            <a href="#scheda-articolo">📝 Scheda articolo</a>
+            <a href="#lotti">📅 Tracciabilità Lotti/Seriali/Scadenze</a>
+            <a href="#kit">🧩 Distinta Base / Kit</a>
+            <a href="#carrello">🛒 Carrello e Multi-Cassa</a>
+            <a href="#vendite">💰 Vendite</a>
+            <a href="#dettaglio-vendita">📋 Dettaglio vendita</a>
+            <a href="#scontrini-ko">🧾 Scontrini (ex KO)</a>
+            <a href="#movimenti">📊 Movimenti</a>
+            <a href="#dati">💾 Dati</a>
+            <a href="#import">📥 Import</a>
+            <a href="#import-guidato">🎯 Import guidato</a>
+            <a href="#import-metel">🏷️ Import Metel</a>
+            <a href="#esporta">📤 Esporta Excel</a>
+            <a href="#backup">🗄 Backup</a>
+            <a href="#inventario-storico">🕰️ Inventario Storico e Merci in Arrivo</a>
+            <a href="#sincronizza">🔄 Sincronizza</a>
+            <a href="#gestione">⚙️ Gestione</a>
+            <a href="#gestione-utenti">👥 Gestione Utenti</a>
+            <a href="#log-attivita">📜 Log (Audit e Sistema)</a>
+            <a href="#prima-nota">💵 Prima Nota Cassa</a>
+            <a href="#azienda">🏢 Azienda</a>
+            <a href="#fornitori">🚚 Fornitori</a>
+            <a href="#clienti">👥 Clienti e Archivio Unico</a>
+            <a href="#tessera-fedelta">🎁 Tessera Fedeltà</a>
+            <a href="#privacy-gdpr">🛡️ Privacy e GDPR</a>
+            <a href="#categorie">🏷️ Categorie</a>
+            <a href="#unita-misura">📏 Unità di misura</a>
+            <a href="#ubicazioni">📍 Ubicazioni</a>
+            <a href="#aliquote-iva">💵 Aliquote IVA e Nature</a>
+            <a href="#fatture-emesse">📄 Fatture Emesse</a>
+            <a href="#fatture-ricevute">🧾 Fatture in arrivo</a>
+            <a href="#ordini">📦 Ordini fornitori</a>
+            <a href="#ddt">📋 DDT</a>
+            <a href="#note-credito">↩️ Note credito</a>
+            <a href="#preventivi">📝 Preventivi</a>
+            <a href="#etichette">🏷️ Etichette</a>
+            <a href="#formati-etichette">📐 Formati etichette</a>
+            <a href="#statistiche">📈 Statistiche</a>
+            <a href="#sottoscorta">📉 Sottoscorta</a>
+            <a href="#articoli-negativi">⚠️ Articoli negativi</a>
+            <a href="#stampa-liste">🖨 Stampa liste</a>
+            <a href="#rubrica">📇 Rubrica</a>
+            <a href="#notifiche">🔔 Notifiche</a>
+            <a href="#agenda">📅 Agenda</a>
+            <a href="#impostazioni-server">🌐 Impostazioni Server e RT</a>
+            <a href="#assistenza-remota">🆘 Assistenza Remota</a>
+            <a href="#temi-grafici">🎨 Temi Grafici</a>
+            <a href="#info">ℹ️ Info</a>
+            <a href="#licenza-sicurezza">🔑 Licenza e Sicurezza</a>
+            <a href="#server-tray">🖥️ NautiMag Server Control (Tray)</a>
+            <a href="#recovery">🛠️ NautiMag Recovery</a>
+            <a href="#problemi">🔧 Problemi comuni</a>
+            <a href="#faq">❓ FAQ</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ═══════════════════════════ PRIMI PASSI ═══════════════════════════ -->
+        <section id="primi-passi">
+            <h2>🚀 Primi passi</h2>
+            <p>Se hai usato il nostro Installer ufficiale, la maggior parte della configurazione è già stata fatta in automatico.</p>
+
+            <h3>Scenari di Installazione</h3>
+            <ul>
+                <li><strong>Server (Amministrazione):</strong> L'installer ha configurato tutto in locale. Il Tray avvierà il server all'accensione del PC.</li>
+                <li><strong>Client (Cassa/Magazzino):</strong> L'installer ha già inserito l'IP del server. L'app si connetterà in automatico alla rete.</li>
+            </ul>
+
+            <h3>Configurazione Manuale (solo se necessario)</h3>
+            <ol>
+                <li><strong>Server</strong> — avvia <em>NautiMag — Server Control</em> dal menu Start (icona verde in basso a destra)</li>
+                <li><strong>Connessione app</strong> — <em>Gestione → Impostazioni Server</em>: modalità <code>server</code>, URL, PIN, CartId</li>
+                <li><strong>Azienda</strong> — <em>Gestione → Azienda</em>: ragione sociale, P.IVA, indirizzo, logo</li>
+            </ol>
+            <div class="callout info">
+                <strong>💡 Suggerimento:</strong> attiva <em>Avvio automatico con Windows</em> dal Server Control (tasto destro sull'icona). Il server partirà da solo ad ogni accensione del PC.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ LOGIN E RUOLI ═══════════════════════════ -->
+        <section id="login-ruoli">
+            <h2>🔐 Login e Ruoli</h2>
+            <p>NautiMag supporta la multi-utenza. Al primo avvio assoluto del server, viene creato un utente amministratore predefinito per permetterti di configurare il sistema.</p>
+            <p><strong>Nota bene:</strong> Al primo login, l'app ti obbligherà a cambiare la password per motivi di sicurezza.</p>
+
+            <h3>Gerarchia dei Ruoli</h3>
+            <table>
+                <tr><th>Ruolo</th><th>Cosa può fare</th></tr>
+                <tr><td><strong>SuperUser</strong></td><td>Il proprietario. Accesso totale. Unico a poter eliminare gli Admin. Unico a vedere la pagina "Log". <em>(Account riservato all'assistenza)</em></td></tr>
+                <tr><td><strong>Admin</strong></td><td>L'ufficio amministrazione. Può creare/modificare utenti Vendita. Può creare Admin ma NON eliminarli. Non vede i Log.</td></tr>
+                <tr><td><strong>Vendita</strong></td><td>Il cassiere. Accesso limitato (non vede la Gestione Utenti, non vede i Log).</td></tr>
+            </table>
+            <div class="callout info">
+                <strong>💡 Nota:</strong> L'account SuperUser è un account di sistema riservato esclusivamente all'assistenza tecnica e non viene mai fornito all'utente finale.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ TOPBAR ═══════════════════════════ -->
+        <section id="topbar">
+            <h2>🔝 Barra superiore e Footer</h2>
+            <p>Ogni schermata di NautiMag ha una barra verde in alto (TopBar) e una barra fissa in basso (Footer).</p>
+
+            <h3>TopBar (in alto)</h3>
+            <table>
+                <tr><th>Icona</th><th>Cosa fa</th></tr>
+                <tr><td>←</td><td>Torna alla schermata precedente (non visibile in Home)</td></tr>
+                <tr><td>🏠</td><td>Va alla Home principale</td></tr>
+                <tr><td>Titolo</td><td>Nome pagina o nome del negozio (Home)</td></tr>
+                <tr><td>●</td><td><strong>Pallino stato server</strong> — <span class="dot green"></span>Verde connesso · <span class="dot yellow"></span>Giallo avvio · <span class="dot red"></span>Rosso errore · <span class="dot gray"></span>Grigio standalone. Tocca per i dettagli</td></tr>
+                <tr><td>🔍</td><td>Ricerca globale (articoli, clienti, fornitori)</td></tr>
+                <tr><td>🛒</td><td>Carrello, con badge rosso se contiene articoli</td></tr>
+                <tr><td>🔔</td><td>Notifiche (es. scorte, licenza)</td></tr>
+                <tr><td>📖 / 📅</td><td>Apre la Guida utente o l'Agenda</td></tr>
+            </table>
+            <div class="callout info">
+                <strong>💡 Novità (Windows):</strong> Passa il mouse sopra le icone per vedere un fumetto descrittivo (Tooltip).
             </div>
 
-            <h3>📢 Notifica di carrelli in attesa</h3>
-            <p>Quando sei sul PC Cassa, se ci sono altri carrelli attivi (es. dei tablet), in alto nel Carrello apparirà un banner verde con la scritta:</p>
-            <p><em>"📢 Ci sono 2 carrelli in attesa: mario-rossi, paolo-bianchi"</em></p>
-            <p>Questo ti avvisa che ci sono clienti in fila pronti per pagare. Clicca "Unisci" per prelevarli.</p>
+            <h3>Footer (in basso)</h3>
+            <ul>
+                <li><strong>Sinistra</strong>: L'utente loggato (es. <code>👤 Admin</code>) e il tasto <strong>🚪 Logout</strong>.</li>
+                <li><strong>Centro</strong>: Firma del software e versione (nascosto su Android).</li>
+                <li><strong>Destra</strong>: Stato della licenza. Se scaduta o in trial, cliccaci sopra per andare alla pagina di attivazione.</li>
+            </ul>
+        </section>
+
+        <!-- ═══════════════════════════ HOME ═══════════════════════════ -->
+        <section id="home">
+            <h2>🏠 Home</h2>
+            <p>La Home mostra la griglia di tutte le funzioni. Ogni riquadro è un tasto.</p>
+            <table>
+                <tr><th>Tile</th><th>Cosa fa</th></tr>
+                <tr><td>📷 Scansiona</td><td>Apre la fotocamera per leggere barcode (Android) o la ricerca (Windows)</td></tr>
+                <tr><td>🛒 Carrello</td><td>Carrello della vendita corrente</td></tr>
+                <tr><td>📄 DOCUMENTI</td><td>Hub per Fatture, DDT, Note credito, Ordini, Vendite, Movimenti, Prima Nota</td></tr>
+                <tr><td>🏢 ANAGRAFICHE</td><td>Clienti, Fornitori, Articoli, Azienda, Classificazioni</td></tr>
+                <tr><td>📊 GESTIONE</td><td>Statistiche, Sottoscorta, Negativi, Etichette, Lotti in scadenza, Report</td></tr>
+                <tr><td>🔧 SISTEMA</td><td>Guida, Info, Account, Utenti, Server, Licenza, Sync, Log, Assistenza</td></tr>
+                <tr><td>📅 Agenda</td><td>Appuntamenti e memorandum</td></tr>
+                <tr><td>📖 GUIDA</td><td>Questa guida utente</td></tr>
+            </table>
+            <div class="callout warn">
+                <strong>⚠️ Modalità DEMO:</strong> Se non hai una licenza attiva, in alto a destra sulla card dell'azienda apparirà il badge rosso <strong>DEMO</strong>. I dati aziendali saranno bloccati e non modificabili.
+            </div>
+            <div class="callout warn">
+                <strong>⚠️ Alert sottoscorta:</strong> se ci sono articoli sotto la scorta minima, in Home appare una <em>fascia rossa</em> in alto. Toccandola si apre la lista completa.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ SCANSIONA ═══════════════════════════ -->
+        <section id="scansiona">
+            <h2>📷 Scansiona</h2>
+            <p>Solo su Android. Apre la fotocamera posteriore per leggere barcode e QR code.</p>
+            <ol>
+                <li>Inquadra il codice dentro il riquadro verde</li>
+                <li>Attendi il riconoscimento (vibrazione + suono)</li>
+                <li>Appare un menu con: <em>Apri scheda</em>, <em>Aggiungi 1 al carrello</em>, <em>Aggiungi con quantità…</em></li>
+            </ol>
+            <p>Se il codice non esiste, puoi creare un nuovo articolo al volo.</p>
+            <p>La pagina supporta anche la <strong>scansione QR Code di configurazione</strong>: se inquadri un QR generato dal PC (con URL, PIN e CartId), l'app si riconfigura automaticamente.</p>
+            <div class="callout info">
+                <strong>💡 Su Windows:</strong> usa una pistola barcode USB. Basta cliccare nella barra di ricerca di qualsiasi pagina e sparare il codice.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ ARTICOLI ═══════════════════════════ -->
+        <section id="articoli">
+            <h2>📦 Articoli</h2>
+            <p>Lista di tutto il magazzino, con ricerca e filtro per categoria.</p>
+
+            <ul>
+                <li><strong>Barra di ricerca</strong> — cerca per codice, nome o categoria. Premi Invio per aprire direttamente il codice esatto</li>
+                <li><strong>Filtro Categoria</strong> — la tendina accanto alla ricerca permette di visualizzare solo una specifica categoria</li>
+                <li><strong>Tocca una riga</strong> — apre la scheda articolo</li>
+                <li><strong>📷 (icona a destra della ricerca)</strong> — apre lo scanner barcode</li>
+                <li><strong>＋ Nuovo Articolo</strong> in basso — crea un articolo vuoto</li>
+            </ul>
+            <p>Ogni riga mostra: <em>nome</em>, <em>codice · categoria</em>, <em>prezzo</em>, <em>rimanenti</em>. Se c'è merce in arrivo (da Ordini fornitori), appare un badge verde <strong>🚚 In arrivo: N pz</strong>.</p>
+        </section>
+
+        <!-- ═══════════════════════════ SCHEDA ARTICOLO ═══════════════════════════ -->
+        <section id="scheda-articolo">
+            <h2>📝 Scheda articolo</h2>
+            <p>Mostra e modifica tutti i dati di un articolo. L'interfaccia è stata recentemente compattata per migliorare la leggibilità su Desktop.</p>
+
+            <h3>🛒 Aggiungi al carrello</h3>
+            <p>Salva l'articolo e chiede la quantità da aggiungere.</p>
+
+            <h3>Azioni magazzino (Nuova UI)</h3>
+            <p>Nella parte superiore della scheda, subito sotto le informazioni principali, c'è una barra con i pulsanti: <code>Aggiungi</code>, <code>Salva</code>, <code>⋮ Altro</code> ed <code>Elimina</code>.</p>
+            <ul>
+                <li>Cliccando su <strong>⋮ Altro</strong>, si apre un menu a tendina con le azioni di magazzino: <strong>📦 CARICA 1</strong>, <strong>📥 ACQUISTO…</strong>, <strong>⬆ CARICO…</strong> e <strong>⬇ SCARICO…</strong>. In questo modo i pulsanti meno usati non occupano spazio prezioso.</li>
+            </ul>
+            <table>
+                <tr><th>Azione</th><th>Cosa fa</th></tr>
+                <tr><td>📦 CARICA 1</td><td>Registra un carico di 1 pezzo</td></tr>
+                <tr><td>📥 ACQUISTO…</td><td>Chiede quantità e fornitore, poi registra un acquisto</td></tr>
+                <tr><td>⬆ CARICO…</td><td>Chiede quantità, registra un carico manuale</td></tr>
+                <tr><td>⬇ SCARICO…</td><td>Chiede quantità, registra uno scarico</td></tr>
+            </table>
+
+            <h3>Dati articolo</h3>
+            <ul>
+                <li><strong>Codice</strong> — EAN, SKU, codice interno</li>
+                <li><strong>Prodotto</strong> — nome (obbligatorio)</li>
+                <li><strong>Categoria / Fornitore</strong> — con <code>＋</code> per crearne uno nuovo al volo</li>
+                <li><strong>Prezzo vendita / acquisto</strong></li>
+                <li><strong>Prezzo IVA inclusa</strong> — switch se il prezzo include già l'IVA</li>
+                <li><strong>Aliquota IVA</strong> — 22%, 10%, 4%, 0%</li>
+                <li><strong>Ubicazione / Unità misura</strong></li>
+                <li><strong>Scorta minima</strong> — sotto questo valore → alert sottoscorta</li>
+                <li><strong>Note</strong> — testo libero</li>
+                <li><strong>Colore, Taglia/Formato, Materiale, Imballo, Dimensioni</strong> — specifiche prodotto</li>
+                <li><strong>Is Kit (Distinta Base)</strong> — switch che abilita la gestione componenti (vedi <a href="#kit">sezione Kit</a>)</li>
+                <li><strong>Gestione Lotti / Scadenze</strong> — switch che abilita la tracciabilità (vedi <a href="#lotti">sezione Lotti</a>)</li>
+            </ul>
+
+            <h3>📦 Merci in arrivo</h3>
+            <p>Se l'articolo è presente in uno o più ordini fornitori in stato "Bozza" o "Inviato", nella scheda appare un badge arancione:</p>
+            <p><em>"🚚 In Arrivo: N pz (da Ordini)"</em></p>
+            <p>Ti avvisa in anticipo che la merce sta per arrivare, così sai di non doverla riordinare.</p>
+
+            <h3>Foto</h3>
+            <p>Scatta, scegli dalla galleria o rimuovi. In modalità server la foto viene sincronizzata.</p>
+
+            <div class="callout warn">
+                <strong>⚠️ Modifiche non salvate:</strong> se esci dalla pagina con modifiche pendenti, NautiMag ti chiede se <em>salvare</em>, <em>scartare</em> o <em>annullare</em> l'uscita.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ LOTTI ═══════════════════════════ -->
+        <section id="lotti">
+            <h2>📅 Tracciabilità Lotti / Seriali / Scadenze (FIFO/FEFO)</h2>
+            <p>NautiMag supporta la tracciabilità completa dei lotti per gli articoli che lo richiedono. Questa funzione è pensata per alimentari, cosmetici, farmaci, ricambi con seriale, e tutti quei prodotti dove è importante sapere <strong>quale pezzo specifico</strong> è stato caricato o venduto.</p>
+
+            <h3>🚩 Quando usare i lotti?</h3>
+            <p>Attiva <strong>"Gestione Lotti / Scadenze"</strong> nella scheda articolo <em>solo se</em> hai bisogno di tracciare il prodotto pezzo per pezzo. Se hai un negozio di casalinghi o giocattoli, di solito <strong>non serve</strong>.</p>
+
+            <h3>Come si attiva</h3>
+            <ol>
+                <li>Apri la scheda di un articolo (es. "Latte intero 1L")</li>
+                <li>Nella parte destra, sotto le specifiche prodotto, spunta lo switch <strong>"Gestione Lotti / Scadenze"</strong></li>
+                <li>Salva. Da ora l'articolo "parla" con i lotti.</li>
+            </ol>
+
+            <h3>Cosa succede da ora in poi</h3>
+            <p>Ogni volta che fai un carico, NautiMag ti chiederà:</p>
+            <ul>
+                <li><strong>Numero di lotto</strong> (es. "L2026-042")</li>
+                <li><strong>Data di scadenza</strong> (es. 30/06/2027)</li>
+            </ul>
+            <p>Queste informazioni vengono salvate e collegate al pezzo caricato. Ogni lotto ha la sua <em>Quantità Rimanente</em> che scende man mano che vendi.</p>
+
+            <h3>Come funziona la vendita con FIFO/FEFO</h3>
+            <p>Quando vendi un articolo con lotti attivi, NautiMag sceglie automaticamente da quale lotto scaricare i pezzi:</p>
+            <ul>
+                <li><strong>FIFO</strong> (First In, First Out) — scarica dal lotto <em>più vecchio</em> per primo (per prodotti con scadenza</li>
+                <li><strong>FEFO</strong> (First Expired, First Out) — scarica dal lotto <em>in scadenza più vicina</em> per primo (più sicuro per alimentari)</li>
+            </ul>
+            <p>Se il lotto più vecchio non basta, NautiMag passa al successivo, e così via finché la vendita non è coperta.</p>
+
+            <div class="callout info">
+                <strong>💡 Esempio pratico FIFO:</strong><br>
+                Hai 3 lotti di "Latte 1L":<br>
+                • Lotto A: 10 pz, scade 01/12/2026<br>
+                • Lotto B: 20 pz, scade 15/12/2026<br>
+                • Lotto C: 5 pz, scade 20/12/2026<br><br>
+                Vendi 12 pz. NautiMag farà così:<br>
+                1. Prende 10 pezzi dal Lotto A (che va a 0)<br>
+                2. Prende 2 pezzi dal Lotto B (che va a 18)<br>
+                3. Lotto C resta intatto (5 pz)
+            </div>
+
+            <h3>Visualizzazione dei lotti attivi</h3>
+            <p>Nella scheda articolo, se l'articolo ha lotti attivi, clicca su <strong>"📅 Visualizza Lotti Attivi"</strong>. Si apre una pagina con:</p>
+            <ul>
+                <li>Codice Lotto</li>
+                <li>Data di scadenza</li>
+                <li>Quantità Iniziale</li>
+                <li>Quantità Rimanente</li>
+                <li>Data di Carico</li>
+            </ul>
+
+            <h3>🔔 Lotti in scadenza (Monitoraggio)</h3>
+            <p>Vai su <em>Gestione → Lotti in scadenza</em> (o <em>Home → Gestione → Lotti Scadenza</em>). Inserisci un numero di giorni (es. 30) e NautiMag ti mostrerà tutti i lotti che scadranno entro quella data.</p>
+            <p>Ti aiuta a mettere in promozione o smaltire i prodotti che stanno per scadere.</p>
+
+            <h3>⚠️ Cosa succede se la merce è negativa?</h3>
+            <p>Se vendi più pezzi di quelli presenti nei lotti, NautiMag crea un movimento <strong>"(Senza Lotto - Negativo)"</strong> per la parte eccedente. Questo ti segnala che mancano pezzi fisici che non sono stati caricati con il lotto.</p>
+
+            <div class="callout warn">
+                <strong>⚠️ Consiglio:</strong> attiva i lotti solo per le categorie di prodotti che ne hanno veramente bisogno. Se hai 2000 articoli e attivi i lotti su tutti, la cassa diventa molto più lenta (perché ogni vendita deve chiedere "quale lotto?").
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ KIT ═══════════════════════════ -->
+        <section id="kit">
+            <h2>🧩 Distinta Base / Kit (Articoli Composti)</h2>
+            <p>NautiMag supporta la gestione dei <strong>Kit</strong>, cioè articoli "composti" da più articoli semplici. Quando vendi il kit, il magazzino scarica automaticamente <strong>tutti i suoi componenti</strong>.</p>
+
+            <h3>🚩 Quando usare i Kit?</h3>
+            <ul>
+                <li><strong>Cesti regalo</strong>: un cesto che contiene 1 vino + 1 bicchiere + 1 sacchetto</li>
+                <li><strong>Set di prodotti</strong>: un kit "pulizia casa" che contiene 1 detersivo + 1 spugna + 1 panno</li>
+                <li><strong>Bundle promozionali</strong>: "3x2" o "confezione famiglia"</li>
+                <li><strong>Prodotti assemblati</strong>: una bicicletta che vendi "montata" dal telaio + ruote + sellino</li>
+            </ul>
+
+            <h3>Come si crea un Kit</h3>
+            <ol>
+                <li>Apri la scheda di un articolo (es. "Cesto Natale 2026")</li>
+                <li>Attiva lo switch <strong>"È un Kit (Distinta Base)"</strong> nella parte destra</li>
+                <li>Salva. Appare il pulsante <strong>"📦 Gestisci Componenti del Kit"</strong></li>
+                <li>Cliccalo e aggiungi i componenti uno per uno:
+                    <ul>
+                        <li>Scegli un articolo dal magazzino (es. "Vino Rosso Chianti")</li>
+                        <li>Inserisci la quantità (es. 1)</li>
+                        <li>Clicca OK</li>
+                    </ul>
+                </li>
+                <li>Ripeti per ogni componente (es. "Bicchiere di vetro", "Sacchetto regalo")</li>
+            </ol>
+
+            <h3>Come si vende un Kit</h3>
+            <p>Il kit si vende come un normale articolo: dal carrello o dalla pistola barcode. Quando chiudi la vendita succede questo:</p>
+            <ol>
+                <li>NautiMag registra un movimento Vendita per il Kit (es. "Cesto Natale 2026" ×1)</li>
+                <li><strong>Automaticamente</strong> scarica anche tutti i suoi componenti (es. -1 vino, -1 bicchiere, -1 sacchetto)</li>
+                <li>Il magazzino dei singoli componenti si aggiorna in automatico</li>
+            </ol>
+
+            <div class="callout info">
+                <strong>💡 Esempio pratico:</strong><br>
+                Hai il Kit "Cesto Natale 2026" prezzo € 29,90, composto da:<br>
+                • 1× Vino Rosso Chianti<br>
+                • 1× Bicchiere di vetro<br>
+                • 1× Sacchetto regalo<br><br>
+                Nel tuo magazzino hai: 10 vini, 20 bicchieri, 15 sacchetti.<br>
+                Vendi 3 cesti. Il magazzino diventa:<br>
+                • Vino: 7 (-3)<br>
+                • Bicchieri: 17 (-3)<br>
+                • Sacchetti: 12 (-3)<br>
+                • Cesto: 0 (il kit viene "creato" al volo, non esiste come pezzo fisico)
+            </div>
+
+            <h3>Kit annidati (multilivello)</h3>
+            <p>NautiMag supporta i kit <strong>composti da altri kit</strong>. Se un kit contiene un altro kit, lo scarico scende a cascata fino ai componenti base.</p>
+
+            <h3>Attenzione</h3>
+            <div class="callout warn">
+                <strong>⚠️ Regola:</strong> il kit <strong>non ha giacenza propria</strong>. La quantità del kit "scatola" è sempre 0 nel DB. Se vuoi sapere quanti "Cesti Natale" puoi vendere, devi guardare il componente che ne hai di meno (es. se hai 10 vini e 20 bicchieri, puoi fare al massimo 10 kit).
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ CARRELLO ═══════════════════════════ -->
+        <section id="carrello">
+            <h2>🛒 Carrello e Multi-Cassa</h2>
+            <p>Il Carrello contiene gli articoli pronti per la vendita. In modalità server è <strong>condiviso in tempo reale</strong> tra tutti i dispositivi che condividono lo stesso identificativo (CartId).</p>
+
+            <h3>Come funzionano i Carrelli Isolati (Multi-Cart)</h3>
+            <p>NautiMag supporta più operatori contemporaneamente. Invece di avere un unico carrello globale, ogni dispositivo (PC Cassa, Tablet Android, ecc.) ha il suo <strong>CartId</strong> configurato nelle Impostazioni Server.</p>
+
+            <p>Immagina di avere questo setup in negozio:</p>
+            <ul>
+                <li><strong>PC Cassa (Windows)</strong> → CartId: <code>cassa</code></li>
+                <li><strong>Tablet 1 (Magazzino)</strong> → CartId: <code>android1</code></li>
+                <li><strong>Tablet 2 (Magazzino)</strong> → CartId: <code>android2</code></li>
+            </ul>
+            <p>In questo modo, se due clienti vengono serviti contemporaneamente da due tablet diversi, i loro articoli non si mischiano mai.</p>
+
+            <div class="callout info">
+                <strong>💡 Regola d'oro sul CartId:</strong> Se due dispositivi hanno <strong>lo stesso CartId</strong>, condividono lo stesso carrello in tempo reale. Se invece vuoi un carrello separato, usa un ID diverso.
+            </div>
+
+            <h3>📱 Carrelli Nominati (solo su Android/Tablet)</h3>
+            <p>Sul tablet o sul telefono Android, il commesso può creare <strong>più carrelli contemporaneamente</strong>, ognuno dedicato a un cliente diverso. Ogni carrello ha un nome scelto dall'utente (es. "Mario Rossi", "Tavolo 5") che diventa il suo identificativo sul server.</p>
+            <p>Nella pagina del Carrello, sul tablet, trovi questi pulsanti nella sezione <em>GESTIONE CARRELLI</em>:</p>
+            <ul>
+                <li><strong>➕ Nuovo Carrello</strong> — scrivi il nome del cliente (es. "Mario Rossi"). Il sistema crea un carrello dedicato. Il carrello precedente resta "parcheggiato" con i suoi articoli, senza essere toccato.</li>
+                <li><strong>📂 Cambia Carrello</strong> — mostra la lista dei carrelli attivi su quel tablet (base + nominati). Scegli quello che vuoi riprendere in mano.</li>
+                <li><strong>🏠 Torna al Base</strong> — se sei su un carrello nominato, torna al carrello base del tablet (es. <code>android1</code>).</li>
+                <li><strong>🗑 Elimina Carrello</strong> — elimina il carrello nominato e libera il nome.</li>
+            </ul>
+
+            <h3>🔗 La funzione "Unisci Carrello" (Fondamentale)</h3>
+            <p>Questa è la funzione che collega il lavoro del magazzino a quello della cassa. Serve per trasferire gli articoli da un dispositivo (es. Tablet) al PC Cassa per chiudere la vendita.</p>
+            <p>Ecco cosa succede quando premi <strong>"🔗 Unisci"</strong> dal PC:</p>
+            <ol>
+                <li>Il PC chiede al server: <em>"Quali altri carrelli ci sono attivi in questo momento?"</em>.</li>
+                <li>Ti apparirà una lista (es. <code>android1</code>, <code>mario-rossi</code>, <code>paolo-bianchi</code>).</li>
+                <li>Seleziona il carrello del tablet che vuoi incassare.</li>
+                <li><strong>L'Anteprima:</strong> Prima di confermare, NautiMag ti mostrerà esattamente quali articoli e quante quantità ci sono dentro quel carrello.</li>
+                <li>Confermando, tutti gli articoli vengono spostati dal tablet al PC.</li>
+                <li>Il carrello sul tablet si svuota <strong>istantaneamente</strong>, pronto per un nuovo cliente.</li>
+            </ol>
+
+            <h3>Azioni nel Carrello</h3>
+            <ul>
+                <li><strong>➕ Aggiungi articoli</strong> — apre la lista articoli per cercare e aggiungere merce.</li>
+                <li><strong>👤 Nuovo cliente</strong> — apre la scheda per creare un nuovo cliente.</li>
+                <li><strong>📤 Invia carrello</strong> — esporta il carrello in un file <code>.cartsync</code> (solo modalità standalone, utile se non hai il server).</li>
+                <li><strong>📥 Importa carrello</strong> — importa un file <code>.cartsync</code> (solo standalone).</li>
+                <li><strong>− / ✕</strong> — su ogni riga, usa <strong>−</strong> per modificare la quantità, <strong>✕</strong> per eliminare l'articolo.</li>
+            </ul>
+
+            <h3>Chiusura della vendita</h3>
+            <p>Quando il carrello è pronto e il cliente ha scelto:</p>
+            <ol>
+                <li>Controlla il totale in fondo alla pagina.</li>
+                <li>Tocca <strong>✓ Chiudi vendita</strong>.</li>
+                <li>Se ci sono scorte insufficienti, NautiMag ti mostrerà un avviso con l'elenco delle merci che andranno in negativo.</li>
+                <li>Ti verrà chiesto di selezionare il cliente (o lasciare "Cliente generico").</li>
+                <li>Conferma: la vendita viene registrata nel database.</li>
+                <li><strong>Punti Fedeltà:</strong> se la Tessera Fedeltà è abilitata e il cliente ha punti, NautiMag ti mostra i punti guadagnati e li somma al totale.</li>
+                <li><strong>Stampa Fiscale:</strong> se hai configurato la RT, l'app invierà lo scontrino alla stampante fiscale <em>silenziosamente</em>. Se ci sono errori, lo scontrino andrà nella coda "Scontrini KO".</li>
+                <li><strong>Stampa PDF (Solo Windows):</strong> alla fine, apparirà un unico popup che ti chiederà se vuoi stampare la ricevuta PDF o la fattura proforma.</li>
+            </ol>
+            <div class="callout info">
+                <strong>💡 Novità Proforma:</strong> Se scegli di stampare la Fattura Proforma, l'app ti chiederà di confermare o modificare il numero progressivo (es. PRO-2026-0001).
+            </div>
+
+            <div class="callout info">
+                <strong>💡 Nota sulla modalità Standalone:</strong> Se non usi il server, il carrello è unico per il tuo dispositivo e non è possibile unire carrelli da altri PC/tablet né creare carrelli nominati.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ VENDITE ═══════════════════════════ -->
+        <section id="vendite">
+            <h2>💰 Vendite</h2>
+            <p>Storico di tutte le vendite chiuse, raggruppate per riferimento.</p>
+            <ul>
+                <li><strong>Barra di ricerca</strong> — cerca per riferimento, cliente o prodotto</li>
+                <li><strong>Filtro periodo</strong> — Tutto, Oggi, 7 giorni, 30 giorni, Quest'anno</li>
+                <li><strong>Tocca una vendita</strong> — apre il dettaglio</li>
+            </ul>
+            <p>In fondo vedi il totale complessivo del filtro corrente.</p>
+        </section>
+
+        <!-- ═══════════════════════════ DETTAGLIO VENDITA ═══════════════════════════ -->
+        <section id="dettaglio-vendita">
+            <h2>📋 Dettaglio vendita</h2>
+            <p>Mostra riepilogo, cliente, righe e opzioni avanzate.</p>
+
+            <h3>⚙ Opzioni avanzate (extender)</h3>
+            <ul>
+                <li><strong>Pagato</strong> — segna come saldata</li>
+                <li><strong>Metodo pagamento</strong> — Contanti, Carta, Bonifico, Assegno, Altro</li>
+                <li><strong>Note interne</strong> — non visibili al cliente</li>
+            </ul>
+
+            <h3>🚫 Annulla Scontrino</h3>
+            <p>Se il cliente rende la merce, non si emette una nota credito per uno scontrino. Si usa invece il pulsante <strong>🚫 Annulla Scontrino</strong>.</p>
+            <div class="callout warn">
+                <strong>⚠️ Cosa succede:</strong><br>
+                1. Cliccando il pulsante, la merce viene <strong>reintegrata in magazzino</strong>.<br>
+                2. <strong>IMPORTANTE:</strong> Devi ricordarti di andare fisicamente sul Registratore Telematico (RT) e annullare lo scontrino entro 15 giorni.<br>
+                3. Una volta annullato, il pulsante sparisce e non potrai annullarlo di nuovo.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ SCONTRINI KO ═══════════════════════════ -->
+        <section id="scontrini-ko">
+            <h2>🧾 Scontrini (ex KO)</h2>
+            <p>Se la stampante è spenta o senza carta, la vendita viene <strong>salvata lo stesso</strong> (i soldi sono incassati!), ma lo scontrino va in una coda chiamata <strong>"Scontrini KO"</strong>.</p>
+
+            <h3>Dove trovo questa coda?</h3>
+            <p>Vai in <em>Home → Documenti → Scontrini</em>. Se ci sono scontrini da sistemare, vedrai un pallino rosso con un numero.</p>
+
+            <h3>Le 3 schede</h3>
+            <ul>
+                <li><strong>⚠️ Da fare:</strong> scontrini non stampati (stampante spenta, ecc.)</li>
+                <li><strong>✔ Risolti:</strong> scontrini stampati o archiviati manualmente</li>
+                <li><strong>✖ Annullati:</strong> scontrini che hai deciso di non stampare più</li>
+            </ul>
+
+            <h3>Cosa fare se trovo uno scontrino "Da fare"?</h3>
+            <ul>
+                <li><strong>🔄 Riprova stampa:</strong> cliccalo <em>solo dopo</em> che la stampante è accesa e pronta.</li>
+                <li><strong>✅ Segna come risolto:</strong> usalo se hai già stampato manualmente dalla RT.</li>
+                <li><strong>✖ Annulla:</strong> usalo se quel bigliettino non serve più.</li>
+                <li><strong>🗑 Elimina:</strong> cancella definitivamente dal database.</li>
+            </ul>
+
+            <div class="callout info">
+                <strong>💡 Ricorda:</strong> La vendita è al sicuro! Lo scontrino KO riguarda solo la stampa del pezzo di carta, non l'incasso dei soldi.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ MOVIMENTI ═══════════════════════════ -->
+        <section id="movimenti">
+            <h2>📊 Movimenti</h2>
+            <p>Registro immutabile di tutte le operazioni di magazzino.</p>
+
+            <h3>Tipi di movimento</h3>
+            <table>
+                <tr><td>💰 Vendita</td><td>Aumenta "venduto"</td></tr>
+                <tr><td>📥 Acquisto</td><td>Aumenta quantità + fornitore</td></tr>
+                <tr><td>📦 Carico</td><td>Aumenta quantità</td></tr>
+                <tr><td>📤 Scarico</td><td>Diminuisce quantità</td></tr>
+                <tr><td>🔧 Rettifica</td><td>Imposta quantità esatta</td></tr>
+            </table>
+
+            <h3>Filtri</h3>
+            <ul>
+                <li><strong>Ricerca testo</strong> — prodotto, codice, riferimento, note</li>
+                <li><strong>Tipo</strong> — Tutti, Vendita, Acquisto, Carico, Scarico, Rettifica</li>
+                <li><strong>Periodo</strong> — Tutto, Oggi, 7/30 giorni, Quest'anno, Personalizzato</li>
+                <li><strong>⚙ Filtri avanzati</strong> — Cliente, Fornitore, Aliquota IVA, intervallo date</li>
+            </ul>
+            <p><em>Novità:</em> La lista dei movimenti ora carica i dati a blocchi di 50 per garantirti prestazioni velocissime anche con migliaia di movimenti all'attivo.</p>
+
+            <h3>Riepilogo e stampa</h3>
+            <p>Se hai filtri attivi appare un riquadro con il conteggio e il bottone <strong>🖨 Stampa ricerca</strong> (solo Windows) che genera un PDF dei movimenti filtrati con riepilogo IVA.</p>
+        </section>
+
+        <!-- ═══════════════════════════ DATI ═══════════════════════════ -->
+        <section id="dati">
+            <h2>💾 Dati</h2>
+            <p>Hub centrale per import, export, backup e report.</p>
+            <table>
+                <tr><th>Riquadro</th><th>Azione</th></tr>
+                <tr><td>📥 Importa</td><td>Carica magazzino, vendite, clienti, fornitori o listini Metel</td></tr>
+                <tr><td>📤 Esporta Excel</td><td>Crea un .xlsx con magazzino + movimenti + IVA + clienti + fornitori</td></tr>
+                <tr><td>💾 Backup</td><td>Gestisci copie di sicurezza del database</td></tr>
+                <tr><td>📂 Esplora</td><td>Apre la cartella dati (Documenti\NautiMag)</td></tr>
+                <tr><td>🕰️ Inventario Storico</td><td>Calcola giacenza esatta ad una data passata</td></tr>
+            </table>
+            <p>In fondo la sezione <strong>REPORT PDF</strong> (solo Windows) con: magazzino completo, articoli negativi, sottoscorta, movimenti, vendite.</p>
+        </section>
+
+        <!-- ═══════════════════════════ IMPORT ═══════════════════════════ -->
+        <section id="import">
+            <h2>📥 Import Excel</h2>
+            <p>Tre tipi di importazione Excel:</p>
+            <ol>
+                <li><strong>📦 MAGAZZINO (colonne fisse)</strong> — usa le intestazioni standard <code>CODICE, PRODOTTO, CATEGORIA, PREZZO, QUANTITA, VENDUTO, FOTO</code></li>
+                <li><strong>🎯 MAGAZZINO (guidato)</strong> — mappi tu le colonne del tuo file</li>
+                <li><strong>💰 VENDITE</strong> — importa uno storico vendite</li>
+            </ol>
+            <p>In più, dalla home del wizard, puoi importare:</p>
+            <ul>
+                <li><strong>👥 CLIENTI</strong> — importa l'anagrafica clienti</li>
+                <li><strong>🚚 FORNITORI</strong> — importa l'anagrafica fornitori</li>
+                <li><strong>🏷️ LISTINO METEL</strong> — importa listini in formato ANIE/METEL (vedi <a href="#import-metel">sezione dedicata</a>)</li>
+            </ul>
+
+            <h3>Opzioni</h3>
+            <ul>
+                <li><strong>Prezzo IVA inclusa</strong> — se attivo, il prezzo dell'Excel viene considerato ivato</li>
+                <li><strong>Aliquota IVA default</strong> — applicata se la colonna non esiste nell'Excel</li>
+            </ul>
+
+            <div class="callout info">
+                <strong>📦 Creazione Automatica Anagrafiche:</strong> Durante l'import di un magazzino, se l'Excel contiene Categorie o Unità di misura che non esistono nel database, NautiMag le creerà in automatico.
+            </div>
+
+            <p>Durante l'import vedi barra di avanzamento, percentuale e <strong>⏹ STOP</strong> per annullare. Viene creato automaticamente un backup prima di procedere.</p>
+        </section>
+
+        <!-- ═══════════════════════════ IMPORT GUIDATO ═══════════════════════════ -->
+        <section id="import-guidato">
+            <h2>🎯 Import guidato</h2>
+            <p>Per file Excel con colonne diverse dallo standard.</p>
+            <ol>
+                <li><strong>📂 Scegli file</strong> — seleziona l'Excel</li>
+                <li>Il sistema legge intestazioni e prime 10 righe (anteprima a destra)</li>
+                <li>Per ogni campo DB scegli la colonna Excel corrispondente dal menu a tendina</li>
+                <li>Il mapping viene compilato in automatico se riconosce le intestazioni</li>
+                <li>Quando <em>Codice</em> e <em>Prodotto</em> sono mappati, si attiva <strong>✅ Importa</strong></li>
+            </ol>
+            <div class="callout info">
+                <strong>💡 Suggerimento:</strong> l'auto-mapping riconosce oltre 30 varianti (SKU, EAN, Descrizione, Costo, Giacenza, ecc.).
+                <br><strong>Novità:</strong> Ora puoi usare l'import guidato anche per <strong>Clienti</strong> e <strong>Fornitori</strong>!
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ IMPORT METEL ═══════════════════════════ -->
+        <section id="import-metel">
+            <h2>🏷️ Import Listino Metel</h2>
+            <p>NautiMag supporta l'importazione automatica dei <strong>listini ANIE/METEL</strong>, i formati standard usati dai grossisti di elettronica, elettrodomestici e casalinghi.</p>
+
+            <h3>🚩 Quando serve?</h3>
+            <p>Se acquisti da fornitori come <strong>GEK, METEL, ANIE</strong>, oppure se il tuo grossista ti fornisce un file <code>.txt</code> o <code>.csv</code> con un formato fisso, questa funzione è per te.</p>
+
+            <h3>Come funziona</h3>
+            <ol>
+                <li>Vai su <em>Home → Dati → Importa → Listino Metel</em></li>
+                <li>Clicca <strong>📂 Scegli file</strong> e seleziona il file del listino (<code>.txt</code>, <code>.csv</code>, <code>.dat</code>)</li>
+                <li>NautiMag riconosce automaticamente il formato:
+                    <ul>
+                        <li><strong>Fixed-width ANIE</strong> — record che iniziano con la lettera 'A'</li>
+                        <li><strong>Fixed-width GEK</strong> — record che contengono 'EUR' per il prezzo</li>
+                        <li><strong>Delimitato</strong> — CSV/TXT con separatori <code>;</code>, <code>|</code> o tab</li>
+                    </ul>
+                </li>
+                <li>Vedrai un riepilogo: "N articoli, M errori"</li>
+                <li>Clicca <strong>🏷️ Importa Listino</strong></li>
+            </ol>
+
+            <h3>Cosa viene importato</h3>
+            <ul>
+                <li><strong>Codice articolo</strong> (obbligatorio)</li>
+                <li><strong>Descrizione</strong> (obbligatoria)</li>
+                <li><strong>Marca/Brand</strong></li>
+                <li><strong>Unità di misura</strong> (pz, kg, ecc.)</li>
+                <li><strong>Prezzo di listino</strong></li>
+                <li><strong>EAN/Barcode</strong> (se presente)</li>
+            </ul>
+
+            <h3>Anteprima errori</h3>
+            <p>Prima dell'import, NautiMag ti mostra i primi 20 errori di parsing, così puoi capire se il formato è corretto. Esempi:</p>
+            <ul>
+                <li>"Riga 47: codice o descrizione mancanti"</li>
+                <li>"Riga 89: record troppo corto (50 caratteri)"</li>
+            </ul>
+            <p>Se vedi che gli errori sono troppi, probabilmente il file non è nel formato giusto. Prova ad aprirlo con un editor di testo per controllare.</p>
+
+            <div class="callout info">
+                <strong>💡 Suggerimento:</strong> se il tuo listino non è in formato ANIE/METEL standard, chiedi al fornitore un CSV "semplice" (Codice;Descrizione;Prezzo) e usa l'<strong>Import guidato</strong> invece di questo.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ ESPORTA ═══════════════════════════ -->
+        <section id="esporta">
+            <h2>📤 Esporta Excel</h2>
+            <p>Genera un file <code>.xlsx</code> con 5 fogli:</p>
+            <ol>
+                <li><strong>Magazzino</strong> — tutti gli articoli con calcolo IVA (imponibile, IVA unitaria, prezzo ivato)</li>
+                <li><strong>Movimenti</strong> — tutti i movimenti con riepilogo IVA</li>
+                <li><strong>Riepilogo IVA</strong> — totali vendite e acquisti per aliquota + saldo IVA</li>
+                <li><strong>Clienti</strong> — anagrafica completa</li>
+                <li><strong>Fornitori</strong> — anagrafica completa</li>
+            </ol>
+            <p>Il file è salvato in <code>Documenti\NautiMag\export\</code> e puoi aprirlo, condividerlo o salvarlo altrove.</p>
+        </section>
+
+        <!-- ═══════════════════════════ BACKUP ═══════════════════════════ -->
+        <section id="backup">
+            <h2>🗄 Backup</h2>
+            <p>Copie di sicurezza del database.</p>
+            <ul>
+                <li><strong>Automatico</strong> — il server crea un backup al primo avvio di ogni giorno</li>
+                <li><strong>Manuale</strong> — bottone <em>💾 Crea nuovo backup</em></li>
+                <li><strong>Rotazione</strong> — massimo 5 backup, i più vecchi si eliminano da soli</li>
+            </ul>
+
+            <h3>Azioni su un backup</h3>
+            <ul>
+                <li><strong>♻ Ripristina</strong> — sovrascrive il DB attuale (viene creato un backup pre-restore). <strong>Richiede riavvio app/server.</strong></li>
+                <li><strong>🗑 Elimina</strong> — cancella definitivamente il file</li>
+            </ul>
+
+            <p>Cartella: <code>Documenti\NautiMag\backup\</code></p>
+        </section>
+
+        <!-- ═══════════════════════════ INVENTARIO STORICO ═══════════════════════════ -->
+        <section id="inventario-storico">
+            <h2>🕰️ Inventario Storico e Merci in Arrivo</h2>
+            <p>Due funzioni che ti aiutano a sapere <strong>cosa c'era in magazzino</strong> in un certo momento del passato e <strong>cosa sta per arrivare</strong> dal fornitore.</p>
+
+            <h3>🕰️ Inventario Storico (Giacenza a una data)</h3>
+            <p>Ti permette di rispondere alla domanda: <em>"Quanti pezzi di questo articolo avevo il 15 marzo 2026?"</em></p>
+
+            <h3>Come si usa</h3>
+            <ol>
+                <li>Vai su <em>Home → Dati → Inventario Storico</em></li>
+                <li>Scegli una data con il selettore in alto</li>
+                <li>NautiMag calcola la giacenza esatta di ogni articolo <strong>a quella data</strong></li>
+            </ol>
+
+            <h3>Come funziona il calcolo</h3>
+            <p>NautiMag prende la <strong>giacenza attuale</strong> e sottrae tutti i movimenti avvenuti <strong>dopo</strong> la data scelta. In pratica "torna indietro nel tempo" rimuovendo le vendite e i carichi successivi.</p>
+
+            <div class="callout info">
+                <strong>💡 Esempio pratico:</strong><br>
+                Oggi hai 100 penne. Vuoi sapere quante ne avevi il 1° gennaio.<br>
+                • Il 10 gennaio hai caricato 50 penne<br>
+                • Il 20 febbraio hai venduto 30 penne<br><br>
+                Giacenza al 1° gennaio = 100 (attuale) - 50 (carico) + 30 (vendita) = <strong>80 penne</strong>
+            </div>
+
+            <h3>⚠️ Cosa non è preciso</h3>
+            <ul>
+                <li>Le <strong>rettifiche</strong> non vengono tracciate con lo stato precedente, quindi il calcolo è approssimativo per quegli articoli</li>
+                <li>La <strong>giacenza iniziale</strong> non è un movimento, quindi il calcolo si basa sull'attuale</li>
+            </ul>
+            <p>Per la maggior parte dei casi (solo carichi e vendite), il calcolo è <strong>preciso al 100%</strong>.</p>
+
+            <h3>📦 Merci in Arrivo</h3>
+            <p>La funzione <strong>"Merci in Arrivo"</strong> ti mostra, per ogni articolo, quanti pezzi sono in transito (ordinati ma non ancora ricevuti).</p>
+            <p>Dove la trovi:</p>
+            <ul>
+                <li>Nella <strong>scheda articolo</strong> — badge "🚚 In Arrivo: N pz"</li>
+                <li>Nella <strong>lista articoli</strong> — badge verde "🚚 In arrivo: N pz"</li>
+                <li>Nella pagina <strong>Ordini</strong> — filtra per "Inviato" per vedere quelli non ancora ricevuti</li>
+            </ul>
+
+            <p>Il calcolo è: <strong>quantità ordinata - quantità già ricevuta</strong>, sommando tutti gli ordini in stato "Bozza" o "Inviato". Quando registri la ricezione di un ordine, la merce in arrivo scende a zero per quell'articolo.</p>
+
+            <div class="callout info">
+                <strong>💡 Suggerimento:</strong> usa la funzione "Merci in Arrivo" per decidere se riordinare o aspettare. Se hai già 50 pezzi in arrivo, non ha senso fare un altro ordine!
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ SINCRONIZZA ═══════════════════════════ -->
+        <section id="sincronizza">
+            <h2>🔄 Sincronizza</h2>
+            <p>Solo in modalità <strong>standalone</strong>. In modalità server la sincronizzazione è automatica.</p>
+
+            <h3>Sincronizza ora</h3>
+            <p>Crea backup + esporta un file <code>.wmsync</code> + apre il menu di condivisione nativo (email, Drive, WhatsApp…).</p>
+
+            <h3>Cosa contiene il file</h3>
+            <ul>
+                <li>Articoli</li>
+                <li>Movimenti</li>
+                <li>Fornitori e Clienti</li>
+                <li>Categorie, Unità, Ubicazioni</li>
+                <li>Aliquote IVA</li>
+                <li>Azienda + logo</li>
+            </ul>
+
+            <h3>Import</h3>
+            <p>Unisce i dati del file con quelli attuali. Regola conflitti: vince la modifica più recente (<code>AggiornatoIl</code>).</p>
+
+            <div class="callout warn">
+                <strong>Il carrello non viene sincronizzato</strong> dal .wmsync — è locale al dispositivo. Usa "Invia/Ricevi carrello" dal Carrello.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ GESTIONE ═══════════════════════════ -->
+        <section id="gestione">
+            <h2>⚙️ Gestione</h2>
+            <p>Hub centrale di configurazione. Divisa in 4 categorie:</p>
+
+            <h3>📄 Documenti</h3>
+            <ul>
+                <li>Ordini fornitori</li>
+                <li>DDT / Buoni consegna</li>
+                <li>Note credito</li>
+                <li>Stampa liste</li>
+                <li>Scontrini KO</li>
+                <li>Fatture (Ricevute/Emesse)</li>
+                <li>Preventivi</li>
+            </ul>
+
+            <h3>📦 Magazzino</h3>
+            <ul>
+                <li>Statistiche</li>
+                <li>Articoli in negativo</li>
+                <li>Sottoscorta</li>
+                <li>Etichette barcode</li>
+                <li>Lotti in scadenza</li>
+            </ul>
+
+            <h3>🏢 Anagrafiche</h3>
+            <ul>
+                <li>Azienda, Fornitori, Clienti</li>
+                <li>Categorie, Unità di misura</li>
+                <li>Ubicazioni, Aliquote IVA</li>
+            </ul>
+
+            <h3>🔧 Sistema</h3>
+            <ul>
+                <li><strong>📖 Guida utente</strong> — questa pagina</li>
+                <li><strong>🌐 Impostazioni Server</strong> — modalità, URL, PIN</li>
+                <li><strong>👥 Utenti</strong> (solo Admin)</li>
+                <li><strong>📜 Log</strong> (solo SuperUser)</li>
+                <li><strong>🆘 Assistenza Remota</strong> — esporta diagnostica</li>
+            </ul>
+        </section>
+
+        <!-- ═══════════════════════════ GESTIONE UTENTI ═══════════════════════════ -->
+        <section id="gestione-utenti">
+            <h2>👥 Gestione Utenti</h2>
+            <p>Raggiungibile da <em>Gestione → Utenti</em>. <strong>Visibile solo agli Admin e al SuperUser.</strong></p>
+
+            <h3>Creare un nuovo utente</h3>
+            <ol>
+                <li>Clicca su <strong>＋ Nuovo Utente</strong> in basso.</li>
+                <li>Inserisci lo <strong>Username</strong> (es. <code>mario</code>) e la <strong>Password</strong>.</li>
+                <li>Scegli il <strong>Livello di Sicurezza</strong> (Admin o Vendita).</li>
+                <li>Scrivi il <strong>Nome Visualizzato</strong> (es. "Cassiere 1" o "Ufficio").</li>
+                <li>Clicca <strong>Salva Modifiche</strong>.</li>
+            </ol>
+
+            <h3>Modificare o Eliminare</h3>
+            <ul>
+                <li><strong>Admin</strong>: Può modificare e eliminare gli utenti "Vendita". Può modificare altri Admin, ma <strong>non può eliminarli</strong>.</li>
+                <li><strong>SuperUser</strong>: Può fare tutto (tranne eliminare se stesso o l'admin di sistema).</li>
+            </ul>
+            <div class="callout info">
+                <strong>🔐 Nota:</strong> Gli utenti <code>admin</code> e <code>superuser</code> non possono essere eliminati. Puoi solo cambiare la loro password.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ LOG ATTIVITA ═══════════════════════════ -->
+        <section id="log-attivita">
+            <h2>📜 Log Attività e Sistema</h2>
+            <p>Raggiungibile da <em>Gestione → Log</em>. <strong>Visibile solo al SuperUser.</strong></p>
+
+            <h3>Tab "Audit" (Chi ha fatto cosa)</h3>
+            <p>Registro ufficiale delle operazioni commerciali: Login, Creazione/Modifica/Eliminazione Utente, Vendite, Modifiche Articoli.</p>
+            <p>La pagina mostra: Azione, Dettagli, Username, Data/Ora.</p>
+
+            <h3>Tab "Sistema" (Errori e Debug Tecnico)</h3>
+            <p>Registra Errori, Warning e Info di Sistema (es. problemi stampa PDF, errori importazione, disconnessioni).</p>
+
+            <h3>I Filtri</h3>
+            <ul>
+                <li><strong>Data da / Data a</strong> — isola un periodo</li>
+                <li><strong>Cerca nel testo</strong> — parola chiave (codice, cliente, ecc.)</li>
+                <li><strong>Livello (solo tab Sistema)</strong> — Info, Warning, Error, Fatal</li>
+            </ul>
+            <p>Premi <strong>🔄 Aggiorna</strong> per ricaricare. <strong>🗑 Pulisci</strong> per svuotare la scheda.</p>
+        </section>
+
+        <!-- ═══════════════════════════ PRIMA NOTA ═══════════════════════════ -->
+        <section id="prima-nota">
+            <h2>💵 Prima Nota Cassa</h2>
+            <p>La Prima Nota è il registro delle <strong>entrate e uscite di denaro</strong> che non sono vendite o acquisti (es. bollette, stipendi, prelievi).</p>
+
+            <h3>Dove si trova</h3>
+            <p>Vai su <em>Home → Documenti → Prima Nota Cassa</em>.</p>
+
+            <h3>La schermata principale</h3>
+            <p>In alto vedi 3 numeri grandi:</p>
+            <ul>
+                <li><strong>Entrate</strong> — somma di tutti i soldi incassati (verde)</li>
+                <li><strong>Uscite</strong> — somma di tutti i soldi spesi (rosso)</li>
+                <li><strong>Saldo Cassa</strong> — differenza (blu, può essere negativo)</li>
+            </ul>
+            <p>Sotto c'è la lista dei movimenti, con icona verde (🟢) per le entrate e rossa (🔴) per le uscite.</p>
+
+            <h3>Come si aggiunge un movimento</h3>
+            <ol>
+                <li>Clicca <strong>＋ Aggiungi Movimento</strong> in basso</li>
+                <li>Scegli il tipo:
+                    <ul>
+                        <li><strong>🟢 Entrata</strong> — soldi in entrata</li>
+                        <li><strong>🔴 Uscita</strong> — soldi in uscita</li>
+                    </ul>
+                </li>
+                <li>Scrivi l'importo (es. 45.50)</li>
+                <li>Scegli la categoria:
+                    <ul>
+                        <li><strong>Entrata:</strong> Incasso, Versamento, Altro</li>
+                        <li><strong>Uscita:</strong> Bolletta, Prelievo, Acquisto, Stipendio, Altro</li>
+                    </ul>
+                </li>
+                <li>Scrivi una descrizione (opzionale): es. "Bolletta Enel novembre"</li>
+                <li>Conferma</li>
+            </ol>
+
+            <h3>Esempi pratici</h3>
+            <table>
+                <tr><th>Tipo</th><th>Categoria</th><th>Importo</th><th>Descrizione</th></tr>
+                <tr><td>🟢 Entrata</td><td>Versamento</td><td>€ 500</td><td>Porto soldi dalla cassa al conto</td></tr>
+                <tr><td>🔴 Uscita</td><td>Bolletta</td><td>€ 120</td><td>Bolletta luce novembre</td></tr>
+                <tr><td>🔴 Uscita</td><td>Stipendio</td><td>€ 1.200</td><td>Stipendio Mario - Ottobre</td></tr>
+                <tr><td>🔴 Uscita</td><td>Acquisto</td><td>€ 80</td><td>Buste per la spesa</td></tr>
+                <tr><td>🔴 Uscita</td><td>Prelievo</td><td>€ 200</td><td>Prelievo per spese personali</td></tr>
+            </table>
+
+            <h3>Eliminare un movimento</h3>
+            <p>Clicca <strong>🗑</strong> sulla riga. Attenzione: l'operazione non è reversibile.</p>
+
+            <div class="callout info">
+                <strong>💡 A cosa serve la Prima Nota?</strong><br>
+                Ti permette di sapere quanti soldi ci sono <strong>veramente in cassa</strong> in un dato momento. Senza la Prima Nota, sapresti solo quanto hai incassato con le vendite, ma non sapresti quanto hai speso per bollette o stipendi. Con la Prima Nota, il Saldo Cassa è il vero "contante in mano" che hai nel cassetto.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ AZIENDA ═══════════════════════════ -->
+        <section id="azienda">
+            <h2>🏢 Azienda</h2>
+            <p>Dati del titolare, mostrati su scontrini, fatture e report.</p>
+            <ul>
+                <li><strong>Logo</strong> — PNG trasparente consigliato, lato max 512 px</li>
+                <li><strong>Tipo Soggetto e Dati Anagrafici</strong> — Società o Persona Fisica</li>
+                <li><strong>Ragione sociale</strong> — obbligatoria</li>
+                <li><strong>Insegna</strong> — nome commerciale breve</li>
+                <li><strong>P.IVA, C.F., indirizzo, contatti, PEC, IBAN</strong></li>
+                <li><strong>Codice SDI e Regime Fiscale</strong> — 18 codici ufficiali selezionabili</li>
+                <li><strong>Note</strong> — interne</li>
+            </ul>
+            <div class="callout warn">
+                <strong>⚠️ Validazione P.IVA:</strong> La P.IVA inserita qui non può essere la stessa di un cliente o fornitore già presente nell'Archivio Unico.
+            </div>
+            <div class="callout info">
+                <strong>💡 Modalità Demo:</strong> Se non hai attivato la licenza, questa pagina mostrerà dati fittizi (es. "Ditta Demo S.r.l.").
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ FORNITORI ═══════════════════════════ -->
+        <section id="fornitori">
+            <h2>🚚 Fornitori</h2>
+            <p>Elenco fornitori con scheda completa (referente, contatti, PEC, IBAN).</p>
+
+            <h3>Maschera Dinamica</h3>
+            <p>Come per i clienti, puoi scegliere il "Tipo Soggetto". Se scegli <strong>Persona Fisica</strong>, appariranno i campi Nome e Cognome, altrimenti la Ragione Sociale.</p>
+
+            <h3>Auto-Import dall'Archivio Clienti</h3>
+            <p>Se stai creando un nuovo fornitore e inserisci una P.IVA o un C.F. che appartiene già a un <strong>Cliente</strong>, NautiMag ti avviserà e ti chiederà se vuoi importare i dati per renderlo anche Fornitore.</p>
+
+            <h3>📍 Apri Google Maps</h3>
+            <p>Nella scheda fornitore, accanto al campo Indirizzo, c'è il bottone <strong>📍 Mappa</strong>. Cliccandolo, NautiMag apre Google Maps con l'indirizzo del fornitore già cercato. Utile per:</p>
+            <ul>
+                <li>Vedere dove si trova il fornitore prima di andare a ritirare la merce</li>
+                <li>Calcolare il percorso</li>
+                <li>Verificare la zona</li>
+            </ul>
+
+            <p>Nella scheda di un fornitore esistente è visibile lo <strong>storico degli ultimi 50 acquisti</strong> con totale.</p>
+        </section>
+
+        <!-- ═══════════════════════════ CLIENTI ═══════════════════════════ -->
+        <section id="clienti">
+            <h2>👥 Clienti e Archivio Unico</h2>
+            <p>Elenco clienti. Ogni scheda mostra le ultime 50 vendite con totale speso.</p>
+
+            <h3>Tipo Soggetto e Maschera Dinamica</h3>
+            <p>Puoi scegliere se il cliente è una Società, una Persona Fisica o una P.A.</p>
+
+            <h3>Controllo Duplicati On-Blur</h3>
+            <p>Appena esci dal campo P.IVA o C.F., NautiMag controlla nel database se esiste già un'anagrafica con quel codice. Se la trova, mostra un popup con <strong>l'anteprima dei dati del duplicato</strong> (Nome, P.IVA, C.F., Telefono, Email) e ti dà la possibilità di aprire direttamente la sua scheda o correggere l'inserimento.</p>
+
+            <h3>Auto-Import dall'Archivio Fornitori</h3>
+            <p>Se inserisci una P.IVA che appartiene già a un Fornitore, NautiMag ti chiederà se vuoi importare i dati per crearlo anche come Cliente.</p>
+
+            <h3>📍 Apri Google Maps</h3>
+            <p>Nella scheda cliente, accanto al campo Indirizzo, c'è il bottone <strong>📍 Mappa</strong> che apre Google Maps. Utile per:</p>
+            <ul>
+                <li>Consegnare merce a domicilio</li>
+                <li>Visitare il cliente</li>
+                <li>Calcolare distanze per spedizioni</li>
+            </ul>
+
+            <h3>Filtro Privacy</h3>
+            <p>In cima alla lista c'è un interruttore: <strong>"Mostra solo clienti senza privacy"</strong>. Attivalo per vedere subito chi non ha ancora firmato il consenso.</p>
+            <p>Accanto a ogni cliente, un'icona indica lo stato:</p>
+            <ul>
+                <li>🛡️ <strong>Verde</strong>: Privacy firmata</li>
+                <li>⚠️ <strong>Gialla</strong>: Privacy mancante</li>
+            </ul>
+        </section>
+
+        <!-- ═══════════════════════════ TESSERA FEDELTÀ ═══════════════════════════ -->
+        <section id="tessera-fedelta">
+            <h2>🎁 Tessera Fedeltà</h2>
+            <p>La Tessera Fedeltà premia i clienti abituali con punti che possono essere convertiti in sconti o premi.</p>
+
+            <h3>🚩 Come si attiva</h3>
+            <ol>
+                <li>Vai su <em>Gestione → Impostazioni Server</em></li>
+                <li>Scorri fino alla sezione <strong>TESSERA FEDELTÀ</strong></li>
+                <li>Attiva lo switch <strong>"Abilita Tessera Fedeltà"</strong></li>
+                <li>Imposta:
+                    <ul>
+                        <li><strong>Euro spesi per 1 punto</strong> — es. 10 significa che spendendo 10€ guadagni 1 punto</li>
+                        <li><strong>Valore in Euro di 1 punto (al riscatto)</strong> — es. 0,10 significa che 100 punti valgono 10€ di sconto</li>
+                    </ul>
+                </li>
+                <li>Salva e riavvia l'app</li>
+            </ol>
+
+            <h3>Come si accumulano i punti</h3>
+            <p>Quando un cliente effettua un acquisto e viene associato ad un cliente in anagrafica:</p>
+            <ol>
+                <li>NautiMag calcola: <code>punti = totale_speso / euro_per_punto</code></li>
+                <li>Arrotonda per difetto (es. 25€ / 10€ = 2 punti, non 2.5)</li>
+                <li>Mostra un popup: <em>"Hai guadagnato 2 punti! Totale punti di Mario Rossi: 14"</em></li>
+                <li>I punti vengono salvati automaticamente nella scheda del cliente</li>
+            </ol>
+
+            <div class="callout info">
+                <strong>💡 Esempio pratico:</strong><br>
+                Hai impostato <strong>10€ = 1 punto</strong> e <strong>1 punto = 0,10€</strong>.<br><br>
+                • Mario Rossi fa una spesa di 45€ → guadagna 4 punti<br>
+                • Dopo 5 spese, Mario ha 20 punti<br>
+                • Torna in negozio e riscatta 10 punti → sconto di 1€<br>
+                • Resta con 10 punti
+            </div>
+
+            <h3>Come si riscattano i punti</h3>
+            <p>Nella scheda cliente, sotto la sezione <strong>TESSERA FEDELTÀ</strong>:</p>
+            <ol>
+                <li>Vedi i punti attuali (es. "14 punti disponibili")</li>
+                <li>Clicca <strong>🎁 Riscatta</strong></li>
+                <li>Inserisci quanti punti vuoi riscattare (es. 10)</li>
+                <li>Conferma</li>
+                <li>Il sistema sottrae i punti e mostra: <em>"Riscattati 10 punti. Punti rimanenti: 4"</em></li>
+            </ol>
+
+            <h3>Come si vedono i punti di un cliente</h3>
+            <ul>
+                <li>Nella <strong>lista clienti</strong> — puoi cercare per nome e vedere i punti nella scheda</li>
+                <li>Nella <strong>scheda cliente</strong> — sezione "TESSERA FEDELTÀ"</li>
+                <li>Durante la <strong>chiusura vendita</strong> — quando selezioni un cliente, NautiMag mostra i punti che ha</li>
+            </ul>
+
+            <div class="callout warn">
+                <strong>⚠️ Regole:</strong><br>
+                • I punti si accumulano solo se il cliente è associato alla vendita (non con "Cliente generico")<br>
+                • Non puoi riscattare più punti di quelli disponibili<br>
+                • I punti non scadono mai (a meno che tu non li azzeri manualmente)<br>
+                • Se disattivi la Tessera Fedeltà, i punti restano salvati ma non vengono più aggiornati
+            </div>
+        </section>
         <!-- ═══════════════════════════ PRIVACY E GDPR ═══════════════════════════ -->
         <section id="privacy-gdpr">
             <h2>🛡️ Privacy e GDPR</h2>
