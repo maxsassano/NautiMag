@@ -3,9 +3,9 @@
 
 **Gestione Magazzino Multi-Piattaforma per Piccole e Medie Attività**
 
-<sub>NautiMag v1.2 · Made with ❤️ in Italia</sub>
+<sub>NautiMag v1.3 · Made with ❤️ in Italia</sub>
 
-[![Release](https://img.shields.io/badge/Release-v1.2-blue)](https://github.com/maxsassano/nautimag/releases)
+[![Release](https://img.shields.io/badge/Release-v1.3-blue)](https://github.com/maxsassano/nautimag/releases)
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11%20%7C%20Android-informational)](https://github.com/maxsassano/nautimag)
 [![.NET](https://img.shields.io/badge/.NET-11-purple)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE)
@@ -45,7 +45,7 @@
   - [🗄 Backup, Recovery e Sync](#-backup-recovery-e-sync)
   - [🔧 Sistema, Utenti e Log](#-sistema-utenti-e-log)
   - [🎨 Temi e Personalizzazione](#-temi-e-personalizzazione)
-- [🛠️ Stabilità Windows (v1.2)](#️-stabilità-windows-v12)
+- [🛠️ Novità e Stabilità (v1.3)](#️-novità-e-stabilità-v13)
 - [🧬 Stack Tecnico](#-stack-tecnico)
 - [🗂️ Struttura dei Progetti](#️-struttura-dei-progetti)
 - [🌐 Modalità di Rete](#-modalità-di-rete)
@@ -84,7 +84,7 @@ NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, dal piccolo es
 - **Maschere Dinamiche**: Persona Fisica → Nome/Cognome. Società → Ragione Sociale. P.A. → SDI a 6 caratteri.
 - **Auto-Import Anagrafiche**: Inserendo la P.IVA/C.F. di un Cliente nella scheda Fornitore (o viceversa), il sistema propone di importare automaticamente i dati.
 - **Real-Time**: Aggiornamento istantaneo dei carrelli via SignalR. Un carrello modificato su un tablet Android si vede immediatamente sul PC Cassa.
-- **Auto-Discovery (UDP)**: I client trovano il server in automatico sulla rete locale. Se il PC cambia IP, il client si riconnette da solo.
+- **Auto-Discovery (UDP)**: I client trovano il server in automatico sulla rete locale. Se il PC cambia IP, il client si riconnette e si aggiorna da solo.
 - **QR Code Setup**: Il PC genera un QR Code con URL + PIN + CartId. Il telefono lo inquadra e si configura in 2 secondi.
 - **Offline Queue**: Se il server è offline, le scritture (articoli, movimenti) vanno in coda su file JSON locale e vengono sincronizzate al ritorno della connessione.
 - **Strategy Pattern Local/Remote**: I servizi anagrafiche hanno doppia implementazione (SQLite locale o HTTP remoto), iniettata via DI all'avvio in base alla modalità.
@@ -230,17 +230,16 @@ NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, dal piccolo es
 
 ---
 
-## 🛠️ Stabilità Windows (v1.2)
+## 🛠️ Novità e Stabilità (v1.3)
 
-La v1.2 include una serie di fix importanti per l'uso su Windows 10/11 con .NET 11 Preview:
+La v1.3 introduce importanti novità per la gestione degli aggiornamenti e la stabilità della rete:
 
-- Eliminati tutti i `Picker` in favore di `Button` + `DisplayActionSheet` (WinUI3 bug).
-- Risolto il bug del salvataggio che perdeva i dati bindati prima del click.
-- Risolto il crash di `IsVisible` durante il caricamento delle maschere dinamiche (aggiunto `FallbackValue=False` ovunque).
-- Risolto `ERR_ACCESS_DENIED` sulla WebView2 della Guida integrata (aggiunto `BaseUrl = "https://localhost/"`).
-- Risolto il pallino di stato SignalR che restava arancione su Android dopo la connessione (aggiunto `app.UseWebSockets()`).
-- Fix codifica ZXing (`System.Text.Encoding.CodePages`) per QR Code generati con encoding non-UTF8.
-- Refactoring `DatabaseService` e `PdfService` in `partial class` (rispettivamente 6 e 5 file) per manutenibilità.
+- **Auto-Update da GitHub**: l'app controlla in background la presenza di nuove release, mostra il changelog e permette il download diretto (installer `.exe` per Windows, `.apk` per Android).
+- **Auto-Discovery UDP (Ping/Response)**: risolto il problema degli IP dinamici (DHCP). Ora il server risponde attivamente alle richieste dei client. Se il PC cambia IP, il client lo trova e si aggiorna a caldo senza riavvii.
+- **Installer e Firewall**: l'installer ora sblocca automaticamente le porte TCP 5000 (Web) e UDP 5001 (Discovery) nel Firewall di Windows.
+- **Aggiornamento dinamico del Client HTTP**: il `CartBridge` ora aggiorna i client HTTP e SignalR in tempo reale quando rileva un cambio di rete, senza richiedere il riavvio dell'app.
+- **Precompilazione dati PA**: aggiunta la ricerca integrata per Codice Fiscale per recuperare automaticamente SDI e PEC (solo per la Pubblica Amministrazione).
+- **Bug XamlRoot (Windows)**: risolto il crash critico dell'app che si verificava quando il server non era raggiungibile all'avvio.
 
 ---
 
@@ -295,7 +294,7 @@ Server Tray (WinForms) → controlla il server HTTP
 - Il PC Server ha il DB (`Documenti\NautiMag\data\nautimag.db`).
 - I client si connettono via URL (`http://192.168.1.10:5000`) + PIN + CartId.
 - Il carrello è condiviso in tempo reale (SignalR).
-- Auto-discovery UDP: il server trasmette il suo IP + Hostname ogni 5 secondi.
+- Auto-discovery UDP: il client invia un ping, il server risponde con il suo IP aggiornato.
 
 ### Connessione Client
 
@@ -334,11 +333,11 @@ Server Tray (WinForms) → controlla il server HTTP
 
 ## 🔄 Aggiornamento da Versioni Precedenti
 
-Passando da **v1.1 → v1.2**:
+Passando da **v1.2 → v1.3**:
 
-- La migrazione del DB è **automatica** (v33/v34 → v35/v36).
+- La migrazione del DB è **automatica**.
 - Prima della migrazione viene creato un **backup automatico**.
-- La migrazione è **irreversibile**: se torni alla v1.1 dopo aver aggiornato, il DB non sarà leggibile.
+- La migrazione è **irreversibile**: se torni alla v1.2 dopo aver aggiornato, il DB non sarà leggibile.
 - In caso di problemi, usa **`NautiMag.Recovery`** per ripristinare il backup pre-migrazione.
 
 ---
@@ -361,4 +360,3 @@ Per problemi tecnici, apri **Home → Sistema → 🆘 Assistenza Remota** ed es
 
 ## ☕ Sostieni il progetto
 [![PayPal](https://img.shields.io/badge/PayPal-Offrimi%20un%20caffè-0070BA?logo=paypal)](https://paypal.me/veruscatanese)
-```
