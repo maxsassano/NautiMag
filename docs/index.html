@@ -15,7 +15,7 @@
         <div class="hero-icon">📖</div>
         <h1>NautiMag</h1>
         <p class="subtitle">Guida utente completa</p>
-        <p class="version">Gestione Magazzino · v1.3</p>
+        <p class="version">Gestione Magazzino · v1.2</p>
     </header>
 
     <!-- ═══════════════════════════ INDICE ═══════════════════════════ -->
@@ -75,11 +75,13 @@
             <a href="#impostazioni-server">🌐 Impostazioni Server e RT</a>
             <a href="#assistenza-remota">🆘 Assistenza Remota</a>
             <a href="#temi-grafici">🎨 Temi Grafici</a>
-            <a href="#info">ℹ️ Info</a>
+            <a href="#aggiornamenti">🔄 Aggiornamenti</a>
+            <a href="#info">ℹ️ Info</a>            
             <a href="#licenza-sicurezza">🔑 Licenza e Sicurezza</a>
             <a href="#server-tray">🖥️ NautiMag Server Control (Tray)</a>
             <a href="#recovery">🛠️ NautiMag Recovery</a>
             <a href="#problemi">🔧 Problemi comuni</a>
+            <a href="#firewall">🛡️ Firewall Windows</a>
             <a href="#faq">❓ FAQ</a>
         </div>
     </nav>
@@ -342,7 +344,8 @@
                 <li>Apri la scheda di un articolo (es. "Cesto Natale 2026")</li>
                 <li>Attiva lo switch <strong>"È un Kit (Distinta Base)"</strong> nella parte destra</li>
                 <li>Salva. Appare il pulsante <strong>"📦 Gestisci Componenti del Kit"</strong></li>
-                <li>Cliccalo e aggiungi i componenti uno per uno:
+                <li>
+                    Cliccalo e aggiungi i componenti uno per uno:
                     <ul>
                         <li>Scegli un articolo dal magazzino (es. "Vino Rosso Chianti")</li>
                         <li>Inserisci la quantità (es. 1)</li>
@@ -617,7 +620,8 @@
             <ol>
                 <li>Vai su <em>Home → Dati → Importa → Listino Metel</em></li>
                 <li>Clicca <strong>📂 Scegli file</strong> e seleziona il file del listino (<code>.txt</code>, <code>.csv</code>, <code>.dat</code>)</li>
-                <li>NautiMag riconosce automaticamente il formato:
+                <li>
+                    NautiMag riconosce automaticamente il formato:
                     <ul>
                         <li><strong>Fixed-width ANIE</strong> — record che iniziano con la lettera 'A'</li>
                         <li><strong>Fixed-width GEK</strong> — record che contengono 'EUR' per il prezzo</li>
@@ -866,14 +870,16 @@
             <h3>Come si aggiunge un movimento</h3>
             <ol>
                 <li>Clicca <strong>＋ Aggiungi Movimento</strong> in basso</li>
-                <li>Scegli il tipo:
+                <li>
+                    Scegli il tipo:
                     <ul>
                         <li><strong>🟢 Entrata</strong> — soldi in entrata</li>
                         <li><strong>🔴 Uscita</strong> — soldi in uscita</li>
                     </ul>
                 </li>
                 <li>Scrivi l'importo (es. 45.50)</li>
-                <li>Scegli la categoria:
+                <li>
+                    Scegli la categoria:
                     <ul>
                         <li><strong>Entrata:</strong> Incasso, Versamento, Altro</li>
                         <li><strong>Uscita:</strong> Bolletta, Prelievo, Acquisto, Stipendio, Altro</li>
@@ -986,7 +992,8 @@
                 <li>Vai su <em>Gestione → Impostazioni Server</em></li>
                 <li>Scorri fino alla sezione <strong>TESSERA FEDELTÀ</strong></li>
                 <li>Attiva lo switch <strong>"Abilita Tessera Fedeltà"</strong></li>
-                <li>Imposta:
+                <li>
+                    Imposta:
                     <ul>
                         <li><strong>Euro spesi per 1 punto</strong> — es. 10 significa che spendendo 10€ guadagni 1 punto</li>
                         <li><strong>Valore in Euro di 1 punto (al riscatto)</strong> — es. 0,10 significa che 100 punti valgono 10€ di sconto</li>
@@ -1105,7 +1112,8 @@
             <ol>
                 <li>Vai su <strong>Documenti → Fatture Emesse</strong> e clicca <strong>＋ Nuova Fattura</strong>.</li>
                 <li><strong>Scegli il Cliente:</strong> dal menu a tendina. Se il cliente non c'è, clicca sul pulsante <strong>➕</strong> accanto al menu per crearlo al volo.</li>
-                <li><strong>Aggiungi Prodotti:</strong>
+                <li>
+                    <strong>Aggiungi Prodotti:</strong>
                     <ul>
                         <li><strong>📦 Da Magazzino</strong>: apre la ricerca. Scegli un articolo e la quantità. Quando emetterai la fattura, questo articolo verrà scaricato dal magazzino.</li>
                         <li><strong>✏ Riga Descrittiva</strong>: scrivi una descrizione e un prezzo a mano per prestazioni o servizi (es. "Consulenza", "Trasporto"). Ti verrà chiesto di scegliere l'aliquota IVA per questa specifica riga.</li>
@@ -1229,7 +1237,8 @@
                 <li>Vai su <em>Home → Documenti → Preventivi</em></li>
                 <li>Clicca <strong>＋ Nuovo Preventivo</strong></li>
                 <li><strong>Scegli il Cliente:</strong> dal menu a tendina. Se manca, clicca ➕ per crearlo al volo</li>
-                <li><strong>Aggiungi Prodotti:</strong>
+                <li>
+                    <strong>Aggiungi Prodotti:</strong>
                     <ul>
                         <li><strong>📦 Da Magazzino</strong>: cerca e scegli un articolo</li>
                         <li><strong>✏ Riga Descrittiva</strong>: scrivi una descrizione libera (es. "Manodopera", "Trasporto")</li>
@@ -1484,7 +1493,8 @@
             </ul>
 
             <h3>Come collegare il telefono o un altro PC al Server</h3>
-            <p>Se devi collegare un nuovo dispositivo, hai <strong>3 modi</strong> per farlo:</p>
+            <p><strong>Novità:</strong> L'app ora è intelligente. Anche se il PC Server si riavvia e il router gli assegna un <strong>nuovo indirizzo IP</strong> (DHCP), il client (Android o PC) lo troverà automaticamente in pochi secondi, senza che tu debba fare nulla.</p>
+            <p>Se devi collegare un nuovo dispositivo per la prima volta, hai <strong>3 modi</strong> per farlo:</p>
             <ol>
                 <li><strong>📡 Ricerca Automatica:</strong> Clicca sul pulsante blu <em>"Cerca Server in automatico"</em>.</li>
                 <li><strong>📷 Scansione QR Code:</strong> Genera il QR sul PC, poi inquadralo dal telefono.</li>
@@ -1534,7 +1544,8 @@
             <h3>Come funziona</h3>
             <p>Si apre un menu con 2 opzioni:</p>
             <ol>
-                <li><strong>📦 Esporta file di diagnostica (ZIP)</strong> — crea un archivio ZIP che contiene:
+                <li>
+                    <strong>📦 Esporta file di diagnostica (ZIP)</strong> — crea un archivio ZIP che contiene:
                     <ul>
                         <li><code>app.log</code> — log di sistema</li>
                         <li><code>crash.log</code> — eventuali crash</li>
@@ -1578,7 +1589,30 @@
                 <strong>⚠️ Importante:</strong> Dopo aver scelto un nuovo tema, l'app ti chiederà di chiudersi. Questo è necessario perché MAUI deve ricaricare tutti i colori. Dopo aver riaperto l'app, vedrai il nuovo tema applicato in tutte le schermate.
             </div>
         </section>
+        <!-- ═══════════════════════════ AGGIORNAMENTI ═══════════════════════════ -->
+        <section id="aggiornamenti">
+            <h2>🔄 Aggiornamenti</h2>
+            <p>NautiMag è progettato per rimanere sempre aggiornato all'ultima versione disponibile senza che tu debba fare nulla di complicato.</p>
 
+            <h3>Come funziona</h3>
+            <p>Ogni volta che apri l'app, NautiMag controlla in background se sul server di sviluppo (GitHub) è stata pubblicata una nuova versione.</p>
+            <ul>
+                <li>Se c'è una novità, apparirà un avviso all'avvio: <em>"Aggiornamento disponibile"</em>. Cliccando su "Sì, mostrami" verrai portato alla pagina degli aggiornamenti.</li>
+                <li>Se non vuoi aspettare l'avviso automatico, puoi andare in <em>Sistema → Aggiornamenti</em> e cliccare su <strong>🔍 Cerca aggiornamenti</strong>.</li>
+            </ul>
+
+            <h3>Come installare l'aggiornamento</h3>
+            <ol>
+                <li>Nella pagina <strong>Aggiornamenti</strong>, leggerai il <em>Changelog</em> (le novità di quella versione).</li>
+                <li>Clicca sul pulsante verde <strong>⬇️ Scarica e installa</strong>.</li>
+                <li><strong>Su Windows</strong>: si aprirà il browser per scaricare il file di installazione (<code>NautiMag_Setup.exe</code>). Una volta scaricato, aprilo e segui le istruzioni (l'app si chiuderà e si aggiornerà).</li>
+                <li><strong>Su Android</strong>: l'app scaricherà il file APK in background e ti chiederà il permesso di installarlo. Segui le istruzioni sullo schermo. (Se è la prima volta, Android potrebbe chiederti di autorizzare l'installazione da "origini sconosciute" per NautiMag).</li>
+            </ol>
+
+            <div class="callout info">
+                <strong>💡 Nota:</strong> Gli aggiornamenti non intaccano mai i tuoi dati (magazzino, vendite, clienti). Il database rimane intatto al 100%.
+            </div>
+        </section>
         <!-- ═══════════════════════════ INFO ═══════════════════════════ -->
         <section id="info">
             <h2>ℹ️ Info</h2>
@@ -1904,7 +1938,22 @@
                 <tr><td>Recovery non vede i backup</td><td>Controlla che i file .db3 esistano in <code>Documenti\NautiMag\backup</code>.</td></tr>
             </table>
         </section>
-
+        <!-- ═══════════════════════════ FIREWALL ═══════════════════════════ -->
+        <section id="firewall">
+            <h2>🛡️ Verifica del Firewall di Windows</h2>
+            <p>Se il server è in ascolto ma il telefono (o un altro PC) non riesce a connettersi, il problema è spesso il Firewall di Windows che blocca le porte di rete.</p>
+            <p>NautiMag usa due porte:</p>
+            <ul>
+                <li><strong>Porta 5000 (TCP)</strong>: per far comunicare l'app con il database.</li>
+                <li><strong>Porta 5001 (UDP)</strong>: per far trovare il server all'app in automatico (Discovery).</li>
+            </ul>
+            <p>Esegui questo comando su <strong>PowerShell come Amministratore</strong> sul PC dove è installato il Server per sbloccare le porte al traffico locale:</p>
+            <pre><code>New-NetFirewallRule -DisplayName "NautiMag Server TCP" -Direction Inbound -Protocol TCP -LocalPort 5000 -Action Allow
+                New-NetFirewallRule -DisplayName "NautiMag Discovery UDP" -Direction Inbound -Protocol UDP -LocalPort 5001 -Action Allow</code></pre>
+            <div class="callout info">
+                <strong>💡 Nota:</strong> I nuovi installer (dalla v1.2 in poi) eseguono già questo comando in automatico. Se hai usato un installer vecchio, o se Windows ha bloccato la regola, usa il comando qui sopra.
+            </div>
+        </section>
         <!-- ═══════════════════════════ FAQ ═══════════════════════════ -->
         <section id="faq">
             <h2>❓ FAQ</h2>
