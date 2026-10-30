@@ -1214,7 +1214,17 @@
                 <strong>Il DDT NON modifica il magazzino.</strong> È solo un documento di trasporto.
             </div>
 
-            <p>Dalla scheda di un DDT emesso/consegnato puoi generare la <strong>Fattura accompagnatoria</strong> (solo Windows).</p>
+            <h3>Fattura Accompagnatoria (Novità)</h3>
+            <p>Dalla scheda di un DDT emesso/consegnato, il pulsante <strong>📄 Fattura accompagnatoria</strong> ti permette di fare due cose:</p>
+            <ul>
+                <li><strong>📄 Crea Fattura Emessa e Stampa</strong>: NautiMag creerà il <strong>vero documento fiscale</strong> (una Fattura Emessa) e ti chiederà se vuoi emetterla subito e scaricare il magazzino. Successivamente, stamperà il PDF della fattura accompagnatoria.</li>
+                <li><strong>🖨 Stampa solo PDF</strong>: Genera solo un PDF di cortesia, senza registrare nulla nel database fiscale.</li>
+            </ul>
+
+            <div class="callout info">
+                <strong>💡 Sicurezza:</strong> Se per quel DDT esiste già una fattura registrata, il pulsante scompare in automatico per evitare doppioni e "archivi zoppi". Inoltre, il campo "Numero" del DDT (se lasciato vuoto) viene generato automaticamente.
+            </div>
+
             <p>Numerazione: <code>DDT-2026-0001</code>.</p>
         </section>
 
@@ -1230,6 +1240,7 @@
                 <li>In fondo alla pagina, clicca sul pulsante rosso <strong>↩️ Emetti Nota Credito</strong>.</li>
                 <li>Si aprirà una pagina con tutte le righe della fattura. Metti la spunta sulle righe che il cliente ti ha reso e scrivi <strong>quanti pezzi</strong> ha reso.</li>
                 <li>Clicca <strong>💾 Crea nota credito</strong>.</li>
+                <li><strong>Novità:</strong> Appena creata, NautiMag ti chiederà: <em>"Vuoi emetterla subito?"</em>. Se rispondi "Sì", la nota credito sarà subito attiva e visibile come "Emessa". Se rispondi "No", rimarrà in stato "Bozza".</li>
             </ol>
 
             <div class="callout warn">
@@ -1589,7 +1600,7 @@
             <h3>Come funziona</h3>
             <p>Ogni volta che apri l'app, NautiMag controlla in background se sul server di sviluppo (GitHub) è stata pubblicata una nuova versione.</p>
             <ul>
-                <li>Se c'è una novità, apparirà un avviso all'avvio: <em>"Aggiornamento disponibile"</em>. Cliccando su "Sì, mostrami" verrai portato alla pagina degli aggiornamenti.</li>
+                <li>Se c'è una novità, apparirà un avviso all'avvio: <em>"Aggiornamento disponibile"</em>.</li>
                 <li>Se non vuoi aspettare l'avviso automatico, puoi andare in <em>Sistema → Aggiornamenti</em> e cliccare su <strong>🔍 Cerca aggiornamenti</strong>.</li>
             </ul>
 
@@ -1597,14 +1608,11 @@
             <ol>
                 <li>Nella pagina <strong>Aggiornamenti</strong>, leggerai il <em>Changelog</em> (le novità di quella versione).</li>
                 <li>Clicca sul pulsante verde <strong>⬇️ Scarica e installa</strong>.</li>
-                <li><strong>Su Windows</strong>: si aprirà il browser per scaricare il file di installazione (<code>NautiMag_Setup.exe</code>). Una volta scaricato, aprilo e segui le istruzioni (l'app si chiuderà e si aggiornerà).</li>
-                <li><strong>Su Android</strong>: l'app scaricherà il file APK in background e ti chiederà il permesso di installarlo. Segui le istruzioni sullo schermo. (Se è la prima volta, Android potrebbe chiederti di autorizzare l'installazione da "origini sconosciute" per NautiMag).</li>
+                <li><strong>Su Windows</strong>: si aprirà il browser per scaricare il file di installazione (<code>NautiMag_Setup.exe</code>).</li>
+                <li><strong>Su Android</strong>: l'app scaricherà il file APK in background e ti chiederà il permesso di installarlo.</li>
             </ol>
-
-            <div class="callout info">
-                <strong>💡 Nota:</strong> Gli aggiornamenti non intaccano mai i tuoi dati (magazzino, vendite, clienti). Il database rimane intatto al 100%.
-            </div>
         </section>
+
         <!-- ═══════════════════════════ INFO ═══════════════════════════ -->
         <section id="info">
             <h2>ℹ️ Info</h2>
