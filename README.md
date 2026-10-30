@@ -89,43 +89,22 @@ NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, dal piccolo es
 - **TopBar universale**: stato connessione, ricerca globale, carrello, notifiche, guida.
 - **Badge DEMO**: visibile se la licenza non è attiva.
 - **Alert sottoscorta**: fascia rossa con il numero di articoli sotto scorta.
-- **Assistenza Remota**: esportazione ZIP diagnostica o avvio RustDesk/AnyDesk.
 
 ### ⚙️ Anagrafiche
 - **Maschere intelligenti**: Persona Fisica, Società, P.A.
 - **Validazione Fiscale**: P.IVA e C.F. validati con algoritmi matematici all'uscita del campo.
 - **Auto-compilazione Città**: Inserendo il CAP, l'app compila in automatico Città e Provincia.
 - **WhatsApp Auto-copy**: Se lasciato vuoto, copia il numero di telefono.
-- **Google Maps**: Apre la mappa dall'indirizzo del cliente/fornitore.
-- **Rubrica unificata**: Clienti, Fornitori e Azienda in un'unica lista contatti.
-
-### 📦 Magazzino e Articoli
-- **Tracciabilità Lotti (FIFO/FEFO)** e **Distinta Base (Kit)**.
-- **Inventario Storico**: Calcolo della giacenza a una data passata, con esportazione Excel e Stampa PDF.
-- **Merci in arrivo**: Badge con i pezzi in transito da ordini in stato "Bozza" o "Inviato".
-
-### 🛒 Vendita e Cassa
-- **Multi-Cart**: Carrelli isolati per dispositivo, carrelli nominati su Android.
-- **Unisci Carrello**: Trasferimento del carrello dal tablet alla cassa in 1 click.
-- **Stampa RT**: Invio scontrino in background alla stampante fiscale.
 
 ### 📄 Documenti Fiscali e Commerciali
 - **Fatture Emesse**: Multi-aliquota, righe descrittive, Note Credito, Esportazione XML per SDI.
 - **Fatture in arrivo**: Caricamento merce tramite barcode.
-- **Preventivi**: Conversione automatica in Fattura Emessa.
-
-### 🖨 Stampe, Etichette e Report
-- **Etichette**: Barcode Code128 (A4, rotolo, custom).
-- **Report**: Magazzino, movimenti, vendite, liste (clienti, fornitori, articoli).
-
-### 🗄 Backup, Recovery e Sync
-- **Auto-backup giornaliero** (max 5 file ruotati).
-- **NautiMag.Recovery**: Utility WPF per il ripristino d'emergenza.
+- **Preventivi**: Conversione automatica in Fattura Emessa, DDT o Ordine.
+- **DDT**: Generazione Fattura Accompagnatoria (con creazione del documento fiscale).
 
 ### 🔧 Sistema, Utenti e Log
 - **3 Ruoli**: SuperUser, Admin, Vendita.
 - **Log Audit (DB)** e **Log Sistema (File)**.
-- **Auto-logout** dopo 15 minuti di inattività.
 - **Licenza**: Annuale (`A-`) o a Vita (`L-`).
 
 ---
@@ -137,8 +116,9 @@ NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, dal piccolo es
 - **Installer**: Sblocco automatico delle porte Firewall TCP 5000 e UDP 5001.
 - **Validazione P.IVA e C.F.**: Controllo matematico all'uscita del campo.
 - **Comuni Italiani**: Auto-compilazione Città/Provincia dal CAP.
-- **Scadenza Licenza**: Notifica all'avvio se mancano 5 giorni.
-- **Fix XamlRoot**: Risolto il crash su Windows se il server è offline.
+- **Note Credito**: Flusso di emissione immediata post-creazione.
+- **DDT -> Fattura**: Ora crea il documento fiscale vero e proprio.
+- **Archivi Zoppi**: Blocco eliminazione Clienti/Fornitori/Articoli con movimenti.
 - **UI/UX**: Home senza scroll, Sistema e Documenti con layout affiancato.
 
 ---
@@ -149,13 +129,6 @@ NautiMag è progettato per adattarsi a qualsiasi tipo di negozio, dal piccolo es
 - **ASP.NET Core Minimal API** + **SignalR**
 - **SQLite** (sqlite-net-pcl) + **QuestPDF** + **ClosedXML** + **ZXing.Net**
 - **Inno Setup** (Windows Installer)
-
----
-
-## 🌐 Modalità di Rete
-
-- **Standalone**: DB locale, zero configurazione.
-- **Client/Server**: Il PC Server ha il DB. I client si connettono via URL + PIN + CartId. Il carrello è condiviso in tempo reale via SignalR.
 
 ---
 
