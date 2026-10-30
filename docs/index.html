@@ -694,13 +694,15 @@
             <p>Due funzioni che ti aiutano a sapere <strong>cosa c'era in magazzino</strong> in un certo momento del passato e <strong>cosa sta per arrivare</strong> dal fornitore.</p>
 
             <h3>🕰️ Inventario Storico (Giacenza a una data)</h3>
+            <p><strong>Novità:</strong> La funzione è stata spostata in <em>Gestione → Gestione Dati → Inventario Storico</em>, affiancata a Report PDF.</p>
             <p>Ti permette di rispondere alla domanda: <em>"Quanti pezzi di questo articolo avevo il 15 marzo 2026?"</em></p>
 
             <h3>Come si usa</h3>
             <ol>
-                <li>Vai su <em>Home → Dati → Inventario Storico</em></li>
-                <li>Scegli una data con il selettore in alto</li>
-                <li>NautiMag calcola la giacenza esatta di ogni articolo <strong>a quella data</strong></li>
+                <li>Vai su <em>Home → Gestione → Gestione Dati</em> e clicca su <strong>Inventario Storico</strong>.</li>
+                <li>Scegli una data con il selettore in alto.</li>
+                <li>NautiMag calcola la giacenza esatta di ogni articolo <strong>a quella data</strong>.</li>
+                <li>Puoi ora <strong>Esportare in Excel</strong> o <strong>Stampare un PDF</strong> direttamente dalla pagina.</li>
             </ol>
 
             <h3>Come funziona il calcolo</h3>
@@ -716,8 +718,8 @@
 
             <h3>⚠️ Cosa non è preciso</h3>
             <ul>
-                <li>Le <strong>rettifiche</strong> non vengono tracciate con lo stato precedente, quindi il calcolo è approssimativo per quegli articoli</li>
-                <li>La <strong>giacenza iniziale</strong> non è un movimento, quindi il calcolo si basa sull'attuale</li>
+                <li>Le <strong>rettifiche</strong> non vengono tracciate con lo stato precedente, quindi il calcolo è approssimativo per quegli articoli.</li>
+                <li>La <strong>giacenza iniziale</strong> non è un movimento, quindi il calcolo si basa sull'attuale.</li>
             </ul>
             <p>Per la maggior parte dei casi (solo carichi e vendite), il calcolo è <strong>preciso al 100%</strong>.</p>
 
@@ -725,9 +727,9 @@
             <p>La funzione <strong>"Merci in Arrivo"</strong> ti mostra, per ogni articolo, quanti pezzi sono in transito (ordinati ma non ancora ricevuti).</p>
             <p>Dove la trovi:</p>
             <ul>
-                <li>Nella <strong>scheda articolo</strong> — badge "🚚 In Arrivo: N pz"</li>
-                <li>Nella <strong>lista articoli</strong> — badge verde "🚚 In arrivo: N pz"</li>
-                <li>Nella pagina <strong>Ordini</strong> — filtra per "Inviato" per vedere quelli non ancora ricevuti</li>
+                <li>Nella <strong>scheda articolo</strong> — badge "🚚 In Arrivo: N pz".</li>
+                <li>Nella <strong>lista articoli</strong> — badge verde "🚚 In arrivo: N pz".</li>
+                <li>Nella pagina <strong>Ordini</strong> — filtra per "Inviato" per vedere quelli non ancora ricevuti.</li>
             </ul>
 
             <p>Il calcolo è: <strong>quantità ordinata - quantità già ricevuta</strong>, sommando tutti gli ordini in stato "Bozza" o "Inviato". Quando registri la ricezione di un ordine, la merce in arrivo scende a zero per quell'articolo.</p>
@@ -934,6 +936,15 @@
             <h2>🚚 Fornitori</h2>
             <p>Elenco fornitori con scheda completa (referente, contatti, PEC, IBAN).</p>
 
+            <h3>Validazione P.IVA e C.F.</h3>
+            <p>La Partita IVA deve avere 11 caratteri, il Codice Fiscale 16 (eccetto per la Pubblica Amministrazione). Se i numeri non superano il controllo matematico, l'app ti avviserà appena esci dal campo.</p>
+
+            <h3>Auto-completamento Città</h3>
+            <p>Inserisci il CAP nel campo dedicato. Uscendo dalla casella, NautiMag cercherà il comune (tramite una lista interna o internet) e compilerà automaticamente Città e Provincia.</p>
+
+            <h3>WhatsApp Auto-Compilato</h3>
+            <p>Se lasci il campo WhatsApp vuoto, NautiMag copierà automaticamente il numero di telefono non appena esci dal campo.</p>
+
             <h3>Maschera Dinamica</h3>
             <p>Come per i clienti, puoi scegliere il "Tipo Soggetto". Se scegli <strong>Persona Fisica</strong>, appariranno i campi Nome e Cognome, altrimenti la Ragione Sociale.</p>
 
@@ -955,6 +966,15 @@
         <section id="clienti">
             <h2>👥 Clienti e Archivio Unico</h2>
             <p>Elenco clienti. Ogni scheda mostra le ultime 50 vendite con totale speso.</p>
+
+            <h3>Validazione P.IVA e C.F.</h3>
+            <p>La Partita IVA deve avere 11 caratteri, il Codice Fiscale 16 (eccetto per la Pubblica Amministrazione). Se i numeri non superano il controllo matematico, l'app ti avviserà appena esci dal campo.</p>
+
+            <h3>Auto-completamento Città</h3>
+            <p>Inserisci il CAP nel campo dedicato. Uscendo dalla casella, NautiMag cercherà il comune (tramite una lista interna o internet) e compilerà automaticamente Città e Provincia.</p>
+
+            <h3>WhatsApp Auto-Compilato</h3>
+            <p>Se lasci il campo WhatsApp vuoto, NautiMag copierà automaticamente il numero di telefono non appena esci dal campo.</p>
 
             <h3>Tipo Soggetto e Maschera Dinamica</h3>
             <p>Puoi scegliere se il cliente è una Società, una Persona Fisica o una P.A.</p>
@@ -1295,44 +1315,24 @@
         <!-- ═══════════════════════════ ETICHETTE ═══════════════════════════ -->
         <section id="etichette">
             <h2>🏷️ Etichette barcode</h2>
+            <p><strong>Novità:</strong> La pagina è stata spostata in <em>Home → Anagrafiche → Sistema → Etichette</em>, per essere più comoda da raggiungere.</p>
             <p>Genera PDF con etichette Code128 per uno o più articoli (solo Windows).</p>
 
             <h3>Come funziona</h3>
             <ol>
-                <li>Scegli il <strong>formato etichetta</strong> (A4 o rotolo)</li>
-                <li>Imposta cosa stampare (Prodotto, Codice, Prezzo)</li>
-                <li>Imposta altezza barcode in mm</li>
-                <li>Imposta numero copie per articolo</li>
-                <li><strong>Seleziona gli articoli</strong> (tocco sulla riga)</li>
-                <li>Premi <strong>🖨 Genera etichette</strong></li>
+                <li>Scegli il <strong>formato etichetta</strong> (A4 o rotolo).</li>
+                <li>Imposta cosa stampare (Prodotto, Codice, Prezzo).</li>
+                <li>Imposta altezza barcode in mm.</li>
+                <li>Imposta numero copie per articolo.</li>
+                <li><strong>Seleziona gli articoli</strong> (tocco sulla riga).</li>
+                <li>Premi <strong>🖨 Genera etichette</strong>.</li>
             </ol>
 
             <h3>Formati disponibili</h3>
             <ul>
-                <li><strong>A4</strong> — 2, 10, 14, 21, 24, 40 etichette per foglio</li>
-                <li><strong>Rotolo</strong> — 40×25, 50×30, 60×40 mm</li>
-                <li><strong>Custom</strong> — creabili in <a href="#formati-etichette">Gestisci formati</a></li>
-            </ul>
-        </section>
-
-        <!-- ═══════════════════════════ FORMATI ETICHETTE ═══════════════════════════ -->
-        <section id="formati-etichette">
-            <h2>📐 Formati etichette</h2>
-            <p>Gestisci i formati etichetta disponibili.</p>
-            <ul>
-                <li><strong>Preset</strong> — built-in, non eliminabili. Tocca ✎ per duplicare come custom</li>
-                <li><strong>Custom</strong> — modificabili ed eliminabili</li>
-            </ul>
-
-            <h3>Campi formato</h3>
-            <ul>
-                <li>Nome</li>
-                <li>Larghezza × Altezza (mm)</li>
-                <li>Colonne × Righe (per A4)</li>
-                <li>Margini (sinistro, superiore)</li>
-                <li>Spaziature (orizzontale, verticale)</li>
-                <li>Tipo: A4 o Rotolo</li>
-                <li>Mostra bordi etichetta</li>
+                <li><strong>A4</strong> — 2, 10, 14, 21, 24, 40 etichette per foglio.</li>
+                <li><strong>Rotolo</strong> — 40×25, 50×30, 60×40 mm.</li>
+                <li><strong>Custom</strong> — creabili in <a href="#formati-etichette">Gestisci formati</a>.</li>
             </ul>
         </section>
 
@@ -1395,7 +1395,7 @@
         <!-- ═══════════════════════════ RUBRICA ═══════════════════════════ -->
         <section id="rubrica">
             <h2>📇 Rubrica</h2>
-            <p>La Rubrica è una <strong>lista contatti unificata</strong> che mostra insieme clienti e fornitori, con azioni rapide per chiamare, vedere la mappa o condividere il contatto.</p>
+            <p>La Rubrica è una <strong>lista contatti unificata</strong> che mostra insieme clienti, fornitori e <strong>la tua Azienda</strong> (icona 🏢 in cima alla lista).</p>
 
             <h3>Dove si trova</h3>
             <p>Nella TopBar, icona <strong>📇 Rubrica</strong>.</p>
@@ -1403,37 +1403,28 @@
             <h3>Cosa mostra</h3>
             <p>Ogni contatto mostra:</p>
             <ul>
-                <li><strong>Avatar</strong> con icona tipo (👤 cliente, 🚚 fornitore, 👤🚚 entrambi)</li>
-                <li><strong>Nome</strong> (Ragione Sociale o Nome Cognome)</li>
-                <li><strong>Telefono</strong> ed <strong>Email</strong></li>
-                <li><strong>Icone social</strong>: 🟢 WhatsApp, 🔵 Facebook, 📸 Instagram (se presenti)</li>
+                <li><strong>Avatar</strong> con icona tipo (👤 cliente, 🚚 fornitore, 👤🚚 entrambi, 🏢 azienda).</li>
+                <li><strong>Nome</strong> (Ragione Sociale o Nome Cognome).</li>
+                <li><strong>Telefono</strong> ed <strong>Email</strong>.</li>
+                <li><strong>Icone social</strong>: 🟢 WhatsApp, 🔵 Facebook, 📸 Instagram (se presenti).</li>
             </ul>
 
             <h3>Azioni rapide</h3>
             <table>
                 <tr><th>Icona</th><th>Azione</th></tr>
-                <tr><td>📞</td><td>Chiama il numero (apre il dialer del telefono)</td></tr>
-                <tr><td>📍</td><td>Apri Google Maps con l'indirizzo del contatto</td></tr>
-                <tr><td>📤</td><td>Condividi il contatto (email, WhatsApp, ecc.)</td></tr>
-                <tr><td>🟢</td><td>Apri WhatsApp</td></tr>
-                <tr><td>🔵</td><td>Apri Facebook</td></tr>
-                <tr><td>📸</td><td>Apri Instagram</td></tr>
+                <tr><td>📞</td><td>Chiama il numero (apre il dialer del telefono).</td></tr>
+                <tr><td>📍</td><td>Apri Google Maps con l'indirizzo del contatto.</td></tr>
+                <tr><td>📤</td><td>Condividi il contatto (email, WhatsApp, ecc.).</td></tr>
+                <tr><td>🟢</td><td>Apri WhatsApp.</td></tr>
+                <tr><td>🔵</td><td>Apri Facebook.</td></tr>
+                <tr><td>📸</td><td>Apri Instagram.</td></tr>
             </table>
 
             <h3>Ricerca</h3>
-            <p>La barra in alto cerca per:</p>
-            <ul>
-                <li>Nome (cliente o fornitore)</li>
-                <li>Telefono</li>
-                <li>Email</li>
-            </ul>
+            <p>La barra in alto cerca per Nome, Telefono ed Email.</p>
 
             <h3>Modifica contatto</h3>
-            <p>Cliccando su una riga si apre la scheda del cliente o del fornitore (in base al tipo).</p>
-
-            <div class="callout info">
-                <strong>💡 Novità:</strong> La Rubrica mostra anche i contatti che sono <strong>sia clienti che fornitori</strong> (icona 👤🚚). In questo modo hai un unico posto dove cercare un numero di telefono, senza doverti ricordare se è un cliente o un fornitore.
-            </div>
+            <p>Cliccando su una riga si apre la scheda del cliente, del fornitore o dell'azienda (in base al tipo).</p>
         </section>
 
         <!-- ═══════════════════════════ NOTIFICHE ═══════════════════════════ -->
@@ -1470,14 +1461,15 @@
         <!-- ═══════════════════════════ AGENDA ═══════════════════════════ -->
         <section id="agenda">
             <h2>📅 Agenda</h2>
-            <p>Gestisci appuntamenti e memorandum.</p>
+            <p>Gestisci appuntamenti e memorandum con la nuova interfaccia a due colonne (Calendario a destra, Appuntamenti a sinistra), senza dover scorrere la pagina.</p>
+
+            <h3>Come si usa</h3>
             <ul>
-                <li><strong>Data</strong> — seleziona il giorno con il calendario in alto.</li>
-                <li><strong>Lista</strong> — mostra gli appuntamenti del giorno scelto.</li>
-                <li><strong>Spunta</strong> — tocca il quadratino per segnare un appuntamento come completato (testo barrato).</li>
-                <li><strong>Cestino</strong> — elimina l'appuntamento.</li>
-                <li><strong>Aggiungi</strong> — compila titolo, ora e note in basso per creare un nuovo appuntamento.</li>
-                <li><strong>📄 PDF Mese / PDF Anno</strong> — esporta l'agenda in PDF (solo Windows)</li>
+                <li><strong>Calendario (Destra)</strong>: Seleziona il giorno, cambia mese o anno. Il tasto "Oggi" ti riporta alla data corrente.</li>
+                <li><strong>Lista Appuntamenti (Sinistra)</strong>: Mostra tutti gli appuntamenti del giorno scelto.</li>
+                <li><strong>Aggiungi</strong>: Compila titolo, ora e note nel riquadro in alto a sinistra e clicca "Aggiungi".</li>
+                <li><strong>Spunta</strong>: Clicca su un appuntamento per aprire il dettaglio e segnarlo come completato (il testo diventa barrato).</li>
+                <li><strong>📄 PDF Mese / PDF Anno</strong>: Esporta l'agenda in PDF (solo su Windows).</li>
             </ul>
         </section>
 
@@ -1630,16 +1622,19 @@
         <!-- ═══════════════════════════ LICENZA E SICUREZZA ═══════════════════════════ -->
         <section id="licenza-sicurezza">
             <h2>🔑 Licenza e Sicurezza</h2>
-            <p>NautiMag è progettato per proteggere i tuoi dati e la tua licenza d'uso.</p>
+            <p>NautiMag offre un periodo di prova gratuito di 30 giorni. Alla scadenza, le funzioni di consultazione e vendita rimangono attive, ma le stampe PDF, l'import e l'export Excel richiedono una licenza attiva.</p>
 
-            <h3>Come funziona la licenza</h3>
-            <p>NautiMag offre un periodo di prova gratuito di 30 giorni. Durante il trial puoi usare tutte le funzioni. Alla scadenza, le funzioni di consultazione e vendita rimangono attive, ma le stampe PDF, l'import e l'export Excel richiedono una licenza attiva. Il seriale è legato alla tua email e alla Partita IVA.</p>
+            <h3>Tipi di Licenza</h3>
+            <ul>
+                <li><strong>Licenza Annuale (A-):</strong> valida per 1 anno dall'attivazione. Nella pagina Licenza vedrai la data di scadenza.</li>
+                <li><strong>Licenza a Vita (L-):</strong> non scade mai. Nella pagina Licenza vedrai la scritta "A Vita".</li>
+            </ul>
 
             <h3>Protezione Anti-Manomissione</h3>
             <ul>
-                <li><strong>File Cifrato:</strong> Il file della licenza è cifrato (AES) e non può essere letto o modificato con un semplice editor di testo.</li>
+                <li><strong>File Cifrato:</strong> Il file della licenza è cifrato (AES) e non può essere modificato con un editor di testo.</li>
                 <li><strong>Registro Nascosto:</strong> Se qualcuno prova a cancellare i file per resettare il trial, l'app se ne accorge e ripristina i dati originali.</li>
-                <li><strong>Blocco Orologio:</strong> Se l'orologio del PC viene spostato indietro nel tempo per aggirare la scadenza, il sistema lo rileva e blocca il trial.</li>
+                <li><strong>Blocco Orologio:</strong> Se l'orologio del PC viene spostato indietro nel tempo, il sistema lo rileva e blocca il trial.</li>
                 <li><strong>Istanza Singola (Windows):</strong> L'app impedisce l'apertura di più finestre contemporaneamente.</li>
             </ul>
         </section>
