@@ -474,3 +474,136 @@ footer {
     color: white;
     border-color: var(--primary);
 }
+
+
+/* Stile per la stampa PDF (A colori, stile Android) */
+@media print {
+    /* Imposta il foglio A4 con margini */
+    @page {
+        size: A4 portrait;
+        margin: 10mm;
+    }
+
+    /* FONDAMENTALE: Forza il browser a stampare i colori di sfondo */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Reset del layout per la stampa (niente colonne) */
+    body {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 11pt !important;
+    }
+
+    /* Mantiene i colori dell'header */
+    .hero {
+        background: linear-gradient(135deg, var(--primary-dark), var(--primary)) !important;
+        color: #fff !important;
+        text-align: center !important;
+        padding: 20px !important;
+        margin: 0 0 20px 0 !important;
+        border-radius: 10px !important;
+        box-shadow: none !important;
+    }
+    .hero h1 { font-size: 26pt !important; margin: 0 !important; color: #fff !important; }
+    .hero p { font-size: 12pt !important; margin: 5px 0 !important; color: #fff !important; }
+    .hero-icon { font-size: 40px !important; margin-bottom: 10px !important; }
+
+    /* L'Indice in cima, a due colonne, colorato */
+    .toc {
+        background: var(--surface) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: var(--radius) !important;
+        padding: 15px !important;
+        margin: 0 0 20px 0 !important;
+        box-shadow: none !important;
+        page-break-after: always !important; /* Forza il contenuto a iniziare dalla pagina dopo */
+    }
+    .toc h2 {
+        font-size: 18pt !important;
+        margin-bottom: 15px !important;
+        color: var(--text) !important;
+    }
+    .toc-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Due colonne per risparmiare spazio */
+        gap: 8px !important;
+    }
+    .toc a {
+        color: var(--text) !important;
+        background: var(--bg) !important;
+        text-decoration: none !important;
+        font-size: 10pt !important;
+        display: block !important;
+        padding: 6px 10px !important;
+        border-radius: 6px !important;
+        border-left: 3px solid var(--primary) !important;
+    }
+
+    /* Contenuto principale */
+    main {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Ogni sezione inizia su una nuova pagina */
+    section {
+        background: var(--surface) !important;
+        border-radius: var(--radius) !important;
+        padding: 15px !important;
+        margin: 0 0 20px 0 !important;
+        box-shadow: none !important;
+        border: 1px solid var(--border) !important;
+        page-break-before: always !important;
+    }
+    /* La prima sezione non ha bisogno di un'interruzione prima di sé */
+    section:first-of-type {
+        page-break-before: auto !important;
+    }
+
+    /* Titoli colorati */
+    h2 {
+        font-size: 18pt !important;
+        margin: 0 0 15px 0 !important;
+        color: var(--primary-dark) !important;
+        border-bottom: 2px solid var(--primary) !important;
+        padding-bottom: 5px !important;
+        page-break-after: avoid !important;
+    }
+    h3 {
+        font-size: 14pt !important;
+        margin: 15px 0 8px 0 !important;
+        color: var(--primary) !important;
+        page-break-after: avoid !important;
+    }
+    p, ul, ol {
+        margin-bottom: 10px !important;
+        page-break-inside: avoid !important;
+    }
+
+    /* Tabelle colorate */
+    table { width: 100% !important; border-collapse: collapse !important; margin-bottom: 15px !important; }
+    th, td { border: 1px solid var(--border) !important; padding: 8px !important; font-size: 10pt !important; }
+    th { background: var(--primary) !important; color: #fff !important; }
+    tr:nth-child(even) td { background: var(--bg) !important; }
+
+    /* Callout (avvisi) colorati */
+    .callout {
+        padding: 12px !important;
+        border-radius: 8px !important;
+        margin-bottom: 15px !important;
+        page-break-inside: avoid !important;
+        border-left: 4px solid !important;
+    }
+    .callout.info { background: #E8F1FA !important; border-color: var(--info) !important; }
+    .callout.warn { background: #FFF4E6 !important; border-color: var(--warning) !important; }
+    .callout.ok { background: #E8F5F0 !important; border-color: var(--success) !important; }
+
+    /* Nasconde elementi inutili come il tasto "Torna su" */
+    .btn-top-floating, .back-to-toc, footer, button {
+        display: none !important;
+    }
+}

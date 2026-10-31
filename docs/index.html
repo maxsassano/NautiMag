@@ -15,7 +15,7 @@
         <div class="hero-icon">📖</div>
         <h1>NautiMag</h1>
         <p class="subtitle">Guida utente completa</p>
-        <p class="version">Gestione Magazzino · v1.2</p>
+        <p class="version">Gestione Magazzino · v1.3</p>
     </header>
 
     <!-- ═══════════════════════════ INDICE ═══════════════════════════ -->
@@ -73,6 +73,7 @@
             <a href="#notifiche">🔔 Notifiche</a>
             <a href="#agenda">📅 Agenda</a>
             <a href="#impostazioni-server">🌐 Impostazioni Server e RT</a>
+            <a href="#sdi">📨 Sdi</a>
             <a href="#assistenza-remota">🆘 Assistenza Remota</a>
             <a href="#temi-grafici">🎨 Temi Grafici</a>
             <a href="#aggiornamenti">🔄 Aggiornamenti</a>
@@ -209,6 +210,10 @@
                 <li><strong>＋ Nuovo Articolo</strong> in basso — crea un articolo vuoto</li>
             </ul>
             <p>Ogni riga mostra: <em>nome</em>, <em>codice · categoria</em>, <em>prezzo</em>, <em>rimanenti</em>. Se c'è merce in arrivo (da Ordini fornitori), appare un badge verde <strong>🚚 In arrivo: N pz</strong>.</p>
+
+            <div class="callout warn">
+                <strong>⚠️ Eliminazione bloccata:</strong> non puoi eliminare un articolo se ha movimenti (carichi, scarichi, vendite) associati. NautiMag blocca l'operazione per evitare "archivi zoppi".
+            </div>
         </section>
 
         <!-- ═══════════════════════════ SCHEDA ARTICOLO ═══════════════════════════ -->
@@ -960,6 +965,10 @@
             </ul>
 
             <p>Nella scheda di un fornitore esistente è visibile lo <strong>storico degli ultimi 50 acquisti</strong> con totale.</p>
+
+            <div class="callout warn">
+                <strong>⚠️ Eliminazione bloccata:</strong> non puoi eliminare un fornitore se ha acquisti o movimenti associati. NautiMag mostra un messaggio di errore e blocca l'operazione per evitare "archivi zoppi".
+            </div>
         </section>
 
         <!-- ═══════════════════════════ CLIENTI ═══════════════════════════ -->
@@ -1000,6 +1009,10 @@
                 <li>🛡️ <strong>Verde</strong>: Privacy firmata</li>
                 <li>⚠️ <strong>Gialla</strong>: Privacy mancante</li>
             </ul>
+
+            <div class="callout warn">
+                <strong>⚠️ Eliminazione bloccata:</strong> non puoi eliminare un cliente se ha vendite o movimenti associati. NautiMag mostra un messaggio di errore e blocca l'operazione per evitare "archivi zoppi".
+            </div>
         </section>
 
         <!-- ═══════════════════════════ TESSERA FEDELTÀ ═══════════════════════════ -->
@@ -1150,8 +1163,12 @@
             </div>
 
             <h3>📄 Esportare il file XML per l'Agenzia delle Entrate (SDI)</h3>
-            <p>Quando la fattura è stata emessa, in fondo alla pagina apparirà il pulsante <strong>📄 Esporta XML (SDI)</strong>.</p>
-            <p>Cliccandolo, NautiMag genererà un file <code>.xml</code> (es. <code>Fattura_2026-0001.xml</code>) e ti chiederà dove salvarlo.</p>
+            <p>Quando la fattura è stata emessa, in fondo alla pagina appariranno <strong>due pulsanti</strong>:</p>
+            <ul>
+                <li><strong>📄 Esporta XML (SDI)</strong> — genera solo il file <code>.xml</code> della fattura.</li>
+                <li><strong>📤 Prepara per SDI</strong> — crea un pacchetto <code>.zip</code> contenente l'XML, pronto per il caricamento manuale sul portale "Fatture e Corrispettivi".</li>
+            </ul>
+            <p>Se hai configurato un certificato di firma in <em>Impostazioni → Fatturazione Elettronica</em>, il file verrà firmato digitalmente (funzionalità in arrivo). Senza certificato, l'XML viene generato ma non firmato.</p>
 
             <div class="callout warn">
                 <strong>⚠️ IMPORTANTE:</strong> NautiMag NON invia la fattura all'Agenzia. Il file XML generato è il "documento ufficiale" che devi caricare a mano sul portale dell'Agenzia delle Entrate o inviare al tuo commercialista.
@@ -1167,11 +1184,27 @@
             <ol>
                 <li>Vai su <strong>Documenti → Fatture Ricevute</strong> e clicca <strong>＋ Nuova Fattura</strong>.</li>
                 <li><strong>Scegli il Fornitore</strong> (con il pulsante ➕ se manca).</li>
+                <li><strong>Numero Fattura:</strong> il campo è <strong>obbligatorio</strong>. Inserisci il numero così come appare sul documento del fornitore (es. "123/A"). Non viene più generato automaticamente.</li>
                 <li><strong>Opzioni IVA:</strong> Decidi se i prezzi sono già ivati (di solito sì) e scegli l'aliquota.</li>
                 <li><strong>Scansiona i prodotti:</strong> Usa la pistola barcode. Ogni volta che spari un codice, il prodotto viene aggiunto alla lista. Se lo spari due volte, la quantità diventa 2.</li>
                 <li>Se il prodotto non esiste, puoi crearlo al volo.</li>
                 <li>Premi <strong>✅ Salva e Carica in Magazzino</strong>: il sistema aggiungerà i pezzi alle tue scorte, calcolando il prezzo di acquisto netto (senza IVA).</li>
             </ol>
+
+            <h3>📥 Importare una fattura da PEC (XML)</h3>
+            <p>Se ricevi la fattura elettronica via PEC, non devi inserirla a mano. NautiMag può leggerla automaticamente:</p>
+            <ol>
+                <li>Scarica il file <code>.xml</code> della fattura che ti è arrivata via PEC sul tuo PC.</li>
+                <li>Nell'app, vai in <strong>Documenti → Fatture Ricevute</strong>.</li>
+                <li>Clicca sul pulsante <strong>📥 Importa XML</strong> in basso.</li>
+                <li>Seleziona il file <code>.xml</code> scaricato.</li>
+                <li>NautiMag leggerà i dati, creerà il fornitore (se non esiste) e compilerà la Fattura Fornitore in stato <strong>Bozza</strong>.</li>
+                <li>Controlla i dati (soprattutto il fornitore creato automaticamente) e premi <strong>✅ Salva e Carica in Magazzino</strong> per caricare la merce.</li>
+            </ol>
+
+            <div class="callout warn">
+                <strong>⚠️ Attenzione:</strong> il fornitore viene creato automaticamente dalla P.IVA presente nell'XML. Verifica sempre la correttezza dei dati (ragione sociale, indirizzo) prima di caricare la merce in magazzino.
+            </div>
         </section>
 
         <!-- ═══════════════════════════ ORDINI ═══════════════════════════ -->
@@ -1292,14 +1325,20 @@
                 <li>Avviso "Documento non fiscale"</li>
             </ul>
 
-            <h3>🔄 Converti Preventivo in Fattura</h3>
-            <p>Quando il cliente accetta il preventivo, non devi riscrivere tutto. Puoi convertirlo in Fattura con un click:</p>
+            <h3>🔄 Converti Preventivo in un altro documento</h3>
+            <p>Quando il cliente accetta il preventivo, non devi riscrivere tutto. Puoi convertirlo con un click in uno dei seguenti documenti:</p>
+            <ul>
+                <li><strong>Fattura Emessa</strong></li>
+                <li><strong>DDT (Documento di Trasporto)</strong></li>
+                <li><strong>Ordine Fornitore</strong></li>
+            </ul>
+            <p>La procedura è sempre la stessa:</p>
             <ol>
                 <li>Apri il preventivo accettato</li>
-                <li>Clicca <strong>🔄 Converti in Fattura</strong></li>
-                <li>NautiMag crea una nuova <strong>Fattura Emessa in stato Bozza</strong> con le stesse righe</li>
-                <li>Il preventivo viene marcato come <strong>"Convertito in Fattura"</strong> (non modificabile)</li>
-                <li>Puoi andare in <em>Fatture Emesse</em> e completare l'emissione quando vuoi</li>
+                <li>Clicca sul pulsante di conversione desiderato (es. <strong>🔄 Converti in Fattura</strong>, <strong>Converti in DDT</strong>, <strong>Converti in Ordine</strong>)</li>
+                <li>NautiMag crea il nuovo documento in stato <strong>Bozza</strong> con le stesse righe</li>
+                <li>Il preventivo viene marcato come <strong>"Convertito in Fattura"</strong> (non più modificabile)</li>
+                <li>Puoi andare nella sezione corrispondente (Fatture Emesse, DDT o Ordini) e completare l'emissione quando vuoi</li>
             </ol>
 
             <h3>Stati del Preventivo</h3>
@@ -1536,6 +1575,66 @@
             </div>
         </section>
 
+        <!-- ═══════════════════════════ SDI ═══════════════════════════ -->
+        <section id="sdi">
+            <h2>📤 Fatturazione Elettronica (SDI)</h2>
+            <p>NautiMag ti permette di preparare i file XML per l'Agenzia delle Entrate e di importare le fatture ricevute, anche senza un provider di invio automatico.</p>
+
+            <h3>Configurazione (Impostazioni → Fatturazione Elettronica)</h3>
+            <ol>
+                <li><strong>Provider di invio</strong>: se non usi un servizio come Aruba o FattureInCloud, scegli <strong>Manuale</strong>. (Aruba e FattureInCloud sono placeholder per future integrazioni).</li>
+                <li><strong>Certificato di Firma</strong>: se possiedi un certificato di firma digitale (file <code>.pfx</code>), clicca su <strong>📂 Scegli file</strong> e inserisci la password. <em>(Nota: la firma crittografica sarà attiva in una futura versione, per ora il file viene preparato ma non firmato).</em></li>
+                <li>Clicca <strong>💾 Salva</strong>.</li>
+            </ol>
+
+            <h3>Come inviare una fattura (Metodo Manuale)</h3>
+            <ol>
+                <li>Vai in <strong>Documenti → Fatture Emesse</strong>.</li>
+                <li>Apri una fattura in stato "Bozza" e premi <strong>✅ Emetti Fattura</strong>.</li>
+                <li>Premi il nuovo pulsante <strong>📤 Prepara per SDI</strong>.</li>
+                <li>L'app genererà un file <code>.zip</code> contenente l'XML della fattura.</li>
+                <li>Salva lo ZIP sul tuo PC, apri il portale <strong>"Fatture e Corrispettivi"</strong> dell'Agenzia delle Entrate e caricalo manualmente nella sezione "Invia file".</li>
+            </ol>
+
+            <h3>Come importare una Fattura Passiva (da PEC)</h3>
+            <p>Vedi la sezione <a href="#fatture-ricevute">Fatture in arrivo</a> per la procedura completa con il pulsante <strong>📥 Importa XML</strong>.</p>
+
+            <div class="callout info">
+                <strong>💡 Nota sulla firma digitale:</strong> senza certificato configurato, l'XML viene generato ma non firmato. Per la firma XAdES-BES completa sarà necessaria un'integrazione futura con BouncyCastle. Il file non firmato è comunque valido per il caricamento manuale sul portale, ma potrebbe essere rifiutato dallo SDI in produzione.
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ SDI ═══════════════════════════ -->
+        <section id="sdi">
+            <h2>📤 Fatturazione Elettronica (SDI)</h2>
+            <p>NautiMag ti permette di preparare i file XML per l'Agenzia delle Entrate, anche se non hai un provider di invio automatico, e di importare le fatture ricevute.</p>
+
+            <h3>Configurazione (Impostazioni → Fatturazione Elettronica)</h3>
+            <ol>
+                <li><strong>Provider di invio</strong>: Se non usi un servizio come Aruba o FattureInCloud, scegli <strong>Manuale</strong>.</li>
+                <li><strong>Certificato di Firma</strong>: Se possiedi un certificato di firma digitale (file <code>.pfx</code>), clicca su <strong>📂 Scegli file</strong> e inserisci la password. <em>(Nota: la firma crittografica sarà attiva in una futura versione, per ora il file viene preparato ma non firmato).</em></li>
+                <li>Clicca <strong>💾 Salva</strong>.</li>
+            </ol>
+
+            <h3>Come inviare una fattura (Metodo Manuale)</h3>
+            <ol>
+                <li>Vai in <strong>Documenti → Fatture Emesse</strong>.</li>
+                <li>Apri una fattura in stato "Bozza" e premi <strong>✅ Emetti Fattura</strong>.</li>
+                <li>Premi il nuovo pulsante <strong>📤 Prepara per SDI</strong>.</li>
+                <li>L'app genererà un file <code>.zip</code> contenente l'XML della fattura.</li>
+                <li>Salva lo ZIP sul tuo PC, apri il portale <strong>"Fatture e Corrispettivi"</strong> dell'Agenzia delle Entrate e caricalo manualmente nella sezione "Invia file".</li>
+            </ol>
+
+            <h3>Come importare una Fattura Passiva (da PEC)</h3>
+            <ol>
+                <li>Scarica l'XML della fattura che ti è arrivata via PEC sul tuo PC.</li>
+                <li>Nell'app, vai in <strong>Documenti → Fatture Ricevute</strong>.</li>
+                <li>Clicca sul nuovo pulsante <strong>📥 Importa XML</strong> in basso.</li>
+                <li>Seleziona il file <code>.xml</code> scaricato.</li>
+                <li>NautiMag leggerà i dati, creerà il fornitore (se non esiste) e compilerà la Fattura Fornitore in stato "Bozza", pronta per essere controllata e caricata in magazzino.</li>
+            </ol>
+        </section>
+
         <!-- ═══════════════════════════ ASSISTENZA REMOTA ═══════════════════════════ -->
         <section id="assistenza-remota">
             <h2>🆘 Assistenza Remota</h2>
@@ -1611,6 +1710,14 @@
                 <li><strong>Su Windows</strong>: si aprirà il browser per scaricare il file di installazione (<code>NautiMag_Setup.exe</code>).</li>
                 <li><strong>Su Android</strong>: l'app scaricherà il file APK in background e ti chiederà il permesso di installarlo.</li>
             </ol>
+
+            <h3>⚠️ Forzare l'aggiornamento (Novità)</h3>
+            <p>Se vuoi essere sicuro di avere l'ultimissima versione (ad esempio se hai dubbi che l'app abbia scaricato correttamente l'update), puoi usare il pulsante giallo <strong>⚠️ Forza aggiornamento all'ultima versione</strong>.</p>
+            <p>Questo pulsante ignora il controllo della versione e ti farà riscaricare e reinstallare la release più recente presente su GitHub, anche se è identica a quella che hai già installata.</p>
+
+            <div class="callout info">
+                <strong>💡 Nota:</strong> Gli aggiornamenti non intaccano mai i tuoi dati (magazzino, vendite, clienti). Il database rimane intatto al 100%.
+            </div>
         </section>
 
         <!-- ═══════════════════════════ INFO ═══════════════════════════ -->
@@ -2037,6 +2144,15 @@
 
             <h3>🛠️ Quando devo usare NautiMag Recovery?</h3>
             <p>Solo quando il server non parte o il database è corrotto. Il Recovery permette di ripristinare un backup. Vedi la <a href="#recovery">sezione dedicata</a>.</p>
+
+            <h3>📥 Come importo una fattura ricevuta via PEC?</h3>
+            <p>Vai in <em>Documenti → Fatture Ricevute</em> e clicca <strong>📥 Importa XML</strong>. Seleziona il file scaricato dalla PEC. NautiMag creerà il fornitore (se non esiste) e compilerà la fattura in stato Bozza. Vedi la <a href="#fatture-ricevute">sezione dedicata</a>.</p>
+
+            <h3>📤 Come invio una fattura allo SDI?</h3>
+            <p>Dopo aver emesso la fattura, clicca <strong>📤 Prepara per SDI</strong>. L'app genera uno ZIP con l'XML. Caricalo manualmente sul portale "Fatture e Corrispettivi". Vedi la <a href="#sdi">sezione dedicata</a>.</p>
+
+            <h3>🚫 Perché non posso eliminare un fornitore che ha acquisti?</h3>
+            <p>NautiMag blocca l'eliminazione per evitare "archivi zoppi": se un fornitore ha movimenti associati, eliminarlo renderebbe quei movimenti orfani. La stessa regola vale per clienti e articoli.</p>
         </section>
 
     </main>
@@ -2047,58 +2163,64 @@
     </footer>
 
     <script>
-        // 1. GESTIONE LINK INTERNI (Senza far scattare WebView2)
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            const targetId = link.getAttribute('href').substring(1);
-            link.removeAttribute('href');
-            link.style.cursor = 'pointer';
+            // 1. GESTIONE LINK INTERNI (Senza far scattare WebView2)
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                const href = link.getAttribute('href');
+                if (!href) return; // Risolve TS2531
 
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const el = document.getElementById(targetId);
-                if (el) {
-                    const offsetPosition = el.getBoundingClientRect().top + window.pageYOffset - 16;
-                    window.scrollTo(0, offsetPosition);
+                const targetId = href.substring(1);
+                link.removeAttribute('href');
+
+                if (link instanceof HTMLElement) {
+                    link.style.cursor = 'pointer'; // Risolve TS2339
                 }
-            });
-        });
 
-        // 2. AGGIUNGE IL LINK "TORNA ALL'INDICE"
-        document.querySelectorAll('main section').forEach(section => {
-            const backLink = document.createElement('a');
-            backLink.className = 'back-to-toc';
-            backLink.innerHTML = '⬆ Torna all\'indice';
-            backLink.style.cursor = 'pointer';
-            backLink.style.marginTop = '20px';
-            backLink.style.display = 'block';
-
-            backLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo(0, 0);
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const el = document.getElementById(targetId);
+                    if (el) {
+                        const offsetPosition = el.getBoundingClientRect().top + window.pageYOffset - 16;
+                        window.scrollTo(0, offsetPosition);
+                    }
+                });
             });
 
-            section.appendChild(backLink);
-        });
+            // 2. AGGIUNGE IL LINK "TORNA ALL'INDICE"
+            document.querySelectorAll('main section').forEach(section => {
+                const backLink = document.createElement('a');
+                backLink.className = 'back-to-toc';
+                backLink.innerHTML = '⬆ Torna all\'indice';
+                backLink.style.cursor = 'pointer';
+                backLink.style.marginTop = '20px';
+                backLink.style.display = 'block';
 
-        // 3. PULSANTE FLOTTANTE
-        const floatingBtn = document.getElementById('floatingBtn');
-        if (floatingBtn) {
-            floatingBtn.removeAttribute('href');
-            floatingBtn.style.cursor = 'pointer';
+                backLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo(0, 0);
+                });
 
-            floatingBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo(0, 0);
+                section.appendChild(backLink);
             });
 
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    floatingBtn.style.display = 'flex';
-                } else {
-                    floatingBtn.style.display = 'none';
-                }
-            });
-        }
+            // 3. PULSANTE FLOTTANTE
+            const floatingBtn = document.getElementById('floatingBtn');
+            if (floatingBtn instanceof HTMLElement) { // Risolve TS2531 e TS2339
+                floatingBtn.removeAttribute('href');
+                floatingBtn.style.cursor = 'pointer';
+
+                floatingBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo(0, 0);
+                });
+
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        floatingBtn.style.display = 'flex';
+                    } else {
+                        floatingBtn.style.display = 'none';
+                    }
+                });
+            }
     </script>
 
 </body>
