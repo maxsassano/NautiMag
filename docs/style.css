@@ -340,9 +340,9 @@ code {
 pre {
     white-space: pre-wrap;       /* Va a capo preservando gli spazi */
     overflow-wrap: break-word;   /* Spezza le parole SOLO se non c'è spazio */
-    word-wrap: break-word;       /* Fallback per browser vecchi */
+    word-break: normal;          /* Non spezza le parole a metà se non serve */
     max-width: 100%;
-    box-sizing: border-box;      /* Il padding non sfora */
+    box-sizing: border-box;
     overflow-x: hidden;
     background: #EEF2F7;
     padding: 12px 14px;
