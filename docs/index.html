@@ -15,7 +15,7 @@
         <div class="hero-icon">📖</div>
         <h1>NautiMag</h1>
         <p class="subtitle">Guida utente completa</p>
-        <p class="version">Gestione Magazzino · v1.3</p>
+        <p class="version">Gestione Magazzino · v1.4</p>
     </header>
 
     <!-- ═══════════════════════════ INDICE ═══════════════════════════ -->
@@ -292,7 +292,7 @@
             <h3>Come funziona la vendita con FIFO/FEFO</h3>
             <p>Quando vendi un articolo con lotti attivi, NautiMag sceglie automaticamente da quale lotto scaricare i pezzi:</p>
             <ul>
-                <li><strong>FIFO</strong> (First In, First Out) — scarica dal lotto <em>più vecchio</em> per primo (per prodotti con scadenza</li>
+                <li><strong>FIFO</strong> (First In, First Out) — scarica dal lotto <em>più vecchio</em> per primo (per prodotti con scadenza)</li>
                 <li><strong>FEFO</strong> (First Expired, First Out) — scarica dal lotto <em>in scadenza più vicina</em> per primo (più sicuro per alimentari)</li>
             </ul>
             <p>Se il lotto più vecchio non basta, NautiMag passa al successivo, e così via finché la vendita non è coperta.</p>
@@ -1578,35 +1578,6 @@
         <!-- ═══════════════════════════ SDI ═══════════════════════════ -->
         <section id="sdi">
             <h2>📤 Fatturazione Elettronica (SDI)</h2>
-            <p>NautiMag ti permette di preparare i file XML per l'Agenzia delle Entrate e di importare le fatture ricevute, anche senza un provider di invio automatico.</p>
-
-            <h3>Configurazione (Impostazioni → Fatturazione Elettronica)</h3>
-            <ol>
-                <li><strong>Provider di invio</strong>: se non usi un servizio come Aruba o FattureInCloud, scegli <strong>Manuale</strong>. (Aruba e FattureInCloud sono placeholder per future integrazioni).</li>
-                <li><strong>Certificato di Firma</strong>: se possiedi un certificato di firma digitale (file <code>.pfx</code>), clicca su <strong>📂 Scegli file</strong> e inserisci la password. <em>(Nota: la firma crittografica sarà attiva in una futura versione, per ora il file viene preparato ma non firmato).</em></li>
-                <li>Clicca <strong>💾 Salva</strong>.</li>
-            </ol>
-
-            <h3>Come inviare una fattura (Metodo Manuale)</h3>
-            <ol>
-                <li>Vai in <strong>Documenti → Fatture Emesse</strong>.</li>
-                <li>Apri una fattura in stato "Bozza" e premi <strong>✅ Emetti Fattura</strong>.</li>
-                <li>Premi il nuovo pulsante <strong>📤 Prepara per SDI</strong>.</li>
-                <li>L'app genererà un file <code>.zip</code> contenente l'XML della fattura.</li>
-                <li>Salva lo ZIP sul tuo PC, apri il portale <strong>"Fatture e Corrispettivi"</strong> dell'Agenzia delle Entrate e caricalo manualmente nella sezione "Invia file".</li>
-            </ol>
-
-            <h3>Come importare una Fattura Passiva (da PEC)</h3>
-            <p>Vedi la sezione <a href="#fatture-ricevute">Fatture in arrivo</a> per la procedura completa con il pulsante <strong>📥 Importa XML</strong>.</p>
-
-            <div class="callout info">
-                <strong>💡 Nota sulla firma digitale:</strong> senza certificato configurato, l'XML viene generato ma non firmato. Per la firma XAdES-BES completa sarà necessaria un'integrazione futura con BouncyCastle. Il file non firmato è comunque valido per il caricamento manuale sul portale, ma potrebbe essere rifiutato dallo SDI in produzione.
-            </div>
-        </section>
-
-        <!-- ═══════════════════════════ SDI ═══════════════════════════ -->
-        <section id="sdi">
-            <h2>📤 Fatturazione Elettronica (SDI)</h2>
             <p>NautiMag ti permette di preparare i file XML per l'Agenzia delle Entrate, anche se non hai un provider di invio automatico, e di importare le fatture ricevute.</p>
 
             <h3>Configurazione (Impostazioni → Fatturazione Elettronica)</h3>
@@ -1633,6 +1604,9 @@
                 <li>Seleziona il file <code>.xml</code> scaricato.</li>
                 <li>NautiMag leggerà i dati, creerà il fornitore (se non esiste) e compilerà la Fattura Fornitore in stato "Bozza", pronta per essere controllata e caricata in magazzino.</li>
             </ol>
+            <div class="callout info">
+                <strong>💡 Nota sulla firma digitale:</strong> senza certificato configurato, l'XML viene generato ma non firmato. Per la firma XAdES-BES completa sarà necessaria un'integrazione futura con BouncyCastle. Il file non firmato è comunque valido per il caricamento manuale sul portale, ma potrebbe essere rifiutato dallo SDI in produzione.
+            </div>
         </section>
 
         <!-- ═══════════════════════════ ASSISTENZA REMOTA ═══════════════════════════ -->
@@ -2059,7 +2033,7 @@
             </ul>
             <p>Esegui questo comando su <strong>PowerShell come Amministratore</strong> sul PC dove è installato il Server per sbloccare le porte al traffico locale:</p>
             <pre><code>New-NetFirewallRule -DisplayName "NautiMag Server TCP" -Direction Inbound -Protocol TCP -LocalPort 5000 -Action Allow
-                New-NetFirewallRule -DisplayName "NautiMag Discovery UDP" -Direction Inbound -Protocol UDP -LocalPort 5001 -Action Allow</code></pre>
+            New-NetFirewallRule -DisplayName "NautiMag Discovery UDP" -Direction Inbound -Protocol UDP -LocalPort 5001 -Action Allow</code></pre>
             <div class="callout info">
                 <strong>💡 Nota:</strong> I nuovi installer (dalla v1.2 in poi) eseguono già questo comando in automatico. Se hai usato un installer vecchio, o se Windows ha bloccato la regola, usa il comando qui sopra.
             </div>
