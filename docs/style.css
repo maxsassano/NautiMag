@@ -338,12 +338,11 @@ code {
 }
 
 pre {
-    white-space: pre-wrap;       /* Va a capo preservando gli spazi */
-    overflow-wrap: break-word;   /* Spezza le parole SOLO se non c'è spazio */
-    word-break: normal;          /* Non spezza le parole a metà se non serve */
+    white-space: normal;         /* Ignora gli spazi vuoti nell'HTML */
+    overflow-wrap: break-word;   /* Manda a capo il testo in modo intelligente */
+    word-break: normal;          /* Non spezza le parole/numeri a metà */
     max-width: 100%;
     box-sizing: border-box;
-    overflow-x: hidden;
     background: #EEF2F7;
     padding: 12px 14px;
     border-radius: 8px;
@@ -351,6 +350,13 @@ pre {
     font-family: "SF Mono", Menlo, Consolas, monospace;
     font-size: 14px;
     line-height: 1.45;
+}
+
+pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    white-space: normal;
 }
 
 pre code {
