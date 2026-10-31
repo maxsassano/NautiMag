@@ -337,6 +337,36 @@ code {
     word-break: break-all;
 }
 
+pre {
+    white-space: pre-wrap;       /* Va a capo preservando gli spazi */
+    overflow-wrap: break-word;   /* Spezza le parole lunghe */
+    word-wrap: break-word;       /* Fallback per browser vecchi */
+    word-break: break-all;       /* FORZA la rottura anche a metà parola */
+    max-width: 100%;
+    box-sizing: border-box;      /* Assicura che il padding non sfori la larghezza */
+    overflow-x: hidden;          /* Nasconde la barra orizzontale in eccesso */
+    background: #EEF2F7;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin: 14px 0;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+pre code {
+    background: transparent;    /* evita il "doppio sfondo" dentro <pre> */
+    padding: 0;
+    color: inherit;
+    word-break: inherit;        /* eredita il comportamento del pre */
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    pre { background: #1F232A; }
+}
+
+
 /* ═══════════ FOOTER ═══════════ */
 footer {
     grid-area: footer;
