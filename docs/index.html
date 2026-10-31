@@ -2033,7 +2033,7 @@
             </ul>
             <p>Esegui questo comando su <strong>PowerShell come Amministratore</strong> sul PC dove è installato il Server per sbloccare le porte al traffico locale:</p>
             <pre><code>New-NetFirewallRule -DisplayName "NautiMag Server TCP" -Direction Inbound -Protocol TCP -LocalPort 5000 -Action Allow
-            New-NetFirewallRule -DisplayName "NautiMag Discovery UDP" -Direction Inbound -Protocol UDP -LocalPort 5001 -Action Allow</code></pre>
+New-NetFirewallRule -DisplayName "NautiMag Discovery UDP" -Direction Inbound -Protocol UDP -LocalPort 5001 -Action Allow</code></pre>
             <div class="callout info">
                 <strong>💡 Nota:</strong> I nuovi installer (dalla v1.2 in poi) eseguono già questo comando in automatico. Se hai usato un installer vecchio, o se Windows ha bloccato la regola, usa il comando qui sopra.
             </div>
