@@ -337,12 +337,7 @@ code {
     word-break: break-all;
 }
 
-pre {
-    white-space: normal;         /* Ignora gli spazi vuoti nell'HTML */
-    overflow-wrap: break-word;   /* Manda a capo il testo in modo intelligente */
-    word-break: normal;          /* Non spezza le parole/numeri a metà */
-    max-width: 100%;
-    box-sizing: border-box;
+.code-block {
     background: #EEF2F7;
     padding: 12px 14px;
     border-radius: 8px;
@@ -350,25 +345,17 @@ pre {
     font-family: "SF Mono", Menlo, Consolas, monospace;
     font-size: 14px;
     line-height: 1.45;
-}
-
-pre code {
-    background: transparent;
-    padding: 0;
-    color: inherit;
-    white-space: normal;
-}
-
-pre code {
-    background: transparent;    /* evita il "doppio sfondo" dentro <pre> */
-    padding: 0;
-    color: inherit;
-    word-break: inherit;        /* eredita il comportamento del pre */
+    color: #1F5C4F;
+    
+    /* Regole per il testo */
+    white-space: normal;         /* Ignora gli spazi vuoti che metti nell'HTML */
+    overflow-wrap: break-word;   /* Manda a capo il testo se esce dallo schermo */
+    word-break: normal;          /* NON spezza i numeri a metà (salva il 5001) */
 }
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
-    pre { background: #1F232A; }
+    .code-block { background: #1F232A; }
 }
 
 
