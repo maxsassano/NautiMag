@@ -22,6 +22,7 @@
     <nav class="toc" id="indice">
         <h2>📑 Indice</h2>
         <div class="toc-grid">
+            <a href="#primo-avvio">👋 Primo Avvio</a>                                           
             <a href="#primi-passi">🚀 Primi passi</a>
             <a href="#login-ruoli">🔐 Login e Ruoli</a>
             <a href="#topbar">🔝 Barra superiore e Footer</a>
@@ -89,6 +90,32 @@
 
     <main>
 
+        <!-- ═══════════════════════════ PRIMO AVVIO ═══════════════════════════ -->
+        <section id="primo-avvio">
+            <h2>👋 Primo Avvio</h2>
+            <p>Al primo avvio assoluto dell'applicazione, NautiMag ti guiderà nella configurazione iniziale dell'azienda. Questa procedura è <strong>obbligatoria</strong> e serve a popolare i dati che verranno usati su scontrini, fatture e report.</p>
+
+            <h3>Cosa devi inserire</h3>
+            <ul>
+                <li><strong>Tipo Soggetto</strong> — Scegli se sei una Persona Fisica, una Società o una Pubblica Amministrazione.</li>
+                <li><strong>Dati Anagrafici</strong> — Ragione Sociale (o Nome/Cognome per Persona Fisica), Insegna, Partita IVA, Codice Fiscale, Codice SDI, Regime Fiscale.</li>
+                <li><strong>Indirizzo</strong> — Via, CAP, Città, Provincia. Compilando il CAP, Città e Provincia si auto-compilano.</li>
+                <li><strong>Contatti</strong> — Telefono, Email, PEC, Sito Web.</li>
+                <li><strong>Pagamenti e Note</strong> — IBAN e Note interne.</li>
+            </ul>
+
+            <h3>Validazione Fiscale</h3>
+            <p>NautiMag esegue un controllo matematico su Partita IVA e Codice Fiscale. Se il numero non supera il controllo (algoritmo di Luhn), ti avviserà ma ti permetterà di salvare comunque (per evitare di bloccare ditte con P.IVA particolari).</p>
+            <p>Inoltre, la Partita IVA e il Codice Fiscale dell'azienda non possono essere uguali a quelli di un Cliente o Fornitore già presente nell'archivio.</p>
+
+            <h3>Cosa succede dopo</h3>
+            <p>Dopo aver salvato i dati, verrai reindirizzato alla schermata di Login. Effettua il login con le credenziali predefinite (admin / admin) o quelle che hai creato.</p>
+            <p>Potrai modificare i dati aziendali in qualsiasi momento da <em>Gestione → Azienda</em>.</p>
+
+            <div class="callout info">
+                <strong>💡 Suggerimento:</strong> Se salti il Primo Avvio (o lo annulli), l'app entrerà in <strong>Modalità Demo</strong> e mostrerà dati fittizi finché non configuri l'azienda.
+            </div>
+        </section>
         <!-- ═══════════════════════════ PRIMI PASSI ═══════════════════════════ -->
         <section id="primi-passi">
             <h2>🚀 Primi passi</h2>
