@@ -37,7 +37,6 @@
             <a href="#dettaglio-vendita">📋 Dettaglio vendita</a>
             <a href="#scontrini-ko">🧾 Scontrini (ex KO)</a>
             <a href="#movimenti">📊 Movimenti</a>
-            <a href="#dati">💾 Dati</a>
             <a href="#import">📥 Import</a>
             <a href="#import-guidato">🎯 Import guidato</a>
             <a href="#import-metel">🏷️ Import Metel</a>
@@ -100,6 +99,9 @@
                 <li><strong>Tipo Soggetto</strong> — Scegli se sei una Persona Fisica, una Società o una Pubblica Amministrazione.</li>
                 <li><strong>Dati Anagrafici</strong> — Ragione Sociale (o Nome/Cognome per Persona Fisica), Insegna, Partita IVA, Codice Fiscale, Codice SDI, Regime Fiscale.</li>
                 <li><strong>Indirizzo</strong> — Via, CAP, Città, Provincia. Compilando il CAP, Città e Provincia si auto-compilano.</li>
+                <div class="callout info">
+                    <strong>💡 Auto-completamento CAP:</strong> Inserendo un CAP valido (5 cifre) e uscendo dal campo, Città e Provincia si compilano automaticamente tramite il database dei comuni integrato.
+                </div>
                 <li><strong>Contatti</strong> — Telefono, Email, PEC, Sito Web.</li>
                 <li><strong>Pagamenti e Note</strong> — IBAN e Note interne.</li>
             </ul>
@@ -195,7 +197,7 @@
                 <tr><td>🛒 Carrello</td><td>Carrello della vendita corrente</td></tr>
                 <tr><td>📄 DOCUMENTI</td><td>Hub per Fatture, DDT, Note credito, Ordini, Vendite, Movimenti, Prima Nota</td></tr>
                 <tr><td>🏢 ANAGRAFICHE</td><td>Clienti, Fornitori, Articoli, Azienda, Classificazioni</td></tr>
-                <tr><td>📊 GESTIONE</td><td>Statistiche, Sottoscorta, Negativi, Etichette, Lotti in scadenza, Report</td></tr>
+                <tr><td>📊 GESTIONE</td><td>Statistiche, Sottoscorta, Negativi, Etichette, Lotti in scadenza, Inventario Storico, <strong>Import/Export/Backup</strong></td></tr>
                 <tr><td>🔧 SISTEMA</td><td>Guida, Info, Account, Utenti, Server, Licenza, Sync, Log, Assistenza</td></tr>
                 <tr><td>📅 Agenda</td><td>Appuntamenti e memorandum</td></tr>
                 <tr><td>📖 GUIDA</td><td>Questa guida utente</td></tr>
@@ -579,21 +581,6 @@
             <p>Se hai filtri attivi appare un riquadro con il conteggio e il bottone <strong>🖨 Stampa ricerca</strong> (solo Windows) che genera un PDF dei movimenti filtrati con riepilogo IVA.</p>
         </section>
 
-        <!-- ═══════════════════════════ DATI ═══════════════════════════ -->
-        <section id="dati">
-            <h2>💾 Dati</h2>
-            <p>Hub centrale per import, export, backup e report.</p>
-            <table>
-                <tr><th>Riquadro</th><th>Azione</th></tr>
-                <tr><td>📥 Importa</td><td>Carica magazzino, vendite, clienti, fornitori o listini Metel</td></tr>
-                <tr><td>📤 Esporta Excel</td><td>Crea un .xlsx con magazzino + movimenti + IVA + clienti + fornitori</td></tr>
-                <tr><td>💾 Backup</td><td>Gestisci copie di sicurezza del database</td></tr>
-                <tr><td>📂 Esplora</td><td>Apre la cartella dati (Documenti\NautiMag)</td></tr>
-                <tr><td>🕰️ Inventario Storico</td><td>Calcola giacenza esatta ad una data passata</td></tr>
-            </table>
-            <p>In fondo la sezione <strong>REPORT PDF</strong> (solo Windows) con: magazzino completo, articoli negativi, sottoscorta, movimenti, vendite.</p>
-        </section>
-
         <!-- ═══════════════════════════ IMPORT ═══════════════════════════ -->
         <section id="import">
             <h2>📥 Import Excel</h2>
@@ -800,43 +787,37 @@
         <!-- ═══════════════════════════ GESTIONE ═══════════════════════════ -->
         <section id="gestione">
             <h2>⚙️ Gestione</h2>
-            <p>Hub centrale di configurazione. Divisa in 4 categorie:</p>
+            <p>Hub centrale di configurazione. Ora include anche tutte le funzioni di <strong>Gestione Dati</strong> (prima nella pagina "Dati"). Divisa in 4 categorie:</p>
 
-            <h3>📄 Documenti</h3>
+            <h3>💾 Gestione Dati</h3>
             <ul>
-                <li>Ordini fornitori</li>
-                <li>DDT / Buoni consegna</li>
-                <li>Note credito</li>
-                <li>Stampa liste</li>
-                <li>Scontrini KO</li>
-                <li>Fatture (Ricevute/Emesse)</li>
-                <li>Preventivi</li>
+                <li><strong>📥 Importa</strong> — Carica magazzino, vendite, clienti, fornitori o listini Metel</li>
+                <li><strong>📤 Esporta Excel</strong> — Crea un .xlsx con magazzino + movimenti + IVA + clienti + fornitori</li>
+                <li><strong>💾 Backup</strong> — Gestisci copie di sicurezza del database</li>
+                <li><strong>📂 Esplora</strong> — Apre la cartella dati (Documenti\NautiMag)</li>
+                <li><strong>🕰️ Inventario Storico</strong> — Calcola giacenza esatta ad una data passata</li>
             </ul>
 
-            <h3>📦 Magazzino</h3>
+            <h3>📈 Analisi e Monitoraggio</h3>
             <ul>
-                <li>Statistiche</li>
-                <li>Articoli in negativo</li>
-                <li>Sottoscorta</li>
-                <li>Etichette barcode</li>
-                <li>Lotti in scadenza</li>
+                <li><strong>Statistiche</strong> — Dashboard KPI, grafici e classifiche</li>
+                <li><strong>Sottoscorta</strong> — Articoli sotto la scorta minima</li>
+                <li><strong>Articoli Negativi</strong> — Articoli venduti in eccesso rispetto al caricato</li>
             </ul>
 
-            <h3>🏢 Anagrafiche</h3>
+            <h3>📅 Scadenze</h3>
             <ul>
-                <li>Azienda, Fornitori, Clienti</li>
-                <li>Categorie, Unità di misura</li>
-                <li>Ubicazioni, Aliquote IVA</li>
+                <li><strong>Lotti in Scadenza</strong> — Monitoraggio delle scadenze dei lotti</li>
             </ul>
 
-            <h3>🔧 Sistema</h3>
+            <h3>🖨 Report PDF</h3>
             <ul>
-                <li><strong>📖 Guida utente</strong> — questa pagina</li>
-                <li><strong>🌐 Impostazioni Server</strong> — modalità, URL, PIN</li>
-                <li><strong>👥 Utenti</strong> (solo Admin)</li>
-                <li><strong>📜 Log</strong> (solo SuperUser)</li>
-                <li><strong>🆘 Assistenza Remota</strong> — esporta diagnostica</li>
+                <li><strong>Report PDF</strong> — Genera report di magazzino, negativi, sottoscorta, movimenti e vendite</li>
             </ul>
+
+            <div class="callout info">
+                <strong>💡 Nota:</strong> La vecchia pagina "Dati" è stata rimossa. Tutte le sue funzioni ora si trovano qui in "Gestione", per avere un unico punto di accesso.
+            </div>
         </section>
 
         <!-- ═══════════════════════════ GESTIONE UTENTI ═══════════════════════════ -->
@@ -1134,8 +1115,16 @@
         <!-- ═══════════════════════════ UNITA MISURA ═══════════════════════════ -->
         <section id="unita-misura">
             <h2>📏 Unità di misura</h2>
-            <p>Codici brevi: <code>pz</code> (pezzi), <code>kg</code> (chilogrammi), <code>lt</code> (litri), <code>mt</code> (metri).</p>
-            <p>Ogni unità ha codice + descrizione. Create automaticamente anche dall'import Excel.</p>
+            <p>Codici brevi per indicare come viene venduto un articolo. NautiMag crea automaticamente le unità di misura standard al primo avvio:</p>
+            <ul>
+                <li><strong>pz</strong> — Pezzi</li>
+                <li><strong>m</strong> — Metro (lunghezza)</li>
+                <li><strong>g</strong> — Grammo (massa)</li>
+                <li><strong>l</strong> — Litro (capacità)</li>
+                <li><strong>m²</strong> — Metro quadrato (superficie)</li>
+                <li><strong>m³</strong> — Metro cubo (volume)</li>
+            </ul>
+            <p>Puoi aggiungere altre unità personalizzate (es. <code>kg</code>, <code>mt</code>, <code>conf</code>) tramite il pulsante <strong>＋ Nuova Unità di misura</strong>.</p>
         </section>
 
         <!-- ═══════════════════════════ UBICAZIONI ═══════════════════════════ -->
